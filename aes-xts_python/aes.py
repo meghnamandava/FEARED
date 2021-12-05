@@ -11,6 +11,7 @@ class AES:
         return self._process(text, 14, -1)
 
     def _process(self, text, initial_round, round_factor):
+
         state_matrix = self._sequence_to_matrix(text)
         round = initial_round
 

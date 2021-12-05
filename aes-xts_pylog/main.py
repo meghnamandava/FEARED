@@ -10,6 +10,7 @@ import aes_tables
 def xts_aes(key, tweak, text, mode) :
 
     def aes_process(text, initial_round, round_factor, expanded_key):
+
         state_matrix = aes_sequence_to_matrix(text)
         round = initial_round
 
@@ -152,12 +153,11 @@ def xts_aes(key, tweak, text, mode) :
     def xts_aes_process_block(block, tweak, mode, expanded_key):
         new_block = map(lambda x, y: x ^ y, block, tweak)
         if mode == 1: # encrypt
-            new_block = aes_process(block, 0, 1, expanded_key)
+            new_block = aes_process(new_block, 0, 1, expanded_key)
         else : # decrypt
-            new_block = aes_process(block, 14, -1, expanded_key)
+            new_block = aes_process(new_block, 14, -1, expanded_key)
 
         new_block = map(lambda x, y: x ^ y, new_block, tweak)
-
         return bytearray(new_block)
 
     def xts_aes_process_data(data, mode, tweak, expanded_key):

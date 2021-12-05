@@ -47,6 +47,7 @@ class XTSAES:
     def _process_block(self, block, tweak, encryptor):
         new_block = map(lambda x, y: x ^ y, block, tweak)
         new_block = encryptor(new_block)
+        
         new_block = map(lambda x, y: x ^ y, new_block, tweak)
 
         return bytearray(new_block)
