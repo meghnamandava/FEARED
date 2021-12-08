@@ -14,18 +14,16 @@ def xts_aes(key, tweak, text, mode) :
         state_matrix = aes_sequence_to_matrix(text)
         round = initial_round
 
-        print("State matrix before round key")
-        print(state_matrix)
+
         aes_add_round_key(state_matrix, aes_get_round_key(round, expanded_key))
-        print("State matrix after round key")
-        print(state_matrix)
+
         round += round_factor
 
         for i in range(0, 13):
             aes_substitute_bytes(state_matrix, aes_tables.s_boxes[round_factor])
             
             aes_shift_rows(state_matrix, round_factor)
-            print(state_matrix)
+
             aes_mix_columns(state_matrix, aes_tables.mix_column_constant_matrices[round_factor])
 
             round_key = aes_get_round_key(round, expanded_key)
@@ -37,6 +35,7 @@ def xts_aes(key, tweak, text, mode) :
         aes_substitute_bytes(state_matrix, aes_tables.s_boxes[round_factor])
         aes_shift_rows(state_matrix, round_factor)
         aes_add_round_key(state_matrix, aes_get_round_key(round, expanded_key))
+
 
         return aes_matrix_to_sequence(state_matrix)
 
@@ -82,8 +81,6 @@ def xts_aes(key, tweak, text, mode) :
     def aes_get_round_key(round, expanded_key):
         key_column_index = 4 * round
 
-        print("Expanded Key: ")
-        print(expanded_key)
 
         round_key = np.array([
             expanded_key[0,key_column_index:key_column_index + 4],
@@ -91,8 +88,7 @@ def xts_aes(key, tweak, text, mode) :
             expanded_key[2,key_column_index:key_column_index + 4],
             expanded_key[3,key_column_index:key_column_index + 4]]
         )
-        print("round key")
-        print(round_key)
+
         return round_key
 
     def aes_expand_key(key):
@@ -204,8 +200,7 @@ def xts_aes(key, tweak, text, mode) :
             new_block = aes_process(new_block, 0, 1, expanded_key)
         else : # decrypt
             new_block = aes_process(new_block, 14, -1, expanded_key)
-        print("new block")
-        print(new_block)
+
         new_block = map(lambda x, y: x ^ y, new_block, tweak)
         return np.array(list(new_block))
 
@@ -221,7 +216,6 @@ def xts_aes(key, tweak, text, mode) :
             #blocks.append(b'')
 
         if multiple_block_size :
-        
             for i in range(0, len(blocks) - 1):
                 blocks[i] = xts_aes_process_block(blocks[i], tweak, mode, expanded_key)
                 tweak = xts_aes_calculate_next_tweak(tweak)
@@ -255,7 +249,11 @@ def xts_aes(key, tweak, text, mode) :
     aes_expanded_key2 = aes_expand_key(key[32:64])
     aes_tweak = aes_process(tweak, 0, 1, aes_expanded_key2)
 
-    return xts_aes_process_data(text, mode, aes_tweak, aes_expanded_key)
+    processed_data = xts_aes_process_data(text, mode, aes_tweak, aes_expanded_key)
+    #print("processed_data")
+    #print(processed_data)
+
+    return processed_data
 
 # end xts_aes
 
@@ -277,7 +275,7 @@ if __name__ == "__main__":
     arguments = sys.argv[1:]
     mode = 'encryption'
     inverse_mode = 'decryption'
-    if arguments and (arguments[0] == '-d'):
+    if len(arguments)>3 and (arguments[3] == '-d'):
         mode = 'decryption'
         inverse_mode = 'encryption'
 
@@ -311,5 +309,9 @@ if __name__ == "__main__":
         res = xts_aes(key, tweak, text, 1)
     else :
         res = xts_aes(key, tweak, text, 0)
-
-    print('{ciphertext_type}: {ciphertext}'.format(ciphertext_type=TEXT_TYPES[inverse_mode], ciphertext=binascii.hexlify(res).decode()))
+    print("hex string")
+    for i in range(len(res)):
+        for j in range(len(res[i])):
+            print(format(res[i][j], 'x'), end=' ')
+    print("\n")        
+    #print('{ciphertext_type}: {ciphertext}'.format(ciphertext_type=TEXT_TYPES[inverse_mode], ciphertext=binascii.hexlify(res).decode()))
