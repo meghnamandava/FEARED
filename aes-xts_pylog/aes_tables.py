@@ -1,5 +1,5 @@
 import binascii
-
+import numpy as np
 # AES substitution box
 s_box = binascii.unhexlify(
       '637c777bf26b6fc53001672bfed7ab76ca82c97dfa5947f0add4a2af9ca472c0'
@@ -12,6 +12,8 @@ s_box = binascii.unhexlify(
     + 'e1f8981169d98e949b1e87e9ce5528df8ca1890dbfe6426841992d0fb054bb16'
 )
 
+s_box_np = np.frombuffer(s_box, dtype=np.uint8)
+
 inverse_s_box = binascii.unhexlify(
       '52096ad53036a538bf40a39e81f3d7fb7ce339829b2fff87348e4344c4dee9cb'
     + '547b9432a6c2233dee4c950b42fac34e082ea16628d924b2765ba2496d8bd125'
@@ -23,10 +25,15 @@ inverse_s_box = binascii.unhexlify(
     + 'a0e03b4dae2af5b0c8ebbb3c83539961172b047eba77d626e169146355210c7d'
 )
 
-s_boxes = {
-    +1: s_box,
-    -1: inverse_s_box
-}
+inverse_s_box_np = np.frombuffer(inverse_s_box, dtype=np.uint8)
+
+#s_boxes_orig = {
+#    +1: s_box,
+#    -1: inverse_s_box
+#}
+
+s_boxes = np.array([0,s_box_np, inverse_s_box_np])
+
 
 # AES mix column constant matrix
 mix_column_constant_matrix = [
@@ -36,6 +43,13 @@ mix_column_constant_matrix = [
     bytes([0x03, 0x01, 0x01, 0x02])
 ]
 
+mix_column_constant_matrix_np = np.array([
+    [2, 3, 1, 1],
+    [1, 2, 3, 1],
+    [1, 1, 2, 3],
+    [3, 1, 1, 2]
+], dtype=np.uint8)
+
 inverse_mix_column_constant_matrix = [
     bytes([0x0e, 0x0b, 0x0d, 0x09]),
     bytes([0x09, 0x0e, 0x0b, 0x0d]),
@@ -43,13 +57,25 @@ inverse_mix_column_constant_matrix = [
     bytes([0x0b, 0x0d, 0x09, 0x0e])
 ]
 
-mix_column_constant_matrices = {
-    +1: mix_column_constant_matrix,
-    -1: inverse_mix_column_constant_matrix
-}
+inverse_mix_column_constant_matrix_np = np.array([
+    [14, 11, 13, 9],
+    [9, 14, 11, 13],
+    [13, 9, 14, 11],
+    [11, 13, 9, 14]
+], dtype=np.uint8)
+
+
+#mix_column_constant_matrices = {
+#    +1: mix_column_constant_matrix,
+#    -1: inverse_mix_column_constant_matrix
+#}
+
+mix_column_constant_matrices = np.array([0, mix_column_constant_matrix_np,inverse_mix_column_constant_matrix_np])
+
+#inverse_s_box_np = np.frombuffer(inverse_s_box, dtype=np.int8)
 
 # AES's galois field multiplication
-multiplication = {
+multiplication_temp = {
     0x01: binascii.unhexlify(
           '000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f'
         + '202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f'
@@ -122,7 +148,16 @@ multiplication = {
     )
 }
 
-rcon = binascii.unhexlify(
+mult1  = np.frombuffer(multiplication_temp[1],  dtype=np.uint8)
+mult2  = np.frombuffer(multiplication_temp[2],  dtype=np.uint8)
+mult3  = np.frombuffer(multiplication_temp[3],  dtype=np.uint8)
+mult9  = np.frombuffer(multiplication_temp[9],  dtype=np.uint8)
+mult11 = np.frombuffer(multiplication_temp[11], dtype=np.uint8)
+mult13 = np.frombuffer(multiplication_temp[13], dtype=np.uint8)
+mult14 = np.frombuffer(multiplication_temp[14], dtype=np.uint8)
+multiplication = np.array([0, mult1, mult2, mult3, 0, 0, 0, 0, 0, mult9, 0, mult11, 0, mult13, mult14])
+
+rcon_temp = binascii.unhexlify(
       '8d01020408102040801b366cd8ab4d9a2f5ebc63c697356ad4b37dfaefc59139'
     + '72e4d3bd61c29f254a943366cc831d3a74e8cb8d01020408102040801b366cd8'
     + 'ab4d9a2f5ebc63c697356ad4b37dfaefc5913972e4d3bd61c29f254a943366cc'
@@ -132,3 +167,5 @@ rcon = binascii.unhexlify(
     + '254a943366cc831d3a74e8cb8d01020408102040801b366cd8ab4d9a2f5ebc63'
     + 'c697356ad4b37dfaefc5913972e4d3bd61c29f254a943366cc831d3a74e8cb8d'
 )
+
+rcon = np.frombuffer(rcon_temp, dtype=np.uint8)
