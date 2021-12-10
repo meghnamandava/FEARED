@@ -32,7 +32,7 @@ inverse_s_box_np = np.frombuffer(inverse_s_box, dtype=np.uint8)
 #    -1: inverse_s_box
 #}
 
-s_boxes = np.array([0,s_box_np, inverse_s_box_np])
+s_boxes = np.array([np.zeros(256, dtype=np.uint8),s_box_np, inverse_s_box_np], dtype=np.uint8)
 
 
 # AES mix column constant matrix
@@ -70,8 +70,7 @@ inverse_mix_column_constant_matrix_np = np.array([
 #    -1: inverse_mix_column_constant_matrix
 #}
 
-mix_column_constant_matrices = np.array([0, mix_column_constant_matrix_np,inverse_mix_column_constant_matrix_np])
-
+mix_column_constant_matrices = np.array([np.zeros((4,4), dtype=np.uint8), mix_column_constant_matrix_np,inverse_mix_column_constant_matrix_np], dtype=np.uint8)
 #inverse_s_box_np = np.frombuffer(inverse_s_box, dtype=np.int8)
 
 # AES's galois field multiplication
@@ -155,7 +154,7 @@ mult9  = np.frombuffer(multiplication_temp[9],  dtype=np.uint8)
 mult11 = np.frombuffer(multiplication_temp[11], dtype=np.uint8)
 mult13 = np.frombuffer(multiplication_temp[13], dtype=np.uint8)
 mult14 = np.frombuffer(multiplication_temp[14], dtype=np.uint8)
-multiplication = np.array([0, mult1, mult2, mult3, 0, 0, 0, 0, 0, mult9, 0, mult11, 0, mult13, mult14])
+multiplication = np.array([np.zeros((256)), mult1, mult2, mult3, np.zeros((256)), np.zeros((256)), np.zeros((256)), np.zeros((256)), np.zeros((256)), mult9, np.zeros((256)), mult11, np.zeros((256)), mult13, mult14], dtype=np.uint8)
 
 rcon_temp = binascii.unhexlify(
       '8d01020408102040801b366cd8ab4d9a2f5ebc63c697356ad4b37dfaefc59139'
