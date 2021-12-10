@@ -7,8 +7,9 @@ from xts_aes import XTSAES
 import aes_tables
 
 #@pylog(board='pynq')
-@pylog(mode='debug')
+#@pylog(mode='debug')
 def xts_aes(key, tweak, text, mode) :
+    
 
     def aes_process(text, initial_round, round_factor, expanded_key):
         #print("expanded_key type")
@@ -36,7 +37,8 @@ def xts_aes(key, tweak, text, mode) :
             round_key = aes_get_round_key(round, expanded_key)
             #print("round_key type")
             #print(type(round_key))
-            if round_factor == -1: aes_mix_columns(round_key, aes_tables.mix_column_constant_matrices[round_factor])
+            if round_factor == -1: 
+                aes_mix_columns(round_key, aes_tables.mix_column_constant_matrices[round_factor])
             aes_add_round_key(state_matrix, round_key)
 
             round += round_factor
@@ -116,29 +118,31 @@ def xts_aes(key, tweak, text, mode) :
         return round_key
 
     def aes_expand_key(key):
-        #expanded_key = bytearray(key)
-        expanded_key = key
-        #print("key type")
-        #print(type(key)) 
-        ##print(key)
-        ##print("\n")
+        expanded_key = np.zeros(240, np.int16)
+        for i in range(32) :
+            expanded_key[i] = key[i]
         n = 1
 
+        # expanded_key = key
+        # print("correct")
+        # print(expanded_key)
+
         step = 0
-        #print("n type")
-        #print(type(n)) 
-        #print("step type")
-        #print(type(step)) 
-        while len(expanded_key) < 240:
-            temporary_key = np.copy(expanded_key[-4:])
+        cur_len = 32
+        while cur_len < 240:
+            temporary_key = np.zeros(4, dtype=np.int16)
+            for i in range(0,4) :
+                temporary_key[i] = expanded_key[-4+i+cur_len]
             
             if step == 0:
                 # rotate word
-                temporary_key = np.append(temporary_key[1:],temporary_key[:1])
- 
-                # substitue word
-                for i in range(0, 4):
+                w = np.int16(temporary_key[0])
+                for i in range(0,3) :
+                    temporary_key[i] = temporary_key[i+1]
+                temporary_key[3] = w 
 
+                # substitute word
+                for i in range(0, 4):
                     temporary_key[i] = aes_tables.s_box_np[temporary_key[i]]
 
                 # xor round constant
@@ -151,12 +155,13 @@ def xts_aes(key, tweak, text, mode) :
 
             
             for i in range(0, 4):
-                temporary_key[i] ^= expanded_key[-32 + i]
+                temporary_key[i] ^= expanded_key[-32 + i + cur_len]
 
-            #expanded_key += temporary_key
-            expanded_key = np.append(expanded_key, temporary_key)
+            for i in range(0, 4) :
+                expanded_key[cur_len+i] = temporary_key[i]
 
             step = (step + 1) % 8
+            cur_len += 4
 
         return aes_sequence_to_matrix(expanded_key)
 
