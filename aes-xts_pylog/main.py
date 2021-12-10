@@ -7,7 +7,7 @@ from xts_aes import XTSAES
 import aes_tables
 
 #@pylog(board='pynq')
-@pylog(mode='debug')
+#@pylog(mode='debug')
 def xts_aes(key, tweak, text, mode) :
 
     def aes_process(text, initial_round, round_factor, expanded_key):
@@ -59,10 +59,32 @@ def xts_aes(key, tweak, text, mode) :
         return state_matrix
 
     def aes_shift_rows(state_matrix, round_factor):
-
+        print("state mtx")
+        print(state_matrix)
+        print("round factor")
+        print(round_factor)
         for row_index in range(1, 4):
-            state_matrix[row_index] = np.append(state_matrix[row_index,round_factor * row_index:],state_matrix[row_index,:round_factor * row_index])
-
+            print("first")
+            print(state_matrix[row_index,round_factor * row_index:])
+            print("second")
+            print(state_matrix[row_index,:round_factor * row_index])
+            temp_row = np.empty((4), dtype=np.int16)
+            if round_factor == 1:
+                temp_row[:4-row_index] = state_matrix[row_index,round_factor * row_index:]
+                temp_row[4-row_index:] = state_matrix[row_index,:round_factor * row_index]
+            else:
+                temp_row[:row_index] = state_matrix[row_index,round_factor * row_index:]
+                temp_row[row_index:] = state_matrix[row_index,:round_factor * row_index]  
+            
+            state_matrix[row_index] = temp_row
+            #print("temp")
+            #print(4-row_index)
+            #print(4-row_index)
+            #print(temp_row[4-row_index:])
+            #print(temp_row[:4-row_index])
+            #print(temp_row)
+            #state_matrix[row_index] = np.append(state_matrix[row_index,round_factor * row_index:],state_matrix[row_index,:round_factor * row_index])
+            
         #print("state mtx type")
         #print(type(state_matrix))    
         return state_matrix
@@ -135,7 +157,7 @@ def xts_aes(key, tweak, text, mode) :
             if step == 0:
                 # rotate word
                 temporary_key = np.append(temporary_key[1:],temporary_key[:1])
- 
+                #print(len(temporary_key))
                 # substitue word
                 for i in range(0, 4):
 
