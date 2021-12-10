@@ -7,8 +7,9 @@ from xts_aes import XTSAES
 import aes_tables
 
 #@pylog(board='pynq')
-#@pylog(mode='debug')
+@pylog(mode='debug')
 def xts_aes(key, tweak, text, mode) :
+    
 
     def aes_process(text, initial_round, round_factor, expanded_key):
         #print("expanded_key type")
@@ -60,15 +61,9 @@ def xts_aes(key, tweak, text, mode) :
         return state_matrix
 
     def aes_shift_rows(state_matrix, round_factor):
-        print("state mtx")
-        print(state_matrix)
-        print("round factor")
-        print(round_factor)
+
         for row_index in range(1, 4):
-            print("first")
-            print(state_matrix[row_index,round_factor * row_index:])
-            print("second")
-            print(state_matrix[row_index,:round_factor * row_index])
+
             temp_row = np.empty((4), dtype=np.int16)
             if round_factor == 1:
                 temp_row[:4-row_index] = state_matrix[row_index,round_factor * row_index:]
@@ -337,9 +332,11 @@ def xts_aes(key, tweak, text, mode) :
             cc = xts_aes_process_block(blocks[-2], first_tweak, mode, expanded_key)
             #print("cc")
             #print(type(cc))
-            pp = np.append(blocks[-1], cc[len(blocks[-1]):])
-            #print("pp")
-            #print(type(pp))
+            #pp = np.append(blocks[-1], cc[len(blocks[-1]):])
+            pp = np.empty((16), dtype=np.int16)
+            pp[:len(blocks[-1])] = blocks[-1]
+            pp[len(blocks[-1]):] = cc[len(blocks[-1]):]    
+ 
             blocks[-1] = cc[:len(blocks[-1])]
             blocks[-2] = xts_aes_process_block(pp, second_tweak, mode, expanded_key)
 
