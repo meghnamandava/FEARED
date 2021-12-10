@@ -130,7 +130,7 @@ def xts_aes(key, tweak, text, mode, s_boxes, mix_column_constant_matrices, multi
 
     def aes_get_round_key(round, expanded_key):
         key_column_index = 4 * round
-        round_key = np.empty((4,), pl_int16(0))
+        round_key = np.empty((4,4), pl_int16(0))
         #round_key = np.empty((4,4), np.int16)
         #round_key = np.array([
         #    expanded_key[0,key_column_index:key_column_index + 4],
