@@ -134,7 +134,7 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
 
                 # substitute word
                 for i in range(0, 4):
-                    temp = temporary_key[i]
+                    temp = np.int16(temporary_key[i])
                     temporary_key[i] = s_box[temp]
                     #temporary_key[i] = s_box[0]
 
@@ -144,7 +144,7 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
                 n += 1
             elif step == 4:
                 for i in range(0, 4):
-                    temp = temporary_key[i]
+                    temp = np.int16(temporary_key[i])
                     temporary_key[i] = s_box[temp]
                     #temporary_key[i] = s_box[0]
 
@@ -187,13 +187,13 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
 
     def aes_matrix_to_sequence(matrix):
         #elems = len(matrix) * len(matrix[0])
-        elems = 16 #KWU: hard code matrix size
+        #elems = 16 #KWU: hard code matrix size
         sequence = np.empty((16), int) #KWU: hard code elems
 
 
         column_length = len(matrix[0])
 
-        i = 0
+        i = np.int32(0)
         for column in range(0, column_length):
             for row in range(0, 4):
                 sequence[i] = matrix[row][column]
@@ -225,7 +225,7 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
         
         new_block_temp = np.empty((16), int)
 
-        ind = 0
+        ind = np.int32(0)
         for elem in new_block:
             new_block_temp[ind] = elem
             ind+=1
