@@ -15,7 +15,7 @@ import aes_tables
 @pylog(board='pynq')
 #@pylog(mode='debug')
 #@pylog()
-def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matrices, multiplication, rcon) :
+def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matrices, multiplication, rcon, data_ret) :
     def aes_process(text, initial_round, round_factor, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, sequence_out):
 
         state_matrix = np.empty((4,4), np.int16) 
@@ -235,12 +235,9 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
 
     xts_aes_process_data(text, text_len, mode, aes_tweak, aes_expanded_key, s_boxes, mix_column_constant_matrices, multiplication, processed_data)
 
-    data_ret = np.empty(1024, np.int16)#KWU: ASSUME text len as 1024
     for i in range(64):#KWU: ASSUME text len as 1024
         for j in range(16):#KWU: ASSUME text len as 1024
             data_ret[i*16 + j] = processed_data[i][j]
-    return data_ret
-    #return processed_data
 
 # end xts_aes
 
@@ -289,21 +286,18 @@ if __name__ == "__main__":
         sys.exit('{text_type} should be greater than or equal to 16-byte'.format(text_type=TEXT_TYPES[mode]))
     text_padding = np.zeros(1024-len(text), int)
     text = np.append(text,text_padding)
-    res = -1
 
     text_len = np.int16(arguments[3])
-    #key = np.array(np.fromiter((int(x, 16) for x in key.split(' ')), dtype=np.int32))
-    #tweak = np.array(np.fromiter((int(x, 16) for x in key.split(' ')), dtype=np.int32))
-    #text = np.array(np.fromiter((int(x, 16) for x in key.split(' ')), dtype=np.int32))
+    data_ret = np.empty(1024, np.int16)#KWU: ASSUME text len as 1024
+
     if mode == 'encryption' :
-        res = xts_aes(key, tweak, text, np.int16(1), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon)
+        xts_aes(key, tweak, text, np.int16(1), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon, data_ret)
     else :
-        res = xts_aes(key, tweak, text, np.int16(0), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon)
+        xts_aes(key, tweak, text, np.int16(0), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon, data_ret)
     print("hex string: ")
-    for i in range(len(res)):
-        print(format(res[i], 'x'), end=' ')
-        #for j in range(len(res[i])):
-        #    print(format(res[i][j], 'x'), end=' ')
+    for i in range(len(data_ret)):
+        print(format(data_ret[i], 'x'), end=' ')
+
     print("\n")        
  
     #print('{ciphertext_type}: {ciphertext}'.format(ciphertext_type=TEXT_TYPES[inverse_mode], ciphertext=binascii.hexlify(res).decode()))
