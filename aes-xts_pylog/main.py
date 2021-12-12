@@ -6,18 +6,28 @@ from xts_aes import XTSAES
 
 import aes_tables
 
+# Had to change all functions that return arrays into ones that have arrays as an argument.
+# Had to change all functions so matrices start as np.empty() and then we assign all the values.
+# Had to change : operators to explicit for loops for correctness.
+# Had to explicitly make sure all data types were correct (e.g. np.int16). If they weren't HLS C code would error but PyLog wouldn't.
+# Had to remove maps because they were difficult/unintuitive to get working with HLS C code.
+
 #@pylog(board='pynq')
-#@pylog(mode='debug')
-@pylog()
+@pylog(mode='debug')
+#@pylog()
 def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matrices, multiplication, rcon) :
-    def aes_process(text, initial_round, round_factor, expanded_key, s_boxes, mix_column_constant_matrices, multiplication):
-  
-        state_matrix = aes_sequence_to_matrix(text)
+    def aes_process(text, initial_round, round_factor, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, sequence_out):
+
+        state_matrix = np.empty((4,4), np.int16) 
+        aes_sequence_to_matrix(text, state_matrix)
 
         round = initial_round
 
+        round_key = np.empty((4,4), np.int16)
 
-        aes_add_round_key(state_matrix, aes_get_round_key(round, expanded_key))
+        aes_get_round_key(round, expanded_key, round_key)
+
+        aes_add_round_key(state_matrix, round_key)
 
         round += round_factor
         #print("round_factor ")
@@ -30,7 +40,7 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
             #print(state_matrix)
             aes_mix_columns(state_matrix, mix_column_constant_matrices[round_factor,:,:], multiplication)
 
-            round_key = aes_get_round_key(round, expanded_key)
+            aes_get_round_key(round, expanded_key, round_key)
 
             if round_factor == -1: 
                 aes_mix_columns(round_key, mix_column_constant_matrices[round_factor,:,:], multiplication)
@@ -40,24 +50,26 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
 
         aes_substitute_bytes(state_matrix, s_boxes[round_factor])
         aes_shift_rows(state_matrix, round_factor)
-        aes_add_round_key(state_matrix, aes_get_round_key(round, expanded_key))
 
-        #print("state mtx")
-        #print(state_matrix)
-        return aes_matrix_to_sequence(state_matrix)
+        aes_get_round_key(round, expanded_key, round_key)
+        aes_add_round_key(state_matrix, round_key)
+
+        aes_matrix_to_sequence(state_matrix, sequence_out)
+
+        return np.int16(0)
 
     def aes_substitute_bytes(state_matrix, s_box):
         for row_index in range(0, 4):
             for column_index in range(0, 4):
                 temp = state_matrix[row_index,column_index]
                 state_matrix[row_index,column_index] = s_box[temp]
-        return state_matrix
+
+        return np.int16(0)
 
     def aes_shift_rows(state_matrix, round_factor):
         #print("orig sr")
         #print(state_matrix)
         for row_index in range(1, 4):
-
 
             temp_row = np.empty((4,), np.int16)
 
@@ -73,9 +85,9 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
                     temp_row[row_index+idx_subscript4] = state_matrix[row_index,idx_subscript4]
             
             state_matrix[row_index,:] = temp_row
-   
-        return state_matrix
 
+        return np.int16(0)
+   
     def aes_mix_columns(state_matrix, constant_matrix, multiplication):
 
         for column_index in range(0, 4):
@@ -91,35 +103,39 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
                 state_matrix[row_index,column_index] ^= multiplication[constant_matrix[row_index][1]][column[1]]
                 state_matrix[row_index,column_index] ^= multiplication[constant_matrix[row_index][2]][column[2]]
                 state_matrix[row_index,column_index] ^= multiplication[constant_matrix[row_index][3]][column[3]]
-   
-        return state_matrix
+
+        return np.int16(0)
 
     def aes_add_round_key(state_matrix, round_key_matrix):
 
         for row_index in range(0, 4):
             for column_index in range(0, 4):
                 state_matrix[row_index,column_index] ^= round_key_matrix[row_index,column_index]
+        
+        return np.int16(0)
    
-        return state_matrix
-
-    def aes_get_round_key(round, expanded_key):
+    def aes_get_round_key(round, expanded_key, round_key):
         key_column_index = 4 * round
-        round_key = np.empty((4,4), np.int16)
 
-        round_key[0] = expanded_key[0,key_column_index:key_column_index + 4]
-        round_key[1] = expanded_key[1,key_column_index:key_column_index + 4]
-        round_key[2] = expanded_key[2,key_column_index:key_column_index + 4]
-        round_key[3] = expanded_key[3,key_column_index:key_column_index + 4]
-        return round_key
+        # FIX - The : operator did not work. Had to explicitly iterate using for loops
+        # round_key[0] = expanded_key[0,key_column_index:key_column_index + 4]
+        # round_key[1] = expanded_key[1,key_column_index:key_column_index + 4]
+        # round_key[2] = expanded_key[2,key_column_index:key_column_index + 4]
+        # round_key[3] = expanded_key[3,key_column_index:key_column_index + 4]
+        for i in range(4) :
+            for j in range(4) :
+                round_key[i,j] = expanded_key[i, key_column_index+j]
 
-    def aes_expand_key(key, s_box, rcon):
+        return np.int16(0)
+
+    def aes_expand_key(key, s_box, rcon, expanded_key_matrix):
         expanded_key = np.empty(240, np.int16)
         for i in range(32) :
             expanded_key[i] = key[i]
-        n = 1
+        n = np.int16(1)
 
-        step = 0
-        cur_len = 32
+        step = np.int16(0)
+        cur_len = np.int16(32)
         while cur_len < 240:
             temporary_key = np.empty(4, np.int16)
             for i in range(0,4) :
@@ -148,7 +164,6 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
                     temporary_key[i] = s_box[temp]
                     #temporary_key[i] = s_box[0]
 
-            
             for i in range(0, 4):
                 temporary_key[i] ^= expanded_key[-32 + i + cur_len]
 
@@ -158,174 +173,97 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
             step = (step + 1) % 8
             cur_len += 4
 
-        expanded_key_matrix = np.empty((4,60), int)
-
         for i in range(4):
             for j in range(60):
                 expanded_key_matrix[i,j] = expanded_key[4*j + i]
 
-        #return aes_sequence_to_matrix(expanded_key)
-        return expanded_key_matrix
+        return np.int16(0)
 
-    def aes_sequence_to_matrix(sequence):
+    def aes_sequence_to_matrix(sequence, matrix_out):
 
         rows = 4
-        #columns = len(sequence)/4
         columns = 4 #KWU: assuming sequence length is 16
- 
-        matrix = np.empty((4,4), int) #KWU: hardcode rows and columns
 
-        #row = 0
-        #for element in sequence:
-            #matrix[row].append(element)
-            #row = (row + 1) % 4
         for i in range(4): #KWU: hardcode rows and columns
             for j in range(4): #KWU: hardcode rows and columns
-                matrix[i,j] = sequence[rows*j + i]
+                matrix_out[i,j] = sequence[rows*j + i]
 
-        return matrix
+        return np.int16(0)
 
-    def aes_matrix_to_sequence(matrix):
-        #elems = len(matrix) * len(matrix[0])
-        #elems = 16 #KWU: hard code matrix size
-        sequence = np.empty((16), int) #KWU: hard code elems
-
-
-        column_length = len(matrix[0])
-
-        i = np.int32(0)
-        for column in range(0, column_length):
+    def aes_matrix_to_sequence(matrix, sequence_out):
+        i = np.int16(0)
+        for column in range(0, 4):
             for row in range(0, 4):
-                sequence[i] = matrix[row][column]
+                sequence_out[i] = matrix[row][column]
                 i+=1
 
-        return sequence
+        return np.int16(0)
     
     def xts_aes_calculate_next_tweak(tweak):
 
-        next_tweak = np.empty((16), int)
-
-        carry_in = 0
-        carry_out = 0
+        carry_in = np.int16(0)
+        carry_out = np.int16(0)
 
         for j in range(0, 16):
             carry_out = (tweak[j] >> 7) & 1
-            next_tweak[j] = ((tweak[j] << 1) + carry_in) & 0xFF
+            tweak[j] = ((tweak[j] << 1) + carry_in) & 0xFF
             carry_in = carry_out
 
         if carry_out:
-            next_tweak[0] ^= 0x87
+            tweak[0] ^= 0x87
 
+        return np.int16(0)
 
-        return next_tweak
+    # note: tried to use maps in this function but it was difficult to transform them back to numpy arrays and use them later.
+    def xts_aes_process_block(block, tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, new_block):
 
-    def xts_aes_process_block(block, tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication):
-        #print(block)
-        new_block = plmap(lambda x, y: x ^ y, block, tweak)
-        
-        new_block_temp = np.empty((16), int)
-
-        ind = np.int32(0)
-        for elem in new_block:
-            new_block_temp[ind] = elem
-            ind+=1
-
-        new_block = new_block_temp
+        for i in range(16) :
+            new_block[i] = block[i] ^ tweak[i]
         
         if mode == 1: # encrypt
-            new_block = aes_process(new_block, 0, 1, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
+            aes_process(new_block, 0, 1, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, new_block)
         else : # decrypt
-            new_block = aes_process(new_block, 14, -1, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
-        #print("new blk")
-        #print(new_block)
-        new_block = plmap(lambda x, y: x ^ y, new_block, tweak)
+            aes_process(new_block, 14, -1, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, new_block)
 
-        new_block_temp = np.empty((16), int)
-
-        ind = 0
-        for elem in new_block:
-            new_block_temp[ind] = elem
-            ind+=1
-
-        new_block = new_block_temp
-
-        return new_block
-
-    def xts_aes_process_data(data, num_blocks_orig, mode, tweak, expanded_key, s_boxes, mix_column_constant_matrices, multiplication):
-
-        #blocks = [data[i:i + 16] for i in range(0, len(data), 16)]
-        #blocks = np.array([data[i:i + 16] for i in range(0, len(data), 16)])
-
-
-        #partial = len(data)%16
-        #num_blocks = len(data)/16 + (partial!=0)
-        partial = 0 #KWU: hardcode partial
-        num_blocks = 64 #KWU: hardcode num_blocks
-        blocks_temp = np.empty((64,16), int) #KWU: hardcode num_blocks
-
-        for i in range(64): #KWU: hardcode num_blocks
-            temp = data[(i*16):(i*16) + 16]
-            blocks_temp[i] = temp
-            
-        blocks = blocks_temp
+        for i in range(16) :
+            new_block[i] = new_block[i] ^ tweak[i]
+        return np.int16(0)
         
-        multiple_block_size = 0
-        if partial == 0:
-            multiple_block_size = 1
+    def xts_aes_process_data(data, num_blocks_orig, mode, tweak, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, blocks):
 
+        # FIX -> had to change to nested for loops. The : operator did not work.
+        # for i in range(64): 
+        #     blocks[i] = data[(i*16):(i*16)+16]
+        for i in range(64):
+            for j in range(16) :
+                blocks[i][j] = data[(i*16)+j]
+        
+        new_block = np.empty(16, np.int16)
 
-        #if multiple_block_size :
-            for i in range(0, len(blocks) - 1):
-                if i < num_blocks_orig:
-                    blocks[i,:] = xts_aes_process_block(blocks[i,:], tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
-                    tweak = xts_aes_calculate_next_tweak(tweak)
-        #else :
-        #    for i in range(0, len(blocks) - 2):        
-        #        blocks[i,:] = xts_aes_process_block(blocks[i,:], tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
-        #        tweak = xts_aes_calculate_next_tweak(tweak)
+        for i in range(0, 64):
+            if i < num_blocks_orig:
+                xts_aes_process_block(blocks[i,:], tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication, new_block)
+                blocks[i] = new_block
+                xts_aes_calculate_next_tweak(tweak)
+                
+        return np.int16(0)
 
-        # partial_length = len(blocks[-1])
-        # if partial_length == 0 :
-        #if multiple_block_size: # multiple of block size
+    aes_expanded_key = np.empty((4,60), np.int16)
+    aes_expanded_key2 = np.empty((4,60), np.int16)
+    aes_expand_key(key[0:32], s_boxes[1,:], rcon, aes_expanded_key)
+    aes_expand_key(key[32:64], s_boxes[1,:], rcon, aes_expanded_key2)
 
-        #    blocks[-1,:] = xts_aes_process_block(blocks[-1,:], tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
-        #else: # not multiple of block size
-        #    if mode == 1: # in-order
-        #        first_tweak = tweak
-        #        second_tweak = xts_aes_calculate_next_tweak(tweak)
-        #    else: # reverse-order
-        #        second_tweak = tweak
-        #        first_tweak = xts_aes_calculate_next_tweak(tweak)
-        #
-#
-        #    cc = xts_aes_process_block(blocks[-2,:], first_tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
-#
-        #    pp = np.empty((16), np.int16)
-#
-        #    pp[:partial] = blocks[-1][:partial]
-        #    pp[partial:] = cc[partial:]
- #
-        #    blocks[-1][:partial] = cc[:partial]
-#
-        #    blocks[-2,:] = xts_aes_process_block(pp, second_tweak, mode, expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
+    aes_tweak = np.empty((16), np.int16) #KWU: hard code elems
+    aes_process(tweak, 0, 1, aes_expanded_key2, s_boxes, mix_column_constant_matrices, multiplication, aes_tweak)
 
-        return blocks
-        #return b''.join(blocks)
-    
-    aes_expanded_key = aes_expand_key(key[0:32], s_boxes[1,:], rcon)
+    blocks = np.empty((64,16), np.int16) 
+    xts_aes_process_data(text, text_len, mode, aes_tweak, aes_expanded_key, s_boxes, mix_column_constant_matrices, multiplication, blocks)
 
-    aes_expanded_key2 = aes_expand_key(key[32:64], s_boxes[1,:], rcon)
-
-    aes_tweak = aes_process(tweak, 0, 1, aes_expanded_key2, s_boxes, mix_column_constant_matrices, multiplication)
-
-    processed_data = xts_aes_process_data(text, text_len, mode, aes_tweak, aes_expanded_key, s_boxes, mix_column_constant_matrices, multiplication)
-
-    data_ret = np.empty(1024, int)#KWU: ASSUME text len as 1024
+    data_ret = np.empty(1024, np.int16)#KWU: ASSUME text len as 1024
     for i in range(64):#KWU: ASSUME text len as 1024
         for j in range(16):#KWU: ASSUME text len as 1024
-            data_ret[i*16 + j] = processed_data[i][j]
+            data_ret[i*16 + j] = blocks[i][j]
     return data_ret
-    #return processed_data
 
 # end xts_aes
 
@@ -376,14 +314,14 @@ if __name__ == "__main__":
     text = np.append(text,text_padding)
     res = -1
 
-    text_len = np.int32(arguments[3])
+    text_len = np.int16(arguments[3])
     #key = np.array(np.fromiter((int(x, 16) for x in key.split(' ')), dtype=np.int32))
     #tweak = np.array(np.fromiter((int(x, 16) for x in key.split(' ')), dtype=np.int32))
     #text = np.array(np.fromiter((int(x, 16) for x in key.split(' ')), dtype=np.int32))
     if mode == 'encryption' :
-        res = xts_aes(key, tweak, text, np.int32(1), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon)
+        res = xts_aes(key, tweak, text, np.int16(1), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon)
     else :
-        res = xts_aes(key, tweak, text, np.int32(0), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon)
+        res = xts_aes(key, tweak, text, np.int16(0), text_len, aes_tables.s_boxes, aes_tables.mix_column_constant_matrices, aes_tables.multiplication, aes_tables.rcon)
     print("hex string: ")
     for i in range(len(res)):
         print(format(res[i], 'x'), end=' ')
