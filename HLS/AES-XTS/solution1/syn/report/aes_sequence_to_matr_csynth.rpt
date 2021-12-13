@@ -1,0 +1,198 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_sequence_to_matr'
+================================================================
+* Date:           Sun Dec 12 23:30:54 2021
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        AES-XTS
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  169|  169|  169|  169|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  168|  168|        42|          -|          -|     4|    no    |
+        | + Loop 1.1  |   40|   40|        10|          -|          -|     4|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    109|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     92|    -|
+|Register         |        -|      -|     115|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     115|    201|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |add_ln180_4_fu_173_p2  |     +    |      0|  0|  39|          32|          32|
+    |add_ln180_fu_147_p2    |     +    |      0|  0|  15|           6|           6|
+    |i_fu_109_p2            |     +    |      0|  0|  12|           3|           1|
+    |j_fu_137_p2            |     +    |      0|  0|  12|           3|           1|
+    |ret_V_2_fu_164_p2      |     +    |      0|  0|  13|           4|           4|
+    |icmp_ln221_fu_103_p2   |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln223_fu_131_p2   |   icmp   |      0|  0|   9|           3|           4|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0| 109|          54|          52|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------+----+-----------+-----+-----------+
+    |         Name         | LUT| Input Size| Bits| Total Bits|
+    +----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm             |  56|         13|    1|         13|
+    |i_op_assign_1_reg_77  |   9|          2|    3|          6|
+    |i_op_assign_reg_88    |   9|          2|    3|          6|
+    |sequence_V_blk_n_AR   |   9|          2|    1|          2|
+    |sequence_V_blk_n_R    |   9|          2|    1|          2|
+    +----------------------+----+-----------+-----+-----------+
+    |Total                 |  92|         21|    9|         29|
+    +----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------+----+----+-----+-----------+
+    |             Name             | FF | LUT| Bits| Const Bits|
+    +------------------------------+----+----+-----+-----------+
+    |add_ln180_reg_223             |   6|   0|    6|          0|
+    |ap_CS_fsm                     |  12|   0|   12|          0|
+    |i_op_assign_1_reg_77          |   3|   0|    3|          0|
+    |i_op_assign_reg_88            |   3|   0|    3|          0|
+    |i_reg_200                     |   3|   0|    3|          0|
+    |j_reg_218                     |   3|   0|    3|          0|
+    |sequence_V_addr_read_reg_234  |  16|   0|   16|          0|
+    |sequence_V_addr_reg_228       |  32|   0|   32|          0|
+    |sequence_V_offset_ca_reg_192  |  31|   0|   32|          1|
+    |zext_ln223_1_reg_205          |   3|   0|    6|          3|
+    |zext_ln223_reg_210            |   3|   0|    4|          1|
+    +------------------------------+----+----+-----+-----------+
+    |Total                         | 115|   0|  120|          5|
+    +------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+----------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++---------------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs | aes_sequence_to_matr | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs | aes_sequence_to_matr | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs | aes_sequence_to_matr | return value |
+|ap_done                    | out |    1| ap_ctrl_hs | aes_sequence_to_matr | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs | aes_sequence_to_matr | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs | aes_sequence_to_matr | return value |
+|m_axi_sequence_V_AWVALID   | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWREADY   |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWADDR    | out |   32|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWID      | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWLEN     | out |   32|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWSIZE    | out |    3|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWBURST   | out |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWLOCK    | out |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWCACHE   | out |    4|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWPROT    | out |    3|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWQOS     | out |    4|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWREGION  | out |    4|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_AWUSER    | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WVALID    | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WREADY    |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WDATA     | out |   16|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WSTRB     | out |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WLAST     | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WID       | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_WUSER     | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARVALID   | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARREADY   |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARADDR    | out |   32|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARID      | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARLEN     | out |   32|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARSIZE    | out |    3|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARBURST   | out |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARLOCK    | out |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARCACHE   | out |    4|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARPROT    | out |    3|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARQOS     | out |    4|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARREGION  | out |    4|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_ARUSER    | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RVALID    |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RREADY    | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RDATA     |  in |   16|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RLAST     |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RID       |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RUSER     |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_RRESP     |  in |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_BVALID    |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_BREADY    | out |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_BRESP     |  in |    2|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_BID       |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|m_axi_sequence_V_BUSER     |  in |    1|    m_axi   |      sequence_V      |    pointer   |
+|sequence_V_offset          |  in |   31|   ap_none  |   sequence_V_offset  |    scalar    |
+|matrix_out_V_address0      | out |    4|  ap_memory |     matrix_out_V     |     array    |
+|matrix_out_V_ce0           | out |    1|  ap_memory |     matrix_out_V     |     array    |
+|matrix_out_V_we0           | out |    1|  ap_memory |     matrix_out_V     |     array    |
+|matrix_out_V_d0            | out |   16|  ap_memory |     matrix_out_V     |     array    |
++---------------------------+-----+-----+------------+----------------------+--------------+
+

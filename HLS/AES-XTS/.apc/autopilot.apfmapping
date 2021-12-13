@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="main.h" path="C:\Users\ssscr\Desktop\school\UIUC\ece527\final_project\HLS\AES-XTS\main.h"/>
+    <originFiles name="main.cpp" path="C:\Users\ssscr\Desktop\school\UIUC\ece527\final_project\HLS\AES-XTS\main.cpp"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

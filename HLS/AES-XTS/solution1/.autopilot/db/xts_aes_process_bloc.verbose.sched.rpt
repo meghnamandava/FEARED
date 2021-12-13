@@ -1,0 +1,218 @@
+
+
+================================================================
+== Vivado HLS Report for 'xts_aes_process_bloc'
+================================================================
+* Date:           Sun Dec 12 23:30:51 2021
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        AES-XTS
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  10403|  17436|  10403|  17436|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   32|   32|         2|          -|          -|    16|    no    |
+        |- Loop 2  |   32|   32|         2|          -|          -|    16|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 5 
+5 --> 6 
+6 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%multiplication_V_off = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %multiplication_V_offset)" [AES-XTS/main.cpp:269]   --->   Operation 7 'read' 'multiplication_V_off' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%mix_column_constant_s = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %mix_column_constant_matrices_V_offset)" [AES-XTS/main.cpp:269]   --->   Operation 8 'read' 'mix_column_constant_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%s_boxes_V_offset_rea = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %s_boxes_V_offset)" [AES-XTS/main.cpp:269]   --->   Operation 9 'read' 's_boxes_V_offset_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%mode_V_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %mode_V)" [AES-XTS/main.cpp:269]   --->   Operation 10 'read' 'mode_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%block_V_offset_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %block_V_offset)" [AES-XTS/main.cpp:269]   --->   Operation 11 'read' 'block_V_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tmp = call i11 @_ssdm_op_BitConcatenate.i11.i7.i4(i7 %block_V_offset_read, i4 0)" [AES-XTS/main.cpp:269]   --->   Operation 12 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln1357_cast = zext i11 %tmp to i12" [AES-XTS/main.cpp:269]   --->   Operation 13 'zext' 'zext_ln1357_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %s_boxes_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str8, [6 x i8]* @p_str3, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)"   --->   Operation 14 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %mix_column_constant_matrices_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str2, [6 x i8]* @p_str3, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)"   --->   Operation 15 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %multiplication_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str6, [6 x i8]* @p_str3, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)"   --->   Operation 16 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (1.76ns)   --->   "br label %1" [AES-XTS/main.cpp:267]   --->   Operation 17 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 4.89>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ 0, %0 ], [ %i, %2 ]"   --->   Operation 18 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.36ns)   --->   "%icmp_ln267 = icmp eq i5 %i_0, -16" [AES-XTS/main.cpp:267]   --->   Operation 19 'icmp' 'icmp_ln267' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 20 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [AES-XTS/main.cpp:267]   --->   Operation 21 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %icmp_ln267, label %3, label %2" [AES-XTS/main.cpp:267]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%zext_ln269 = zext i5 %i_0 to i64" [AES-XTS/main.cpp:269]   --->   Operation 23 'zext' 'zext_ln269' <Predicate = (!icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln1357 = zext i5 %i_0 to i12" [AES-XTS/main.cpp:269]   --->   Operation 24 'zext' 'zext_ln1357' <Predicate = (!icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (1.63ns)   --->   "%add_ln1357 = add i12 %zext_ln1357_cast, %zext_ln1357" [AES-XTS/main.cpp:269]   --->   Operation 25 'add' 'add_ln1357' <Predicate = (!icmp_ln267)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%zext_ln1357_1 = zext i12 %add_ln1357 to i64" [AES-XTS/main.cpp:269]   --->   Operation 26 'zext' 'zext_ln1357_1' <Predicate = (!icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%block_V_addr = getelementptr [1024 x i16]* %block_V, i64 0, i64 %zext_ln1357_1" [AES-XTS/main.cpp:269]   --->   Operation 27 'getelementptr' 'block_V_addr' <Predicate = (!icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 28 [2/2] (3.25ns)   --->   "%lhs_V = load i16* %block_V_addr, align 2" [AES-XTS/main.cpp:269]   --->   Operation 28 'load' 'lhs_V' <Predicate = (!icmp_ln267)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%tweak_V_addr = getelementptr [16 x i16]* %tweak_V, i64 0, i64 %zext_ln269" [AES-XTS/main.cpp:269]   --->   Operation 29 'getelementptr' 'tweak_V_addr' <Predicate = (!icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 30 [2/2] (2.32ns)   --->   "%rhs_V = load i16* %tweak_V_addr, align 2" [AES-XTS/main.cpp:269]   --->   Operation 30 'load' 'rhs_V' <Predicate = (!icmp_ln267)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_2 : Operation 31 [1/1] (2.42ns)   --->   "%icmp_ln879 = icmp eq i16 %mode_V_read, 1" [AES-XTS/main.cpp:272]   --->   Operation 31 'icmp' 'icmp_ln879' <Predicate = (icmp_ln267)> <Delay = 2.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%empty_16 = trunc i7 %block_V_offset_read to i6" [AES-XTS/main.cpp:269]   --->   Operation 32 'trunc' 'empty_16' <Predicate = (icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "br i1 %icmp_ln879, label %4, label %5" [AES-XTS/main.cpp:272]   --->   Operation 33 'br' <Predicate = (icmp_ln267)> <Delay = 0.00>
+ST_2 : Operation 34 [2/2] (0.00ns)   --->   "call fastcc void @aes_process.240([1024 x i16]* %block_V, i6 %empty_16, [240 x i16]* %expanded_key_V, i8* %s_boxes_V, i32 %s_boxes_V_offset_rea, i16* %mix_column_constant_matrices_V, i31 %mix_column_constant_s, i16* %multiplication_V, i31 %multiplication_V_off)" [AES-XTS/main.cpp:269]   --->   Operation 34 'call' <Predicate = (icmp_ln267 & !icmp_ln879)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 35 [2/2] (0.00ns)   --->   "call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_16, [240 x i16]* %expanded_key_V, i8* %s_boxes_V, i32 %s_boxes_V_offset_rea, i16* %mix_column_constant_matrices_V, i31 %mix_column_constant_s, i16* %multiplication_V, i31 %multiplication_V_off)" [AES-XTS/main.cpp:269]   --->   Operation 35 'call' <Predicate = (icmp_ln267 & icmp_ln879)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 7.49>
+ST_3 : Operation 36 [1/2] (3.25ns)   --->   "%lhs_V = load i16* %block_V_addr, align 2" [AES-XTS/main.cpp:269]   --->   Operation 36 'load' 'lhs_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_3 : Operation 37 [1/2] (2.32ns)   --->   "%rhs_V = load i16* %tweak_V_addr, align 2" [AES-XTS/main.cpp:269]   --->   Operation 37 'load' 'rhs_V' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_3 : Operation 38 [1/1] (0.99ns)   --->   "%ret_V = xor i16 %rhs_V, %lhs_V" [AES-XTS/main.cpp:269]   --->   Operation 38 'xor' 'ret_V' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 39 [1/1] (3.25ns)   --->   "store i16 %ret_V, i16* %block_V_addr, align 2" [AES-XTS/main.cpp:269]   --->   Operation 39 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "br label %1" [AES-XTS/main.cpp:267]   --->   Operation 40 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.76>
+ST_4 : Operation 41 [1/2] (0.00ns)   --->   "call fastcc void @aes_process.240([1024 x i16]* %block_V, i6 %empty_16, [240 x i16]* %expanded_key_V, i8* %s_boxes_V, i32 %s_boxes_V_offset_rea, i16* %mix_column_constant_matrices_V, i31 %mix_column_constant_s, i16* %multiplication_V, i31 %multiplication_V_off)" [AES-XTS/main.cpp:269]   --->   Operation 41 'call' <Predicate = (!icmp_ln879)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "br label %6"   --->   Operation 42 'br' <Predicate = (!icmp_ln879)> <Delay = 0.00>
+ST_4 : Operation 43 [1/2] (0.00ns)   --->   "call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_16, [240 x i16]* %expanded_key_V, i8* %s_boxes_V, i32 %s_boxes_V_offset_rea, i16* %mix_column_constant_matrices_V, i31 %mix_column_constant_s, i16* %multiplication_V, i31 %multiplication_V_off)" [AES-XTS/main.cpp:269]   --->   Operation 43 'call' <Predicate = (icmp_ln879)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "br label %6" [AES-XTS/main.cpp:275]   --->   Operation 44 'br' <Predicate = (icmp_ln879)> <Delay = 0.00>
+ST_4 : Operation 45 [1/1] (1.76ns)   --->   "br label %7" [AES-XTS/main.cpp:281]   --->   Operation 45 'br' <Predicate = true> <Delay = 1.76>
+
+State 5 <SV = 3> <Delay = 4.89>
+ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%i1_0 = phi i5 [ 0, %6 ], [ %i_2, %8 ]"   --->   Operation 46 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 47 [1/1] (1.36ns)   --->   "%icmp_ln281 = icmp eq i5 %i1_0, -16" [AES-XTS/main.cpp:281]   --->   Operation 47 'icmp' 'icmp_ln281' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 48 'speclooptripcount' 'empty_17' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (1.78ns)   --->   "%i_2 = add i5 %i1_0, 1" [AES-XTS/main.cpp:281]   --->   Operation 49 'add' 'i_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "br i1 %icmp_ln281, label %9, label %8" [AES-XTS/main.cpp:281]   --->   Operation 50 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln283 = zext i5 %i1_0 to i64" [AES-XTS/main.cpp:283]   --->   Operation 51 'zext' 'zext_ln283' <Predicate = (!icmp_ln281)> <Delay = 0.00>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%zext_ln1357_2 = zext i5 %i1_0 to i12" [AES-XTS/main.cpp:283]   --->   Operation 52 'zext' 'zext_ln1357_2' <Predicate = (!icmp_ln281)> <Delay = 0.00>
+ST_5 : Operation 53 [1/1] (1.63ns)   --->   "%add_ln1357_1 = add i12 %zext_ln1357_cast, %zext_ln1357_2" [AES-XTS/main.cpp:283]   --->   Operation 53 'add' 'add_ln1357_1' <Predicate = (!icmp_ln281)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%zext_ln1357_3 = zext i12 %add_ln1357_1 to i64" [AES-XTS/main.cpp:283]   --->   Operation 54 'zext' 'zext_ln1357_3' <Predicate = (!icmp_ln281)> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%block_V_addr_1 = getelementptr [1024 x i16]* %block_V, i64 0, i64 %zext_ln1357_3" [AES-XTS/main.cpp:283]   --->   Operation 55 'getelementptr' 'block_V_addr_1' <Predicate = (!icmp_ln281)> <Delay = 0.00>
+ST_5 : Operation 56 [2/2] (3.25ns)   --->   "%lhs_V_1 = load i16* %block_V_addr_1, align 2" [AES-XTS/main.cpp:283]   --->   Operation 56 'load' 'lhs_V_1' <Predicate = (!icmp_ln281)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%tweak_V_addr_1 = getelementptr [16 x i16]* %tweak_V, i64 0, i64 %zext_ln283" [AES-XTS/main.cpp:283]   --->   Operation 57 'getelementptr' 'tweak_V_addr_1' <Predicate = (!icmp_ln281)> <Delay = 0.00>
+ST_5 : Operation 58 [2/2] (2.32ns)   --->   "%rhs_V_1 = load i16* %tweak_V_addr_1, align 2" [AES-XTS/main.cpp:283]   --->   Operation 58 'load' 'rhs_V_1' <Predicate = (!icmp_ln281)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_5 : Operation 59 [1/1] (0.00ns)   --->   "ret void" [AES-XTS/main.cpp:286]   --->   Operation 59 'ret' <Predicate = (icmp_ln281)> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 7.49>
+ST_6 : Operation 60 [1/2] (3.25ns)   --->   "%lhs_V_1 = load i16* %block_V_addr_1, align 2" [AES-XTS/main.cpp:283]   --->   Operation 60 'load' 'lhs_V_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_6 : Operation 61 [1/2] (2.32ns)   --->   "%rhs_V_1 = load i16* %tweak_V_addr_1, align 2" [AES-XTS/main.cpp:283]   --->   Operation 61 'load' 'rhs_V_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_6 : Operation 62 [1/1] (0.99ns)   --->   "%ret_V_1 = xor i16 %rhs_V_1, %lhs_V_1" [AES-XTS/main.cpp:283]   --->   Operation 62 'xor' 'ret_V_1' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 63 [1/1] (3.25ns)   --->   "store i16 %ret_V_1, i16* %block_V_addr_1, align 2" [AES-XTS/main.cpp:283]   --->   Operation 63 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "br label %7" [AES-XTS/main.cpp:281]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:267) [24]  (1.77 ns)
+
+ <State 2>: 4.89ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:267) [24]  (0 ns)
+	'add' operation ('add_ln1357', AES-XTS/main.cpp:269) [32]  (1.64 ns)
+	'getelementptr' operation ('block_V_addr', AES-XTS/main.cpp:269) [34]  (0 ns)
+	'load' operation ('lhs.V', AES-XTS/main.cpp:269) on array 'block_V' [35]  (3.25 ns)
+
+ <State 3>: 7.5ns
+The critical path consists of the following:
+	'load' operation ('lhs.V', AES-XTS/main.cpp:269) on array 'block_V' [35]  (3.25 ns)
+	'xor' operation ('ret.V', AES-XTS/main.cpp:269) [38]  (0.99 ns)
+	'store' operation ('store_ln269', AES-XTS/main.cpp:269) of variable 'ret.V', AES-XTS/main.cpp:269 on array 'block_V' [39]  (3.25 ns)
+
+ <State 4>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:281) [54]  (1.77 ns)
+
+ <State 5>: 4.89ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:281) [54]  (0 ns)
+	'add' operation ('add_ln1357_1', AES-XTS/main.cpp:283) [62]  (1.64 ns)
+	'getelementptr' operation ('block_V_addr_1', AES-XTS/main.cpp:283) [64]  (0 ns)
+	'load' operation ('lhs.V', AES-XTS/main.cpp:283) on array 'block_V' [65]  (3.25 ns)
+
+ <State 6>: 7.5ns
+The critical path consists of the following:
+	'load' operation ('lhs.V', AES-XTS/main.cpp:283) on array 'block_V' [65]  (3.25 ns)
+	'xor' operation ('ret.V', AES-XTS/main.cpp:283) [68]  (0.99 ns)
+	'store' operation ('store_ln283', AES-XTS/main.cpp:283) of variable 'ret.V', AES-XTS/main.cpp:283 on array 'block_V' [69]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
