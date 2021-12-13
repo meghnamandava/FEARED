@@ -80,7 +80,7 @@ def xts_aes(key, tweak, text, mode, text_len, s_boxes, mix_column_constant_matri
                     temp_row[4-row_index+idx_subscript2] = state_matrix[row_index,idx_subscript2]
             else: #round_factor == -1
                 for idx_subscript3 in range(0,  row_index):
-                    temp_row[idx_subscript3] = state_matrix[row_index,(row_index*-1)+idx_subscript3]
+                    temp_row[idx_subscript3] = state_matrix[row_index,(4-row_index)+idx_subscript3]
                 for idx_subscript4 in range(0, 4-row_index):
                     temp_row[row_index+idx_subscript4] = state_matrix[row_index,idx_subscript4]
             
