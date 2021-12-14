@@ -29,52 +29,47 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/.apc/.src</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/.apc/.tb</location>
-		</link>
-		<link>
-			<name>.reference/ap_int.h</name>
-			<type>1</type>
-			<location>C:/Xilinx/Vivado/2019.1/include/ap_int.h</location>
-		</link>
-		<link>
-			<name>.reference/hls_math.h</name>
-			<type>1</type>
-			<location>C:/Xilinx/Vivado/2019.1/include/hls_math.h</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/solution1/.tcls</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/main.cpp</name>
 			<type>1</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/main.cpp</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/main.cpp</location>
 		</link>
 		<link>
 			<name>source/main.h</name>
 			<type>1</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/main.h</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/main.h</location>
+		</link>
+		<link>
+			<name>testbench/aesxts_test.cpp</name>
+			<type>1</type>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/aesxts_test.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/solution1/solution1.directive</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/solution1/directives.tcl</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>C:/Users/ssscr/Desktop/school/UIUC/ece527/final_project/HLS/AES-XTS/solution1/script.tcl</location>
+			<location>C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

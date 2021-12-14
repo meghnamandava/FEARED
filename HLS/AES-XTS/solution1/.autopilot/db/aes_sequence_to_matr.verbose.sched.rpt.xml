@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_sequence_to_matr'" level="0">
-<item name = "Date">Sun Dec 12 23:30:47 2021
+<item name = "Date">Mon Dec 13 15:29:15 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>

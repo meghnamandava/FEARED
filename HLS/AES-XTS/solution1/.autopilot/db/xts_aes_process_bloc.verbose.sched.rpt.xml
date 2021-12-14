@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'xts_aes_process_bloc'" level="0">
-<item name = "Date">Sun Dec 12 23:30:51 2021
+<item name = "Date">Mon Dec 13 15:29:17 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.750, 1.25</column>
+<column name="ap_clk">10.00, 7.498, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">10403, 17436, 10403, 17436, none</column>
+<column name="">3203, 4828, 3203, 4828, none</column>
 </table>
 </item>
 <item name = "Detail">

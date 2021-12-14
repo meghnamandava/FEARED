@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="xts_aes" xd:componentRef="xts_aes" xd:initiationInterval="327890" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="key[]" xd:originalName="key" xd:direction="inout" xd:interfaceRef="m_axi_data0" xd:busTypeRef="aximm" xd:arraySize="64" xd:dataWidth="16" xd:bufferDirection="in"/>
+  <xd:arg xd:name="tweak[]" xd:originalName="tweak" xd:direction="inout" xd:interfaceRef="m_axi_data1" xd:busTypeRef="aximm" xd:arraySize="16" xd:dataWidth="16" xd:bufferDirection="in"/>
+  <xd:arg xd:name="text[]" xd:originalName="text" xd:direction="inout" xd:interfaceRef="m_axi_data2" xd:busTypeRef="aximm" xd:arraySize="1024" xd:dataWidth="16" xd:bufferDirection="in"/>
+  <xd:arg xd:name="data_ret[]" xd:originalName="data_ret" xd:direction="inout" xd:interfaceRef="m_axi_data3" xd:busTypeRef="aximm" xd:arraySize="1024" xd:dataWidth="16" xd:bufferDirection="out"/>
+  <xd:arg xd:name="key_V" xd:originalName="key_V" xd:direction="in" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:aximmInterfaceRef="m_axi_data0" xd:dataWidth="32" xd:offset="0x10" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="tweak_V" xd:originalName="tweak_V" xd:direction="in" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:aximmInterfaceRef="m_axi_data1" xd:dataWidth="32" xd:offset="0x18" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="text_V" xd:originalName="text_V" xd:direction="in" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:aximmInterfaceRef="m_axi_data2" xd:dataWidth="32" xd:offset="0x20" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="mode" xd:originalName="mode" xd:direction="in" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:dataWidth="16" xd:offset="0x28" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="text_len" xd:originalName="text_len" xd:direction="in" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:dataWidth="16" xd:offset="0x30" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="data_ret_V" xd:originalName="data_ret_V" xd:direction="in" xd:interfaceRef="s_axi_ctrl" xd:busTypeRef="axilite" xd:aximmInterfaceRef="m_axi_data3" xd:dataWidth="32" xd:offset="0x38" xd:handshakeRef="ap_none"/>
+  <xd:latencyEstimates xd:best-case="13783" xd:worst-case="327889" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="23409" xd:FF="6579" xd:BRAM="20" xd:DSP="0"/>
+</xd:acceleratorMap>

@@ -133,7 +133,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>5</Bits>
+<Bits>7</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>

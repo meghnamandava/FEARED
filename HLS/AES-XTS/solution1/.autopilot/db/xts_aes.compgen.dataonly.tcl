@@ -46,45 +46,13 @@ text_len_V {
 	offset 48
 	offset_end 55
 }
-s_boxes_V { 
+data_ret_V { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
 	offset 56
 	offset_end 63
-}
-mix_column_constant_matrices_V { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 64
-	offset_end 71
-}
-multiplication_V { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 72
-	offset_end 79
-}
-rcon_V { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 80
-	offset_end 87
-}
-data_ret_V { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 88
-	offset_end 95
 }
 }
 dict set axilite_register_dict ctrl $port_ctrl

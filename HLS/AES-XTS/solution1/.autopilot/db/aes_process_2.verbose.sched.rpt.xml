@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_process_2'" level="0">
-<item name = "Date">Sun Dec 12 23:30:50 2021
+<item name = "Date">Mon Dec 13 15:29:17 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.750, 1.25</column>
+<column name="ap_clk">10.00, 7.255, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">10336, 10882, 10336, 10882, none</column>
+<column name="">3136, 4761, 3136, 4761, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -37,7 +37,7 @@
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 1.1">8, 8, 2, -, -, 4, no</column>
-<column name="- Loop 2">9906, 10413, 762 ~ 801, -, -, 13, no</column>
+<column name="- Loop 2">2834, 4420, 218 ~ 340, -, -, 13, no</column>
 <column name="- Loop 3">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 3.1">8, 8, 2, -, -, 4, no</column>
 </table>

@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Dec 13 15:35:22 2021
+# Process ID: 10008
+# Current directory: C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/xts_aes/xsim_script.tcl}
+# Log file: C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xsim.log
+# Journal file: C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/xts_aes/xsim_script.tcl
+# xsim {xts_aes} -autoloadwcfg -tclbatch {xts_aes.tcl}
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source xts_aes.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 2 [0.00%] @ "125000"
+// RTL Simulation : 1 / 2 [0.00%] @ "219425000"
+// RTL Simulation : 2 / 2 [100.00%] @ "460255000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 460295 ns : File "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes.autotb.v" Line 908
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 221.863 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Dec 13 15:35:32 2021...

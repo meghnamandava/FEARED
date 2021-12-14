@@ -8,7 +8,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity xts_aes_ctrl_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 7;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     ACLK                  :in   STD_LOGIC;
@@ -41,10 +41,6 @@ port (
     text_V                :out  STD_LOGIC_VECTOR(31 downto 0);
     mode_V                :out  STD_LOGIC_VECTOR(15 downto 0);
     text_len_V            :out  STD_LOGIC_VECTOR(15 downto 0);
-    s_boxes_V             :out  STD_LOGIC_VECTOR(31 downto 0);
-    mix_column_constant_matrices_V :out  STD_LOGIC_VECTOR(31 downto 0);
-    multiplication_V      :out  STD_LOGIC_VECTOR(31 downto 0);
-    rcon_V                :out  STD_LOGIC_VECTOR(31 downto 0);
     data_ret_V            :out  STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity xts_aes_ctrl_s_axi;
@@ -85,21 +81,9 @@ end entity xts_aes_ctrl_s_axi;
 --        bit 15~0 - text_len_V[15:0] (Read/Write)
 --        others   - reserved
 -- 0x34 : reserved
--- 0x38 : Data signal of s_boxes_V
---        bit 31~0 - s_boxes_V[31:0] (Read/Write)
--- 0x3c : reserved
--- 0x40 : Data signal of mix_column_constant_matrices_V
---        bit 31~0 - mix_column_constant_matrices_V[31:0] (Read/Write)
--- 0x44 : reserved
--- 0x48 : Data signal of multiplication_V
---        bit 31~0 - multiplication_V[31:0] (Read/Write)
--- 0x4c : reserved
--- 0x50 : Data signal of rcon_V
---        bit 31~0 - rcon_V[31:0] (Read/Write)
--- 0x54 : reserved
--- 0x58 : Data signal of data_ret_V
+-- 0x38 : Data signal of data_ret_V
 --        bit 31~0 - data_ret_V[31:0] (Read/Write)
--- 0x5c : reserved
+-- 0x3c : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of xts_aes_ctrl_s_axi is
@@ -107,31 +91,23 @@ architecture behave of xts_aes_ctrl_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL                               : INTEGER := 16#00#;
-    constant ADDR_GIE                                   : INTEGER := 16#04#;
-    constant ADDR_IER                                   : INTEGER := 16#08#;
-    constant ADDR_ISR                                   : INTEGER := 16#0c#;
-    constant ADDR_KEY_V_DATA_0                          : INTEGER := 16#10#;
-    constant ADDR_KEY_V_CTRL                            : INTEGER := 16#14#;
-    constant ADDR_TWEAK_V_DATA_0                        : INTEGER := 16#18#;
-    constant ADDR_TWEAK_V_CTRL                          : INTEGER := 16#1c#;
-    constant ADDR_TEXT_V_DATA_0                         : INTEGER := 16#20#;
-    constant ADDR_TEXT_V_CTRL                           : INTEGER := 16#24#;
-    constant ADDR_MODE_V_DATA_0                         : INTEGER := 16#28#;
-    constant ADDR_MODE_V_CTRL                           : INTEGER := 16#2c#;
-    constant ADDR_TEXT_LEN_V_DATA_0                     : INTEGER := 16#30#;
-    constant ADDR_TEXT_LEN_V_CTRL                       : INTEGER := 16#34#;
-    constant ADDR_S_BOXES_V_DATA_0                      : INTEGER := 16#38#;
-    constant ADDR_S_BOXES_V_CTRL                        : INTEGER := 16#3c#;
-    constant ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA_0 : INTEGER := 16#40#;
-    constant ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_CTRL   : INTEGER := 16#44#;
-    constant ADDR_MULTIPLICATION_V_DATA_0               : INTEGER := 16#48#;
-    constant ADDR_MULTIPLICATION_V_CTRL                 : INTEGER := 16#4c#;
-    constant ADDR_RCON_V_DATA_0                         : INTEGER := 16#50#;
-    constant ADDR_RCON_V_CTRL                           : INTEGER := 16#54#;
-    constant ADDR_DATA_RET_V_DATA_0                     : INTEGER := 16#58#;
-    constant ADDR_DATA_RET_V_CTRL                       : INTEGER := 16#5c#;
-    constant ADDR_BITS         : INTEGER := 7;
+    constant ADDR_AP_CTRL           : INTEGER := 16#00#;
+    constant ADDR_GIE               : INTEGER := 16#04#;
+    constant ADDR_IER               : INTEGER := 16#08#;
+    constant ADDR_ISR               : INTEGER := 16#0c#;
+    constant ADDR_KEY_V_DATA_0      : INTEGER := 16#10#;
+    constant ADDR_KEY_V_CTRL        : INTEGER := 16#14#;
+    constant ADDR_TWEAK_V_DATA_0    : INTEGER := 16#18#;
+    constant ADDR_TWEAK_V_CTRL      : INTEGER := 16#1c#;
+    constant ADDR_TEXT_V_DATA_0     : INTEGER := 16#20#;
+    constant ADDR_TEXT_V_CTRL       : INTEGER := 16#24#;
+    constant ADDR_MODE_V_DATA_0     : INTEGER := 16#28#;
+    constant ADDR_MODE_V_CTRL       : INTEGER := 16#2c#;
+    constant ADDR_TEXT_LEN_V_DATA_0 : INTEGER := 16#30#;
+    constant ADDR_TEXT_LEN_V_CTRL   : INTEGER := 16#34#;
+    constant ADDR_DATA_RET_V_DATA_0 : INTEGER := 16#38#;
+    constant ADDR_DATA_RET_V_CTRL   : INTEGER := 16#3c#;
+    constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -158,10 +134,6 @@ architecture behave of xts_aes_ctrl_s_axi is
     signal int_text_V          : UNSIGNED(31 downto 0) := (others => '0');
     signal int_mode_V          : UNSIGNED(15 downto 0) := (others => '0');
     signal int_text_len_V      : UNSIGNED(15 downto 0) := (others => '0');
-    signal int_s_boxes_V       : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_mix_column_constant_matrices_V : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_multiplication_V : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_rcon_V          : UNSIGNED(31 downto 0) := (others => '0');
     signal int_data_ret_V      : UNSIGNED(31 downto 0) := (others => '0');
 
 
@@ -294,14 +266,6 @@ begin
                         rdata_data <= RESIZE(int_mode_V(15 downto 0), 32);
                     when ADDR_TEXT_LEN_V_DATA_0 =>
                         rdata_data <= RESIZE(int_text_len_V(15 downto 0), 32);
-                    when ADDR_S_BOXES_V_DATA_0 =>
-                        rdata_data <= RESIZE(int_s_boxes_V(31 downto 0), 32);
-                    when ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA_0 =>
-                        rdata_data <= RESIZE(int_mix_column_constant_matrices_V(31 downto 0), 32);
-                    when ADDR_MULTIPLICATION_V_DATA_0 =>
-                        rdata_data <= RESIZE(int_multiplication_V(31 downto 0), 32);
-                    when ADDR_RCON_V_DATA_0 =>
-                        rdata_data <= RESIZE(int_rcon_V(31 downto 0), 32);
                     when ADDR_DATA_RET_V_DATA_0 =>
                         rdata_data <= RESIZE(int_data_ret_V(31 downto 0), 32);
                     when others =>
@@ -320,10 +284,6 @@ begin
     text_V               <= STD_LOGIC_VECTOR(int_text_V);
     mode_V               <= STD_LOGIC_VECTOR(int_mode_V);
     text_len_V           <= STD_LOGIC_VECTOR(int_text_len_V);
-    s_boxes_V            <= STD_LOGIC_VECTOR(int_s_boxes_V);
-    mix_column_constant_matrices_V <= STD_LOGIC_VECTOR(int_mix_column_constant_matrices_V);
-    multiplication_V     <= STD_LOGIC_VECTOR(int_multiplication_V);
-    rcon_V               <= STD_LOGIC_VECTOR(int_rcon_V);
     data_ret_V           <= STD_LOGIC_VECTOR(int_data_ret_V);
 
     process (ACLK)
@@ -501,50 +461,6 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_TEXT_LEN_V_DATA_0) then
                     int_text_len_V(15 downto 0) <= (UNSIGNED(WDATA(15 downto 0)) and wmask(15 downto 0)) or ((not wmask(15 downto 0)) and int_text_len_V(15 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_S_BOXES_V_DATA_0) then
-                    int_s_boxes_V(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_s_boxes_V(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA_0) then
-                    int_mix_column_constant_matrices_V(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_mix_column_constant_matrices_V(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_MULTIPLICATION_V_DATA_0) then
-                    int_multiplication_V(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_multiplication_V(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_RCON_V_DATA_0) then
-                    int_rcon_V(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_rcon_V(31 downto 0));
                 end if;
             end if;
         end if;

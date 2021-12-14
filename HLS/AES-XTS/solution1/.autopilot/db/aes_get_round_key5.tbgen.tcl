@@ -14,12 +14,12 @@ set isEnableWaveformDebug 1
 set C_modelName {aes_get_round_key5}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ round int 5 regular  }
+	{ round int 7 regular  }
 	{ expanded_key_V int 16 regular {array 240 { 1 3 } 1 1 }  }
 	{ round_key_V int 16 regular {array 16 { 0 3 } 0 1 }  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "round", "interface" : "wire", "bitwidth" : 5, "direction" : "READONLY"} , 
+	{ "Name" : "round", "interface" : "wire", "bitwidth" : 7, "direction" : "READONLY"} , 
  	{ "Name" : "expanded_key_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "round_key_V", "interface" : "memory", "bitwidth" : 16, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
@@ -31,7 +31,7 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ round sc_in sc_lv 5 signal 0 } 
+	{ round sc_in sc_lv 7 signal 0 } 
 	{ expanded_key_V_address0 sc_out sc_lv 8 signal 1 } 
 	{ expanded_key_V_ce0 sc_out sc_logic 1 signal 1 } 
 	{ expanded_key_V_q0 sc_in sc_lv 16 signal 1 } 
@@ -47,7 +47,7 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "round", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "round", "role": "default" }} , 
+ 	{ "name": "round", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "round", "role": "default" }} , 
  	{ "name": "expanded_key_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address0" }} , 
  	{ "name": "expanded_key_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce0" }} , 
  	{ "name": "expanded_key_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q0" }} , 
@@ -93,7 +93,7 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	round { ap_none {  { round in_data 0 5 } } }
+	round { ap_none {  { round in_data 0 7 } } }
 	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 } } }
 	round_key_V { ap_memory {  { round_key_V_address0 mem_address 1 4 }  { round_key_V_ce0 mem_ce 1 1 }  { round_key_V_we0 mem_we 1 1 }  { round_key_V_d0 mem_din 1 16 } } }
 }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_sequence_to_matr'" level="0">
-<item name = "Date">Sun Dec 12 23:30:54 2021
+<item name = "Date">Mon Dec 13 15:29:30 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -84,8 +84,8 @@
 <column name="i_fu_109_p2">+, 0, 0, 12, 3, 1</column>
 <column name="j_fu_137_p2">+, 0, 0, 12, 3, 1</column>
 <column name="ret_V_2_fu_164_p2">+, 0, 0, 13, 4, 4</column>
-<column name="icmp_ln221_fu_103_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln223_fu_131_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln228_fu_103_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln230_fu_131_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -108,8 +108,8 @@
 <column name="sequence_V_addr_read_reg_234">16, 0, 16, 0</column>
 <column name="sequence_V_addr_reg_228">32, 0, 32, 0</column>
 <column name="sequence_V_offset_ca_reg_192">31, 0, 32, 1</column>
-<column name="zext_ln223_1_reg_205">3, 0, 6, 3</column>
-<column name="zext_ln223_reg_210">3, 0, 4, 1</column>
+<column name="zext_ln230_1_reg_205">3, 0, 6, 3</column>
+<column name="zext_ln230_reg_210">3, 0, 4, 1</column>
 </table>
 </item>
 </section>

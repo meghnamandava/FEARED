@@ -1,0 +1,190 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_mix_columns8'
+================================================================
+* Date:           Mon Dec 13 15:29:31 2021
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        AES-XTS
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.255|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   81|   81|   81|   81|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |   80|   80|        20|          -|          -|     4|    no    |
+        | + Loop 1.1  |   16|   16|         4|          -|          -|     4|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    168|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|    128|    -|
+|Register         |        -|      -|     128|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     128|    296|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |add_ln180_fu_318_p2     |     +    |      0|  0|  15|           6|           6|
+    |add_ln544_fu_323_p2     |     +    |      0|  0|  15|           5|           5|
+    |add_ln719_1_fu_392_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_2_fu_409_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_fu_370_p2     |     +    |      0|  0|  17|          13|          13|
+    |add_ln78_fu_348_p2      |     +    |      0|  0|  17|          13|          13|
+    |column_index_fu_231_p2  |     +    |      0|  0|  12|           3|           1|
+    |row_index_fu_296_p2     |     +    |      0|  0|  12|           3|           1|
+    |icmp_ln103_fu_225_p2    |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln110_fu_290_p2    |   icmp   |      0|  0|   9|           3|           4|
+    |xor_ln180_fu_242_p2     |    xor   |      0|  0|   4|           3|           4|
+    |xor_ln719_1_fu_430_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_2_fu_436_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_fu_426_p2     |    xor   |      0|  0|   8|           8|           8|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 168|         102|         101|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------+----+-----------+-----+-----------+
+    |            Name           | LUT| Input Size| Bits| Total Bits|
+    +---------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                  |  44|          9|    1|          9|
+    |column_index_0_reg_190     |   9|          2|    3|          6|
+    |multiplication_V_address0  |  15|          3|   12|         36|
+    |multiplication_V_address1  |  15|          3|   12|         36|
+    |row_index_0_reg_202        |   9|          2|    3|          6|
+    |state_matrix_V_address0    |  21|          4|    4|         16|
+    |state_matrix_V_address1    |  15|          3|    4|         12|
+    +---------------------------+----+-----------+-----+-----------+
+    |Total                      | 128|         26|   39|        121|
+    +---------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------+----+----+-----+-----------+
+    |              Name              | FF | LUT| Bits| Const Bits|
+    +--------------------------------+----+----+-----+-----------+
+    |add_ln180_reg_518               |   6|   0|    6|          0|
+    |add_ln719_1_reg_553             |  13|   0|   13|          0|
+    |add_ln719_2_reg_558             |  13|   0|   13|          0|
+    |ap_CS_fsm                       |   8|   0|    8|          0|
+    |column_index_0_reg_190          |   3|   0|    3|          0|
+    |column_index_reg_455            |   3|   0|    3|          0|
+    |multiplication_V_loa_1_reg_568  |   8|   0|    8|          0|
+    |multiplication_V_loa_reg_563    |   8|   0|    8|          0|
+    |row_index_0_reg_202             |   3|   0|    3|          0|
+    |row_index_reg_513               |   3|   0|    3|          0|
+    |trunc_ln110_reg_505             |  13|   0|   13|          0|
+    |trunc_ln544_1_reg_490           |  13|   0|   13|          0|
+    |trunc_ln544_2_reg_500           |  13|   0|   13|          0|
+    |trunc_ln544_reg_485             |  13|   0|   13|          0|
+    |xor_ln180_reg_465               |   3|   0|    3|          0|
+    |zext_ln101_reg_447              |   2|   0|    5|          3|
+    |zext_ln180_reg_495              |   3|   0|    6|          3|
+    +--------------------------------+----+----+-----+-----------+
+    |Total                           | 128|   0|  134|          6|
+    +--------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------+-----+-----+------------+--------------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |       Source Object      |    C Type    |
++------------------------------+-----+-----+------------+--------------------------+--------------+
+|ap_clk                        |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_rst                        |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_start                      |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_done                       | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_idle                       | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_ready                      | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|state_matrix_V_address0       | out |    4|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_ce0            | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_we0            | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_d0             | out |   16|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_q0             |  in |   16|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_address1       | out |    4|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_ce1            | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_q1             |  in |   16|  ap_memory |      state_matrix_V      |     array    |
+|constant_matrix_0_V_address0  | out |    4|  ap_memory |    constant_matrix_0_V   |     array    |
+|constant_matrix_0_V_ce0       | out |    1|  ap_memory |    constant_matrix_0_V   |     array    |
+|constant_matrix_0_V_q0        |  in |    6|  ap_memory |    constant_matrix_0_V   |     array    |
+|constant_matrix_1_V_address0  | out |    4|  ap_memory |    constant_matrix_1_V   |     array    |
+|constant_matrix_1_V_ce0       | out |    1|  ap_memory |    constant_matrix_1_V   |     array    |
+|constant_matrix_1_V_q0        |  in |    6|  ap_memory |    constant_matrix_1_V   |     array    |
+|constant_matrix_2_V_address0  | out |    4|  ap_memory |    constant_matrix_2_V   |     array    |
+|constant_matrix_2_V_ce0       | out |    1|  ap_memory |    constant_matrix_2_V   |     array    |
+|constant_matrix_2_V_q0        |  in |    6|  ap_memory |    constant_matrix_2_V   |     array    |
+|constant_matrix_3_V_address0  | out |    4|  ap_memory |    constant_matrix_3_V   |     array    |
+|constant_matrix_3_V_ce0       | out |    1|  ap_memory |    constant_matrix_3_V   |     array    |
+|constant_matrix_3_V_q0        |  in |    6|  ap_memory |    constant_matrix_3_V   |     array    |
+|constant_matrix_V_offset      |  in |    2|   ap_none  | constant_matrix_V_offset |    scalar    |
+|multiplication_V_address0     | out |   12|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_ce0          | out |    1|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_q0           |  in |    8|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_address1     | out |   12|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_ce1          | out |    1|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_q1           |  in |    8|  ap_memory |     multiplication_V     |     array    |
++------------------------------+-----+-----+------------+--------------------------+--------------+
+

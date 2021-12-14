@@ -5,13 +5,14 @@
 ############################################################
 open_project AES-XTS
 set_top xts_aes
-add_files AES-XTS/main.h
 add_files AES-XTS/main.cpp
+add_files AES-XTS/main.h
+add_files -tb AES-XTS/aesxts_test.cpp
 open_solution "solution1"
 set_part {xc7z020-clg400-1} -tool vivado
 create_clock -period 10 -name default
 #source "./AES-XTS/solution1/directives.tcl"
-#csim_design
+csim_design -clean -setup
 csynth_design
-#cosim_design
-export_design -format ip_catalog
+cosim_design
+export_design -rtl verilog -format ip_catalog

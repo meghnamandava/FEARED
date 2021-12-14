@@ -67,7 +67,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_mux_42_16cud_U37", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_mux_42_16cud_U24", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {

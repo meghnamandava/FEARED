@@ -1,0 +1,5 @@
+   Build using "C:/Xilinx/Vivado/2019.1/msys64/mingw64/bin/g++"
+   Compiling main.cpp_pre.cpp.tb.cpp
+   Compiling aesxts_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_xts_aes.cpp
+   Generating cosim.tv.exe

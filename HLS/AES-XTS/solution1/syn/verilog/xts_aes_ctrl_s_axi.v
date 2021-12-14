@@ -5,7 +5,7 @@
 `timescale 1ns/1ps
 module xts_aes_ctrl_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 7,
+    C_S_AXI_ADDR_WIDTH = 6,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -38,10 +38,6 @@ module xts_aes_ctrl_s_axi
     output wire [31:0]                   text_V,
     output wire [15:0]                   mode_V,
     output wire [15:0]                   text_len_V,
-    output wire [31:0]                   s_boxes_V,
-    output wire [31:0]                   mix_column_constant_matrices_V,
-    output wire [31:0]                   multiplication_V,
-    output wire [31:0]                   rcon_V,
     output wire [31:0]                   data_ret_V
 );
 //------------------------Address Info-------------------
@@ -80,57 +76,37 @@ module xts_aes_ctrl_s_axi
 //        bit 15~0 - text_len_V[15:0] (Read/Write)
 //        others   - reserved
 // 0x34 : reserved
-// 0x38 : Data signal of s_boxes_V
-//        bit 31~0 - s_boxes_V[31:0] (Read/Write)
-// 0x3c : reserved
-// 0x40 : Data signal of mix_column_constant_matrices_V
-//        bit 31~0 - mix_column_constant_matrices_V[31:0] (Read/Write)
-// 0x44 : reserved
-// 0x48 : Data signal of multiplication_V
-//        bit 31~0 - multiplication_V[31:0] (Read/Write)
-// 0x4c : reserved
-// 0x50 : Data signal of rcon_V
-//        bit 31~0 - rcon_V[31:0] (Read/Write)
-// 0x54 : reserved
-// 0x58 : Data signal of data_ret_V
+// 0x38 : Data signal of data_ret_V
 //        bit 31~0 - data_ret_V[31:0] (Read/Write)
-// 0x5c : reserved
+// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL                               = 7'h00,
-    ADDR_GIE                                   = 7'h04,
-    ADDR_IER                                   = 7'h08,
-    ADDR_ISR                                   = 7'h0c,
-    ADDR_KEY_V_DATA_0                          = 7'h10,
-    ADDR_KEY_V_CTRL                            = 7'h14,
-    ADDR_TWEAK_V_DATA_0                        = 7'h18,
-    ADDR_TWEAK_V_CTRL                          = 7'h1c,
-    ADDR_TEXT_V_DATA_0                         = 7'h20,
-    ADDR_TEXT_V_CTRL                           = 7'h24,
-    ADDR_MODE_V_DATA_0                         = 7'h28,
-    ADDR_MODE_V_CTRL                           = 7'h2c,
-    ADDR_TEXT_LEN_V_DATA_0                     = 7'h30,
-    ADDR_TEXT_LEN_V_CTRL                       = 7'h34,
-    ADDR_S_BOXES_V_DATA_0                      = 7'h38,
-    ADDR_S_BOXES_V_CTRL                        = 7'h3c,
-    ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA_0 = 7'h40,
-    ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_CTRL   = 7'h44,
-    ADDR_MULTIPLICATION_V_DATA_0               = 7'h48,
-    ADDR_MULTIPLICATION_V_CTRL                 = 7'h4c,
-    ADDR_RCON_V_DATA_0                         = 7'h50,
-    ADDR_RCON_V_CTRL                           = 7'h54,
-    ADDR_DATA_RET_V_DATA_0                     = 7'h58,
-    ADDR_DATA_RET_V_CTRL                       = 7'h5c,
-    WRIDLE                                     = 2'd0,
-    WRDATA                                     = 2'd1,
-    WRRESP                                     = 2'd2,
-    WRRESET                                    = 2'd3,
-    RDIDLE                                     = 2'd0,
-    RDDATA                                     = 2'd1,
-    RDRESET                                    = 2'd2,
-    ADDR_BITS         = 7;
+    ADDR_AP_CTRL           = 6'h00,
+    ADDR_GIE               = 6'h04,
+    ADDR_IER               = 6'h08,
+    ADDR_ISR               = 6'h0c,
+    ADDR_KEY_V_DATA_0      = 6'h10,
+    ADDR_KEY_V_CTRL        = 6'h14,
+    ADDR_TWEAK_V_DATA_0    = 6'h18,
+    ADDR_TWEAK_V_CTRL      = 6'h1c,
+    ADDR_TEXT_V_DATA_0     = 6'h20,
+    ADDR_TEXT_V_CTRL       = 6'h24,
+    ADDR_MODE_V_DATA_0     = 6'h28,
+    ADDR_MODE_V_CTRL       = 6'h2c,
+    ADDR_TEXT_LEN_V_DATA_0 = 6'h30,
+    ADDR_TEXT_LEN_V_CTRL   = 6'h34,
+    ADDR_DATA_RET_V_DATA_0 = 6'h38,
+    ADDR_DATA_RET_V_CTRL   = 6'h3c,
+    WRIDLE                 = 2'd0,
+    WRDATA                 = 2'd1,
+    WRRESP                 = 2'd2,
+    WRRESET                = 2'd3,
+    RDIDLE                 = 2'd0,
+    RDDATA                 = 2'd1,
+    RDRESET                = 2'd2,
+    ADDR_BITS         = 6;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -158,10 +134,6 @@ localparam
     reg  [31:0]                   int_text_V = 'b0;
     reg  [15:0]                   int_mode_V = 'b0;
     reg  [15:0]                   int_text_len_V = 'b0;
-    reg  [31:0]                   int_s_boxes_V = 'b0;
-    reg  [31:0]                   int_mix_column_constant_matrices_V = 'b0;
-    reg  [31:0]                   int_multiplication_V = 'b0;
-    reg  [31:0]                   int_rcon_V = 'b0;
     reg  [31:0]                   int_data_ret_V = 'b0;
 
 //------------------------Instantiation------------------
@@ -285,18 +257,6 @@ always @(posedge ACLK) begin
                 ADDR_TEXT_LEN_V_DATA_0: begin
                     rdata <= int_text_len_V[15:0];
                 end
-                ADDR_S_BOXES_V_DATA_0: begin
-                    rdata <= int_s_boxes_V[31:0];
-                end
-                ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA_0: begin
-                    rdata <= int_mix_column_constant_matrices_V[31:0];
-                end
-                ADDR_MULTIPLICATION_V_DATA_0: begin
-                    rdata <= int_multiplication_V[31:0];
-                end
-                ADDR_RCON_V_DATA_0: begin
-                    rdata <= int_rcon_V[31:0];
-                end
                 ADDR_DATA_RET_V_DATA_0: begin
                     rdata <= int_data_ret_V[31:0];
                 end
@@ -307,18 +267,14 @@ end
 
 
 //------------------------Register logic-----------------
-assign interrupt                      = int_gie & (|int_isr);
-assign ap_start                       = int_ap_start;
-assign key_V                          = int_key_V;
-assign tweak_V                        = int_tweak_V;
-assign text_V                         = int_text_V;
-assign mode_V                         = int_mode_V;
-assign text_len_V                     = int_text_len_V;
-assign s_boxes_V                      = int_s_boxes_V;
-assign mix_column_constant_matrices_V = int_mix_column_constant_matrices_V;
-assign multiplication_V               = int_multiplication_V;
-assign rcon_V                         = int_rcon_V;
-assign data_ret_V                     = int_data_ret_V;
+assign interrupt  = int_gie & (|int_isr);
+assign ap_start   = int_ap_start;
+assign key_V      = int_key_V;
+assign tweak_V    = int_tweak_V;
+assign text_V     = int_text_V;
+assign mode_V     = int_mode_V;
+assign text_len_V = int_text_len_V;
+assign data_ret_V = int_data_ret_V;
 // int_ap_start
 always @(posedge ACLK) begin
     if (ARESET)
@@ -462,46 +418,6 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_TEXT_LEN_V_DATA_0)
             int_text_len_V[15:0] <= (WDATA[31:0] & wmask) | (int_text_len_V[15:0] & ~wmask);
-    end
-end
-
-// int_s_boxes_V[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_s_boxes_V[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_S_BOXES_V_DATA_0)
-            int_s_boxes_V[31:0] <= (WDATA[31:0] & wmask) | (int_s_boxes_V[31:0] & ~wmask);
-    end
-end
-
-// int_mix_column_constant_matrices_V[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_mix_column_constant_matrices_V[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA_0)
-            int_mix_column_constant_matrices_V[31:0] <= (WDATA[31:0] & wmask) | (int_mix_column_constant_matrices_V[31:0] & ~wmask);
-    end
-end
-
-// int_multiplication_V[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_multiplication_V[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_MULTIPLICATION_V_DATA_0)
-            int_multiplication_V[31:0] <= (WDATA[31:0] & wmask) | (int_multiplication_V[31:0] & ~wmask);
-    end
-end
-
-// int_rcon_V[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_rcon_V[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_RCON_V_DATA_0)
-            int_rcon_V[31:0] <= (WDATA[31:0] & wmask) | (int_rcon_V[31:0] & ~wmask);
     end
 end
 

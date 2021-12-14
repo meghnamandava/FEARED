@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_shift_rows'" level="0">
-<item name = "Date">Sun Dec 12 23:30:55 2021
+<item name = "Date">Mon Dec 13 15:29:30 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -53,12 +53,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 223, -</column>
+<column name="Expression">-, -, 0, 236, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, 0, 21, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 440, -</column>
-<column name="Register">-, -, 464, -, -</column>
+<column name="Register">-, -, 467, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
 </table>
@@ -67,7 +67,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="xts_aes_mux_42_16cud_U37">xts_aes_mux_42_16cud, 0, 0, 0, 21, 0</column>
+<column name="xts_aes_mux_42_16cud_U24">xts_aes_mux_42_16cud, 0, 0, 0, 21, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -84,27 +84,28 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln180_1_fu_740_p2">+, 0, 0, 15, 6, 6</column>
-<column name="add_ln180_2_fu_636_p2">+, 0, 0, 15, 6, 6</column>
-<column name="add_ln180_3_fu_770_p2">+, 0, 0, 15, 6, 6</column>
-<column name="add_ln180_fu_675_p2">+, 0, 0, 10, 2, 2</column>
-<column name="add_ln55_fu_805_p2">+, 0, 0, 10, 2, 2</column>
-<column name="add_ln62_fu_730_p2">+, 0, 0, 12, 3, 3</column>
-<column name="i_chaining_1_fu_760_p2">+, 0, 0, 12, 3, 1</column>
-<column name="idx_subscript2_fu_690_p2">+, 0, 0, 10, 2, 1</column>
-<column name="idx_subscript3_fu_620_p2">+, 0, 0, 10, 2, 1</column>
-<column name="idx_subscript4_fu_656_p2">+, 0, 0, 10, 2, 1</column>
-<column name="idx_subscript_fu_724_p2">+, 0, 0, 10, 2, 1</column>
-<column name="row_index_fu_799_p2">+, 0, 0, 12, 3, 1</column>
-<column name="sub_ln180_fu_709_p2">-, 0, 0, 10, 2, 2</column>
-<column name="sub_ln75_fu_626_p2">-, 0, 0, 12, 3, 3</column>
-<column name="icmp_ln55_fu_592_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln58_fu_586_p2">icmp, 0, 0, 8, 2, 1</column>
-<column name="icmp_ln60_fu_718_p2">icmp, 0, 0, 8, 2, 2</column>
-<column name="icmp_ln65_fu_684_p2">icmp, 0, 0, 9, 3, 3</column>
-<column name="icmp_ln73_fu_614_p2">icmp, 0, 0, 9, 3, 3</column>
-<column name="icmp_ln78_fu_650_p2">icmp, 0, 0, 8, 2, 2</column>
-<column name="icmp_ln85_fu_754_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="add_ln180_1_fu_745_p2">+, 0, 0, 15, 6, 6</column>
+<column name="add_ln180_2_fu_641_p2">+, 0, 0, 15, 6, 6</column>
+<column name="add_ln180_3_fu_775_p2">+, 0, 0, 15, 6, 6</column>
+<column name="add_ln180_fu_680_p2">+, 0, 0, 10, 2, 2</column>
+<column name="add_ln62_fu_810_p2">+, 0, 0, 10, 2, 2</column>
+<column name="add_ln69_fu_735_p2">+, 0, 0, 12, 3, 3</column>
+<column name="add_ln82_fu_632_p2">+, 0, 0, 12, 3, 3</column>
+<column name="i_chaining_1_fu_765_p2">+, 0, 0, 12, 3, 1</column>
+<column name="idx_subscript2_fu_695_p2">+, 0, 0, 10, 2, 1</column>
+<column name="idx_subscript3_fu_626_p2">+, 0, 0, 10, 2, 1</column>
+<column name="idx_subscript4_fu_661_p2">+, 0, 0, 10, 2, 1</column>
+<column name="idx_subscript_fu_729_p2">+, 0, 0, 10, 2, 1</column>
+<column name="row_index_fu_804_p2">+, 0, 0, 12, 3, 1</column>
+<column name="sub_ln180_fu_714_p2">-, 0, 0, 10, 2, 2</column>
+<column name="sub_ln82_fu_610_p2">-, 0, 0, 13, 4, 3</column>
+<column name="icmp_ln62_fu_592_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln65_fu_586_p2">icmp, 0, 0, 8, 2, 1</column>
+<column name="icmp_ln67_fu_723_p2">icmp, 0, 0, 8, 2, 2</column>
+<column name="icmp_ln72_fu_689_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="icmp_ln80_fu_620_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="icmp_ln85_fu_655_p2">icmp, 0, 0, 8, 2, 2</column>
+<column name="icmp_ln92_fu_759_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -150,21 +151,22 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln180_reg_863">2, 0, 2, 0</column>
+<column name="add_ln180_reg_873">2, 0, 2, 0</column>
 <column name="ap_CS_fsm">12, 0, 12, 0</column>
 <column name="i_chaining_1_0_reg_575">3, 0, 3, 0</column>
-<column name="icmp_ln58_reg_811">1, 0, 1, 0</column>
+<column name="icmp_ln65_reg_816">1, 0, 1, 0</column>
 <column name="idx_subscript2_0_reg_324">2, 0, 2, 0</column>
-<column name="idx_subscript2_reg_870">2, 0, 2, 0</column>
+<column name="idx_subscript2_reg_880">2, 0, 2, 0</column>
 <column name="idx_subscript3_0_reg_192">2, 0, 2, 0</column>
-<column name="idx_subscript3_reg_828">2, 0, 2, 0</column>
+<column name="idx_subscript3_reg_838">2, 0, 2, 0</column>
 <column name="idx_subscript4_0_reg_282">2, 0, 2, 0</column>
-<column name="idx_subscript4_reg_853">2, 0, 2, 0</column>
+<column name="idx_subscript4_reg_863">2, 0, 2, 0</column>
 <column name="idx_subscript_0_reg_470">2, 0, 2, 0</column>
-<column name="idx_subscript_reg_887">2, 0, 2, 0</column>
+<column name="idx_subscript_reg_897">2, 0, 2, 0</column>
 <column name="indvars_iv17_reg_147">3, 0, 3, 0</column>
 <column name="indvars_iv20_reg_135">2, 0, 2, 0</column>
-<column name="sub_ln180_reg_880">2, 0, 2, 0</column>
+<column name="sub_ln180_reg_890">2, 0, 2, 0</column>
+<column name="sub_ln82_reg_830">3, 0, 3, 0</column>
 <column name="temp_row_0_V_0_reg_123">16, 0, 16, 0</column>
 <column name="temp_row_0_V_1_be_reg_512">16, 0, 16, 0</column>
 <column name="temp_row_0_V_1_reg_458">16, 0, 16, 0</column>
@@ -191,9 +193,9 @@
 <column name="temp_row_3_V_1_reg_293">16, 0, 16, 0</column>
 <column name="temp_row_3_V_3_reg_249">16, 0, 16, 0</column>
 <column name="temp_row_3_V_5_reg_335">16, 0, 16, 0</column>
-<column name="trunc_ln67_reg_897">2, 0, 2, 0</column>
-<column name="trunc_ln80_reg_838">2, 0, 2, 0</column>
-<column name="zext_ln58_reg_818">3, 0, 6, 3</column>
+<column name="trunc_ln74_reg_907">2, 0, 2, 0</column>
+<column name="trunc_ln87_reg_848">2, 0, 2, 0</column>
+<column name="zext_ln65_reg_823">3, 0, 6, 3</column>
 </table>
 </item>
 </section>
