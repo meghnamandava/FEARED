@@ -443,13 +443,13 @@ set NewPortList {[
  	{ "name": "m_axi_data3_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data3", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "27", "37"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "38", "63"],
 		"CDFG" : "xts_aes",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "13783", "EstimateLatencyMax" : "327889",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "12139", "EstimateLatencyMax" : "181605",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -457,20 +457,20 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state904", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_xts_aes_process_data_fu_24149"},
-			{"State" : "ap_ST_fsm_state902", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_1_fu_24167"},
-			{"State" : "ap_ST_fsm_state898", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_expand_key_fu_24182"},
-			{"State" : "ap_ST_fsm_state900", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_expand_key_fu_24182"}],
+			{"State" : "ap_ST_fsm_state904", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_xts_aes_process_data_fu_23760"},
+			{"State" : "ap_ST_fsm_state902", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_1_fu_23774"},
+			{"State" : "ap_ST_fsm_state898", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_expand_key_fu_23785"},
+			{"State" : "ap_ST_fsm_state900", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_expand_key_fu_23785"}],
 		"Port" : [
 			{"Name" : "data0", "Type" : "MAXI", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "37", "SubInstance" : "grp_aes_expand_key_fu_24182", "Port" : "key_V"}]},
+					{"ID" : "63", "SubInstance" : "grp_aes_expand_key_fu_23785", "Port" : "key_V"}]},
 			{"Name" : "data1", "Type" : "MAXI", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "27", "SubInstance" : "grp_aes_process_1_fu_24167", "Port" : "text_V"}]},
+					{"ID" : "38", "SubInstance" : "grp_aes_process_1_fu_23774", "Port" : "text_V"}]},
 			{"Name" : "data2", "Type" : "MAXI", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "16", "SubInstance" : "grp_xts_aes_process_data_fu_24149", "Port" : "data_V"}]},
+					{"ID" : "12", "SubInstance" : "grp_xts_aes_process_data_fu_23760", "Port" : "data_V"}]},
 			{"Name" : "data3", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "data3_blk_n_AW", "Type" : "RtlSignal"},
@@ -484,7 +484,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "data_ret_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "rcon", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "37", "SubInstance" : "grp_aes_expand_key_fu_24182", "Port" : "rcon"}]}]},
+					{"ID" : "63", "SubInstance" : "grp_aes_expand_key_fu_23785", "Port" : "rcon"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_ctrl_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_data0_m_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_data1_m_axi_U", "Parent" : "0"},
@@ -492,21 +492,17 @@ set RtlHierarchyInfo {[
 	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_data3_m_axi_U", "Parent" : "0"},
 	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.multiplication_table_U", "Parent" : "0"},
 	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_boxes_V_U", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mix_column_constant_s_U", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mix_column_constant_10_U", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mix_column_constant_19_U", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mix_column_constant_28_U", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.aes_expanded_key_V_U", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.aes_expanded_key2_V_U", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.aes_tweak_V_U", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.processed_data_U", "Parent" : "0"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149", "Parent" : "0", "Child" : ["17"],
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.aes_expanded_key_V_U", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.aes_expanded_key2_V_U", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.aes_tweak_V_U", "Parent" : "0"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.processed_data_U", "Parent" : "0"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760", "Parent" : "0", "Child" : ["13"],
 		"CDFG" : "xts_aes_process_data",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2312", "EstimateLatencyMax" : "313480",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2312", "EstimateLatencyMax" : "168840",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -514,7 +510,7 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_xts_aes_process_bloc_fu_207"}],
+			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_xts_aes_process_bloc_fu_199"}],
 		"Port" : [
 			{"Name" : "data_V", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
@@ -525,38 +521,26 @@ set RtlHierarchyInfo {[
 			{"Name" : "mode_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "tweak_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "tweak_V"}]},
+					{"ID" : "13", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "tweak_V"}]},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "expanded_key_V"}]},
+					{"ID" : "13", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "expanded_key_V"}]},
 			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "s_boxes_V"}]},
-			{"Name" : "mix_column_constant_matrices_0_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "mix_column_constant_matrices_0_V"}]},
-			{"Name" : "mix_column_constant_matrices_1_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "mix_column_constant_matrices_1_V"}]},
-			{"Name" : "mix_column_constant_matrices_2_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "mix_column_constant_matrices_2_V"}]},
-			{"Name" : "mix_column_constant_matrices_3_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "mix_column_constant_matrices_3_V"}]},
+					{"ID" : "13", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "s_boxes_V"}]},
 			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "multiplication_V"}]},
+					{"ID" : "13", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "multiplication_V"}]},
 			{"Name" : "blocks_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "17", "SubInstance" : "grp_xts_aes_process_bloc_fu_207", "Port" : "block_V"}]}]},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207", "Parent" : "16", "Child" : ["18"],
+					{"ID" : "13", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "block_V"}]}]},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199", "Parent" : "12", "Child" : ["14"],
 		"CDFG" : "xts_aes_process_bloc",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3203", "EstimateLatencyMax" : "4828",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1541", "EstimateLatencyMax" : "2568",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -564,43 +548,31 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_130"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_130"}],
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_122"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_122"}],
 		"Port" : [
 			{"Name" : "block_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "text_V"}]},
+					{"ID" : "14", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "text_V"}]},
 			{"Name" : "block_V_offset", "Type" : "None", "Direction" : "I"},
 			{"Name" : "tweak_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mode_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "expanded_key_V"}]},
+					{"ID" : "14", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "expanded_key_V"}]},
 			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "s_boxes_V"}]},
-			{"Name" : "mix_column_constant_matrices_0_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "mix_column_constant_matrices_0_V"}]},
-			{"Name" : "mix_column_constant_matrices_1_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "mix_column_constant_matrices_1_V"}]},
-			{"Name" : "mix_column_constant_matrices_2_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "mix_column_constant_matrices_2_V"}]},
-			{"Name" : "mix_column_constant_matrices_3_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "mix_column_constant_matrices_3_V"}]},
+					{"ID" : "14", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "s_boxes_V"}]},
 			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_process_2_fu_130", "Port" : "multiplication_V"}]}]},
-	{"ID" : "18", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130", "Parent" : "17", "Child" : ["19", "20", "21", "23", "24", "25", "26"],
+					{"ID" : "14", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "multiplication_V"}]}]},
+	{"ID" : "14", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122", "Parent" : "13", "Child" : ["15", "16", "17", "34", "35", "36", "37"],
 		"CDFG" : "aes_process_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3136", "EstimateLatencyMax" : "4761",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1474", "EstimateLatencyMax" : "2501",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -608,18 +580,18 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_230"},
+			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_230"},
 			{"State" : "ap_ST_fsm_state11", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_238"},
 			{"State" : "ap_ST_fsm_state20", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_238"},
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_244"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_244"},
-			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_260"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_260"},
-			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_260"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_268"},
-			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_268"},
-			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_276"},
-			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_276"},
-			{"State" : "ap_ST_fsm_state22", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_276"}],
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_244"},
+			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_244"},
+			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_252"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_252"},
+			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_252"},
+			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_260"},
+			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_260"},
+			{"State" : "ap_ST_fsm_state22", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_260"}],
 		"Port" : [
 			{"Name" : "text_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "sequence_out_V_offset", "Type" : "None", "Direction" : "I"},
@@ -627,34 +599,55 @@ set RtlHierarchyInfo {[
 			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "24", "SubInstance" : "grp_aes_get_round_key5_fu_260", "Port" : "expanded_key_V"}]},
+					{"ID" : "36", "SubInstance" : "grp_aes_get_round_key5_fu_252", "Port" : "expanded_key_V"}]},
 			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "25", "SubInstance" : "grp_aes_substitute_bytes_fu_268", "Port" : "s_box_V"}]},
-			{"Name" : "mix_column_constant_matrices_0_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "23", "SubInstance" : "grp_aes_mix_columns8_fu_244", "Port" : "constant_matrix_0_V"}]},
-			{"Name" : "mix_column_constant_matrices_1_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "23", "SubInstance" : "grp_aes_mix_columns8_fu_244", "Port" : "constant_matrix_1_V"}]},
-			{"Name" : "mix_column_constant_matrices_2_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "23", "SubInstance" : "grp_aes_mix_columns8_fu_244", "Port" : "constant_matrix_2_V"}]},
-			{"Name" : "mix_column_constant_matrices_3_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "23", "SubInstance" : "grp_aes_mix_columns8_fu_244", "Port" : "constant_matrix_3_V"}]},
+					{"ID" : "35", "SubInstance" : "grp_aes_substitute_bytes_fu_244", "Port" : "s_box_V"}]},
 			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "23", "SubInstance" : "grp_aes_mix_columns8_fu_244", "Port" : "multiplication_V"}]}]},
-	{"ID" : "19", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.state_matrix_V_U", "Parent" : "18"},
-	{"ID" : "20", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.round_key_V_U", "Parent" : "18"},
-	{"ID" : "21", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.grp_aes_shift_rows_fu_238", "Parent" : "18", "Child" : ["22"],
+					{"ID" : "17", "SubInstance" : "grp_aes_mix_columns8_fu_230", "Port" : "multiplication_V"}]}]},
+	{"ID" : "15", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.state_matrix_V_U", "Parent" : "14"},
+	{"ID" : "16", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.round_key_V_U", "Parent" : "14"},
+	{"ID" : "17", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230", "Parent" : "14", "Child" : ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33"],
+		"CDFG" : "aes_mix_columns8",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "36", "EstimateLatencyMax" : "36",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "18", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U26", "Parent" : "17"},
+	{"ID" : "19", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U27", "Parent" : "17"},
+	{"ID" : "20", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U28", "Parent" : "17"},
+	{"ID" : "21", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U29", "Parent" : "17"},
+	{"ID" : "22", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U30", "Parent" : "17"},
+	{"ID" : "23", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U31", "Parent" : "17"},
+	{"ID" : "24", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U32", "Parent" : "17"},
+	{"ID" : "25", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U33", "Parent" : "17"},
+	{"ID" : "26", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U34", "Parent" : "17"},
+	{"ID" : "27", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U35", "Parent" : "17"},
+	{"ID" : "28", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U36", "Parent" : "17"},
+	{"ID" : "29", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U37", "Parent" : "17"},
+	{"ID" : "30", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U38", "Parent" : "17"},
+	{"ID" : "31", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U39", "Parent" : "17"},
+	{"ID" : "32", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U40", "Parent" : "17"},
+	{"ID" : "33", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U41", "Parent" : "17"},
+	{"ID" : "34", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_shift_rows_fu_238", "Parent" : "14",
 		"CDFG" : "aes_shift_rows",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "31", "EstimateLatencyMax" : "70",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "19", "EstimateLatencyMax" : "58",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -664,52 +657,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "22", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.grp_aes_shift_rows_fu_238.xts_aes_mux_42_16cud_U24", "Parent" : "21"},
-	{"ID" : "23", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.grp_aes_mix_columns8_fu_244", "Parent" : "18",
-		"CDFG" : "aes_mix_columns8",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "81", "EstimateLatencyMax" : "81",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "constant_matrix_0_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_1_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_2_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_3_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "24", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.grp_aes_get_round_key5_fu_260", "Parent" : "18",
-		"CDFG" : "aes_get_round_key5",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "round", "Type" : "None", "Direction" : "I"},
-			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "25", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.grp_aes_substitute_bytes_fu_268", "Parent" : "18",
+	{"ID" : "35", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_substitute_bytes_fu_244", "Parent" : "14",
 		"CDFG" : "aes_substitute_bytes",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "57", "EstimateLatencyMax" : "57",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -720,13 +674,30 @@ set RtlHierarchyInfo {[
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "26", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_24149.grp_xts_aes_process_bloc_fu_207.grp_aes_process_2_fu_130.grp_aes_add_round_key_fu_276", "Parent" : "18",
+	{"ID" : "36", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_get_round_key5_fu_252", "Parent" : "14",
+		"CDFG" : "aes_get_round_key5",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "round", "Type" : "None", "Direction" : "I"},
+			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
+	{"ID" : "37", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_data_fu_23760.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_add_round_key_fu_260", "Parent" : "14",
 		"CDFG" : "aes_add_round_key",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -736,13 +707,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "round_key_matrix_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167", "Parent" : "0", "Child" : ["28", "29", "30", "32", "33", "34", "35", "36"],
+	{"ID" : "38", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774", "Parent" : "0", "Child" : ["39", "40", "41", "58", "59", "60", "61", "62"],
 		"CDFG" : "aes_process_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3223", "EstimateLatencyMax" : "3769",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1579", "EstimateLatencyMax" : "2125",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -750,54 +721,75 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_193"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_193"},
-			{"State" : "ap_ST_fsm_state10", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_200"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_sequence_to_matr_fu_217"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_227"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_227"},
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_227"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_238"},
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_238"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_247"},
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_247"},
-			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_247"}],
+			{"State" : "ap_ST_fsm_state10", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_185"},
+			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_194"},
+			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_194"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_201"},
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_201"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_210"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_210"},
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_210"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_221"},
+			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_221"},
+			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_221"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_sequence_to_matr_fu_227"}],
 		"Port" : [
 			{"Name" : "text_V", "Type" : "MAXI", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "33", "SubInstance" : "grp_aes_sequence_to_matr_fu_217", "Port" : "sequence_V"}]},
+					{"ID" : "62", "SubInstance" : "grp_aes_sequence_to_matr_fu_227", "Port" : "sequence_V"}]},
 			{"Name" : "text_V_offset", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "34", "SubInstance" : "grp_aes_get_round_key5_fu_227", "Port" : "expanded_key_V"}]},
+					{"ID" : "60", "SubInstance" : "grp_aes_get_round_key5_fu_210", "Port" : "expanded_key_V"}]},
 			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_aes_substitute_bytes_fu_238", "Port" : "s_box_V"}]},
-			{"Name" : "mix_column_constant_matrices_0_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_0_V"}]},
-			{"Name" : "mix_column_constant_matrices_1_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_1_V"}]},
-			{"Name" : "mix_column_constant_matrices_2_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_2_V"}]},
-			{"Name" : "mix_column_constant_matrices_3_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_3_V"}]},
+					{"ID" : "59", "SubInstance" : "grp_aes_substitute_bytes_fu_201", "Port" : "s_box_V"}]},
 			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "multiplication_V"}]},
+					{"ID" : "41", "SubInstance" : "grp_aes_mix_columns8_fu_185", "Port" : "multiplication_V"}]},
 			{"Name" : "sequence_out_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.state_matrix_V_U", "Parent" : "27"},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.round_key_V_U", "Parent" : "27"},
-	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_shift_rows_fu_193", "Parent" : "27", "Child" : ["31"],
+	{"ID" : "39", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.state_matrix_V_U", "Parent" : "38"},
+	{"ID" : "40", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.round_key_V_U", "Parent" : "38"},
+	{"ID" : "41", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185", "Parent" : "38", "Child" : ["42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57"],
+		"CDFG" : "aes_mix_columns8",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "36", "EstimateLatencyMax" : "36",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "42", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U26", "Parent" : "41"},
+	{"ID" : "43", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U27", "Parent" : "41"},
+	{"ID" : "44", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U28", "Parent" : "41"},
+	{"ID" : "45", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U29", "Parent" : "41"},
+	{"ID" : "46", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U30", "Parent" : "41"},
+	{"ID" : "47", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U31", "Parent" : "41"},
+	{"ID" : "48", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U32", "Parent" : "41"},
+	{"ID" : "49", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U33", "Parent" : "41"},
+	{"ID" : "50", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U34", "Parent" : "41"},
+	{"ID" : "51", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U35", "Parent" : "41"},
+	{"ID" : "52", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U36", "Parent" : "41"},
+	{"ID" : "53", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U37", "Parent" : "41"},
+	{"ID" : "54", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U38", "Parent" : "41"},
+	{"ID" : "55", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U39", "Parent" : "41"},
+	{"ID" : "56", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U40", "Parent" : "41"},
+	{"ID" : "57", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U41", "Parent" : "41"},
+	{"ID" : "58", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_shift_rows_fu_194", "Parent" : "38",
 		"CDFG" : "aes_shift_rows",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "31", "EstimateLatencyMax" : "70",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "19", "EstimateLatencyMax" : "58",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -807,14 +799,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "31", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_shift_rows_fu_193.xts_aes_mux_42_16cud_U24", "Parent" : "30"},
-	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_mix_columns8_fu_200", "Parent" : "27",
-		"CDFG" : "aes_mix_columns8",
+	{"ID" : "59", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_substitute_bytes_fu_201", "Parent" : "38",
+		"CDFG" : "aes_substitute_bytes",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "81", "EstimateLatencyMax" : "81",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -823,13 +814,42 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "constant_matrix_0_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_1_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_2_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_3_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "33", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_sequence_to_matr_fu_217", "Parent" : "27",
+			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "60", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_get_round_key5_fu_210", "Parent" : "38",
+		"CDFG" : "aes_get_round_key5",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "round", "Type" : "None", "Direction" : "I"},
+			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
+	{"ID" : "61", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_add_round_key_fu_221", "Parent" : "38",
+		"CDFG" : "aes_add_round_key",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "round_key_matrix_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "62", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_23774.grp_aes_sequence_to_matr_fu_227", "Parent" : "38",
 		"CDFG" : "aes_sequence_to_matr",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -849,57 +869,7 @@ set RtlHierarchyInfo {[
 					{"Name" : "sequence_V_blk_n_R", "Type" : "RtlSignal"}]},
 			{"Name" : "sequence_V_offset", "Type" : "None", "Direction" : "I"},
 			{"Name" : "matrix_out_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_get_round_key5_fu_227", "Parent" : "27",
-		"CDFG" : "aes_get_round_key5",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "round", "Type" : "None", "Direction" : "I"},
-			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "35", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_substitute_bytes_fu_238", "Parent" : "27",
-		"CDFG" : "aes_substitute_bytes",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "57", "EstimateLatencyMax" : "57",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_process_1_fu_24167.grp_aes_add_round_key_fu_247", "Parent" : "27",
-		"CDFG" : "aes_add_round_key",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "round_key_matrix_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "37", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182", "Parent" : "0", "Child" : ["38", "39", "40", "41", "42", "43"],
+	{"ID" : "63", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785", "Parent" : "0", "Child" : ["64", "65", "66", "67", "68", "69"],
 		"CDFG" : "aes_expand_key",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -922,12 +892,12 @@ set RtlHierarchyInfo {[
 			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "expanded_key_matrix_V", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "rcon", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "38", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182.rcon_U", "Parent" : "37"},
-	{"ID" : "39", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182.expanded_key_V_U", "Parent" : "37"},
-	{"ID" : "40", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182.xts_aes_mux_42_16cud_U1", "Parent" : "37"},
-	{"ID" : "41", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182.xts_aes_mux_42_16cud_U2", "Parent" : "37"},
-	{"ID" : "42", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182.xts_aes_mux_42_16cud_U3", "Parent" : "37"},
-	{"ID" : "43", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_24182.xts_aes_mux_42_16cud_U4", "Parent" : "37"}]}
+	{"ID" : "64", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785.rcon_U", "Parent" : "63"},
+	{"ID" : "65", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785.expanded_key_V_U", "Parent" : "63"},
+	{"ID" : "66", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785.xts_aes_mux_42_16cud_U1", "Parent" : "63"},
+	{"ID" : "67", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785.xts_aes_mux_42_16cud_U2", "Parent" : "63"},
+	{"ID" : "68", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785.xts_aes_mux_42_16cud_U3", "Parent" : "63"},
+	{"ID" : "69", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_expand_key_fu_23785.xts_aes_mux_42_16cud_U4", "Parent" : "63"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -949,97 +919,73 @@ set ArgLastReadFirstWriteLatency {
 		num_blocks_orig_V {Type I LastRead 6 FirstWrite -1}
 		mode_V {Type I LastRead 6 FirstWrite -1}
 		tweak_V {Type IO LastRead 11 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 3 FirstWrite -1}
-		mix_column_constant_matrices_0_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_1_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_2_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_3_V {Type I LastRead 4 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}
 		blocks_V {Type IO LastRead 3 FirstWrite 2}}
 	xts_aes_process_bloc {
 		block_V {Type IO LastRead 3 FirstWrite 2}
 		block_V_offset {Type I LastRead 0 FirstWrite -1}
 		tweak_V {Type I LastRead 3 FirstWrite -1}
 		mode_V {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 3 FirstWrite -1}
-		mix_column_constant_matrices_0_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_1_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_2_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_3_V {Type I LastRead 4 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
 	aes_process_2 {
 		text_V {Type IO LastRead 2 FirstWrite 13}
 		sequence_out_V_offset {Type I LastRead 0 FirstWrite -1}
 		initial_round {Type I LastRead 0 FirstWrite -1}
 		round_factor {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 3 FirstWrite -1}
-		mix_column_constant_matrices_0_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_1_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_2_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_3_V {Type I LastRead 4 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}}
-	aes_shift_rows {
-		state_matrix_V {Type IO LastRead 4 FirstWrite 4}
-		round_factor {Type I LastRead 0 FirstWrite -1}}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
 	aes_mix_columns8 {
-		state_matrix_V {Type IO LastRead 3 FirstWrite 7}
-		constant_matrix_0_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_1_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_2_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_3_V {Type I LastRead 4 FirstWrite -1}
+		state_matrix_V {Type IO LastRead 3 FirstWrite 4}
 		constant_matrix_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
+	aes_shift_rows {
+		state_matrix_V {Type IO LastRead 4 FirstWrite 3}
+		round_factor {Type I LastRead 0 FirstWrite -1}}
+	aes_substitute_bytes {
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		s_box_V {Type I LastRead 4 FirstWrite -1}
+		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
 	aes_get_round_key5 {
 		round {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		round_key_V {Type O LastRead -1 FirstWrite 3}}
-	aes_substitute_bytes {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 4}
-		s_box_V {Type I LastRead 3 FirstWrite -1}
-		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		round_key_V {Type O LastRead -1 FirstWrite 2}}
 	aes_add_round_key {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 3}
-		round_key_matrix_V {Type I LastRead 2 FirstWrite -1}}
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		round_key_matrix_V {Type I LastRead 3 FirstWrite -1}}
 	aes_process_1 {
 		text_V {Type I LastRead 10 FirstWrite -1}
 		text_V_offset {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 3 FirstWrite -1}
-		mix_column_constant_matrices_0_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_1_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_2_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_3_V {Type I LastRead 4 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}
 		sequence_out_V {Type O LastRead -1 FirstWrite 12}}
-	aes_shift_rows {
-		state_matrix_V {Type IO LastRead 4 FirstWrite 4}
-		round_factor {Type I LastRead 0 FirstWrite -1}}
 	aes_mix_columns8 {
-		state_matrix_V {Type IO LastRead 3 FirstWrite 7}
-		constant_matrix_0_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_1_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_2_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_3_V {Type I LastRead 4 FirstWrite -1}
+		state_matrix_V {Type IO LastRead 3 FirstWrite 4}
 		constant_matrix_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
+	aes_shift_rows {
+		state_matrix_V {Type IO LastRead 4 FirstWrite 3}
+		round_factor {Type I LastRead 0 FirstWrite -1}}
+	aes_substitute_bytes {
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		s_box_V {Type I LastRead 4 FirstWrite -1}
+		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
+	aes_get_round_key5 {
+		round {Type I LastRead 0 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		round_key_V {Type O LastRead -1 FirstWrite 2}}
+	aes_add_round_key {
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		round_key_matrix_V {Type I LastRead 3 FirstWrite -1}}
 	aes_sequence_to_matr {
 		sequence_V {Type I LastRead 10 FirstWrite -1}
 		sequence_V_offset {Type I LastRead 0 FirstWrite -1}
 		matrix_out_V {Type O LastRead -1 FirstWrite 11}}
-	aes_get_round_key5 {
-		round {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		round_key_V {Type O LastRead -1 FirstWrite 3}}
-	aes_substitute_bytes {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 4}
-		s_box_V {Type I LastRead 3 FirstWrite -1}
-		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_add_round_key {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 3}
-		round_key_matrix_V {Type I LastRead 2 FirstWrite -1}}
 	aes_expand_key {
 		key_V {Type I LastRead 8 FirstWrite -1}
 		key_V_offset {Type I LastRead 0 FirstWrite -1}
@@ -1051,8 +997,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "13783", "Max" : "327889"}
-	, {"Name" : "Interval", "Min" : "13784", "Max" : "327890"}
+	{"Name" : "Latency", "Min" : "12139", "Max" : "181605"}
+	, {"Name" : "Interval", "Min" : "12140", "Max" : "181606"}
 ]}
 
 set PipelineEnableSignalInfo {[

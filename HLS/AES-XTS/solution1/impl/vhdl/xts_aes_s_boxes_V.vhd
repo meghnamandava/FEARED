@@ -24,6 +24,7 @@ entity xts_aes_s_boxes_V_ram is
           ce1       : in std_logic; 
           d1        : in std_logic_vector(DWIDTH-1 downto 0); 
           we1       : in std_logic; 
+          q1        : out std_logic_vector(DWIDTH-1 downto 0);
           clk        : in std_logic 
     ); 
 end entity; 
@@ -32,6 +33,7 @@ end entity;
 architecture rtl of xts_aes_s_boxes_V_ram is 
 
 signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
+signal addr1_tmp : std_logic_vector(AWIDTH-1 downto 0); 
 type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
 shared variable ram : mem_array;
 
@@ -67,14 +69,26 @@ begin
     end if;
 end process;
 
+memory_access_guard_1: process (addr1) 
+begin
+      addr1_tmp <= addr1;
+--synthesis translate_off
+      if (CONV_INTEGER(addr1) > mem_size-1) then
+           addr1_tmp <= (others => '0');
+      else 
+           addr1_tmp <= addr1;
+      end if;
+--synthesis translate_on
+end process;
 
 p_memory_access_1: process (clk)  
 begin 
     if (clk'event and clk = '1') then
         if (ce1 = '1') then 
             if (we1 = '1') then 
-                ram(CONV_INTEGER(addr1)) := d1; 
+                ram(CONV_INTEGER(addr1_tmp)) := d1; 
             end if;
+            q1 <= ram(CONV_INTEGER(addr1_tmp)); 
         end if;
     end if;
 end process;
@@ -101,7 +115,8 @@ entity xts_aes_s_boxes_V is
         address1 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
         ce1 : IN STD_LOGIC;
         we1 : IN STD_LOGIC;
-        d1 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
+        d1 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
+        q1 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
 end entity;
 
 architecture arch of xts_aes_s_boxes_V is
@@ -116,7 +131,8 @@ architecture arch of xts_aes_s_boxes_V is
             addr1 : IN STD_LOGIC_VECTOR;
             ce1 : IN STD_LOGIC;
             we1 : IN STD_LOGIC;
-            d1 : IN STD_LOGIC_VECTOR);
+            d1 : IN STD_LOGIC_VECTOR;
+            q1 : OUT STD_LOGIC_VECTOR);
     end component;
 
 
@@ -133,7 +149,8 @@ begin
         addr1 => address1,
         ce1 => ce1,
         we1 => we1,
-        d1 => d1);
+        d1 => d1,
+        q1 => q1);
 
 end architecture;
 

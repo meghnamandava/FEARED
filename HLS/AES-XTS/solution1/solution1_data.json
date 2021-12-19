@@ -13,7 +13,26 @@
     "Speed": "-1"
   },
   "HlsSolution": {
-    
+    "Config": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=verilog"
+    ],
+    "DirectiveTcl": [
+      "set_directive_unroll aes_substitute_bytes\/aes_substitute_bytes_label0 ",
+      "set_directive_pipeline aes_substitute_bytes\/aes_substitute_bytes_label1 ",
+      "set_directive_pipeline aes_shift_rows\/aes_shift_rows_label2 ",
+      "set_directive_pipeline aes_mix_columns\/aes_mix_columns_label3 ",
+      "set_directive_pipeline aes_add_round_key\/aes_add_round_key_label4 ",
+      "set_directive_pipeline aes_get_round_key\/aes_get_round_key_label5 "
+    ],
+    "DirectiveInfo": [
+      "unroll aes_substitute_bytes\/aes_substitute_bytes_label0 {} {}",
+      "pipeline aes_substitute_bytes\/aes_substitute_bytes_label1 {} {}",
+      "pipeline aes_shift_rows\/aes_shift_rows_label2 {} {}",
+      "pipeline aes_mix_columns\/aes_mix_columns_label3 {} {}",
+      "pipeline aes_add_round_key\/aes_add_round_key_label4 {} {}",
+      "pipeline aes_get_round_key\/aes_get_round_key_label5 {} {}"
+    ]
   },
   "Args": {
     "key": {
@@ -83,7 +102,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "13783",
+    "Latency": "12139",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -108,24 +127,24 @@
       "impl\/vhdl\/aes_get_round_key5.vhd",
       "impl\/vhdl\/aes_mix_columns8.vhd",
       "impl\/vhdl\/aes_process_1.vhd",
-      "impl\/vhdl\/aes_process_1_roueOg.vhd",
-      "impl\/vhdl\/aes_process_1_stadEe.vhd",
+      "impl\/vhdl\/aes_process_1_staeOg.vhd",
       "impl\/vhdl\/aes_process_2.vhd",
       "impl\/vhdl\/aes_sequence_to_matr.vhd",
       "impl\/vhdl\/aes_shift_rows.vhd",
       "impl\/vhdl\/aes_substitute_bytes.vhd",
+      "impl\/vhdl\/xts_aes_aes_expanjbC.vhd",
       "impl\/vhdl\/xts_aes_aes_tweak_V.vhd",
       "impl\/vhdl\/xts_aes_ctrl_s_axi.vhd",
       "impl\/vhdl\/xts_aes_data0_m_axi.vhd",
       "impl\/vhdl\/xts_aes_data1_m_axi.vhd",
       "impl\/vhdl\/xts_aes_data2_m_axi.vhd",
       "impl\/vhdl\/xts_aes_data3_m_axi.vhd",
-      "impl\/vhdl\/xts_aes_mix_columibs.vhd",
-      "impl\/vhdl\/xts_aes_multiplichbi.vhd",
+      "impl\/vhdl\/xts_aes_multiplicibs.vhd",
+      "impl\/vhdl\/xts_aes_mux_32_8_dEe.vhd",
       "impl\/vhdl\/xts_aes_mux_42_16cud.vhd",
       "impl\/vhdl\/xts_aes_process_bloc.vhd",
       "impl\/vhdl\/xts_aes_process_data.vhd",
-      "impl\/vhdl\/xts_aes_processedocq.vhd",
+      "impl\/vhdl\/xts_aes_processedlbW.vhd",
       "impl\/vhdl\/xts_aes_s_boxes_V.vhd",
       "impl\/vhdl\/xts_aes.vhd"
     ],
@@ -138,24 +157,24 @@
       "impl\/verilog\/aes_get_round_key5.v",
       "impl\/verilog\/aes_mix_columns8.v",
       "impl\/verilog\/aes_process_1.v",
-      "impl\/verilog\/aes_process_1_roueOg.v",
-      "impl\/verilog\/aes_process_1_stadEe.v",
+      "impl\/verilog\/aes_process_1_staeOg.v",
       "impl\/verilog\/aes_process_2.v",
       "impl\/verilog\/aes_sequence_to_matr.v",
       "impl\/verilog\/aes_shift_rows.v",
       "impl\/verilog\/aes_substitute_bytes.v",
+      "impl\/verilog\/xts_aes_aes_expanjbC.v",
       "impl\/verilog\/xts_aes_aes_tweak_V.v",
       "impl\/verilog\/xts_aes_ctrl_s_axi.v",
       "impl\/verilog\/xts_aes_data0_m_axi.v",
       "impl\/verilog\/xts_aes_data1_m_axi.v",
       "impl\/verilog\/xts_aes_data2_m_axi.v",
       "impl\/verilog\/xts_aes_data3_m_axi.v",
-      "impl\/verilog\/xts_aes_mix_columibs.v",
-      "impl\/verilog\/xts_aes_multiplichbi.v",
+      "impl\/verilog\/xts_aes_multiplicibs.v",
+      "impl\/verilog\/xts_aes_mux_32_8_dEe.v",
       "impl\/verilog\/xts_aes_mux_42_16cud.v",
       "impl\/verilog\/xts_aes_process_bloc.v",
       "impl\/verilog\/xts_aes_process_data.v",
-      "impl\/verilog\/xts_aes_processedocq.v",
+      "impl\/verilog\/xts_aes_processedlbW.v",
       "impl\/verilog\/xts_aes_s_boxes_V.v",
       "impl\/verilog\/xts_aes.v"
     ],
@@ -2091,33 +2110,33 @@
       "Instances": [
         {
           "ModuleName": "xts_aes_process_data",
-          "InstanceName": "grp_xts_aes_process_data_fu_24149",
+          "InstanceName": "grp_xts_aes_process_data_fu_23760",
           "Instances": [{
               "ModuleName": "xts_aes_process_bloc",
-              "InstanceName": "grp_xts_aes_process_bloc_fu_207",
+              "InstanceName": "grp_xts_aes_process_bloc_fu_199",
               "Instances": [{
                   "ModuleName": "aes_process_2",
-                  "InstanceName": "grp_aes_process_2_fu_130",
+                  "InstanceName": "grp_aes_process_2_fu_122",
                   "Instances": [
+                    {
+                      "ModuleName": "aes_mix_columns8",
+                      "InstanceName": "grp_aes_mix_columns8_fu_230"
+                    },
                     {
                       "ModuleName": "aes_shift_rows",
                       "InstanceName": "grp_aes_shift_rows_fu_238"
                     },
                     {
-                      "ModuleName": "aes_mix_columns8",
-                      "InstanceName": "grp_aes_mix_columns8_fu_244"
+                      "ModuleName": "aes_substitute_bytes",
+                      "InstanceName": "grp_aes_substitute_bytes_fu_244"
                     },
                     {
                       "ModuleName": "aes_get_round_key5",
-                      "InstanceName": "grp_aes_get_round_key5_fu_260"
-                    },
-                    {
-                      "ModuleName": "aes_substitute_bytes",
-                      "InstanceName": "grp_aes_substitute_bytes_fu_268"
+                      "InstanceName": "grp_aes_get_round_key5_fu_252"
                     },
                     {
                       "ModuleName": "aes_add_round_key",
-                      "InstanceName": "grp_aes_add_round_key_fu_276"
+                      "InstanceName": "grp_aes_add_round_key_fu_260"
                     }
                   ]
                 }]
@@ -2125,37 +2144,37 @@
         },
         {
           "ModuleName": "aes_process_1",
-          "InstanceName": "grp_aes_process_1_fu_24167",
+          "InstanceName": "grp_aes_process_1_fu_23774",
           "Instances": [
             {
-              "ModuleName": "aes_shift_rows",
-              "InstanceName": "grp_aes_shift_rows_fu_193"
-            },
-            {
               "ModuleName": "aes_mix_columns8",
-              "InstanceName": "grp_aes_mix_columns8_fu_200"
+              "InstanceName": "grp_aes_mix_columns8_fu_185"
             },
             {
-              "ModuleName": "aes_sequence_to_matr",
-              "InstanceName": "grp_aes_sequence_to_matr_fu_217"
-            },
-            {
-              "ModuleName": "aes_get_round_key5",
-              "InstanceName": "grp_aes_get_round_key5_fu_227"
+              "ModuleName": "aes_shift_rows",
+              "InstanceName": "grp_aes_shift_rows_fu_194"
             },
             {
               "ModuleName": "aes_substitute_bytes",
-              "InstanceName": "grp_aes_substitute_bytes_fu_238"
+              "InstanceName": "grp_aes_substitute_bytes_fu_201"
+            },
+            {
+              "ModuleName": "aes_get_round_key5",
+              "InstanceName": "grp_aes_get_round_key5_fu_210"
             },
             {
               "ModuleName": "aes_add_round_key",
-              "InstanceName": "grp_aes_add_round_key_fu_247"
+              "InstanceName": "grp_aes_add_round_key_fu_221"
+            },
+            {
+              "ModuleName": "aes_sequence_to_matr",
+              "InstanceName": "grp_aes_sequence_to_matr_fu_227"
             }
           ]
         },
         {
           "ModuleName": "aes_expand_key",
-          "InstanceName": "grp_aes_expand_key_fu_24182"
+          "InstanceName": "grp_aes_expand_key_fu_23785"
         }
       ]
     },
@@ -2343,7 +2362,7 @@
         "Area": {
           "BRAM_18K": "2",
           "FF": "883",
-          "LUT": "1382",
+          "LUT": "1358",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -2386,35 +2405,28 @@
       },
       "aes_get_round_key5": {
         "Latency": {
-          "LatencyBest": "41",
-          "LatencyAvg": "41",
-          "LatencyWorst": "41",
-          "PipelineII": "41",
+          "LatencyBest": "10",
+          "LatencyAvg": "10",
+          "LatencyWorst": "10",
+          "PipelineII": "10",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "6.952"
+          "Estimate": "6.900"
         },
         "Loops": [{
-            "Name": "Loop 1",
+            "Name": "aes_get_round_key_label5",
             "TripCount": "4",
-            "Latency": "40",
-            "PipelineII": "",
-            "PipelineDepth": "10",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "4",
-                "Latency": "8",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }]
+            "Latency": "8",
+            "PipelineII": "2",
+            "PipelineDepth": "3"
           }],
         "Area": {
-          "FF": "39",
-          "LUT": "135",
+          "FF": "51",
+          "LUT": "254",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -2422,35 +2434,28 @@
       },
       "aes_add_round_key": {
         "Latency": {
-          "LatencyBest": "41",
-          "LatencyAvg": "41",
-          "LatencyWorst": "41",
-          "PipelineII": "41",
+          "LatencyBest": "18",
+          "LatencyAvg": "18",
+          "LatencyWorst": "18",
+          "PipelineII": "18",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "5.634"
+          "Estimate": "3.312"
         },
         "Loops": [{
-            "Name": "Loop 1",
+            "Name": "aes_add_round_key_label4",
             "TripCount": "4",
-            "Latency": "40",
-            "PipelineII": "",
-            "PipelineDepth": "10",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "4",
-                "Latency": "8",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }]
+            "Latency": "16",
+            "PipelineII": "4",
+            "PipelineDepth": "4"
           }],
         "Area": {
-          "FF": "23",
-          "LUT": "133",
+          "FF": "55",
+          "LUT": "199",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -2458,10 +2463,10 @@
       },
       "aes_substitute_bytes": {
         "Latency": {
-          "LatencyBest": "57",
-          "LatencyAvg": "57",
-          "LatencyWorst": "57",
-          "PipelineII": "57",
+          "LatencyBest": "18",
+          "LatencyAvg": "18",
+          "LatencyWorst": "18",
+          "PipelineII": "18",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -2471,22 +2476,15 @@
           "Estimate": "7.215"
         },
         "Loops": [{
-            "Name": "Loop 1",
+            "Name": "aes_substitute_bytes_label1",
             "TripCount": "4",
-            "Latency": "56",
-            "PipelineII": "",
-            "PipelineDepth": "14",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "4",
-                "Latency": "12",
-                "PipelineII": "",
-                "PipelineDepth": "3"
-              }]
+            "Latency": "16",
+            "PipelineII": "4",
+            "PipelineDepth": "4"
           }],
         "Area": {
-          "FF": "26",
-          "LUT": "136",
+          "FF": "25",
+          "LUT": "249",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -2494,12 +2492,12 @@
       },
       "aes_shift_rows": {
         "Latency": {
-          "LatencyBest": "31",
+          "LatencyBest": "19",
           "LatencyAvg": "",
-          "LatencyWorst": "70",
-          "PipelineIIMin": "31",
-          "PipelineIIMax": "70",
-          "PipelineII": "31 ~ 70",
+          "LatencyWorst": "58",
+          "PipelineIIMin": "19",
+          "PipelineIIMax": "58",
+          "PipelineII": "19 ~ 58",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -2509,18 +2507,18 @@
           "Estimate": "5.752"
         },
         "Loops": [{
-            "Name": "Loop 1",
+            "Name": "aes_shift_rows_label2",
             "TripCount": "3",
-            "LatencyMin": "30",
-            "LatencyMax": "69",
-            "Latency": "30 ~ 69",
+            "LatencyMin": "18",
+            "LatencyMax": "57",
+            "Latency": "18 ~ 57",
             "PipelineII": "",
-            "PipelineDepthMin": "10",
-            "PipelineDepthMax": "23",
-            "PipelineDepth": "10 ~ 23",
+            "PipelineDepthMin": "6",
+            "PipelineDepthMax": "19",
+            "PipelineDepth": "6 ~ 19",
             "Loops": [
               {
-                "Name": "Loop 1.1",
+                "Name": "aes_shift_rows_label2.1",
                 "TripCount": "",
                 "LatencyMin": "0",
                 "LatencyMax": "9",
@@ -2529,7 +2527,7 @@
                 "PipelineDepth": "3"
               },
               {
-                "Name": "Loop 1.2",
+                "Name": "aes_shift_rows_label2.2",
                 "TripCount": "",
                 "LatencyMin": "2",
                 "LatencyMax": "6",
@@ -2538,7 +2536,7 @@
                 "PipelineDepth": "2"
               },
               {
-                "Name": "Loop 1.3",
+                "Name": "aes_shift_rows_label2.3",
                 "TripCount": "",
                 "LatencyMin": "3",
                 "LatencyMax": "9",
@@ -2547,26 +2545,19 @@
                 "PipelineDepth": "3"
               },
               {
-                "Name": "Loop 1.4",
+                "Name": "aes_shift_rows_label2.4",
                 "TripCount": "",
                 "LatencyMin": "0",
                 "LatencyMax": "6",
                 "Latency": "0 ~ 6",
                 "PipelineII": "",
                 "PipelineDepth": "2"
-              },
-              {
-                "Name": "Loop 1.5",
-                "TripCount": "4",
-                "Latency": "4",
-                "PipelineII": "",
-                "PipelineDepth": "1"
               }
             ]
           }],
         "Area": {
-          "FF": "467",
-          "LUT": "697",
+          "FF": "477",
+          "LUT": "727",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -2574,35 +2565,28 @@
       },
       "aes_mix_columns8": {
         "Latency": {
-          "LatencyBest": "81",
-          "LatencyAvg": "81",
-          "LatencyWorst": "81",
-          "PipelineII": "81",
+          "LatencyBest": "36",
+          "LatencyAvg": "36",
+          "LatencyWorst": "36",
+          "PipelineII": "36",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.255"
+          "Estimate": "7.349"
         },
         "Loops": [{
-            "Name": "Loop 1",
+            "Name": "aes_mix_columns_label3",
             "TripCount": "4",
-            "Latency": "80",
-            "PipelineII": "",
-            "PipelineDepth": "20",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "4",
-                "Latency": "16",
-                "PipelineII": "",
-                "PipelineDepth": "4"
-              }]
+            "Latency": "34",
+            "PipelineII": "8",
+            "PipelineDepth": "11"
           }],
         "Area": {
-          "FF": "128",
-          "LUT": "296",
+          "FF": "168",
+          "LUT": "884",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -2610,12 +2594,12 @@
       },
       "aes_process_1": {
         "Latency": {
-          "LatencyBest": "3223",
+          "LatencyBest": "1579",
           "LatencyAvg": "",
-          "LatencyWorst": "3769",
-          "PipelineIIMin": "3223",
-          "PipelineIIMax": "3769",
-          "PipelineII": "3223 ~ 3769",
+          "LatencyWorst": "2125",
+          "PipelineIIMin": "1579",
+          "PipelineIIMax": "2125",
+          "PipelineII": "1579 ~ 2125",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -2628,13 +2612,13 @@
           {
             "Name": "Loop 1",
             "TripCount": "13",
-            "LatencyMin": "2834",
-            "LatencyMax": "3341",
-            "Latency": "2834 ~ 3341",
+            "LatencyMin": "1287",
+            "LatencyMax": "1794",
+            "Latency": "1287 ~ 1794",
             "PipelineII": "",
-            "PipelineDepthMin": "218",
-            "PipelineDepthMax": "257",
-            "PipelineDepth": "218 ~ 257"
+            "PipelineDepthMin": "99",
+            "PipelineDepthMax": "138",
+            "PipelineDepth": "99 ~ 138"
           },
           {
             "Name": "Loop 2",
@@ -2652,28 +2636,28 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "0",
-          "FF": "938",
-          "LUT": "2134",
+          "BRAM_18K": "2",
+          "FF": "967",
+          "LUT": "3198",
           "URAM": "0",
           "DSP48E": "0"
         }
       },
       "aes_process_2": {
         "Latency": {
-          "LatencyBest": "3136",
+          "LatencyBest": "1474",
           "LatencyAvg": "",
-          "LatencyWorst": "4761",
-          "PipelineIIMin": "3136",
-          "PipelineIIMax": "4761",
-          "PipelineII": "3136 ~ 4761",
+          "LatencyWorst": "2501",
+          "PipelineIIMin": "1474",
+          "PipelineIIMax": "2501",
+          "PipelineII": "1474 ~ 2501",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.255"
+          "Estimate": "7.349"
         },
         "Loops": [
           {
@@ -2693,13 +2677,13 @@
           {
             "Name": "Loop 2",
             "TripCount": "13",
-            "LatencyMin": "2834",
-            "LatencyMax": "4420",
-            "Latency": "2834 ~ 4420",
+            "LatencyMin": "1300",
+            "LatencyMax": "2288",
+            "Latency": "1300 ~ 2288",
             "PipelineII": "",
-            "PipelineDepthMin": "218",
-            "PipelineDepthMax": "340",
-            "PipelineDepth": "218 ~ 340"
+            "PipelineDepthMin": "100",
+            "PipelineDepthMax": "176",
+            "PipelineDepth": "100 ~ 176"
           },
           {
             "Name": "Loop 3",
@@ -2717,21 +2701,21 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "0",
-          "FF": "902",
-          "LUT": "2221",
+          "BRAM_18K": "2",
+          "FF": "931",
+          "LUT": "3275",
           "URAM": "0",
           "DSP48E": "0"
         }
       },
       "xts_aes_process_bloc": {
         "Latency": {
-          "LatencyBest": "3203",
+          "LatencyBest": "1541",
           "LatencyAvg": "",
-          "LatencyWorst": "4828",
-          "PipelineIIMin": "3203",
-          "PipelineIIMax": "4828",
-          "PipelineII": "3203 ~ 4828",
+          "LatencyWorst": "2568",
+          "PipelineIIMin": "1541",
+          "PipelineIIMax": "2568",
+          "PipelineII": "1541 ~ 2568",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -2757,9 +2741,9 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "0",
-          "FF": "963",
-          "LUT": "2579",
+          "BRAM_18K": "2",
+          "FF": "992",
+          "LUT": "3615",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -2768,10 +2752,10 @@
         "Latency": {
           "LatencyBest": "2312",
           "LatencyAvg": "",
-          "LatencyWorst": "313480",
+          "LatencyWorst": "168840",
           "PipelineIIMin": "2312",
-          "PipelineIIMax": "313480",
-          "PipelineII": "2312 ~ 313480",
+          "PipelineIIMax": "168840",
+          "PipelineII": "2312 ~ 168840",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -2799,12 +2783,12 @@
             "Name": "Loop 2",
             "TripCount": "64",
             "LatencyMin": "128",
-            "LatencyMax": "311296",
-            "Latency": "128 ~ 311296",
+            "LatencyMax": "166656",
+            "Latency": "128 ~ 166656",
             "PipelineII": "",
             "PipelineDepthMin": "2",
-            "PipelineDepthMax": "4864",
-            "PipelineDepth": "2 ~ 4864",
+            "PipelineDepthMax": "2604",
+            "PipelineDepth": "2 ~ 2604",
             "Loops": [{
                 "Name": "Loop 2.1",
                 "TripCount": "16",
@@ -2815,21 +2799,21 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "0",
-          "FF": "1068",
-          "LUT": "2971",
+          "BRAM_18K": "2",
+          "FF": "1097",
+          "LUT": "4007",
           "URAM": "0",
           "DSP48E": "0"
         }
       },
       "xts_aes": {
         "Latency": {
-          "LatencyBest": "13783",
+          "LatencyBest": "12139",
           "LatencyAvg": "",
-          "LatencyWorst": "327889",
-          "PipelineIIMin": "13784",
-          "PipelineIIMax": "327890",
-          "PipelineII": "13784 ~ 327890",
+          "LatencyWorst": "181605",
+          "PipelineIIMin": "12140",
+          "PipelineIIMax": "181606",
+          "PipelineII": "12140 ~ 181606",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -2854,8 +2838,8 @@
           }],
         "Area": {
           "BRAM_18K": "20",
-          "FF": "6579",
-          "LUT": "23409",
+          "FF": "6637",
+          "LUT": "24963",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -2872,7 +2856,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-12-13 15:29:47 -0800",
+    "Time": "2021-12-18 12:10:52 -0800",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.1"
   }

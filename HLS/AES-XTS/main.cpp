@@ -45,9 +45,9 @@ void aes_process(int16 text[16], int initial_round, int round_factor, int16 expa
 
 void aes_substitute_bytes(int16 state_matrix[4][4], ap_uint<8> s_box[256])
 {
-  for (int row_index = 0; row_index < 4; row_index += 1)
+  aes_substitute_bytes_label1:for (int row_index = 0; row_index < 4; row_index += 1)
   {
-    for (int column_index = 0; column_index < 4; column_index += 1)
+    aes_substitute_bytes_label0:for (int column_index = 0; column_index < 4; column_index += 1)
     {
       int16 temp = state_matrix[row_index][column_index];
       state_matrix[row_index][column_index] = s_box[temp];
@@ -59,7 +59,7 @@ void aes_substitute_bytes(int16 state_matrix[4][4], ap_uint<8> s_box[256])
 
 void aes_shift_rows(int16 state_matrix[4][4], int round_factor)
 {
-  for (int row_index = 1; row_index < 4; row_index += 1)
+  aes_shift_rows_label2:for (int row_index = 1; row_index < 4; row_index += 1)
   {
     int16 temp_row[4];
     if (round_factor == 1)
@@ -100,7 +100,7 @@ void aes_shift_rows(int16 state_matrix[4][4], int round_factor)
 
 void aes_mix_columns(int16 state_matrix[4][4], ap_uint<8> constant_matrix[4][4], ap_uint<8> multiplication[15][256])
 {
-  for (int column_index = 0; column_index < 4; column_index += 1)
+  aes_mix_columns_label3:for (int column_index = 0; column_index < 4; column_index += 1)
   {
     int16 column[4];
     column[0] = state_matrix[0][column_index];
@@ -121,7 +121,7 @@ void aes_mix_columns(int16 state_matrix[4][4], ap_uint<8> constant_matrix[4][4],
 
 void aes_add_round_key(int16 state_matrix[4][4], int16 round_key_matrix[4][4])
 {
-  for (int row_index = 0; row_index < 4; row_index += 1)
+  aes_add_round_key_label4:for (int row_index = 0; row_index < 4; row_index += 1)
   {
     for (int column_index = 0; column_index < 4; column_index += 1)
     {
@@ -135,7 +135,7 @@ void aes_add_round_key(int16 state_matrix[4][4], int16 round_key_matrix[4][4])
 void aes_get_round_key(int round, int16 expanded_key[4][60], int16 round_key[4][4])
 {
   int16 key_column_index = 4 * round;
-  for (int i = 0; i < 4; i += 1)
+  aes_get_round_key_label5:for (int i = 0; i < 4; i += 1)
   {
     for (int j = 0; j < 4; j += 1)
     {

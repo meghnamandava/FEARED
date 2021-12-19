@@ -11,14 +11,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 25 \
+    id 24 \
     name state_matrix_V \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename state_matrix_V \
     op interface \
-    ports { state_matrix_V_address0 { O 4 vector } state_matrix_V_ce0 { O 1 bit } state_matrix_V_we0 { O 1 bit } state_matrix_V_d0 { O 16 vector } state_matrix_V_q0 { I 16 vector } } \
+    ports { state_matrix_V_address0 { O 4 vector } state_matrix_V_ce0 { O 1 bit } state_matrix_V_we0 { O 1 bit } state_matrix_V_d0 { O 16 vector } state_matrix_V_q0 { I 16 vector } state_matrix_V_address1 { O 4 vector } state_matrix_V_ce1 { O 1 bit } state_matrix_V_we1 { O 1 bit } state_matrix_V_d1 { O 16 vector } state_matrix_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'state_matrix_V'"
@@ -29,7 +29,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 26 \
+    id 25 \
     name round_factor \
     type other \
     dir I \

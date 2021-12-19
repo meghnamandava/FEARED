@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 57 \
+    id 60 \
     name block_V \
     reset_level 1 \
     sync_rst true \
@@ -30,7 +30,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 59 \
+    id 62 \
     name tweak_V \
     reset_level 1 \
     sync_rst true \
@@ -49,14 +49,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 61 \
+    id 64 \
     name expanded_key_V \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename expanded_key_V \
     op interface \
-    ports { expanded_key_V_address0 { O 8 vector } expanded_key_V_ce0 { O 1 bit } expanded_key_V_q0 { I 16 vector } } \
+    ports { expanded_key_V_address0 { O 8 vector } expanded_key_V_ce0 { O 1 bit } expanded_key_V_q0 { I 16 vector } expanded_key_V_address1 { O 8 vector } expanded_key_V_ce1 { O 1 bit } expanded_key_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expanded_key_V'"
@@ -68,14 +68,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 62 \
+    id 65 \
     name s_boxes_V \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename s_boxes_V \
     op interface \
-    ports { s_boxes_V_address0 { O 10 vector } s_boxes_V_ce0 { O 1 bit } s_boxes_V_q0 { I 8 vector } } \
+    ports { s_boxes_V_address0 { O 10 vector } s_boxes_V_ce0 { O 1 bit } s_boxes_V_q0 { I 8 vector } s_boxes_V_address1 { O 10 vector } s_boxes_V_ce1 { O 1 bit } s_boxes_V_q1 { I 8 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 's_boxes_V'"
@@ -87,83 +87,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 63 \
-    name mix_column_constant_matrices_0_V \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename mix_column_constant_matrices_0_V \
-    op interface \
-    ports { mix_column_constant_matrices_0_V_address0 { O 4 vector } mix_column_constant_matrices_0_V_ce0 { O 1 bit } mix_column_constant_matrices_0_V_q0 { I 6 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'mix_column_constant_matrices_0_V'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 64 \
-    name mix_column_constant_matrices_1_V \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename mix_column_constant_matrices_1_V \
-    op interface \
-    ports { mix_column_constant_matrices_1_V_address0 { O 4 vector } mix_column_constant_matrices_1_V_ce0 { O 1 bit } mix_column_constant_matrices_1_V_q0 { I 6 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'mix_column_constant_matrices_1_V'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 65 \
-    name mix_column_constant_matrices_2_V \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename mix_column_constant_matrices_2_V \
-    op interface \
-    ports { mix_column_constant_matrices_2_V_address0 { O 4 vector } mix_column_constant_matrices_2_V_ce0 { O 1 bit } mix_column_constant_matrices_2_V_q0 { I 6 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'mix_column_constant_matrices_2_V'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     id 66 \
-    name mix_column_constant_matrices_3_V \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename mix_column_constant_matrices_3_V \
-    op interface \
-    ports { mix_column_constant_matrices_3_V_address0 { O 4 vector } mix_column_constant_matrices_3_V_ce0 { O 1 bit } mix_column_constant_matrices_3_V_q0 { I 6 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'mix_column_constant_matrices_3_V'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 67 \
     name multiplication_V \
     reset_level 1 \
     sync_rst true \
@@ -181,7 +105,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 58 \
+    id 61 \
     name block_V_offset \
     type other \
     dir I \
@@ -196,7 +120,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 60 \
+    id 63 \
     name mode_V \
     type other \
     dir I \

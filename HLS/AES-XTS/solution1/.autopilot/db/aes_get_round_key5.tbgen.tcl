@@ -15,15 +15,15 @@ set C_modelName {aes_get_round_key5}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ round int 7 regular  }
-	{ expanded_key_V int 16 regular {array 240 { 1 3 } 1 1 }  }
-	{ round_key_V int 16 regular {array 16 { 0 3 } 0 1 }  }
+	{ expanded_key_V int 16 regular {array 240 { 1 1 } 1 1 }  }
+	{ round_key_V int 16 regular {array 16 { 0 0 } 0 1 }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "round", "interface" : "wire", "bitwidth" : 7, "direction" : "READONLY"} , 
  	{ "Name" : "expanded_key_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "round_key_V", "interface" : "memory", "bitwidth" : 16, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 14
+set portNum 21
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -35,10 +35,17 @@ set portList {
 	{ expanded_key_V_address0 sc_out sc_lv 8 signal 1 } 
 	{ expanded_key_V_ce0 sc_out sc_logic 1 signal 1 } 
 	{ expanded_key_V_q0 sc_in sc_lv 16 signal 1 } 
+	{ expanded_key_V_address1 sc_out sc_lv 8 signal 1 } 
+	{ expanded_key_V_ce1 sc_out sc_logic 1 signal 1 } 
+	{ expanded_key_V_q1 sc_in sc_lv 16 signal 1 } 
 	{ round_key_V_address0 sc_out sc_lv 4 signal 2 } 
 	{ round_key_V_ce0 sc_out sc_logic 1 signal 2 } 
 	{ round_key_V_we0 sc_out sc_logic 1 signal 2 } 
 	{ round_key_V_d0 sc_out sc_lv 16 signal 2 } 
+	{ round_key_V_address1 sc_out sc_lv 4 signal 2 } 
+	{ round_key_V_ce1 sc_out sc_logic 1 signal 2 } 
+	{ round_key_V_we1 sc_out sc_logic 1 signal 2 } 
+	{ round_key_V_d1 sc_out sc_lv 16 signal 2 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -51,10 +58,17 @@ set NewPortList {[
  	{ "name": "expanded_key_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address0" }} , 
  	{ "name": "expanded_key_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce0" }} , 
  	{ "name": "expanded_key_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q0" }} , 
+ 	{ "name": "expanded_key_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address1" }} , 
+ 	{ "name": "expanded_key_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce1" }} , 
+ 	{ "name": "expanded_key_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q1" }} , 
  	{ "name": "round_key_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "round_key_V", "role": "address0" }} , 
  	{ "name": "round_key_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "round_key_V", "role": "ce0" }} , 
  	{ "name": "round_key_V_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "round_key_V", "role": "we0" }} , 
- 	{ "name": "round_key_V_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "round_key_V", "role": "d0" }}  ]}
+ 	{ "name": "round_key_V_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "round_key_V", "role": "d0" }} , 
+ 	{ "name": "round_key_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "round_key_V", "role": "address1" }} , 
+ 	{ "name": "round_key_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "round_key_V", "role": "ce1" }} , 
+ 	{ "name": "round_key_V_we1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "round_key_V", "role": "we1" }} , 
+ 	{ "name": "round_key_V_d1", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "round_key_V", "role": "d1" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -63,7 +77,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -79,21 +93,22 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	aes_get_round_key5 {
 		round {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		round_key_V {Type O LastRead -1 FirstWrite 3}}}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		round_key_V {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "41", "Max" : "41"}
-	, {"Name" : "Interval", "Min" : "41", "Max" : "41"}
+	{"Name" : "Latency", "Min" : "10", "Max" : "10"}
+	, {"Name" : "Interval", "Min" : "10", "Max" : "10"}
 ]}
 
 set PipelineEnableSignalInfo {[
+	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
 	round { ap_none {  { round in_data 0 7 } } }
-	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 } } }
-	round_key_V { ap_memory {  { round_key_V_address0 mem_address 1 4 }  { round_key_V_ce0 mem_ce 1 1 }  { round_key_V_we0 mem_we 1 1 }  { round_key_V_d0 mem_din 1 16 } } }
+	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 }  { expanded_key_V_address1 MemPortADDR2 1 8 }  { expanded_key_V_ce1 MemPortCE2 1 1 }  { expanded_key_V_q1 MemPortDOUT2 0 16 } } }
+	round_key_V { ap_memory {  { round_key_V_address0 mem_address 1 4 }  { round_key_V_ce0 mem_ce 1 1 }  { round_key_V_we0 mem_we 1 1 }  { round_key_V_d0 mem_din 1 16 }  { round_key_V_address1 MemPortADDR2 1 4 }  { round_key_V_ce1 MemPortCE2 1 1 }  { round_key_V_we1 MemPortWE2 1 1 }  { round_key_V_d1 MemPortDIN2 1 16 } } }
 }

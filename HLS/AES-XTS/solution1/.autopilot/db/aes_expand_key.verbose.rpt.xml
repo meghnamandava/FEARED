@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_expand_key'" level="0">
-<item name = "Date">Mon Dec 13 15:29:29 2021
+<item name = "Date">Sat Dec 18 12:10:34 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -59,7 +59,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 491, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, 0, 84, -</column>
+<column name="Instance">-, -, 0, 60, -</column>
 <column name="Memory">2, -, 0, 0, 0</column>
 <column name="Multiplexer">-, -, -, 807, -</column>
 <column name="Register">-, -, 883, -, -</column>
@@ -71,10 +71,10 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="xts_aes_mux_42_16cud_U1">xts_aes_mux_42_16cud, 0, 0, 0, 21, 0</column>
-<column name="xts_aes_mux_42_16cud_U2">xts_aes_mux_42_16cud, 0, 0, 0, 21, 0</column>
-<column name="xts_aes_mux_42_16cud_U3">xts_aes_mux_42_16cud, 0, 0, 0, 21, 0</column>
-<column name="xts_aes_mux_42_16cud_U4">xts_aes_mux_42_16cud, 0, 0, 0, 21, 0</column>
+<column name="xts_aes_mux_42_16cud_U1">xts_aes_mux_42_16cud, 0, 0, 0, 15, 0</column>
+<column name="xts_aes_mux_42_16cud_U2">xts_aes_mux_42_16cud, 0, 0, 0, 15, 0</column>
+<column name="xts_aes_mux_42_16cud_U3">xts_aes_mux_42_16cud, 0, 0, 0, 15, 0</column>
+<column name="xts_aes_mux_42_16cud_U4">xts_aes_mux_42_16cud, 0, 0, 0, 15, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -93,10 +93,10 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln180_8_fu_1509_p2">+, 0, 0, 15, 9, 9</column>
+<column name="add_ln180_9_fu_1509_p2">+, 0, 0, 15, 9, 9</column>
 <column name="add_ln180_fu_1042_p2">+, 0, 0, 39, 32, 32</column>
 <column name="add_ln218_fu_1522_p2">+, 0, 0, 15, 8, 8</column>
-<column name="add_ln78_1_fu_1230_p2">+, 0, 0, 13, 9, 11</column>
+<column name="add_ln78_7_fu_1230_p2">+, 0, 0, 13, 9, 11</column>
 <column name="add_ln78_fu_1169_p2">+, 0, 0, 13, 9, 11</column>
 <column name="cur_len_V_fu_1445_p2">+, 0, 0, 15, 3, 8</column>
 <column name="i_10_fu_1281_p2">+, 0, 0, 12, 3, 1</column>
@@ -206,7 +206,7 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln180_8_reg_1722">9, 0, 9, 0</column>
+<column name="add_ln180_9_reg_1722">9, 0, 9, 0</column>
 <column name="ap_CS_fsm">30, 0, 30, 0</column>
 <column name="i2_0_reg_362">3, 0, 3, 0</column>
 <column name="i3_0_reg_605">2, 0, 2, 0</column>

@@ -154,7 +154,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="31" op_0_bw="31" op_1_bw="31">
+<Node id="7" bw="31" op_0_bw="31" op_1_bw="31">
 <![CDATA[
 :0  %text_V_offset_read = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %text_V_offset)
 
@@ -169,7 +169,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="16" op_0_bw="64">
+<Node id="9" bw="16" op_0_bw="64">
 <![CDATA[
 :2  %state_matrix_V = alloca [16 x i16], align 2
 
@@ -184,7 +184,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="16" op_0_bw="64">
+<Node id="10" bw="16" op_0_bw="64">
 <![CDATA[
 :3  %round_key_V = alloca [16 x i16], align 2
 
@@ -199,7 +199,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="15" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="31" op_3_bw="16">
+<Node id="11" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="31" op_3_bw="16">
 <![CDATA[
 :4  call fastcc void @aes_sequence_to_matr(i16* %text_V, i31 %text_V_offset_read, [16 x i16]* nocapture %state_matrix_V)
 
@@ -214,7 +214,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16">
+<Node id="12" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16">
 <![CDATA[
 :5  call fastcc void @aes_get_round_key5(i7 0, [240 x i16]* %expanded_key_V, [16 x i16]* %round_key_V)
 
@@ -232,7 +232,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="15" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="31" op_3_bw="16">
+<Node id="11" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="31" op_3_bw="16">
 <![CDATA[
 :4  call fastcc void @aes_sequence_to_matr(i16* %text_V, i31 %text_V_offset_read, [16 x i16]* nocapture %state_matrix_V)
 
@@ -247,7 +247,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16">
+<Node id="12" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16">
 <![CDATA[
 :5  call fastcc void @aes_get_round_key5(i7 0, [240 x i16]* %expanded_key_V, [16 x i16]* %round_key_V)
 
@@ -265,7 +265,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="17" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0">
+<Node id="13" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 :6  call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)
 
@@ -283,9 +283,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="8" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecInterface(i16* %text_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str6, [6 x i8]* @p_str3, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+:1  call void (...)* @_ssdm_op_SpecInterface(i16* %text_V, [6 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str12, [6 x i8]* @p_str9, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -298,7 +298,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="17" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0">
+<Node id="13" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 :6  call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)
 
@@ -313,7 +313,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="0" op_0_bw="0">
+<Node id="14" bw="0" op_0_bw="0">
 <![CDATA[
 :7  br label %1
 
@@ -331,7 +331,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="4" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0">
+<Node id="16" bw="4" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0">
 <![CDATA[
 :0  %phi_ln16 = phi i4 [ 1, %0 ], [ %add_ln24, %._crit_edge ]
 
@@ -346,7 +346,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="4" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0">
+<Node id="17" bw="4" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0">
 <![CDATA[
 :1  %i_0 = phi i4 [ 0, %0 ], [ %i, %._crit_edge ]
 
@@ -361,7 +361,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="22" bw="1" op_0_bw="4" op_1_bw="4">
+<Node id="18" bw="1" op_0_bw="4" op_1_bw="4">
 <![CDATA[
 :2  %icmp_ln24 = icmp eq i4 %i_0, -3
 
@@ -376,7 +376,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="23" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="19" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
 :3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
 
@@ -391,7 +391,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="4" op_0_bw="4" op_1_bw="4">
+<Node id="20" bw="4" op_0_bw="4" op_1_bw="4">
 <![CDATA[
 :4  %i = add i4 %i_0, 1
 
@@ -406,7 +406,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="21" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 :5  br i1 %icmp_ln24, label %2, label %._crit_edge
 
@@ -422,7 +422,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
+<Node id="23" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 ._crit_edge:0  call fastcc void @aes_substitute_bytes([16 x i16]* %state_matrix_V, [768 x i8]* %s_boxes_V, i2 1)
 
@@ -438,7 +438,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="7" op_0_bw="4">
+<Node id="26" bw="7" op_0_bw="4">
 <![CDATA[
 ._crit_edge:3  %zext_ln29 = zext i4 %phi_ln16 to i7
 
@@ -454,7 +454,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
+<Node id="27" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 ._crit_edge:4  call fastcc void @aes_get_round_key5(i7 %zext_ln29, [240 x i16]* %expanded_key_V, [16 x i16]* %round_key_V)
 
@@ -470,7 +470,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="4" op_0_bw="4" op_1_bw="4">
+<Node id="29" bw="4" op_0_bw="4" op_1_bw="4">
 <![CDATA[
 ._crit_edge:6  %add_ln24 = add i4 %phi_ln16, 1
 
@@ -486,7 +486,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
+<Node id="32" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 :0  call fastcc void @aes_substitute_bytes([16 x i16]* %state_matrix_V, [768 x i8]* %s_boxes_V, i2 1)
 
@@ -502,7 +502,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="38" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
+<Node id="34" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 :2  call fastcc void @aes_get_round_key5(i7 14, [240 x i16]* %expanded_key_V, [16 x i16]* %round_key_V)
 
@@ -520,7 +520,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
+<Node id="23" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 ._crit_edge:0  call fastcc void @aes_substitute_bytes([16 x i16]* %state_matrix_V, [768 x i8]* %s_boxes_V, i2 1)
 
@@ -535,7 +535,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
+<Node id="27" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 ._crit_edge:4  call fastcc void @aes_get_round_key5(i7 %zext_ln29, [240 x i16]* %expanded_key_V, [16 x i16]* %round_key_V)
 
@@ -553,7 +553,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
+<Node id="24" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
 <![CDATA[
 ._crit_edge:1  call fastcc void @aes_shift_rows([16 x i16]* %state_matrix_V, i2 1)
 
@@ -571,7 +571,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
+<Node id="24" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
 <![CDATA[
 ._crit_edge:1  call fastcc void @aes_shift_rows([16 x i16]* %state_matrix_V, i2 1)
 
@@ -589,9 +589,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="6" op_5_bw="6" op_6_bw="2" op_7_bw="8" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="0">
+<Node id="25" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="8" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0">
 <![CDATA[
-._crit_edge:2  call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, i2 1, [3840 x i8]* %multiplication_V)
+._crit_edge:2  call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, i2 1, [3840 x i8]* %multiplication_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln28"/></StgValue>
@@ -607,9 +607,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="6" op_5_bw="6" op_6_bw="2" op_7_bw="8" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="0">
+<Node id="25" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="8" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0">
 <![CDATA[
-._crit_edge:2  call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, i2 1, [3840 x i8]* %multiplication_V)
+._crit_edge:2  call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, i2 1, [3840 x i8]* %multiplication_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln28"/></StgValue>
@@ -625,7 +625,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
+<Node id="28" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
 <![CDATA[
 ._crit_edge:5  call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)
 
@@ -643,7 +643,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
+<Node id="28" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
 <![CDATA[
 ._crit_edge:5  call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)
 
@@ -658,7 +658,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="0" op_0_bw="0">
+<Node id="30" bw="0" op_0_bw="0">
 <![CDATA[
 ._crit_edge:7  br label %1
 
@@ -676,7 +676,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
+<Node id="32" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="8" op_3_bw="2" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 :0  call fastcc void @aes_substitute_bytes([16 x i16]* %state_matrix_V, [768 x i8]* %s_boxes_V, i2 1)
 
@@ -691,7 +691,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="38" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
+<Node id="34" bw="0" op_0_bw="0" op_1_bw="7" op_2_bw="16" op_3_bw="16" op_4_bw="0" op_5_bw="0">
 <![CDATA[
 :2  call fastcc void @aes_get_round_key5(i7 14, [240 x i16]* %expanded_key_V, [16 x i16]* %round_key_V)
 
@@ -709,7 +709,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
+<Node id="33" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
 <![CDATA[
 :1  call fastcc void @aes_shift_rows([16 x i16]* %state_matrix_V, i2 1)
 
@@ -727,7 +727,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
+<Node id="33" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="2" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0">
 <![CDATA[
 :1  call fastcc void @aes_shift_rows([16 x i16]* %state_matrix_V, i2 1)
 
@@ -745,7 +745,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
 <![CDATA[
 :3  call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)
 
@@ -763,7 +763,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16" op_3_bw="0" op_4_bw="0" op_5_bw="0" op_6_bw="0" op_7_bw="0" op_8_bw="0">
 <![CDATA[
 :3  call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)
 
@@ -778,7 +778,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="0" op_0_bw="0">
+<Node id="36" bw="0" op_0_bw="0">
 <![CDATA[
 :4  br label %.loopexit
 
@@ -796,7 +796,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="42" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
+<Node id="38" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
 .loopexit:0  %p_04_0_i = phi i5 [ 0, %2 ], [ %i_V, %.loopexit.loopexit ]
 
@@ -811,7 +811,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0">
+<Node id="39" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0">
 <![CDATA[
 .loopexit:1  %column_0_i = phi i3 [ 0, %2 ], [ %column, %.loopexit.loopexit ]
 
@@ -826,7 +826,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="3" op_1_bw="3">
+<Node id="40" bw="1" op_0_bw="3" op_1_bw="3">
 <![CDATA[
 .loopexit:2  %icmp_ln242 = icmp eq i3 %column_0_i, -4
 
@@ -841,7 +841,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="45" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="41" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
 .loopexit:3  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
@@ -856,7 +856,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="46" bw="3" op_0_bw="3" op_1_bw="3">
+<Node id="42" bw="3" op_0_bw="3" op_1_bw="3">
 <![CDATA[
 .loopexit:4  %column = add i3 %column_0_i, 1
 
@@ -871,7 +871,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="47" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="43" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 .loopexit:5  br i1 %icmp_ln242, label %aes_matrix_to_sequence.exit, label %3
 
@@ -887,7 +887,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="49" bw="5" op_0_bw="5" op_1_bw="5">
+<Node id="45" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
 :0  %i_V = add i5 %p_04_0_i, 4
 
@@ -903,7 +903,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="6" op_0_bw="3">
+<Node id="46" bw="6" op_0_bw="3">
 <![CDATA[
 :1  %zext_ln244 = zext i3 %column_0_i to i6
 
@@ -919,7 +919,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="0" op_0_bw="0">
+<Node id="47" bw="0" op_0_bw="0">
 <![CDATA[
 :2  br label %4
 
@@ -935,7 +935,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="74" bw="0">
+<Node id="70" bw="0">
 <![CDATA[
 aes_matrix_to_sequence.exit:0  ret void
 
@@ -953,7 +953,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
+<Node id="49" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
 :0  %p_04_1_i = phi i5 [ %p_04_0_i, %3 ], [ %add_ln700, %5 ]
 
@@ -968,7 +968,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="54" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0">
+<Node id="50" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0">
 <![CDATA[
 :1  %row_0_i = phi i3 [ 0, %3 ], [ %row, %5 ]
 
@@ -983,7 +983,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="1" op_0_bw="3" op_1_bw="3">
+<Node id="51" bw="1" op_0_bw="3" op_1_bw="3">
 <![CDATA[
 :2  %icmp_ln244 = icmp eq i3 %row_0_i, -4
 
@@ -998,7 +998,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="52" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
 :3  %empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
@@ -1013,7 +1013,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="57" bw="3" op_0_bw="3" op_1_bw="3">
+<Node id="53" bw="3" op_0_bw="3" op_1_bw="3">
 <![CDATA[
 :4  %row = add i3 %row_0_i, 1
 
@@ -1028,7 +1028,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="58" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="54" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 :5  br i1 %icmp_ln244, label %.loopexit.loopexit, label %5
 
@@ -1044,7 +1044,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="61" bw="5" op_0_bw="5" op_1_bw="3" op_2_bw="2">
+<Node id="57" bw="5" op_0_bw="5" op_1_bw="3" op_2_bw="2">
 <![CDATA[
 :1  %tmp = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %row_0_i, i2 0)
 
@@ -1060,7 +1060,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="62" bw="6" op_0_bw="5">
+<Node id="58" bw="6" op_0_bw="5">
 <![CDATA[
 :2  %zext_ln180 = zext i5 %tmp to i6
 
@@ -1076,7 +1076,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="63" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="59" bw="6" op_0_bw="6" op_1_bw="6">
 <![CDATA[
 :3  %add_ln180 = add i6 %zext_ln244, %zext_ln180
 
@@ -1092,7 +1092,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="64" op_0_bw="6">
+<Node id="60" bw="64" op_0_bw="6">
 <![CDATA[
 :4  %zext_ln180_17 = zext i6 %add_ln180 to i64
 
@@ -1108,7 +1108,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="65" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
+<Node id="61" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
 <![CDATA[
 :5  %state_matrix_V_addr = getelementptr [16 x i16]* %state_matrix_V, i64 0, i64 %zext_ln180_17
 
@@ -1124,7 +1124,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="16" op_0_bw="4">
+<Node id="62" bw="16" op_0_bw="4">
 <![CDATA[
 :6  %state_matrix_V_load = load i16* %state_matrix_V_addr, align 2
 
@@ -1140,7 +1140,7 @@ aes_matrix_to_sequence.exit:0  ret void
 </and_exp></or_exp>
 </condition>
 
-<Node id="72" bw="0" op_0_bw="0">
+<Node id="68" bw="0" op_0_bw="0">
 <![CDATA[
 .loopexit.loopexit:0  br label %.loopexit
 
@@ -1158,7 +1158,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="60" bw="64" op_0_bw="5">
+<Node id="56" bw="64" op_0_bw="5">
 <![CDATA[
 :0  %zext_ln544 = zext i5 %p_04_1_i to i64
 
@@ -1173,7 +1173,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="16" op_0_bw="4">
+<Node id="62" bw="16" op_0_bw="4">
 <![CDATA[
 :6  %state_matrix_V_load = load i16* %state_matrix_V_addr, align 2
 
@@ -1188,7 +1188,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
+<Node id="63" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
 <![CDATA[
 :7  %sequence_out_V_addr = getelementptr [16 x i16]* %sequence_out_V, i64 0, i64 %zext_ln544
 
@@ -1203,7 +1203,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="68" bw="0" op_0_bw="16" op_1_bw="4">
+<Node id="64" bw="0" op_0_bw="16" op_1_bw="4">
 <![CDATA[
 :8  store i16 %state_matrix_V_load, i16* %sequence_out_V_addr, align 2
 
@@ -1218,7 +1218,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="69" bw="5" op_0_bw="5" op_1_bw="5">
+<Node id="65" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
 :9  %add_ln700 = add i5 %p_04_1_i, 1
 
@@ -1233,7 +1233,7 @@ aes_matrix_to_sequence.exit:0  ret void
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="70" bw="0" op_0_bw="0">
+<Node id="66" bw="0" op_0_bw="0">
 <![CDATA[
 :10  br label %4
 

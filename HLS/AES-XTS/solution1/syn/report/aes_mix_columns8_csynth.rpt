@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_mix_columns8'
 ================================================================
-* Date:           Mon Dec 13 15:29:31 2021
+* Date:           Sat Dec 18 12:10:36 2021
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        AES-XTS
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|     7.255|        1.25|
+    |ap_clk  |  10.00|     7.349|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |   81|   81|   81|   81|   none  |
+    |   36|   36|   36|   36|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -37,13 +37,12 @@
         N/A
 
         * Loop: 
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1     |   80|   80|        20|          -|          -|     4|    no    |
-        | + Loop 1.1  |   16|   16|         4|          -|          -|     4|    no    |
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |         Loop Name        | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- aes_mix_columns_label3  |   34|   34|        11|          8|          1|     4|    yes   |
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
 
 
 
@@ -55,23 +54,44 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
 +-----------------+---------+-------+--------+-------+-----+
 |DSP              |        -|      -|       -|      -|    -|
-|Expression       |        -|      -|       0|    168|    -|
+|Expression       |        -|      -|       0|    395|    -|
 |FIFO             |        -|      -|       -|      -|    -|
-|Instance         |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       0|    240|    -|
 |Memory           |        -|      -|       -|      -|    -|
-|Multiplexer      |        -|      -|       -|    128|    -|
-|Register         |        -|      -|     128|      -|    -|
+|Multiplexer      |        -|      -|       -|    249|    -|
+|Register         |        -|      -|     168|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        0|      0|     128|    296|    0|
+|Total            |        0|      0|     168|    884|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
-|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
+|Utilization (%)  |        0|      0|   ~0   |      1|    0|
 +-----------------+---------+-------+--------+-------+-----+
 
 + Detail: 
     * Instance: 
-    N/A
+    +--------------------------+----------------------+---------+-------+---+----+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP48E| FF| LUT| URAM|
+    +--------------------------+----------------------+---------+-------+---+----+-----+
+    |xts_aes_mux_32_8_dEe_U26  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U27  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U28  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U29  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U30  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U31  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U32  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U33  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U34  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U35  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U36  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U37  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U38  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U39  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U40  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    |xts_aes_mux_32_8_dEe_U41  |xts_aes_mux_32_8_dEe  |        0|      0|  0|  15|    0|
+    +--------------------------+----------------------+---------+-------+---+----+-----+
+    |Total                     |                      |        0|      0|  0| 240|    0|
+    +--------------------------+----------------------+---------+-------+---+----+-----+
 
     * DSP48E: 
     N/A
@@ -86,63 +106,91 @@
     +------------------------+----------+-------+---+----+------------+------------+
     |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +------------------------+----------+-------+---+----+------------+------------+
-    |add_ln180_fu_318_p2     |     +    |      0|  0|  15|           6|           6|
-    |add_ln544_fu_323_p2     |     +    |      0|  0|  15|           5|           5|
-    |add_ln719_1_fu_392_p2   |     +    |      0|  0|  17|          13|          13|
-    |add_ln719_2_fu_409_p2   |     +    |      0|  0|  17|          13|          13|
-    |add_ln719_fu_370_p2     |     +    |      0|  0|  17|          13|          13|
-    |add_ln78_fu_348_p2      |     +    |      0|  0|  17|          13|          13|
-    |column_index_fu_231_p2  |     +    |      0|  0|  12|           3|           1|
-    |row_index_fu_296_p2     |     +    |      0|  0|  12|           3|           1|
-    |icmp_ln103_fu_225_p2    |   icmp   |      0|  0|   9|           3|           4|
-    |icmp_ln110_fu_290_p2    |   icmp   |      0|  0|   9|           3|           4|
-    |xor_ln180_fu_242_p2     |    xor   |      0|  0|   4|           3|           4|
-    |xor_ln719_1_fu_430_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln719_2_fu_436_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln719_fu_426_p2     |    xor   |      0|  0|   8|           8|           8|
+    |add_ln719_10_fu_852_p2  |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_11_fu_880_p2  |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_1_fu_418_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_2_fu_452_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_3_fu_542_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_4_fu_575_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_5_fu_608_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_6_fu_697_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_7_fu_730_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_8_fu_763_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_9_fu_824_p2   |     +    |      0|  0|  17|          13|          13|
+    |add_ln719_fu_376_p2     |     +    |      0|  0|  17|          13|          13|
+    |add_ln78_4_fu_509_p2    |     +    |      0|  0|  17|          13|          13|
+    |add_ln78_5_fu_664_p2    |     +    |      0|  0|  17|          13|          13|
+    |add_ln78_6_fu_796_p2    |     +    |      0|  0|  17|          13|          13|
+    |add_ln78_fu_342_p2      |     +    |      0|  0|  17|          13|          13|
+    |column_index_fu_272_p2  |     +    |      0|  0|  12|           3|           1|
+    |icmp_ln103_fu_266_p2    |   icmp   |      0|  0|   9|           3|           4|
+    |ap_enable_pp0           |    xor   |      0|  0|   2|           1|           2|
+    |xor_ln180_fu_283_p2     |    xor   |      0|  0|   4|           3|           4|
+    |xor_ln719_10_fu_930_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_11_fu_936_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_1_fu_469_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_2_fu_475_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_3_fu_618_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_4_fu_624_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_5_fu_630_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_6_fu_885_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_7_fu_891_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_8_fu_897_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_9_fu_924_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln719_fu_463_p2     |    xor   |      0|  0|   8|           8|           8|
     +------------------------+----------+-------+---+----+------------+------------+
-    |Total                   |          |      0|  0| 168|         102|         101|
+    |Total                   |          |      0|  0| 395|         314|         315|
     +------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +---------------------------+----+-----------+-----+-----------+
-    |            Name           | LUT| Input Size| Bits| Total Bits|
-    +---------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                  |  44|          9|    1|          9|
-    |column_index_0_reg_190     |   9|          2|    3|          6|
-    |multiplication_V_address0  |  15|          3|   12|         36|
-    |multiplication_V_address1  |  15|          3|   12|         36|
-    |row_index_0_reg_202        |   9|          2|    3|          6|
-    |state_matrix_V_address0    |  21|          4|    4|         16|
-    |state_matrix_V_address1    |  15|          3|    4|         12|
-    +---------------------------+----+-----------+-----+-----------+
-    |Total                      | 128|         26|   39|        121|
-    +---------------------------+----+-----------+-----+-----------+
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |                   Name                  | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                |  50|         11|    1|         11|
+    |ap_enable_reg_pp0_iter1                  |   9|          2|    1|          2|
+    |ap_phi_mux_column_index_0_phi_fu_251_p4  |   9|          2|    3|          6|
+    |column_index_0_reg_247                   |   9|          2|    3|          6|
+    |multiplication_V_address0                |  44|          9|   12|        108|
+    |multiplication_V_address1                |  44|          9|   12|        108|
+    |state_matrix_V_address0                  |  27|          5|    4|         20|
+    |state_matrix_V_address1                  |  27|          5|    4|         20|
+    |state_matrix_V_d0                        |  15|          3|   16|         48|
+    |state_matrix_V_d1                        |  15|          3|   16|         48|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |Total                                    | 249|         51|   72|        377|
+    +-----------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +--------------------------------+----+----+-----+-----------+
-    |              Name              | FF | LUT| Bits| Const Bits|
-    +--------------------------------+----+----+-----+-----------+
-    |add_ln180_reg_518               |   6|   0|    6|          0|
-    |add_ln719_1_reg_553             |  13|   0|   13|          0|
-    |add_ln719_2_reg_558             |  13|   0|   13|          0|
-    |ap_CS_fsm                       |   8|   0|    8|          0|
-    |column_index_0_reg_190          |   3|   0|    3|          0|
-    |column_index_reg_455            |   3|   0|    3|          0|
-    |multiplication_V_loa_1_reg_568  |   8|   0|    8|          0|
-    |multiplication_V_loa_reg_563    |   8|   0|    8|          0|
-    |row_index_0_reg_202             |   3|   0|    3|          0|
-    |row_index_reg_513               |   3|   0|    3|          0|
-    |trunc_ln110_reg_505             |  13|   0|   13|          0|
-    |trunc_ln544_1_reg_490           |  13|   0|   13|          0|
-    |trunc_ln544_2_reg_500           |  13|   0|   13|          0|
-    |trunc_ln544_reg_485             |  13|   0|   13|          0|
-    |xor_ln180_reg_465               |   3|   0|    3|          0|
-    |zext_ln101_reg_447              |   2|   0|    5|          3|
-    |zext_ln180_reg_495              |   3|   0|    6|          3|
-    +--------------------------------+----+----+-----+-----------+
-    |Total                           | 128|   0|  134|          6|
-    +--------------------------------+----+----+-----+-----------+
+    +----------------------------------------------+----+----+-----+-----------+
+    |                     Name                     | FF | LUT| Bits| Const Bits|
+    +----------------------------------------------+----+----+-----+-----------+
+    |add_ln719_10_reg_1102                         |  13|   0|   13|          0|
+    |add_ln719_11_reg_1107                         |  13|   0|   13|          0|
+    |add_ln719_9_reg_1097                          |  13|   0|   13|          0|
+    |add_ln78_6_reg_1092                           |  13|   0|   13|          0|
+    |ap_CS_fsm                                     |  10|   0|   10|          0|
+    |ap_enable_reg_pp0_iter0                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                       |   1|   0|    1|          0|
+    |column_index_0_reg_247                        |   3|   0|    3|          0|
+    |column_index_reg_970                          |   3|   0|    3|          0|
+    |icmp_ln103_reg_966                            |   1|   0|    1|          0|
+    |icmp_ln103_reg_966_pp0_iter1_reg              |   1|   0|    1|          0|
+    |reg_258                                       |   8|   0|    8|          0|
+    |reg_262                                       |   8|   0|    8|          0|
+    |state_matrix_V_addr_11_reg_986                |   3|   0|    4|          1|
+    |state_matrix_V_addr_12_reg_992                |   3|   0|    4|          1|
+    |state_matrix_V_addr_13_reg_998                |   4|   0|    4|          0|
+    |state_matrix_V_addr_13_reg_998_pp0_iter1_reg  |   4|   0|    4|          0|
+    |state_matrix_V_addr_reg_975                   |   3|   0|    4|          1|
+    |trunc_ln544_1_reg_1011                        |  13|   0|   13|          0|
+    |trunc_ln544_2_reg_1028                        |  13|   0|   13|          0|
+    |trunc_ln544_3_reg_1035                        |  13|   0|   13|          0|
+    |trunc_ln544_reg_1004                          |  13|   0|   13|          0|
+    |xor_ln180_reg_981                             |   3|   0|    3|          0|
+    |xor_ln719_11_reg_1132                         |   8|   0|    8|          0|
+    +----------------------------------------------+----+----+-----+-----------+
+    |Total                                         | 168|   0|  171|          3|
+    +----------------------------------------------+----+----+-----+-----------+
 
 
 
@@ -150,41 +198,31 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------------+-----+-----+------------+--------------------------+--------------+
-|           RTL Ports          | Dir | Bits|  Protocol  |       Source Object      |    C Type    |
-+------------------------------+-----+-----+------------+--------------------------+--------------+
-|ap_clk                        |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
-|ap_rst                        |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
-|ap_start                      |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
-|ap_done                       | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
-|ap_idle                       | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
-|ap_ready                      | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
-|state_matrix_V_address0       | out |    4|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_ce0            | out |    1|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_we0            | out |    1|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_d0             | out |   16|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_q0             |  in |   16|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_address1       | out |    4|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_ce1            | out |    1|  ap_memory |      state_matrix_V      |     array    |
-|state_matrix_V_q1             |  in |   16|  ap_memory |      state_matrix_V      |     array    |
-|constant_matrix_0_V_address0  | out |    4|  ap_memory |    constant_matrix_0_V   |     array    |
-|constant_matrix_0_V_ce0       | out |    1|  ap_memory |    constant_matrix_0_V   |     array    |
-|constant_matrix_0_V_q0        |  in |    6|  ap_memory |    constant_matrix_0_V   |     array    |
-|constant_matrix_1_V_address0  | out |    4|  ap_memory |    constant_matrix_1_V   |     array    |
-|constant_matrix_1_V_ce0       | out |    1|  ap_memory |    constant_matrix_1_V   |     array    |
-|constant_matrix_1_V_q0        |  in |    6|  ap_memory |    constant_matrix_1_V   |     array    |
-|constant_matrix_2_V_address0  | out |    4|  ap_memory |    constant_matrix_2_V   |     array    |
-|constant_matrix_2_V_ce0       | out |    1|  ap_memory |    constant_matrix_2_V   |     array    |
-|constant_matrix_2_V_q0        |  in |    6|  ap_memory |    constant_matrix_2_V   |     array    |
-|constant_matrix_3_V_address0  | out |    4|  ap_memory |    constant_matrix_3_V   |     array    |
-|constant_matrix_3_V_ce0       | out |    1|  ap_memory |    constant_matrix_3_V   |     array    |
-|constant_matrix_3_V_q0        |  in |    6|  ap_memory |    constant_matrix_3_V   |     array    |
-|constant_matrix_V_offset      |  in |    2|   ap_none  | constant_matrix_V_offset |    scalar    |
-|multiplication_V_address0     | out |   12|  ap_memory |     multiplication_V     |     array    |
-|multiplication_V_ce0          | out |    1|  ap_memory |     multiplication_V     |     array    |
-|multiplication_V_q0           |  in |    8|  ap_memory |     multiplication_V     |     array    |
-|multiplication_V_address1     | out |   12|  ap_memory |     multiplication_V     |     array    |
-|multiplication_V_ce1          | out |    1|  ap_memory |     multiplication_V     |     array    |
-|multiplication_V_q1           |  in |    8|  ap_memory |     multiplication_V     |     array    |
-+------------------------------+-----+-----+------------+--------------------------+--------------+
++---------------------------+-----+-----+------------+--------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |       Source Object      |    C Type    |
++---------------------------+-----+-----+------------+--------------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |     aes_mix_columns8     | return value |
+|state_matrix_V_address0    | out |    4|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_ce0         | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_we0         | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_d0          | out |   16|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_q0          |  in |   16|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_address1    | out |    4|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_ce1         | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_we1         | out |    1|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_d1          | out |   16|  ap_memory |      state_matrix_V      |     array    |
+|state_matrix_V_q1          |  in |   16|  ap_memory |      state_matrix_V      |     array    |
+|constant_matrix_V_offset   |  in |    2|   ap_none  | constant_matrix_V_offset |    scalar    |
+|multiplication_V_address0  | out |   12|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_ce0       | out |    1|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_q0        |  in |    8|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_address1  | out |   12|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_ce1       | out |    1|  ap_memory |     multiplication_V     |     array    |
+|multiplication_V_q1        |  in |    8|  ap_memory |     multiplication_V     |     array    |
++---------------------------+-----+-----+------------+--------------------------+--------------+
 

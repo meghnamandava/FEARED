@@ -6639,3 +6639,1749 @@ Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
 INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'AES-XTS/main.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 184.375 ; gain = 93.461
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 184.375 ; gain = 93.461
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:22 . Memory (MB): peak = 197.066 ; gain = 106.152
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:23 . Memory (MB): peak = 222.957 ; gain = 132.043
+WARNING: [XFORM 203-805] Duplicating function 'aes_process' (AES-XTS/main.cpp:8) to resolve interface conflict according to call graph.
+WARNING: [XFORM 203-805] Duplicating function 'aes_sequence_to_matrix' (AES-XTS/main.cpp:225) to resolve interface conflict according to call graph.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_substitute_bytes_label1' (AES-XTS/main.cpp:49) in function 'aes_substitute_bytes' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'aes_substitute_bytes_label0' (AES-XTS/main.cpp:51) in function 'aes_substitute_bytes' completely with a factor of 4.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temp_row.V' (AES-XTS/main.cpp:64) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temporary_key.V' (AES-XTS/main.cpp:162) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'temp_row.V' (AES-XTS/main.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'temporary_key.V' (AES-XTS/main.cpp:162) in dimension 1 completely.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V' (AES-XTS/main.cpp:519) in dimension 3 automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence' into 'aes_process.1' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_sequence_to_matrix.2' into 'aes_process.2' automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence.1' into 'aes_process.2' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'aes_mix_columns' (AES-XTS/main.cpp:101)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:28 . Memory (MB): peak = 279.957 ; gain = 189.043
+WARNING: [XFORM 203-631] Renaming function 'xts_aes_process_block' to 'xts_aes_process_bloc' (AES-XTS/main.cpp:274:27)
+WARNING: [XFORM 203-631] Renaming function 'aes_substitute_bytes7' to 'aes_substitute_bytes' (AES-XTS/main.cpp:46)
+WARNING: [XFORM 203-631] Renaming function 'aes_sequence_to_matrix.1' to 'aes_sequence_to_matr' (AES-XTS/main.cpp:228:28)
+INFO: [HLS 200-444] Inferring multiple bus burst write of a total cumulative length 1024 on port 'data3' (AES-XTS/main.cpp:551:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 1024 on port 'data.V' (AES-XTS/main.cpp:301:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 32 on port 'key.V' (AES-XTS/main.cpp:154:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:01:05 . Memory (MB): peak = 1107.148 ; gain = 1016.234
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'xts_aes' ...
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.1' to 'aes_process_1'.
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.2' to 'aes_process_2'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 66.986 seconds; current allocated memory: 356.758 MB.
+INFO: [HLS 200-434] Only 0 loops out of a total 10 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.209 seconds; current allocated memory: 357.748 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.231 seconds; current allocated memory: 357.954 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.121 seconds; current allocated memory: 358.094 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.111 seconds; current allocated memory: 358.190 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.106 seconds; current allocated memory: 358.307 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.125 seconds; current allocated memory: 358.372 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.104 seconds; current allocated memory: 358.468 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_substitute_bytes_label1'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_2', AES-XTS/main.cpp:52) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.157 seconds; current allocated memory: 358.610 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.125 seconds; current allocated memory: 358.795 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.155 seconds; current allocated memory: 359.130 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.148 seconds; current allocated memory: 359.663 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.177 seconds; current allocated memory: 359.863 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.136 seconds; current allocated memory: 360.121 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.166 seconds; current allocated memory: 360.332 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.195 seconds; current allocated memory: 360.610 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.191 seconds; current allocated memory: 360.939 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.214 seconds; current allocated memory: 361.385 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.203 seconds; current allocated memory: 361.604 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.143 seconds; current allocated memory: 361.816 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.183 seconds; current allocated memory: 362.056 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.142 seconds; current allocated memory: 362.305 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.682 seconds; current allocated memory: 373.375 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 3.908 seconds; current allocated memory: 391.318 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_expand_key_expanded_key_V' to 'aes_expand_key_exbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_42_16_1_1' to 'xts_aes_mux_42_16cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_42_16cud': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_expand_key'.
+INFO: [HLS 200-111]  Elapsed time: 2.824 seconds; current allocated memory: 392.884 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_sequence_to_matr'.
+INFO: [HLS 200-111]  Elapsed time: 0.493 seconds; current allocated memory: 393.565 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_get_round_key5'.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 393.833 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_add_round_key'.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 394.051 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_substitute_bytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.187 seconds; current allocated memory: 394.397 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_42_16cud': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_shift_rows'.
+INFO: [HLS 200-111]  Elapsed time: 0.241 seconds; current allocated memory: 395.111 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_mix_columns8'.
+INFO: [HLS 200-111]  Elapsed time: 0.322 seconds; current allocated memory: 395.705 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_state_matrix_V' to 'aes_process_1_stadEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_round_key_V' to 'aes_process_1_roueOg' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.308 seconds; current allocated memory: 396.852 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_state_matrix_V' to 'aes_process_2_stafYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_round_key_V' to 'aes_process_2_roug8j' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.343 seconds; current allocated memory: 398.110 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_bloc'.
+INFO: [HLS 200-111]  Elapsed time: 0.359 seconds; current allocated memory: 398.789 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_data'.
+INFO: [HLS 200-111]  Elapsed time: 0.289 seconds; current allocated memory: 399.605 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/key_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/tweak_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/mode_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_len_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data_ret_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on function 'xts_aes' to 's_axilite & ap_ctrl_hs' (register).
+INFO: [RTGEN 206-100] Bundling port 'return', 'key_V', 'tweak_V', 'text_V', 'mode_V', 'text_len_V' and 'data_ret_V' to AXI-Lite port ctrl.
+INFO: [SYN 201-210] Renamed object name 'xts_aes_multiplication_table' to 'xts_aes_multiplichbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_s' to 'xts_aes_mix_columibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_10' to 'xts_aes_mix_columjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_19' to 'xts_aes_mix_columkbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_28' to 'xts_aes_mix_columlbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key_V' to 'xts_aes_aes_expanmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key2_V' to 'xts_aes_aes_expanncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_processed_data' to 'xts_aes_processedocq' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes'.
+INFO: [HLS 200-111]  Elapsed time: 6.213 seconds; current allocated memory: 437.412 MB.
+INFO: [RTMG 210-279] Implementing memory 'aes_expand_key_rcon_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_expand_key_exbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_stadEe_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_roueOg_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_2_roug8j_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_multiplichbi_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_s_boxes_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_mix_columibs_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_aes_tweak_V_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_processedocq_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:12 ; elapsed = 00:01:40 . Memory (MB): peak = 1107.148 ; gain = 1016.234
+INFO: [VHDL 208-304] Generating VHDL RTL for xts_aes.
+INFO: [VLOG 209-307] Generating Verilog RTL for xts_aes.
+INFO: [HLS 200-112] Total elapsed time: 100.123 seconds; peak allocated memory: 437.412 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'AES-XTS/main.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:18 . Memory (MB): peak = 184.184 ; gain = 92.688
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:18 . Memory (MB): peak = 184.184 ; gain = 92.688
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:20 . Memory (MB): peak = 196.934 ; gain = 105.438
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:21 . Memory (MB): peak = 223.488 ; gain = 131.992
+WARNING: [XFORM 203-805] Duplicating function 'aes_process' (AES-XTS/main.cpp:8) to resolve interface conflict according to call graph.
+WARNING: [XFORM 203-805] Duplicating function 'aes_sequence_to_matrix' (AES-XTS/main.cpp:225) to resolve interface conflict according to call graph.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_shift_rows_label2' (AES-XTS/main.cpp:63) in function 'aes_shift_rows' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_substitute_bytes_label1' (AES-XTS/main.cpp:49) in function 'aes_substitute_bytes' for pipelining.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.1' (AES-XTS/main.cpp:67) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.2' (AES-XTS/main.cpp:72) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.3' (AES-XTS/main.cpp:80) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.4' (AES-XTS/main.cpp:85) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.5' (AES-XTS/main.cpp:92) in function 'aes_shift_rows' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'aes_substitute_bytes_label0' (AES-XTS/main.cpp:51) in function 'aes_substitute_bytes' completely with a factor of 4.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temp_row.V' (AES-XTS/main.cpp:64) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temporary_key.V' (AES-XTS/main.cpp:162) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'temp_row.V' (AES-XTS/main.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'temporary_key.V' (AES-XTS/main.cpp:162) in dimension 1 completely.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V' (AES-XTS/main.cpp:519) in dimension 3 automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence' into 'aes_process.1' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_sequence_to_matrix.2' into 'aes_process.2' automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence.1' into 'aes_process.2' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'aes_mix_columns' (AES-XTS/main.cpp:101)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:26 . Memory (MB): peak = 280.352 ; gain = 188.855
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'aes_shift_rows_label2' (AES-XTS/main.cpp:63:4) in function 'aes_shift_rows' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-631] Renaming function 'xts_aes_process_block' to 'xts_aes_process_bloc' (AES-XTS/main.cpp:274:27)
+WARNING: [XFORM 203-631] Renaming function 'aes_substitute_bytes7' to 'aes_substitute_bytes' (AES-XTS/main.cpp:46)
+WARNING: [XFORM 203-631] Renaming function 'aes_sequence_to_matrix.1' to 'aes_sequence_to_matr' (AES-XTS/main.cpp:228:28)
+INFO: [HLS 200-444] Inferring multiple bus burst write of a total cumulative length 1024 on port 'data3' (AES-XTS/main.cpp:551:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 1024 on port 'data.V' (AES-XTS/main.cpp:301:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 32 on port 'key.V' (AES-XTS/main.cpp:154:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:44 ; elapsed = 00:01:03 . Memory (MB): peak = 1107.578 ; gain = 1016.082
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'xts_aes' ...
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.1' to 'aes_process_1'.
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.2' to 'aes_process_2'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 64.123 seconds; current allocated memory: 356.774 MB.
+INFO: [HLS 200-434] Only 0 loops out of a total 10 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 357.764 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.239 seconds; current allocated memory: 357.971 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.112 seconds; current allocated memory: 358.111 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.162 seconds; current allocated memory: 358.206 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.116 seconds; current allocated memory: 358.323 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 358.388 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.098 seconds; current allocated memory: 358.484 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_substitute_bytes_label1'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_2', AES-XTS/main.cpp:52) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.142 seconds; current allocated memory: 358.626 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.136 seconds; current allocated memory: 358.811 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.185 seconds; current allocated memory: 359.159 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.191 seconds; current allocated memory: 359.710 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 359.910 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.135 seconds; current allocated memory: 360.168 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.161 seconds; current allocated memory: 360.379 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.218 seconds; current allocated memory: 360.657 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.198 seconds; current allocated memory: 361.002 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.211 seconds; current allocated memory: 361.433 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.209 seconds; current allocated memory: 361.651 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 361.826 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.184 seconds; current allocated memory: 362.118 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.148 seconds; current allocated memory: 362.367 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.619 seconds; current allocated memory: 373.422 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 4.129 seconds; current allocated memory: 391.365 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_expand_key_expanded_key_V' to 'aes_expand_key_exbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_42_16_1_1' to 'xts_aes_mux_42_16cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_42_16cud': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_expand_key'.
+INFO: [HLS 200-111]  Elapsed time: 3.028 seconds; current allocated memory: 392.894 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_sequence_to_matr'.
+INFO: [HLS 200-111]  Elapsed time: 0.504 seconds; current allocated memory: 393.607 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_get_round_key5'.
+INFO: [HLS 200-111]  Elapsed time: 0.177 seconds; current allocated memory: 393.875 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_add_round_key'.
+INFO: [HLS 200-111]  Elapsed time: 0.189 seconds; current allocated memory: 394.129 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_substitute_bytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 394.476 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_shift_rows'.
+INFO: [HLS 200-111]  Elapsed time: 0.269 seconds; current allocated memory: 395.140 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_mix_columns8'.
+INFO: [HLS 200-111]  Elapsed time: 0.336 seconds; current allocated memory: 395.740 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_state_matrix_V' to 'aes_process_1_stadEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_round_key_V' to 'aes_process_1_roueOg' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.301 seconds; current allocated memory: 396.940 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_state_matrix_V' to 'aes_process_2_stafYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_round_key_V' to 'aes_process_2_roug8j' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.321 seconds; current allocated memory: 398.178 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_bloc'.
+INFO: [HLS 200-111]  Elapsed time: 0.374 seconds; current allocated memory: 398.841 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_data'.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 399.657 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/key_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/tweak_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/mode_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_len_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data_ret_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on function 'xts_aes' to 's_axilite & ap_ctrl_hs' (register).
+INFO: [RTGEN 206-100] Bundling port 'return', 'key_V', 'tweak_V', 'text_V', 'mode_V', 'text_len_V' and 'data_ret_V' to AXI-Lite port ctrl.
+INFO: [SYN 201-210] Renamed object name 'xts_aes_multiplication_table' to 'xts_aes_multiplichbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_s' to 'xts_aes_mix_columibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_10' to 'xts_aes_mix_columjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_19' to 'xts_aes_mix_columkbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mix_column_constant_28' to 'xts_aes_mix_columlbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key_V' to 'xts_aes_aes_expanmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key2_V' to 'xts_aes_aes_expanncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_processed_data' to 'xts_aes_processedocq' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes'.
+INFO: [HLS 200-111]  Elapsed time: 6.067 seconds; current allocated memory: 437.464 MB.
+INFO: [RTMG 210-279] Implementing memory 'aes_expand_key_rcon_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_expand_key_exbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_stadEe_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_roueOg_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_2_roug8j_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_multiplichbi_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_s_boxes_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_mix_columibs_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_aes_tweak_V_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_processedocq_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:12 ; elapsed = 00:01:38 . Memory (MB): peak = 1107.578 ; gain = 1016.082
+INFO: [VHDL 208-304] Generating VHDL RTL for xts_aes.
+INFO: [VLOG 209-307] Generating Verilog RTL for xts_aes.
+INFO: [HLS 200-112] Total elapsed time: 97.931 seconds; peak allocated memory: 437.464 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'AES-XTS/main.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:17 . Memory (MB): peak = 184.828 ; gain = 93.363
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:17 . Memory (MB): peak = 184.828 ; gain = 93.363
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:20 . Memory (MB): peak = 197.723 ; gain = 106.258
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:20 . Memory (MB): peak = 222.973 ; gain = 131.508
+WARNING: [XFORM 203-805] Duplicating function 'aes_process' (AES-XTS/main.cpp:8) to resolve interface conflict according to call graph.
+WARNING: [XFORM 203-805] Duplicating function 'aes_sequence_to_matrix' (AES-XTS/main.cpp:225) to resolve interface conflict according to call graph.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_shift_rows_label2' (AES-XTS/main.cpp:63) in function 'aes_shift_rows' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_mix_columns_label3' (AES-XTS/main.cpp:104) in function 'aes_mix_columns' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_substitute_bytes_label1' (AES-XTS/main.cpp:49) in function 'aes_substitute_bytes' for pipelining.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.1' (AES-XTS/main.cpp:67) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.2' (AES-XTS/main.cpp:72) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.3' (AES-XTS/main.cpp:80) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.4' (AES-XTS/main.cpp:85) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.5' (AES-XTS/main.cpp:92) in function 'aes_shift_rows' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (AES-XTS/main.cpp:110) in function 'aes_mix_columns' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'aes_substitute_bytes_label0' (AES-XTS/main.cpp:51) in function 'aes_substitute_bytes' completely with a factor of 4.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temp_row.V' (AES-XTS/main.cpp:64) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temporary_key.V' (AES-XTS/main.cpp:162) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'temp_row.V' (AES-XTS/main.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'temporary_key.V' (AES-XTS/main.cpp:162) in dimension 1 completely.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence' into 'aes_process.1' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_sequence_to_matrix.2' into 'aes_process.2' automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence.1' into 'aes_process.2' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-11] Balancing expressions in function 'aes_mix_columns' (AES-XTS/main.cpp:101)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:26 . Memory (MB): peak = 282.633 ; gain = 191.168
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'aes_shift_rows_label2' (AES-XTS/main.cpp:63:4) in function 'aes_shift_rows' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-631] Renaming function 'xts_aes_process_block' to 'xts_aes_process_bloc' (AES-XTS/main.cpp:274:27)
+WARNING: [XFORM 203-631] Renaming function 'aes_substitute_bytes7' to 'aes_substitute_bytes' (AES-XTS/main.cpp:46)
+WARNING: [XFORM 203-631] Renaming function 'aes_sequence_to_matrix.1' to 'aes_sequence_to_matr' (AES-XTS/main.cpp:228:28)
+INFO: [HLS 200-444] Inferring multiple bus burst write of a total cumulative length 1024 on port 'data3' (AES-XTS/main.cpp:551:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 1024 on port 'data.V' (AES-XTS/main.cpp:301:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 32 on port 'key.V' (AES-XTS/main.cpp:154:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:01:03 . Memory (MB): peak = 1111.168 ; gain = 1019.703
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'xts_aes' ...
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.1' to 'aes_process_1'.
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.2' to 'aes_process_2'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 64.558 seconds; current allocated memory: 358.627 MB.
+INFO: [HLS 200-434] Only 0 loops out of a total 10 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.239 seconds; current allocated memory: 359.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.257 seconds; current allocated memory: 359.808 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.106 seconds; current allocated memory: 359.948 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.117 seconds; current allocated memory: 360.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 360.160 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.117 seconds; current allocated memory: 360.225 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.136 seconds; current allocated memory: 360.321 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_substitute_bytes_label1'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_2', AES-XTS/main.cpp:52) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.232 seconds; current allocated memory: 360.464 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.161 seconds; current allocated memory: 360.648 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.194 seconds; current allocated memory: 360.997 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.166 seconds; current allocated memory: 361.547 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_mix_columns_label3'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_5', AES-XTS/main.cpp:108) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('multiplication_V_loa_4', AES-XTS/main.cpp:112) on array 'multiplication_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'multiplication_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 8, Depth = 11.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.293 seconds; current allocated memory: 361.932 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.226 seconds; current allocated memory: 362.420 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 362.628 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.179 seconds; current allocated memory: 362.899 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.231 seconds; current allocated memory: 363.293 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.244 seconds; current allocated memory: 363.677 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.239 seconds; current allocated memory: 363.893 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.136 seconds; current allocated memory: 364.095 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.217 seconds; current allocated memory: 364.347 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.201 seconds; current allocated memory: 364.626 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.627 seconds; current allocated memory: 375.541 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 4.168 seconds; current allocated memory: 393.276 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_expand_key_expanded_key_V' to 'aes_expand_key_exbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_42_16_1_1' to 'xts_aes_mux_42_16cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_42_16cud': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_expand_key'.
+INFO: [HLS 200-111]  Elapsed time: 3.112 seconds; current allocated memory: 394.858 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_sequence_to_matr'.
+INFO: [HLS 200-111]  Elapsed time: 0.497 seconds; current allocated memory: 395.570 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_get_round_key5'.
+INFO: [HLS 200-111]  Elapsed time: 0.192 seconds; current allocated memory: 395.839 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_add_round_key'.
+INFO: [HLS 200-111]  Elapsed time: 0.179 seconds; current allocated memory: 396.093 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_substitute_bytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.179 seconds; current allocated memory: 396.439 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_shift_rows'.
+INFO: [HLS 200-111]  Elapsed time: 0.253 seconds; current allocated memory: 397.119 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_32_8_1_1' to 'xts_aes_mux_32_8_dEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_32_8_dEe': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_mix_columns8'.
+INFO: [HLS 200-111]  Elapsed time: 0.382 seconds; current allocated memory: 398.444 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_state_matrix_V' to 'aes_process_1_staeOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_round_key_V' to 'aes_process_1_roufYi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.457 seconds; current allocated memory: 399.661 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_state_matrix_V' to 'aes_process_2_stag8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_round_key_V' to 'aes_process_2_rouhbi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.363 seconds; current allocated memory: 400.806 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_bloc'.
+INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 401.403 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_data'.
+INFO: [HLS 200-111]  Elapsed time: 0.329 seconds; current allocated memory: 402.217 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/key_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/tweak_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/mode_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_len_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data_ret_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on function 'xts_aes' to 's_axilite & ap_ctrl_hs' (register).
+INFO: [RTGEN 206-100] Bundling port 'return', 'key_V', 'tweak_V', 'text_V', 'mode_V', 'text_len_V' and 'data_ret_V' to AXI-Lite port ctrl.
+INFO: [SYN 201-210] Renamed object name 'xts_aes_multiplication_table' to 'xts_aes_multiplicibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key_V' to 'xts_aes_aes_expanjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key2_V' to 'xts_aes_aes_expankbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_processed_data' to 'xts_aes_processedlbW' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes'.
+INFO: [HLS 200-111]  Elapsed time: 5.991 seconds; current allocated memory: 439.691 MB.
+INFO: [RTMG 210-279] Implementing memory 'aes_expand_key_rcon_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_expand_key_exbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_staeOg_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_roufYi_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_multiplicibs_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_s_boxes_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_aes_tweak_V_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_processedlbW_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:14 ; elapsed = 00:01:39 . Memory (MB): peak = 1111.168 ; gain = 1019.703
+INFO: [VHDL 208-304] Generating VHDL RTL for xts_aes.
+INFO: [VLOG 209-307] Generating Verilog RTL for xts_aes.
+INFO: [HLS 200-112] Total elapsed time: 99.104 seconds; peak allocated memory: 439.691 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+WARNING: [COSIM 212-369] AXI_master port 'data0' has a depth of '64'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data1' has a depth of '16'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data2' has a depth of '1024'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data3' has a depth of '1024'. Insufficient depth may result in simulation mismatch or freeze.
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'AES-XTS/main.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 184.383 ; gain = 94.137
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 184.383 ; gain = 94.137
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:20 . Memory (MB): peak = 195.992 ; gain = 105.746
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:04 ; elapsed = 00:00:21 . Memory (MB): peak = 223.418 ; gain = 133.172
+WARNING: [XFORM 203-805] Duplicating function 'aes_process' (AES-XTS/main.cpp:8) to resolve interface conflict according to call graph.
+WARNING: [XFORM 203-805] Duplicating function 'aes_sequence_to_matrix' (AES-XTS/main.cpp:225) to resolve interface conflict according to call graph.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_shift_rows_label2' (AES-XTS/main.cpp:63) in function 'aes_shift_rows' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_add_round_key_label4' (AES-XTS/main.cpp:125) in function 'aes_add_round_key' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_mix_columns_label3' (AES-XTS/main.cpp:104) in function 'aes_mix_columns' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_substitute_bytes_label1' (AES-XTS/main.cpp:49) in function 'aes_substitute_bytes' for pipelining.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.1' (AES-XTS/main.cpp:67) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.2' (AES-XTS/main.cpp:72) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.3' (AES-XTS/main.cpp:80) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.4' (AES-XTS/main.cpp:85) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.5' (AES-XTS/main.cpp:92) in function 'aes_shift_rows' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (AES-XTS/main.cpp:126) in function 'aes_add_round_key' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (AES-XTS/main.cpp:110) in function 'aes_mix_columns' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'aes_substitute_bytes_label0' (AES-XTS/main.cpp:51) in function 'aes_substitute_bytes' completely with a factor of 4.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temp_row.V' (AES-XTS/main.cpp:64) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temporary_key.V' (AES-XTS/main.cpp:162) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'temp_row.V' (AES-XTS/main.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'temporary_key.V' (AES-XTS/main.cpp:162) in dimension 1 completely.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence' into 'aes_process.1' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_sequence_to_matrix.2' into 'aes_process.2' automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence.1' into 'aes_process.2' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-11] Balancing expressions in function 'aes_mix_columns' (AES-XTS/main.cpp:101)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:26 . Memory (MB): peak = 284.973 ; gain = 194.727
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'aes_shift_rows_label2' (AES-XTS/main.cpp:63:4) in function 'aes_shift_rows' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-631] Renaming function 'xts_aes_process_block' to 'xts_aes_process_bloc' (AES-XTS/main.cpp:274:27)
+WARNING: [XFORM 203-631] Renaming function 'aes_substitute_bytes7' to 'aes_substitute_bytes' (AES-XTS/main.cpp:46)
+WARNING: [XFORM 203-631] Renaming function 'aes_sequence_to_matrix.1' to 'aes_sequence_to_matr' (AES-XTS/main.cpp:228:28)
+INFO: [HLS 200-444] Inferring multiple bus burst write of a total cumulative length 1024 on port 'data3' (AES-XTS/main.cpp:551:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 1024 on port 'data.V' (AES-XTS/main.cpp:301:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 32 on port 'key.V' (AES-XTS/main.cpp:154:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:01:03 . Memory (MB): peak = 1110.566 ; gain = 1020.320
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'xts_aes' ...
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.1' to 'aes_process_1'.
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.2' to 'aes_process_2'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 64.866 seconds; current allocated memory: 358.725 MB.
+INFO: [HLS 200-434] Only 0 loops out of a total 10 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.252 seconds; current allocated memory: 359.715 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.235 seconds; current allocated memory: 359.906 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 360.046 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.115 seconds; current allocated memory: 360.125 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.102 seconds; current allocated memory: 360.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_add_round_key_label4'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('round_key_matrix_V_l_2', AES-XTS/main.cpp:128) on array 'round_key_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'round_key_matrix_V'.
+WARNING: [SCHED 204-69] Unable to schedule 'store' operation ('state_matrix_V_addr_write_ln128', AES-XTS/main.cpp:128) of variable 'xor_ln719', AES-XTS/main.cpp:128 on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.159 seconds; current allocated memory: 360.372 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.129 seconds; current allocated memory: 360.526 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_substitute_bytes_label1'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_2', AES-XTS/main.cpp:52) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.177 seconds; current allocated memory: 360.668 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.146 seconds; current allocated memory: 360.853 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.175 seconds; current allocated memory: 361.164 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.173 seconds; current allocated memory: 361.751 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_mix_columns_label3'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_5', AES-XTS/main.cpp:108) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('multiplication_V_loa_4', AES-XTS/main.cpp:112) on array 'multiplication_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'multiplication_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 8, Depth = 11.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.263 seconds; current allocated memory: 362.135 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.217 seconds; current allocated memory: 362.623 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.214 seconds; current allocated memory: 362.832 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 363.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.221 seconds; current allocated memory: 363.481 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.188 seconds; current allocated memory: 363.865 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.241 seconds; current allocated memory: 364.080 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.144 seconds; current allocated memory: 364.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.213 seconds; current allocated memory: 364.535 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.159 seconds; current allocated memory: 364.814 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.661 seconds; current allocated memory: 375.708 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 4.015 seconds; current allocated memory: 393.495 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_expand_key_expanded_key_V' to 'aes_expand_key_exbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_42_16_1_1' to 'xts_aes_mux_42_16cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_42_16cud': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_expand_key'.
+INFO: [HLS 200-111]  Elapsed time: 2.858 seconds; current allocated memory: 395.061 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_sequence_to_matr'.
+INFO: [HLS 200-111]  Elapsed time: 0.492 seconds; current allocated memory: 395.774 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_get_round_key5'.
+INFO: [HLS 200-111]  Elapsed time: 0.186 seconds; current allocated memory: 396.042 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_add_round_key'.
+INFO: [HLS 200-111]  Elapsed time: 0.203 seconds; current allocated memory: 396.321 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_substitute_bytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.239 seconds; current allocated memory: 396.657 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_shift_rows'.
+INFO: [HLS 200-111]  Elapsed time: 0.255 seconds; current allocated memory: 397.389 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_32_8_1_1' to 'xts_aes_mux_32_8_dEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_32_8_dEe': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_mix_columns8'.
+INFO: [HLS 200-111]  Elapsed time: 0.394 seconds; current allocated memory: 398.714 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_state_matrix_V' to 'aes_process_1_staeOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_round_key_V' to 'aes_process_1_roufYi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.533 seconds; current allocated memory: 399.924 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_state_matrix_V' to 'aes_process_2_stag8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_round_key_V' to 'aes_process_2_rouhbi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.351 seconds; current allocated memory: 401.099 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_bloc'.
+INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 401.732 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_data'.
+INFO: [HLS 200-111]  Elapsed time: 0.341 seconds; current allocated memory: 402.509 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/key_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/tweak_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/mode_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_len_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data_ret_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on function 'xts_aes' to 's_axilite & ap_ctrl_hs' (register).
+INFO: [RTGEN 206-100] Bundling port 'return', 'key_V', 'tweak_V', 'text_V', 'mode_V', 'text_len_V' and 'data_ret_V' to AXI-Lite port ctrl.
+INFO: [SYN 201-210] Renamed object name 'xts_aes_multiplication_table' to 'xts_aes_multiplicibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key_V' to 'xts_aes_aes_expanjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key2_V' to 'xts_aes_aes_expankbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_processed_data' to 'xts_aes_processedlbW' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes'.
+INFO: [HLS 200-111]  Elapsed time: 5.954 seconds; current allocated memory: 439.984 MB.
+INFO: [RTMG 210-279] Implementing memory 'aes_expand_key_rcon_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_expand_key_exbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_staeOg_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_roufYi_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_multiplicibs_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_s_boxes_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_aes_tweak_V_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_processedlbW_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:14 ; elapsed = 00:01:38 . Memory (MB): peak = 1110.566 ; gain = 1020.320
+INFO: [VHDL 208-304] Generating VHDL RTL for xts_aes.
+INFO: [VLOG 209-307] Generating Verilog RTL for xts_aes.
+INFO: [HLS 200-112] Total elapsed time: 98.624 seconds; peak allocated memory: 439.984 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'AES-XTS/main.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 185.062 ; gain = 93.574
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 185.062 ; gain = 93.574
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:04 ; elapsed = 00:00:20 . Memory (MB): peak = 197.016 ; gain = 105.527
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:04 ; elapsed = 00:00:21 . Memory (MB): peak = 224.941 ; gain = 133.453
+WARNING: [XFORM 203-805] Duplicating function 'aes_process' (AES-XTS/main.cpp:8) to resolve interface conflict according to call graph.
+WARNING: [XFORM 203-805] Duplicating function 'aes_sequence_to_matrix' (AES-XTS/main.cpp:225) to resolve interface conflict according to call graph.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_shift_rows_label2' (AES-XTS/main.cpp:63) in function 'aes_shift_rows' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_add_round_key_label4' (AES-XTS/main.cpp:125) in function 'aes_add_round_key' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_get_round_key_label5' (AES-XTS/main.cpp:139) in function 'aes_get_round_key' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_mix_columns_label3' (AES-XTS/main.cpp:104) in function 'aes_mix_columns' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'aes_substitute_bytes_label1' (AES-XTS/main.cpp:49) in function 'aes_substitute_bytes' for pipelining.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.1' (AES-XTS/main.cpp:67) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.2' (AES-XTS/main.cpp:72) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.3' (AES-XTS/main.cpp:80) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1.4' (AES-XTS/main.cpp:85) in function 'aes_shift_rows': cannot completely unroll a loop with a variable trip count.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.5' (AES-XTS/main.cpp:92) in function 'aes_shift_rows' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (AES-XTS/main.cpp:126) in function 'aes_add_round_key' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (AES-XTS/main.cpp:140) in function 'aes_get_round_key' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (AES-XTS/main.cpp:110) in function 'aes_mix_columns' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'aes_substitute_bytes_label0' (AES-XTS/main.cpp:51) in function 'aes_substitute_bytes' completely with a factor of 4.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temp_row.V' (AES-XTS/main.cpp:64) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'temporary_key.V' (AES-XTS/main.cpp:162) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'temp_row.V' (AES-XTS/main.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'temporary_key.V' (AES-XTS/main.cpp:162) in dimension 1 completely.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'constant_matrix.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.0' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.1' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.2' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'mix_column_constant_matrices.V.3' (AES-XTS/main.cpp:519) in dimension 2 automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence' into 'aes_process.1' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_sequence_to_matrix.2' into 'aes_process.2' automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_matrix_to_sequence.1' into 'aes_process.2' (AES-XTS/main.cpp:43) automatically.
+INFO: [XFORM 203-602] Inlining function 'xts_aes_calculate_next_tweak' into 'xts_aes_process_data' (AES-XTS/main.cpp:311) automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[0][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[1][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[2][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][0].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][1].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][2].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'mix_column_constant_matrices[3][3].V' (AES-XTS/main.cpp:519) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[0][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[1][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[2][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][0].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][1].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][2].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mix_column_constant_matrices[3][3].V' (AES-XTS/main.cpp:519) in dimension 1 completely.
+INFO: [XFORM 203-11] Balancing expressions in function 'aes_mix_columns' (AES-XTS/main.cpp:101)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:27 . Memory (MB): peak = 284.301 ; gain = 192.812
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'aes_shift_rows_label2' (AES-XTS/main.cpp:63:4) in function 'aes_shift_rows' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-631] Renaming function 'xts_aes_process_block' to 'xts_aes_process_bloc' (AES-XTS/main.cpp:274:27)
+WARNING: [XFORM 203-631] Renaming function 'aes_substitute_bytes7' to 'aes_substitute_bytes' (AES-XTS/main.cpp:46)
+WARNING: [XFORM 203-631] Renaming function 'aes_sequence_to_matrix.1' to 'aes_sequence_to_matr' (AES-XTS/main.cpp:228:28)
+INFO: [HLS 200-444] Inferring multiple bus burst write of a total cumulative length 1024 on port 'data3' (AES-XTS/main.cpp:551:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 1024 on port 'data.V' (AES-XTS/main.cpp:301:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 32 on port 'key.V' (AES-XTS/main.cpp:154:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:46 ; elapsed = 00:01:04 . Memory (MB): peak = 1110.289 ; gain = 1018.801
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'xts_aes' ...
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.1' to 'aes_process_1'.
+WARNING: [SYN 201-103] Legalizing function name 'aes_process.2' to 'aes_process_2'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 65.743 seconds; current allocated memory: 358.785 MB.
+INFO: [HLS 200-434] Only 0 loops out of a total 10 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.288 seconds; current allocated memory: 359.775 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.238 seconds; current allocated memory: 359.982 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.122 seconds; current allocated memory: 360.122 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_get_round_key_label5'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('expanded_key_V_load_2', AES-XTS/main.cpp:142) on array 'expanded_key_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'expanded_key_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.158 seconds; current allocated memory: 360.263 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.124 seconds; current allocated memory: 360.445 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_add_round_key_label4'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('round_key_matrix_V_l_2', AES-XTS/main.cpp:128) on array 'round_key_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'round_key_matrix_V'.
+WARNING: [SCHED 204-69] Unable to schedule 'store' operation ('state_matrix_V_addr_write_ln128', AES-XTS/main.cpp:128) of variable 'xor_ln719', AES-XTS/main.cpp:128 on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.174 seconds; current allocated memory: 360.560 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.134 seconds; current allocated memory: 360.713 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_substitute_bytes_label1'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_2', AES-XTS/main.cpp:52) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.163 seconds; current allocated memory: 360.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.136 seconds; current allocated memory: 361.039 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Loop contains subloop(s) not being unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.171 seconds; current allocated memory: 361.388 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.186 seconds; current allocated memory: 361.938 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'aes_mix_columns_label3'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_matrix_V_load_5', AES-XTS/main.cpp:108) on array 'state_matrix_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state_matrix_V'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('multiplication_V_loa_4', AES-XTS/main.cpp:112) on array 'multiplication_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'multiplication_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 8, Depth = 11.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.287 seconds; current allocated memory: 362.322 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.216 seconds; current allocated memory: 362.810 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.227 seconds; current allocated memory: 363.018 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.176 seconds; current allocated memory: 363.273 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.215 seconds; current allocated memory: 363.668 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.201 seconds; current allocated memory: 364.052 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 364.252 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.152 seconds; current allocated memory: 364.454 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 364.722 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.157 seconds; current allocated memory: 365.000 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.631 seconds; current allocated memory: 375.880 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 4.233 seconds; current allocated memory: 393.666 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_expand_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_expand_key_expanded_key_V' to 'aes_expand_key_exbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_42_16_1_1' to 'xts_aes_mux_42_16cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_42_16cud': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_expand_key'.
+INFO: [HLS 200-111]  Elapsed time: 2.963 seconds; current allocated memory: 395.233 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_sequence_to_matr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_sequence_to_matr'.
+INFO: [HLS 200-111]  Elapsed time: 0.505 seconds; current allocated memory: 395.945 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_get_round_key5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_get_round_key5'.
+INFO: [HLS 200-111]  Elapsed time: 0.197 seconds; current allocated memory: 396.360 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_add_round_key' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_add_round_key'.
+INFO: [HLS 200-111]  Elapsed time: 0.232 seconds; current allocated memory: 396.672 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_substitute_bytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_substitute_bytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.231 seconds; current allocated memory: 397.023 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_shift_rows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_shift_rows'.
+INFO: [HLS 200-111]  Elapsed time: 0.253 seconds; current allocated memory: 397.718 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_mix_columns8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'xts_aes_mux_32_8_1_1' to 'xts_aes_mux_32_8_dEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'xts_aes_mux_32_8_dEe': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_mix_columns8'.
+INFO: [HLS 200-111]  Elapsed time: 0.362 seconds; current allocated memory: 399.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_state_matrix_V' to 'aes_process_1_staeOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_1_round_key_V' to 'aes_process_1_roufYi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.471 seconds; current allocated memory: 400.319 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_process_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_state_matrix_V' to 'aes_process_2_stag8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_process_2_round_key_V' to 'aes_process_2_rouhbi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_process_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.359 seconds; current allocated memory: 401.522 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_bloc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_bloc'.
+INFO: [HLS 200-111]  Elapsed time: 0.402 seconds; current allocated memory: 402.150 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes_process_data' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes_process_data'.
+INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 402.965 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'xts_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/key_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/tweak_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/mode_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/text_len_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'xts_aes/data_ret_V' to 's_axilite & ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on function 'xts_aes' to 's_axilite & ap_ctrl_hs' (register).
+INFO: [RTGEN 206-100] Bundling port 'return', 'key_V', 'tweak_V', 'text_V', 'mode_V', 'text_len_V' and 'data_ret_V' to AXI-Lite port ctrl.
+INFO: [SYN 201-210] Renamed object name 'xts_aes_multiplication_table' to 'xts_aes_multiplicibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key_V' to 'xts_aes_aes_expanjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_aes_expanded_key2_V' to 'xts_aes_aes_expankbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'xts_aes_processed_data' to 'xts_aes_processedlbW' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'xts_aes'.
+INFO: [HLS 200-111]  Elapsed time: 6.188 seconds; current allocated memory: 440.471 MB.
+INFO: [RTMG 210-279] Implementing memory 'aes_expand_key_rcon_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_expand_key_exbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_process_1_staeOg_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_multiplicibs_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_s_boxes_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_aes_expanjbC_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_aes_tweak_V_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'xts_aes_processedlbW_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:15 ; elapsed = 00:01:40 . Memory (MB): peak = 1110.289 ; gain = 1018.801
+INFO: [VHDL 208-304] Generating VHDL RTL for xts_aes.
+INFO: [VLOG 209-307] Generating Verilog RTL for xts_aes.
+INFO: [HLS 200-112] Total elapsed time: 100.293 seconds; peak allocated memory: 440.471 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+WARNING: [COSIM 212-369] AXI_master port 'data0' has a depth of '64'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data1' has a depth of '16'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data2' has a depth of '1024'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data3' has a depth of '1024'. Insufficient depth may result in simulation mismatch or freeze.
+INFO: [COSIM 212-302] Starting C TB testing ... 
+ERROR: [COSIM 212-360] Aborting co-simulation: C TB simulation failed.
+ERROR: [COSIM 212-320] C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+WARNING: [COSIM 212-369] AXI_master port 'data0' has a depth of '64'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data1' has a depth of '16'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data2' has a depth of '1024'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'data3' has a depth of '1024'. Insufficient depth may result in simulation mismatch or freeze.
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.

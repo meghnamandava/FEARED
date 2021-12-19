@@ -48,7 +48,7 @@ aes_sequence_to_matr::aes_sequence_to_matr(sc_module_name name) : sc_module(name
     dont_initialize();
     sensitive << ( ap_clk.pos() );
 
-    SC_METHOD(thread_add_ln180_4_fu_173_p2);
+    SC_METHOD(thread_add_ln180_3_fu_173_p2);
     sensitive << ( sequence_V_offset_ca_reg_192 );
     sensitive << ( zext_ln180_10_fu_169_p1 );
 
@@ -217,7 +217,7 @@ aes_sequence_to_matr::aes_sequence_to_matr(sc_module_name name) : sc_module(name
     sensitive << ( ret_V_2_fu_164_p2 );
 
     SC_METHOD(thread_zext_ln180_11_fu_178_p1);
-    sensitive << ( add_ln180_4_fu_173_p2 );
+    sensitive << ( add_ln180_3_fu_173_p2 );
 
     SC_METHOD(thread_zext_ln180_9_fu_188_p1);
     sensitive << ( add_ln180_reg_223 );
@@ -346,7 +346,7 @@ aes_sequence_to_matr::aes_sequence_to_matr(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, ret_V_fu_156_p3, "ret_V_fu_156_p3");
     sc_trace(mVcdFile, ret_V_2_fu_164_p2, "ret_V_2_fu_164_p2");
     sc_trace(mVcdFile, zext_ln180_10_fu_169_p1, "zext_ln180_10_fu_169_p1");
-    sc_trace(mVcdFile, add_ln180_4_fu_173_p2, "add_ln180_4_fu_173_p2");
+    sc_trace(mVcdFile, add_ln180_3_fu_173_p2, "add_ln180_3_fu_173_p2");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
 
@@ -400,8 +400,8 @@ void aes_sequence_to_matr::thread_ap_clk_no_reset_() {
     }
 }
 
-void aes_sequence_to_matr::thread_add_ln180_4_fu_173_p2() {
-    add_ln180_4_fu_173_p2 = (!zext_ln180_10_fu_169_p1.read().is_01() || !sequence_V_offset_ca_reg_192.read().is_01())? sc_lv<32>(): (sc_biguint<32>(zext_ln180_10_fu_169_p1.read()) + sc_biguint<32>(sequence_V_offset_ca_reg_192.read()));
+void aes_sequence_to_matr::thread_add_ln180_3_fu_173_p2() {
+    add_ln180_3_fu_173_p2 = (!zext_ln180_10_fu_169_p1.read().is_01() || !sequence_V_offset_ca_reg_192.read().is_01())? sc_lv<32>(): (sc_biguint<32>(zext_ln180_10_fu_169_p1.read()) + sc_biguint<32>(sequence_V_offset_ca_reg_192.read()));
 }
 
 void aes_sequence_to_matr::thread_add_ln180_fu_147_p2() {
@@ -680,7 +680,7 @@ void aes_sequence_to_matr::thread_zext_ln180_10_fu_169_p1() {
 }
 
 void aes_sequence_to_matr::thread_zext_ln180_11_fu_178_p1() {
-    zext_ln180_11_fu_178_p1 = esl_zext<64,32>(add_ln180_4_fu_173_p2.read());
+    zext_ln180_11_fu_178_p1 = esl_zext<64,32>(add_ln180_3_fu_173_p2.read());
 }
 
 void aes_sequence_to_matr::thread_zext_ln180_9_fu_188_p1() {

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_add_round_key'" level="0">
-<item name = "Date">Mon Dec 13 15:29:30 2021
+<item name = "Date">Sat Dec 18 12:10:35 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 5.634, 1.25</column>
+<column name="ap_clk">10.00, 3.312, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">41, 41, 41, 41, none</column>
+<column name="">18, 18, 18, 18, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">40, 40, 10, -, -, 4, no</column>
-<column name=" + Loop 1.1">8, 8, 2, -, -, 4, no</column>
+<column name="- aes_add_round_key_label4">16, 16, 4, 4, 1, 4, yes</column>
 </table>
 </item>
 </section>
@@ -49,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 73, -</column>
+<column name="Expression">-, -, 0, 68, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 60, -</column>
-<column name="Register">-, -, 23, -, -</column>
+<column name="Multiplexer">-, -, -, 131, -</column>
+<column name="Register">-, -, 55, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -79,31 +78,37 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln719_fu_108_p2">+, 0, 0, 15, 6, 6</column>
-<column name="column_index_fu_98_p2">+, 0, 0, 12, 3, 1</column>
-<column name="row_index_fu_74_p2">+, 0, 0, 12, 3, 1</column>
-<column name="icmp_ln124_fu_68_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln126_fu_92_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="state_matrix_V_d0">xor, 0, 0, 16, 16, 16</column>
+<column name="row_index_fu_169_p2">+, 0, 0, 12, 3, 1</column>
+<column name="icmp_ln124_fu_163_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="or_ln719_1_fu_205_p2">or, 0, 0, 5, 5, 2</column>
+<column name="or_ln719_2_fu_220_p2">or, 0, 0, 5, 5, 2</column>
+<column name="or_ln719_fu_189_p2">or, 0, 0, 5, 5, 1</column>
+<column name="grp_fu_141_p2">xor, 0, 0, 16, 16, 16</column>
+<column name="grp_fu_147_p2">xor, 0, 0, 16, 16, 16</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">27, 5, 1, 5</column>
-<column name="column_index_0_reg_57">9, 2, 3, 6</column>
-<column name="row_index_0_reg_46">9, 2, 3, 6</column>
-<column name="state_matrix_V_address0">15, 3, 4, 12</column>
+<column name="ap_NS_fsm">38, 7, 1, 7</column>
+<column name="round_key_matrix_V_address0">15, 3, 4, 12</column>
+<column name="round_key_matrix_V_address1">15, 3, 4, 12</column>
+<column name="row_index_0_reg_130">9, 2, 3, 6</column>
+<column name="state_matrix_V_address0">27, 5, 4, 20</column>
+<column name="state_matrix_V_address1">27, 5, 4, 20</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">4, 0, 4, 0</column>
-<column name="column_index_0_reg_57">3, 0, 3, 0</column>
-<column name="column_index_reg_142">3, 0, 3, 0</column>
-<column name="row_index_0_reg_46">3, 0, 3, 0</column>
-<column name="row_index_reg_129">3, 0, 3, 0</column>
-<column name="state_matrix_V_addr_reg_147">4, 0, 4, 0</column>
-<column name="zext_ln126_reg_134">3, 0, 6, 3</column>
+<column name="ap_CS_fsm">6, 0, 6, 0</column>
+<column name="reg_153">16, 0, 16, 0</column>
+<column name="reg_158">16, 0, 16, 0</column>
+<column name="row_index_0_reg_130">3, 0, 3, 0</column>
+<column name="row_index_reg_238">3, 0, 3, 0</column>
+<column name="state_matrix_V_addr_14_reg_254">2, 0, 4, 2</column>
+<column name="state_matrix_V_addr_15_reg_269">2, 0, 4, 2</column>
+<column name="state_matrix_V_addr_16_reg_274">2, 0, 4, 2</column>
+<column name="state_matrix_V_addr_reg_249">2, 0, 4, 2</column>
+<column name="tmp_s_reg_243">3, 0, 5, 2</column>
 </table>
 </item>
 </section>
@@ -124,9 +129,17 @@
 <column name="state_matrix_V_we0">out, 1, ap_memory, state_matrix_V, array</column>
 <column name="state_matrix_V_d0">out, 16, ap_memory, state_matrix_V, array</column>
 <column name="state_matrix_V_q0">in, 16, ap_memory, state_matrix_V, array</column>
+<column name="state_matrix_V_address1">out, 4, ap_memory, state_matrix_V, array</column>
+<column name="state_matrix_V_ce1">out, 1, ap_memory, state_matrix_V, array</column>
+<column name="state_matrix_V_we1">out, 1, ap_memory, state_matrix_V, array</column>
+<column name="state_matrix_V_d1">out, 16, ap_memory, state_matrix_V, array</column>
+<column name="state_matrix_V_q1">in, 16, ap_memory, state_matrix_V, array</column>
 <column name="round_key_matrix_V_address0">out, 4, ap_memory, round_key_matrix_V, array</column>
 <column name="round_key_matrix_V_ce0">out, 1, ap_memory, round_key_matrix_V, array</column>
 <column name="round_key_matrix_V_q0">in, 16, ap_memory, round_key_matrix_V, array</column>
+<column name="round_key_matrix_V_address1">out, 4, ap_memory, round_key_matrix_V, array</column>
+<column name="round_key_matrix_V_ce1">out, 1, ap_memory, round_key_matrix_V, array</column>
+<column name="round_key_matrix_V_q1">in, 16, ap_memory, round_key_matrix_V, array</column>
 </table>
 </item>
 </section>

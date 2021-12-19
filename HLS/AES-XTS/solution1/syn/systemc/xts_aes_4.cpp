@@ -5,15 +5,15 @@ using namespace std;
 
 namespace ap_rtl {
 
-void xts_aes::thread_add_ln180_fu_24287_p2() {
-    add_ln180_fu_24287_p2 = (!zext_ln549_reg_24336.read().is_01() || !zext_ln180_fu_24283_p1.read().is_01())? sc_lv<12>(): (sc_biguint<12>(zext_ln549_reg_24336.read()) + sc_biguint<12>(zext_ln180_fu_24283_p1.read()));
+void xts_aes::thread_add_ln180_fu_23890_p2() {
+    add_ln180_fu_23890_p2 = (!zext_ln549_reg_23939.read().is_01() || !zext_ln180_fu_23886_p1.read().is_01())? sc_lv<12>(): (sc_biguint<12>(zext_ln549_reg_23939.read()) + sc_biguint<12>(zext_ln180_fu_23886_p1.read()));
 }
 
 void xts_aes::thread_aes_expanded_key2_V_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read())) {
-        aes_expanded_key2_V_address0 = grp_aes_expand_key_fu_24182_expanded_key_matrix_V_address0.read();
+        aes_expanded_key2_V_address0 = grp_aes_expand_key_fu_23785_expanded_key_matrix_V_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        aes_expanded_key2_V_address0 = grp_aes_process_1_fu_24167_expanded_key_V_address0.read();
+        aes_expanded_key2_V_address0 = grp_aes_process_1_fu_23774_expanded_key_V_address0.read();
     } else {
         aes_expanded_key2_V_address0 = "XXXXXXXX";
     }
@@ -21,17 +21,25 @@ void xts_aes::thread_aes_expanded_key2_V_address0() {
 
 void xts_aes::thread_aes_expanded_key2_V_ce0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read())) {
-        aes_expanded_key2_V_ce0 = grp_aes_expand_key_fu_24182_expanded_key_matrix_V_ce0.read();
+        aes_expanded_key2_V_ce0 = grp_aes_expand_key_fu_23785_expanded_key_matrix_V_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        aes_expanded_key2_V_ce0 = grp_aes_process_1_fu_24167_expanded_key_V_ce0.read();
+        aes_expanded_key2_V_ce0 = grp_aes_process_1_fu_23774_expanded_key_V_ce0.read();
     } else {
         aes_expanded_key2_V_ce0 = ap_const_logic_0;
     }
 }
 
+void xts_aes::thread_aes_expanded_key2_V_ce1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
+        aes_expanded_key2_V_ce1 = grp_aes_process_1_fu_23774_expanded_key_V_ce1.read();
+    } else {
+        aes_expanded_key2_V_ce1 = ap_const_logic_0;
+    }
+}
+
 void xts_aes::thread_aes_expanded_key2_V_we0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read())) {
-        aes_expanded_key2_V_we0 = grp_aes_expand_key_fu_24182_expanded_key_matrix_V_we0.read();
+        aes_expanded_key2_V_we0 = grp_aes_expand_key_fu_23785_expanded_key_matrix_V_we0.read();
     } else {
         aes_expanded_key2_V_we0 = ap_const_logic_0;
     }
@@ -39,9 +47,9 @@ void xts_aes::thread_aes_expanded_key2_V_we0() {
 
 void xts_aes::thread_aes_expanded_key_V_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read())) {
-        aes_expanded_key_V_address0 = grp_aes_expand_key_fu_24182_expanded_key_matrix_V_address0.read();
+        aes_expanded_key_V_address0 = grp_aes_expand_key_fu_23785_expanded_key_matrix_V_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        aes_expanded_key_V_address0 = grp_xts_aes_process_data_fu_24149_expanded_key_V_address0.read();
+        aes_expanded_key_V_address0 = grp_xts_aes_process_data_fu_23760_expanded_key_V_address0.read();
     } else {
         aes_expanded_key_V_address0 = "XXXXXXXX";
     }
@@ -49,17 +57,25 @@ void xts_aes::thread_aes_expanded_key_V_address0() {
 
 void xts_aes::thread_aes_expanded_key_V_ce0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read())) {
-        aes_expanded_key_V_ce0 = grp_aes_expand_key_fu_24182_expanded_key_matrix_V_ce0.read();
+        aes_expanded_key_V_ce0 = grp_aes_expand_key_fu_23785_expanded_key_matrix_V_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        aes_expanded_key_V_ce0 = grp_xts_aes_process_data_fu_24149_expanded_key_V_ce0.read();
+        aes_expanded_key_V_ce0 = grp_xts_aes_process_data_fu_23760_expanded_key_V_ce0.read();
     } else {
         aes_expanded_key_V_ce0 = ap_const_logic_0;
     }
 }
 
+void xts_aes::thread_aes_expanded_key_V_ce1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
+        aes_expanded_key_V_ce1 = grp_xts_aes_process_data_fu_23760_expanded_key_V_ce1.read();
+    } else {
+        aes_expanded_key_V_ce1 = ap_const_logic_0;
+    }
+}
+
 void xts_aes::thread_aes_expanded_key_V_we0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read())) {
-        aes_expanded_key_V_we0 = grp_aes_expand_key_fu_24182_expanded_key_matrix_V_we0.read();
+        aes_expanded_key_V_we0 = grp_aes_expand_key_fu_23785_expanded_key_matrix_V_we0.read();
     } else {
         aes_expanded_key_V_we0 = ap_const_logic_0;
     }
@@ -67,9 +83,9 @@ void xts_aes::thread_aes_expanded_key_V_we0() {
 
 void xts_aes::thread_aes_tweak_V_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        aes_tweak_V_address0 = grp_aes_process_1_fu_24167_sequence_out_V_address0.read();
+        aes_tweak_V_address0 = grp_aes_process_1_fu_23774_sequence_out_V_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        aes_tweak_V_address0 = grp_xts_aes_process_data_fu_24149_tweak_V_address0.read();
+        aes_tweak_V_address0 = grp_xts_aes_process_data_fu_23760_tweak_V_address0.read();
     } else {
         aes_tweak_V_address0 =  (sc_lv<4>) ("XXXX");
     }
@@ -77,9 +93,9 @@ void xts_aes::thread_aes_tweak_V_address0() {
 
 void xts_aes::thread_aes_tweak_V_ce0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        aes_tweak_V_ce0 = grp_aes_process_1_fu_24167_sequence_out_V_ce0.read();
+        aes_tweak_V_ce0 = grp_aes_process_1_fu_23774_sequence_out_V_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        aes_tweak_V_ce0 = grp_xts_aes_process_data_fu_24149_tweak_V_ce0.read();
+        aes_tweak_V_ce0 = grp_xts_aes_process_data_fu_23760_tweak_V_ce0.read();
     } else {
         aes_tweak_V_ce0 = ap_const_logic_0;
     }
@@ -87,9 +103,9 @@ void xts_aes::thread_aes_tweak_V_ce0() {
 
 void xts_aes::thread_aes_tweak_V_d0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        aes_tweak_V_d0 = grp_aes_process_1_fu_24167_sequence_out_V_d0.read();
+        aes_tweak_V_d0 = grp_aes_process_1_fu_23774_sequence_out_V_d0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        aes_tweak_V_d0 = grp_xts_aes_process_data_fu_24149_tweak_V_d0.read();
+        aes_tweak_V_d0 = grp_xts_aes_process_data_fu_23760_tweak_V_d0.read();
     } else {
         aes_tweak_V_d0 =  (sc_lv<16>) ("XXXXXXXXXXXXXXXX");
     }
@@ -97,9 +113,9 @@ void xts_aes::thread_aes_tweak_V_d0() {
 
 void xts_aes::thread_aes_tweak_V_we0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        aes_tweak_V_we0 = grp_aes_process_1_fu_24167_sequence_out_V_we0.read();
+        aes_tweak_V_we0 = grp_aes_process_1_fu_23774_sequence_out_V_we0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        aes_tweak_V_we0 = grp_xts_aes_process_data_fu_24149_tweak_V_we0.read();
+        aes_tweak_V_we0 = grp_xts_aes_process_data_fu_23760_tweak_V_we0.read();
     } else {
         aes_tweak_V_we0 = ap_const_logic_0;
     }
@@ -3777,7 +3793,7 @@ void xts_aes::thread_data0_ARVALID() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state897.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state899.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()))) {
-        data0_ARVALID = grp_aes_expand_key_fu_24182_m_axi_key_V_ARVALID.read();
+        data0_ARVALID = grp_aes_expand_key_fu_23785_m_axi_key_V_ARVALID.read();
     } else {
         data0_ARVALID = ap_const_logic_0;
     }
@@ -3788,7 +3804,7 @@ void xts_aes::thread_data0_RREADY() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state897.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state899.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()))) {
-        data0_RREADY = grp_aes_expand_key_fu_24182_m_axi_key_V_RREADY.read();
+        data0_RREADY = grp_aes_expand_key_fu_23785_m_axi_key_V_RREADY.read();
     } else {
         data0_RREADY = ap_const_logic_0;
     }
@@ -3797,7 +3813,7 @@ void xts_aes::thread_data0_RREADY() {
 void xts_aes::thread_data1_ARVALID() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state901.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read()))) {
-        data1_ARVALID = grp_aes_process_1_fu_24167_m_axi_text_V_ARVALID.read();
+        data1_ARVALID = grp_aes_process_1_fu_23774_m_axi_text_V_ARVALID.read();
     } else {
         data1_ARVALID = ap_const_logic_0;
     }
@@ -3806,7 +3822,7 @@ void xts_aes::thread_data1_ARVALID() {
 void xts_aes::thread_data1_RREADY() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state901.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read()))) {
-        data1_RREADY = grp_aes_process_1_fu_24167_m_axi_text_V_RREADY.read();
+        data1_RREADY = grp_aes_process_1_fu_23774_m_axi_text_V_RREADY.read();
     } else {
         data1_RREADY = ap_const_logic_0;
     }
@@ -3815,7 +3831,7 @@ void xts_aes::thread_data1_RREADY() {
 void xts_aes::thread_data2_ARVALID() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state903.read()))) {
-        data2_ARVALID = grp_xts_aes_process_data_fu_24149_m_axi_data_V_ARVALID.read();
+        data2_ARVALID = grp_xts_aes_process_data_fu_23760_m_axi_data_V_ARVALID.read();
     } else {
         data2_ARVALID = ap_const_logic_0;
     }
@@ -3824,7 +3840,7 @@ void xts_aes::thread_data2_ARVALID() {
 void xts_aes::thread_data2_RREADY() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state903.read()))) {
-        data2_RREADY = grp_xts_aes_process_data_fu_24149_m_axi_data_V_RREADY.read();
+        data2_RREADY = grp_xts_aes_process_data_fu_23760_m_axi_data_V_RREADY.read();
     } else {
         data2_RREADY = ap_const_logic_0;
     }
@@ -3832,7 +3848,7 @@ void xts_aes::thread_data2_RREADY() {
 
 void xts_aes::thread_data3_AWVALID() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) && 
-         !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_24182_ap_done.read())))) {
+         !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_23785_ap_done.read())))) {
         data3_AWVALID = ap_const_logic_1;
     } else {
         data3_AWVALID = ap_const_logic_0;
@@ -3881,8 +3897,8 @@ void xts_aes::thread_data3_blk_n_W() {
     }
 }
 
-void xts_aes::thread_data_ret_V7_fu_24196_p4() {
-    data_ret_V7_fu_24196_p4 = data_ret_V_0_data_reg.read().range(31, 1);
+void xts_aes::thread_data_ret_V7_fu_23799_p4() {
+    data_ret_V7_fu_23799_p4 = data_ret_V_0_data_reg.read().range(31, 1);
 }
 
 void xts_aes::thread_data_ret_V_0_ack_out() {
@@ -3895,46 +3911,46 @@ void xts_aes::thread_data_ret_V_0_ack_out() {
     }
 }
 
-void xts_aes::thread_empty_fu_24206_p1() {
-    empty_fu_24206_p1 = esl_zext<64,31>(data_ret_V7_fu_24196_p4.read());
+void xts_aes::thread_empty_fu_23809_p1() {
+    empty_fu_23809_p1 = esl_zext<64,31>(data_ret_V7_fu_23799_p4.read());
 }
 
-void xts_aes::thread_grp_aes_expand_key_fu_24182_ap_start() {
-    grp_aes_expand_key_fu_24182_ap_start = grp_aes_expand_key_fu_24182_ap_start_reg.read();
+void xts_aes::thread_grp_aes_expand_key_fu_23785_ap_start() {
+    grp_aes_expand_key_fu_23785_ap_start = grp_aes_expand_key_fu_23785_ap_start_reg.read();
 }
 
-void xts_aes::thread_grp_aes_expand_key_fu_24182_key_V_offset_offset() {
+void xts_aes::thread_grp_aes_expand_key_fu_23785_key_V_offset_offset() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read())) {
-        grp_aes_expand_key_fu_24182_key_V_offset_offset = ap_const_lv8_20;
+        grp_aes_expand_key_fu_23785_key_V_offset_offset = ap_const_lv8_20;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read())) {
-        grp_aes_expand_key_fu_24182_key_V_offset_offset = ap_const_lv8_0;
+        grp_aes_expand_key_fu_23785_key_V_offset_offset = ap_const_lv8_0;
     } else {
-        grp_aes_expand_key_fu_24182_key_V_offset_offset = "XXXXXXXX";
+        grp_aes_expand_key_fu_23785_key_V_offset_offset = "XXXXXXXX";
     }
 }
 
-void xts_aes::thread_grp_aes_process_1_fu_24167_ap_start() {
-    grp_aes_process_1_fu_24167_ap_start = grp_aes_process_1_fu_24167_ap_start_reg.read();
+void xts_aes::thread_grp_aes_process_1_fu_23774_ap_start() {
+    grp_aes_process_1_fu_23774_ap_start = grp_aes_process_1_fu_23774_ap_start_reg.read();
 }
 
-void xts_aes::thread_grp_xts_aes_process_data_fu_24149_ap_start() {
-    grp_xts_aes_process_data_fu_24149_ap_start = grp_xts_aes_process_data_fu_24149_ap_start_reg.read();
+void xts_aes::thread_grp_xts_aes_process_data_fu_23760_ap_start() {
+    grp_xts_aes_process_data_fu_23760_ap_start = grp_xts_aes_process_data_fu_23760_ap_start_reg.read();
 }
 
-void xts_aes::thread_i_fu_24253_p2() {
-    i_fu_24253_p2 = (!i_0_reg_24127.read().is_01() || !ap_const_lv7_1.is_01())? sc_lv<7>(): (sc_biguint<7>(i_0_reg_24127.read()) + sc_biguint<7>(ap_const_lv7_1));
+void xts_aes::thread_i_fu_23856_p2() {
+    i_fu_23856_p2 = (!i_0_reg_23738.read().is_01() || !ap_const_lv7_1.is_01())? sc_lv<7>(): (sc_biguint<7>(i_0_reg_23738.read()) + sc_biguint<7>(ap_const_lv7_1));
 }
 
-void xts_aes::thread_icmp_ln547_fu_24247_p2() {
-    icmp_ln547_fu_24247_p2 = (!i_0_reg_24127.read().is_01() || !ap_const_lv7_40.is_01())? sc_lv<1>(): sc_lv<1>(i_0_reg_24127.read() == ap_const_lv7_40);
+void xts_aes::thread_icmp_ln547_fu_23850_p2() {
+    icmp_ln547_fu_23850_p2 = (!i_0_reg_23738.read().is_01() || !ap_const_lv7_40.is_01())? sc_lv<1>(): sc_lv<1>(i_0_reg_23738.read() == ap_const_lv7_40);
 }
 
-void xts_aes::thread_icmp_ln549_fu_24271_p2() {
-    icmp_ln549_fu_24271_p2 = (!j_0_reg_24138.read().is_01() || !ap_const_lv5_10.is_01())? sc_lv<1>(): sc_lv<1>(j_0_reg_24138.read() == ap_const_lv5_10);
+void xts_aes::thread_icmp_ln549_fu_23874_p2() {
+    icmp_ln549_fu_23874_p2 = (!j_0_reg_23749.read().is_01() || !ap_const_lv5_10.is_01())? sc_lv<1>(): sc_lv<1>(j_0_reg_23749.read() == ap_const_lv5_10);
 }
 
-void xts_aes::thread_j_fu_24277_p2() {
-    j_fu_24277_p2 = (!j_0_reg_24138.read().is_01() || !ap_const_lv5_1.is_01())? sc_lv<5>(): (sc_biguint<5>(j_0_reg_24138.read()) + sc_biguint<5>(ap_const_lv5_1));
+void xts_aes::thread_j_fu_23880_p2() {
+    j_fu_23880_p2 = (!j_0_reg_23749.read().is_01() || !ap_const_lv5_1.is_01())? sc_lv<5>(): (sc_biguint<5>(j_0_reg_23749.read()) + sc_biguint<5>(ap_const_lv5_1));
 }
 
 void xts_aes::thread_key_V_0_ack_out() {
@@ -3944,460 +3960,6 @@ void xts_aes::thread_key_V_0_ack_out() {
         key_V_0_ack_out = ap_const_logic_1;
     } else {
         key_V_0_ack_out = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_10_address0 =  (sc_lv<4>) (ap_const_lv64_A);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_10_address0 =  (sc_lv<4>) (ap_const_lv64_8);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_10_address0 =  (sc_lv<4>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_10_address0 =  (sc_lv<4>) (ap_const_lv64_4);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_10_address0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_1_V_address0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_10_address0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_1_V_address0.read();
-    } else {
-        mix_column_constant_10_address0 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_address1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_10_address1 =  (sc_lv<4>) (ap_const_lv64_B);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_10_address1 =  (sc_lv<4>) (ap_const_lv64_9);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_10_address1 =  (sc_lv<4>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_10_address1 =  (sc_lv<4>) (ap_const_lv64_5);
-    } else {
-        mix_column_constant_10_address1 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_ce0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_10_ce0 = ap_const_logic_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_10_ce0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_1_V_ce0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_10_ce0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_1_V_ce0.read();
-    } else {
-        mix_column_constant_10_ce0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_10_ce1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_10_ce1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_d0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_10_d0 = ap_const_lv6_9;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_10_d0 = ap_const_lv6_B;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_10_d0 = ap_const_lv6_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_10_d0 = ap_const_lv6_3;
-    } else {
-        mix_column_constant_10_d0 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_d1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_10_d1 = ap_const_lv6_D;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_10_d1 = ap_const_lv6_E;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_10_d1 = ap_const_lv6_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_10_d1 = ap_const_lv6_2;
-    } else {
-        mix_column_constant_10_d1 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_10_we0 = ap_const_logic_1;
-    } else {
-        mix_column_constant_10_we0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_10_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_10_we1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_10_we1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_19_address0 =  (sc_lv<4>) (ap_const_lv64_A);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_19_address0 =  (sc_lv<4>) (ap_const_lv64_8);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_19_address0 =  (sc_lv<4>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_19_address0 =  (sc_lv<4>) (ap_const_lv64_4);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_19_address0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_2_V_address0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_19_address0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_2_V_address0.read();
-    } else {
-        mix_column_constant_19_address0 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_address1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_19_address1 =  (sc_lv<4>) (ap_const_lv64_B);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_19_address1 =  (sc_lv<4>) (ap_const_lv64_9);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_19_address1 =  (sc_lv<4>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_19_address1 =  (sc_lv<4>) (ap_const_lv64_5);
-    } else {
-        mix_column_constant_19_address1 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_ce0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_19_ce0 = ap_const_logic_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_19_ce0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_2_V_ce0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_19_ce0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_2_V_ce0.read();
-    } else {
-        mix_column_constant_19_ce0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_19_ce1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_19_ce1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_d0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_19_d0 = ap_const_lv6_E;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_19_d0 = ap_const_lv6_D;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_19_d0 = ap_const_lv6_2;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_19_d0 = ap_const_lv6_1;
-    } else {
-        mix_column_constant_19_d0 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_d1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_19_d1 = ap_const_lv6_9;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_19_d1 = ap_const_lv6_B;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_19_d1 = ap_const_lv6_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_19_d1 = ap_const_lv6_3;
-    } else {
-        mix_column_constant_19_d1 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_19_we0 = ap_const_logic_1;
-    } else {
-        mix_column_constant_19_we0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_19_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_19_we1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_19_we1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_28_address0 =  (sc_lv<4>) (ap_const_lv64_A);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_28_address0 =  (sc_lv<4>) (ap_const_lv64_8);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_28_address0 =  (sc_lv<4>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_28_address0 =  (sc_lv<4>) (ap_const_lv64_4);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_28_address0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_3_V_address0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_28_address0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_3_V_address0.read();
-    } else {
-        mix_column_constant_28_address0 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_address1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_28_address1 =  (sc_lv<4>) (ap_const_lv64_B);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_28_address1 =  (sc_lv<4>) (ap_const_lv64_9);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_28_address1 =  (sc_lv<4>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_28_address1 =  (sc_lv<4>) (ap_const_lv64_5);
-    } else {
-        mix_column_constant_28_address1 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_ce0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_28_ce0 = ap_const_logic_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_28_ce0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_3_V_ce0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_28_ce0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_3_V_ce0.read();
-    } else {
-        mix_column_constant_28_ce0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_28_ce1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_28_ce1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_d0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_28_d0 = ap_const_lv6_B;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_28_d0 = ap_const_lv6_9;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_28_d0 = ap_const_lv6_3;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_28_d0 = ap_const_lv6_1;
-    } else {
-        mix_column_constant_28_d0 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_d1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_28_d1 = ap_const_lv6_E;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_28_d1 = ap_const_lv6_D;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_28_d1 = ap_const_lv6_2;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_28_d1 = ap_const_lv6_1;
-    } else {
-        mix_column_constant_28_d1 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_28_we0 = ap_const_logic_1;
-    } else {
-        mix_column_constant_28_we0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_28_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_28_we1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_28_we1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-        mix_column_constant_s_address0 =  (sc_lv<4>) (ap_const_lv64_B);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_s_address0 =  (sc_lv<4>) (ap_const_lv64_9);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_s_address0 =  (sc_lv<4>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_s_address0 =  (sc_lv<4>) (ap_const_lv64_5);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_s_address0 =  (sc_lv<4>) (ap_const_lv64_0);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_s_address0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_0_V_address0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_s_address0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_0_V_address0.read();
-    } else {
-        mix_column_constant_s_address0 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_address1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_s_address1 =  (sc_lv<4>) (ap_const_lv64_A);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_s_address1 =  (sc_lv<4>) (ap_const_lv64_8);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_s_address1 =  (sc_lv<4>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_s_address1 =  (sc_lv<4>) (ap_const_lv64_4);
-    } else {
-        mix_column_constant_s_address1 =  (sc_lv<4>) ("XXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_ce0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_s_ce0 = ap_const_logic_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        mix_column_constant_s_ce0 = grp_aes_process_1_fu_24167_mix_column_constant_matrices_0_V_ce0.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        mix_column_constant_s_ce0 = grp_xts_aes_process_data_fu_24149_mix_column_constant_matrices_0_V_ce0.read();
-    } else {
-        mix_column_constant_s_ce0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_s_ce1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_s_ce1 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_d0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-        mix_column_constant_s_d0 = ap_const_lv6_B;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_s_d0 = ap_const_lv6_9;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_s_d0 = ap_const_lv6_3;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_s_d0 = ap_const_lv6_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_s_d0 = ap_const_lv6_0;
-    } else {
-        mix_column_constant_s_d0 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_d1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        mix_column_constant_s_d1 = ap_const_lv6_D;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        mix_column_constant_s_d1 = ap_const_lv6_E;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        mix_column_constant_s_d1 = ap_const_lv6_1;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        mix_column_constant_s_d1 = ap_const_lv6_2;
-    } else {
-        mix_column_constant_s_d1 =  (sc_lv<6>) ("XXXXXX");
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_s_we0 = ap_const_logic_1;
-    } else {
-        mix_column_constant_s_we0 = ap_const_logic_0;
-    }
-}
-
-void xts_aes::thread_mix_column_constant_s_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
-        mix_column_constant_s_we1 = ap_const_logic_1;
-    } else {
-        mix_column_constant_s_we1 = ap_const_logic_0;
     }
 }
 
@@ -6213,9 +5775,9 @@ void xts_aes::thread_multiplication_table_address0() {
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
         multiplication_table_address0 =  (sc_lv<12>) (ap_const_lv64_0);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        multiplication_table_address0 = grp_aes_process_1_fu_24167_multiplication_V_address0.read();
+        multiplication_table_address0 = grp_aes_process_1_fu_23774_multiplication_V_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        multiplication_table_address0 = grp_xts_aes_process_data_fu_24149_multiplication_V_address0.read();
+        multiplication_table_address0 = grp_xts_aes_process_data_fu_23760_multiplication_V_address0.read();
     } else {
         multiplication_table_address0 =  (sc_lv<12>) ("XXXXXXXXXXXX");
     }
@@ -8023,9 +7585,9 @@ void xts_aes::thread_multiplication_table_address1() {
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
         multiplication_table_address1 =  (sc_lv<12>) (ap_const_lv64_100);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        multiplication_table_address1 = grp_aes_process_1_fu_24167_multiplication_V_address1.read();
+        multiplication_table_address1 = grp_aes_process_1_fu_23774_multiplication_V_address1.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        multiplication_table_address1 = grp_xts_aes_process_data_fu_24149_multiplication_V_address1.read();
+        multiplication_table_address1 = grp_xts_aes_process_data_fu_23760_multiplication_V_address1.read();
     } else {
         multiplication_table_address1 =  (sc_lv<12>) ("XXXXXXXXXXXX");
     }
@@ -8930,16 +8492,16 @@ void xts_aes::thread_multiplication_table_ce0() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state895.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state896.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_24182_ap_done.read()))) || 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_23785_ap_done.read()))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()) && 
-          esl_seteq<1,1,1>(grp_aes_expand_key_fu_24182_ap_done.read(), ap_const_logic_1)))) {
+          esl_seteq<1,1,1>(grp_aes_expand_key_fu_23785_ap_done.read(), ap_const_logic_1)))) {
         multiplication_table_ce0 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        multiplication_table_ce0 = grp_aes_process_1_fu_24167_multiplication_V_ce0.read();
+        multiplication_table_ce0 = grp_aes_process_1_fu_23774_multiplication_V_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        multiplication_table_ce0 = grp_xts_aes_process_data_fu_24149_multiplication_V_ce0.read();
+        multiplication_table_ce0 = grp_xts_aes_process_data_fu_23760_multiplication_V_ce0.read();
     } else {
         multiplication_table_ce0 = ap_const_logic_0;
     }
@@ -9844,16 +9406,16 @@ void xts_aes::thread_multiplication_table_ce1() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state895.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state896.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_24182_ap_done.read()))) || 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_23785_ap_done.read()))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()) && 
-          esl_seteq<1,1,1>(grp_aes_expand_key_fu_24182_ap_done.read(), ap_const_logic_1)))) {
+          esl_seteq<1,1,1>(grp_aes_expand_key_fu_23785_ap_done.read(), ap_const_logic_1)))) {
         multiplication_table_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        multiplication_table_ce1 = grp_aes_process_1_fu_24167_multiplication_V_ce1.read();
+        multiplication_table_ce1 = grp_aes_process_1_fu_23774_multiplication_V_ce1.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        multiplication_table_ce1 = grp_xts_aes_process_data_fu_24149_multiplication_V_ce1.read();
+        multiplication_table_ce1 = grp_xts_aes_process_data_fu_23760_multiplication_V_ce1.read();
     } else {
         multiplication_table_ce1 = ap_const_logic_0;
     }
@@ -13078,11 +12640,11 @@ void xts_aes::thread_multiplication_table_we0() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state895.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state896.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_24182_ap_done.read()))) || 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_23785_ap_done.read()))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()) && 
-          esl_seteq<1,1,1>(grp_aes_expand_key_fu_24182_ap_done.read(), ap_const_logic_1)))) {
+          esl_seteq<1,1,1>(grp_aes_expand_key_fu_23785_ap_done.read(), ap_const_logic_1)))) {
         multiplication_table_we0 = ap_const_logic_1;
     } else {
         multiplication_table_we0 = ap_const_logic_0;
@@ -13988,11 +13550,11 @@ void xts_aes::thread_multiplication_table_we1() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state895.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state896.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_24182_ap_done.read()))) || 
+          !(esl_seteq<1,1,1>(ap_const_logic_0, data3_AWREADY.read()) || esl_seteq<1,1,1>(ap_const_logic_0, grp_aes_expand_key_fu_23785_ap_done.read()))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()) && 
-          esl_seteq<1,1,1>(grp_aes_expand_key_fu_24182_ap_done.read(), ap_const_logic_1)))) {
+          esl_seteq<1,1,1>(grp_aes_expand_key_fu_23785_ap_done.read(), ap_const_logic_1)))) {
         multiplication_table_we1 = ap_const_logic_1;
     } else {
         multiplication_table_we1 = ap_const_logic_0;
@@ -14001,9 +13563,9 @@ void xts_aes::thread_multiplication_table_we1() {
 
 void xts_aes::thread_processed_data_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state906.read())) {
-        processed_data_address0 =  (sc_lv<10>) (zext_ln180_3_fu_24292_p1.read());
+        processed_data_address0 =  (sc_lv<10>) (zext_ln180_3_fu_23895_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        processed_data_address0 = grp_xts_aes_process_data_fu_24149_blocks_V_address0.read();
+        processed_data_address0 = grp_xts_aes_process_data_fu_23760_blocks_V_address0.read();
     } else {
         processed_data_address0 =  (sc_lv<10>) ("XXXXXXXXXX");
     }
@@ -14013,7 +13575,7 @@ void xts_aes::thread_processed_data_ce0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state906.read())) {
         processed_data_ce0 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        processed_data_ce0 = grp_xts_aes_process_data_fu_24149_blocks_V_ce0.read();
+        processed_data_ce0 = grp_xts_aes_process_data_fu_23760_blocks_V_ce0.read();
     } else {
         processed_data_ce0 = ap_const_logic_0;
     }
@@ -14021,7 +13583,7 @@ void xts_aes::thread_processed_data_ce0() {
 
 void xts_aes::thread_processed_data_we0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        processed_data_we0 = grp_xts_aes_process_data_fu_24149_blocks_V_we0.read();
+        processed_data_we0 = grp_xts_aes_process_data_fu_23760_blocks_V_we0.read();
     } else {
         processed_data_we0 = ap_const_logic_0;
     }
@@ -14544,11 +14106,11 @@ void xts_aes::thread_s_boxes_V_address0() {
         s_boxes_V_address0 =  (sc_lv<10>) (ap_const_lv64_0);
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) || 
                 esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()))) {
-        s_boxes_V_address0 = grp_aes_expand_key_fu_24182_s_box_V_address0.read();
+        s_boxes_V_address0 = grp_aes_expand_key_fu_23785_s_box_V_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        s_boxes_V_address0 = grp_aes_process_1_fu_24167_s_boxes_V_address0.read();
+        s_boxes_V_address0 = grp_aes_process_1_fu_23774_s_boxes_V_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        s_boxes_V_address0 = grp_xts_aes_process_data_fu_24149_s_boxes_V_address0.read();
+        s_boxes_V_address0 = grp_xts_aes_process_data_fu_23760_s_boxes_V_address0.read();
     } else {
         s_boxes_V_address0 =  (sc_lv<10>) ("XXXXXXXXXX");
     }
@@ -15067,6 +14629,10 @@ void xts_aes::thread_s_boxes_V_address1() {
         s_boxes_V_address1 =  (sc_lv<10>) (ap_const_lv64_102);
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
         s_boxes_V_address1 =  (sc_lv<10>) (ap_const_lv64_100);
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
+        s_boxes_V_address1 = grp_aes_process_1_fu_23774_s_boxes_V_address1.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
+        s_boxes_V_address1 = grp_xts_aes_process_data_fu_23760_s_boxes_V_address1.read();
     } else {
         s_boxes_V_address1 =  (sc_lv<10>) ("XXXXXXXXXX");
     }
@@ -15334,11 +14900,11 @@ void xts_aes::thread_s_boxes_V_ce0() {
         s_boxes_V_ce0 = ap_const_logic_1;
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state898.read()) || 
                 esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state900.read()))) {
-        s_boxes_V_ce0 = grp_aes_expand_key_fu_24182_s_box_V_ce0.read();
+        s_boxes_V_ce0 = grp_aes_expand_key_fu_23785_s_box_V_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
-        s_boxes_V_ce0 = grp_aes_process_1_fu_24167_s_boxes_V_ce0.read();
+        s_boxes_V_ce0 = grp_aes_process_1_fu_23774_s_boxes_V_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
-        s_boxes_V_ce0 = grp_xts_aes_process_data_fu_24149_s_boxes_V_ce0.read();
+        s_boxes_V_ce0 = grp_xts_aes_process_data_fu_23760_s_boxes_V_ce0.read();
     } else {
         s_boxes_V_ce0 = ap_const_logic_0;
     }
@@ -15603,6 +15169,10 @@ void xts_aes::thread_s_boxes_V_ce1() {
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1)))) {
         s_boxes_V_ce1 = ap_const_logic_1;
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state902.read())) {
+        s_boxes_V_ce1 = grp_aes_process_1_fu_23774_s_boxes_V_ce1.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state904.read())) {
+        s_boxes_V_ce1 = grp_xts_aes_process_data_fu_23760_s_boxes_V_ce1.read();
     } else {
         s_boxes_V_ce1 = ap_const_logic_0;
     }
@@ -17062,6 +16632,52 @@ void xts_aes::thread_s_boxes_V_we1() {
     } else {
         s_boxes_V_we1 = ap_const_logic_0;
     }
+}
+
+void xts_aes::thread_text_V_0_ack_out() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state897.read()) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state912.read()) && 
+          esl_seteq<1,1,1>(data3_BVALID.read(), ap_const_logic_1)))) {
+        text_V_0_ack_out = ap_const_logic_1;
+    } else {
+        text_V_0_ack_out = ap_const_logic_0;
+    }
+}
+
+void xts_aes::thread_text_len_V_0_ack_out() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state897.read()) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state912.read()) && 
+          esl_seteq<1,1,1>(data3_BVALID.read(), ap_const_logic_1)))) {
+        text_len_V_0_ack_out = ap_const_logic_1;
+    } else {
+        text_len_V_0_ack_out = ap_const_logic_0;
+    }
+}
+
+void xts_aes::thread_tmp_3_fu_23862_p3() {
+    tmp_3_fu_23862_p3 = esl_concat<7,4>(i_0_reg_23738.read(), ap_const_lv4_0);
+}
+
+void xts_aes::thread_tweak_V_0_ack_out() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state897.read()) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state912.read()) && 
+          esl_seteq<1,1,1>(data3_BVALID.read(), ap_const_logic_1)))) {
+        tweak_V_0_ack_out = ap_const_logic_1;
+    } else {
+        tweak_V_0_ack_out = ap_const_logic_0;
+    }
+}
+
+void xts_aes::thread_zext_ln180_3_fu_23895_p1() {
+    zext_ln180_3_fu_23895_p1 = esl_zext<64,12>(add_ln180_fu_23890_p2.read());
+}
+
+void xts_aes::thread_zext_ln180_fu_23886_p1() {
+    zext_ln180_fu_23886_p1 = esl_zext<12,5>(j_0_reg_23749.read());
+}
+
+void xts_aes::thread_zext_ln549_fu_23870_p1() {
+    zext_ln549_fu_23870_p1 = esl_zext<12,11>(tmp_3_fu_23862_p3.read());
 }
 
 }

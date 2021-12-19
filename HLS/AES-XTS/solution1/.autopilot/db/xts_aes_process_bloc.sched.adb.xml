@@ -62,7 +62,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="16" op_0_bw="16" op_1_bw="16">
+<Node id="8" bw="16" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 :0  %mode_V_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %mode_V)
 
@@ -77,7 +77,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="7" op_0_bw="7" op_1_bw="7">
+<Node id="9" bw="7" op_0_bw="7" op_1_bw="7">
 <![CDATA[
 :1  %block_V_offset_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %block_V_offset)
 
@@ -92,7 +92,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="11" op_0_bw="11" op_1_bw="7" op_2_bw="4">
+<Node id="10" bw="11" op_0_bw="11" op_1_bw="7" op_2_bw="4">
 <![CDATA[
 :2  %tmp = call i11 @_ssdm_op_BitConcatenate.i11.i7.i4(i7 %block_V_offset_read, i4 0)
 
@@ -107,7 +107,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="15" bw="12" op_0_bw="11">
+<Node id="11" bw="12" op_0_bw="11">
 <![CDATA[
 :3  %zext_ln272 = zext i11 %tmp to i12
 
@@ -122,7 +122,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="0" op_0_bw="0">
+<Node id="12" bw="0" op_0_bw="0">
 <![CDATA[
 :4  br label %1
 
@@ -140,7 +140,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
+<Node id="14" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
 :0  %i_0 = phi i5 [ 0, %0 ], [ %i, %2 ]
 
@@ -155,7 +155,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="1" op_0_bw="5" op_1_bw="5">
+<Node id="15" bw="1" op_0_bw="5" op_1_bw="5">
 <![CDATA[
 :1  %icmp_ln274 = icmp eq i5 %i_0, -16
 
@@ -170,7 +170,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="16" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
 :2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
@@ -185,7 +185,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="5" op_0_bw="5" op_1_bw="5">
+<Node id="17" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
 :3  %i = add i5 %i_0, 1
 
@@ -200,7 +200,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="22" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="18" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 :4  br i1 %icmp_ln274, label %3, label %2
 
@@ -216,7 +216,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="64" op_0_bw="5">
+<Node id="20" bw="64" op_0_bw="5">
 <![CDATA[
 :0  %zext_ln276 = zext i5 %i_0 to i64
 
@@ -232,7 +232,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="12" op_0_bw="5">
+<Node id="21" bw="12" op_0_bw="5">
 <![CDATA[
 :1  %zext_ln1357 = zext i5 %i_0 to i12
 
@@ -248,7 +248,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="26" bw="12" op_0_bw="12" op_1_bw="12">
+<Node id="22" bw="12" op_0_bw="12" op_1_bw="12">
 <![CDATA[
 :2  %add_ln1357 = add i12 %zext_ln272, %zext_ln1357
 
@@ -264,7 +264,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="64" op_0_bw="12">
+<Node id="23" bw="64" op_0_bw="12">
 <![CDATA[
 :3  %zext_ln1357_1 = zext i12 %add_ln1357 to i64
 
@@ -280,7 +280,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="10" op_0_bw="16" op_1_bw="64" op_2_bw="64">
+<Node id="24" bw="10" op_0_bw="16" op_1_bw="64" op_2_bw="64">
 <![CDATA[
 :4  %block_V_addr = getelementptr [1024 x i16]* %block_V, i64 0, i64 %zext_ln1357_1
 
@@ -296,7 +296,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="16" op_0_bw="10">
+<Node id="25" bw="16" op_0_bw="10">
 <![CDATA[
 :5  %lhs_V = load i16* %block_V_addr, align 2
 
@@ -312,7 +312,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
+<Node id="26" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
 <![CDATA[
 :6  %tweak_V_addr = getelementptr [16 x i16]* %tweak_V, i64 0, i64 %zext_ln276
 
@@ -328,7 +328,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="16" op_0_bw="4">
+<Node id="27" bw="16" op_0_bw="4">
 <![CDATA[
 :7  %rhs_V = load i16* %tweak_V_addr, align 2
 
@@ -344,7 +344,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="16" op_1_bw="16">
+<Node id="32" bw="1" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 :0  %icmp_ln879 = icmp eq i16 %mode_V_read, 1
 
@@ -360,7 +360,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="6" op_0_bw="7">
+<Node id="33" bw="6" op_0_bw="7">
 <![CDATA[
 :1  %empty_8 = trunc i7 %block_V_offset_read to i6
 
@@ -376,7 +376,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="38" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="34" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 :2  br i1 %icmp_ln879, label %4, label %5
 
@@ -393,9 +393,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="6" op_8_bw="6" op_9_bw="6" op_10_bw="6" op_11_bw="8">
+<Node id="36" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="8">
 <![CDATA[
-:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 14, i2 -1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, [3840 x i8]* %multiplication_V)
+:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 14, i2 -1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [3840 x i8]* %multiplication_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln276"/></StgValue>
@@ -410,9 +410,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="6" op_8_bw="6" op_9_bw="6" op_10_bw="6" op_11_bw="8">
+<Node id="39" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="8">
 <![CDATA[
-:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 0, i2 1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, [3840 x i8]* %multiplication_V)
+:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 0, i2 1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [3840 x i8]* %multiplication_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln276"/></StgValue>
@@ -428,7 +428,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="16" op_0_bw="10">
+<Node id="25" bw="16" op_0_bw="10">
 <![CDATA[
 :5  %lhs_V = load i16* %block_V_addr, align 2
 
@@ -443,7 +443,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="16" op_0_bw="4">
+<Node id="27" bw="16" op_0_bw="4">
 <![CDATA[
 :7  %rhs_V = load i16* %tweak_V_addr, align 2
 
@@ -458,7 +458,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="16" op_0_bw="16" op_1_bw="16">
+<Node id="28" bw="16" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 :8  %ret_V = xor i16 %rhs_V, %lhs_V
 
@@ -473,7 +473,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="0" op_0_bw="16" op_1_bw="10" op_2_bw="16">
+<Node id="29" bw="0" op_0_bw="16" op_1_bw="10" op_2_bw="16">
 <![CDATA[
 :9  store i16 %ret_V, i16* %block_V_addr, align 2
 
@@ -488,7 +488,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="0" op_0_bw="0">
+<Node id="30" bw="0" op_0_bw="0">
 <![CDATA[
 :10  br label %1
 
@@ -507,9 +507,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="6" op_8_bw="6" op_9_bw="6" op_10_bw="6" op_11_bw="8">
+<Node id="36" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="8">
 <![CDATA[
-:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 14, i2 -1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, [3840 x i8]* %multiplication_V)
+:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 14, i2 -1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [3840 x i8]* %multiplication_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln276"/></StgValue>
@@ -523,7 +523,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="41" bw="0" op_0_bw="0">
+<Node id="37" bw="0" op_0_bw="0">
 <![CDATA[
 :1  br label %6
 
@@ -539,9 +539,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="6" op_8_bw="6" op_9_bw="6" op_10_bw="6" op_11_bw="8">
+<Node id="39" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="6" op_4_bw="2" op_5_bw="16" op_6_bw="8" op_7_bw="8">
 <![CDATA[
-:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 0, i2 1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, [3840 x i8]* %multiplication_V)
+:0  call fastcc void @aes_process.2([1024 x i16]* %block_V, i6 %empty_8, i6 0, i2 1, [240 x i16]* %expanded_key_V, [768 x i8]* %s_boxes_V, [3840 x i8]* %multiplication_V)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln276"/></StgValue>
@@ -555,7 +555,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="0" op_0_bw="0">
+<Node id="40" bw="0" op_0_bw="0">
 <![CDATA[
 :1  br label %6
 
@@ -570,7 +570,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="46" bw="0" op_0_bw="0">
+<Node id="42" bw="0" op_0_bw="0">
 <![CDATA[
 :0  br label %7
 
@@ -588,7 +588,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="48" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
+<Node id="44" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
 :0  %i1_0 = phi i5 [ 0, %6 ], [ %i_2, %8 ]
 
@@ -603,7 +603,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="49" bw="1" op_0_bw="5" op_1_bw="5">
+<Node id="45" bw="1" op_0_bw="5" op_1_bw="5">
 <![CDATA[
 :1  %icmp_ln288 = icmp eq i5 %i1_0, -16
 
@@ -618,7 +618,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="46" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
 :2  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
@@ -633,7 +633,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="5" op_0_bw="5" op_1_bw="5">
+<Node id="47" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
 :3  %i_2 = add i5 %i1_0, 1
 
@@ -648,7 +648,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="52" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="48" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 :4  br i1 %icmp_ln288, label %9, label %8
 
@@ -664,7 +664,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="54" bw="64" op_0_bw="5">
+<Node id="50" bw="64" op_0_bw="5">
 <![CDATA[
 :0  %zext_ln290 = zext i5 %i1_0 to i64
 
@@ -680,7 +680,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="12" op_0_bw="5">
+<Node id="51" bw="12" op_0_bw="5">
 <![CDATA[
 :1  %zext_ln1357_2 = zext i5 %i1_0 to i12
 
@@ -696,7 +696,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="12" op_0_bw="12" op_1_bw="12">
+<Node id="52" bw="12" op_0_bw="12" op_1_bw="12">
 <![CDATA[
 :2  %add_ln1357_1 = add i12 %zext_ln272, %zext_ln1357_2
 
@@ -712,7 +712,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="57" bw="64" op_0_bw="12">
+<Node id="53" bw="64" op_0_bw="12">
 <![CDATA[
 :3  %zext_ln1357_3 = zext i12 %add_ln1357_1 to i64
 
@@ -728,7 +728,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="58" bw="10" op_0_bw="16" op_1_bw="64" op_2_bw="64">
+<Node id="54" bw="10" op_0_bw="16" op_1_bw="64" op_2_bw="64">
 <![CDATA[
 :4  %block_V_addr_1 = getelementptr [1024 x i16]* %block_V, i64 0, i64 %zext_ln1357_3
 
@@ -744,7 +744,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="59" bw="16" op_0_bw="10">
+<Node id="55" bw="16" op_0_bw="10">
 <![CDATA[
 :5  %lhs_V_1 = load i16* %block_V_addr_1, align 2
 
@@ -760,7 +760,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="60" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
+<Node id="56" bw="4" op_0_bw="16" op_1_bw="64" op_2_bw="64">
 <![CDATA[
 :6  %tweak_V_addr_1 = getelementptr [16 x i16]* %tweak_V, i64 0, i64 %zext_ln290
 
@@ -776,7 +776,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="61" bw="16" op_0_bw="4">
+<Node id="57" bw="16" op_0_bw="4">
 <![CDATA[
 :7  %rhs_V_1 = load i16* %tweak_V_addr_1, align 2
 
@@ -792,7 +792,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="0">
+<Node id="62" bw="0">
 <![CDATA[
 :0  ret void
 
@@ -810,7 +810,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="59" bw="16" op_0_bw="10">
+<Node id="55" bw="16" op_0_bw="10">
 <![CDATA[
 :5  %lhs_V_1 = load i16* %block_V_addr_1, align 2
 
@@ -825,7 +825,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="61" bw="16" op_0_bw="4">
+<Node id="57" bw="16" op_0_bw="4">
 <![CDATA[
 :7  %rhs_V_1 = load i16* %tweak_V_addr_1, align 2
 
@@ -840,7 +840,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="62" bw="16" op_0_bw="16" op_1_bw="16">
+<Node id="58" bw="16" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 :8  %ret_V_1 = xor i16 %rhs_V_1, %lhs_V_1
 
@@ -855,7 +855,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="63" bw="0" op_0_bw="16" op_1_bw="10" op_2_bw="16">
+<Node id="59" bw="0" op_0_bw="16" op_1_bw="10" op_2_bw="16">
 <![CDATA[
 :9  store i16 %ret_V_1, i16* %block_V_addr_1, align 2
 
@@ -870,7 +870,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="0" op_0_bw="0">
+<Node id="60" bw="0" op_0_bw="0">
 <![CDATA[
 :10  br label %7
 

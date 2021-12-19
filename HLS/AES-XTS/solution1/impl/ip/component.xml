@@ -2392,7 +2392,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5a9b3a9e</spirit:value>
+            <spirit:value>f7649664</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2408,7 +2408,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>00974476</spirit:value>
+            <spirit:value>8563034a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2424,7 +2424,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>525395ec</spirit:value>
+            <spirit:value>30e1aa06</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2440,7 +2440,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5c53a546</spirit:value>
+            <spirit:value>d70b2e72</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -6406,11 +6406,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/aes_process_1_roueOg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/aes_process_1_stadEe.v</spirit:name>
+        <spirit:name>hdl/verilog/aes_process_1_staeOg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6427,6 +6423,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/aes_substitute_bytes.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/xts_aes_aes_expanjbC.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6454,11 +6454,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/xts_aes_mix_columibs.v</spirit:name>
+        <spirit:name>hdl/verilog/xts_aes_multiplicibs.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/xts_aes_multiplichbi.v</spirit:name>
+        <spirit:name>hdl/verilog/xts_aes_mux_32_8_dEe.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6474,7 +6474,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/xts_aes_processedocq.v</spirit:name>
+        <spirit:name>hdl/verilog/xts_aes_processedlbW.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6528,12 +6528,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/aes_process_1_roueOg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/aes_process_1_stadEe.v</spirit:name>
+        <spirit:name>hdl/verilog/aes_process_1_staeOg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6554,6 +6549,11 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/aes_substitute_bytes.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/xts_aes_aes_expanjbC.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6588,12 +6588,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/xts_aes_mix_columibs.v</spirit:name>
+        <spirit:name>hdl/verilog/xts_aes_multiplicibs.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/xts_aes_multiplichbi.v</spirit:name>
+        <spirit:name>hdl/verilog/xts_aes_mux_32_8_dEe.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6613,7 +6613,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/xts_aes_processedocq.v</spirit:name>
+        <spirit:name>hdl/verilog/xts_aes_processedlbW.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6664,11 +6664,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/aes_process_1_roueOg.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/aes_process_1_stadEe.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/aes_process_1_staeOg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6685,6 +6681,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/aes_substitute_bytes.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/xts_aes_aes_expanjbC.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6712,11 +6712,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/xts_aes_mix_columibs.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/xts_aes_multiplicibs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/xts_aes_multiplichbi.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/xts_aes_mux_32_8_dEe.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6732,7 +6732,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/xts_aes_processedocq.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/xts_aes_processedlbW.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -6742,7 +6742,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/xts_aes.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_7f3a1b69</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_972b247d</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -6783,12 +6783,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/aes_process_1_roueOg.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/aes_process_1_stadEe.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/aes_process_1_staeOg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6809,6 +6804,11 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/aes_substitute_bytes.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/xts_aes_aes_expanjbC.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6843,12 +6843,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/xts_aes_mix_columibs.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/xts_aes_multiplicibs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/xts_aes_multiplichbi.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/xts_aes_mux_32_8_dEe.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -6868,7 +6868,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/xts_aes_processedocq.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/xts_aes_processedlbW.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -7406,7 +7406,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="53">13783</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="53">12139</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
@@ -7423,18 +7423,18 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Xts_aes</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2112131549</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-13T23:49:22Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2112181214</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-18T20:14:36Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="44837a08"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="94e2de05"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="460f818f"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a76bb151"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f4fdc6f5"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="1968b618"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="04112579"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a31f9956"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a5f0210a"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

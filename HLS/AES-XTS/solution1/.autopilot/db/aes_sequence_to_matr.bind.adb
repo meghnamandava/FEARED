@@ -1174,7 +1174,7 @@
 					<Obj>
 						<type>0</type>
 						<id>34</id>
-						<name>add_ln180_4</name>
+						<name>add_ln180_3</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>232</lineNumber>
@@ -3558,7 +3558,7 @@
 		<count>21</count>
 		<item_version>0</item_version>
 		<item class_id="48" tracking_level="0" version="0">
-			<first>add_ln180_4_fu_173</first>
+			<first>add_ln180_3_fu_173</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

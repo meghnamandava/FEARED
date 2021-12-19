@@ -18,7 +18,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename expanded_key_V \
     op interface \
-    ports { expanded_key_V_address0 { O 8 vector } expanded_key_V_ce0 { O 1 bit } expanded_key_V_q0 { I 16 vector } } \
+    ports { expanded_key_V_address0 { O 8 vector } expanded_key_V_ce0 { O 1 bit } expanded_key_V_q0 { I 16 vector } expanded_key_V_address1 { O 8 vector } expanded_key_V_ce1 { O 1 bit } expanded_key_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expanded_key_V'"
@@ -37,7 +37,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir O \
     corename round_key_V \
     op interface \
-    ports { round_key_V_address0 { O 4 vector } round_key_V_ce0 { O 1 bit } round_key_V_we0 { O 1 bit } round_key_V_d0 { O 16 vector } } \
+    ports { round_key_V_address0 { O 4 vector } round_key_V_ce0 { O 1 bit } round_key_V_we0 { O 1 bit } round_key_V_d0 { O 16 vector } round_key_V_address1 { O 4 vector } round_key_V_ce1 { O 1 bit } round_key_V_we1 { O 1 bit } round_key_V_d1 { O 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'round_key_V'"

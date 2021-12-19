@@ -1174,7 +1174,7 @@
             <Obj>
               <type>0</type>
               <id>34</id>
-              <name>add_ln180_4</name>
+              <name>add_ln180_3</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>232</lineNumber>
@@ -1198,7 +1198,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>add_ln180_4_fu_173_p2</rtlName>
+              <rtlName>add_ln180_3_fu_173_p2</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -3067,7 +3067,7 @@
         <count>7</count>
         <item_version>0</item_version>
         <item class_id="38" tracking_level="0" version="0">
-          <first>add_ln180_4_fu_173_p2 ( + ) </first>
+          <first>add_ln180_3_fu_173_p2 ( + ) </first>
           <second class_id="39" tracking_level="0" version="0">
             <count>4</count>
             <item_version>0</item_version>
@@ -3580,7 +3580,7 @@
         <count>7</count>
         <item_version>0</item_version>
         <item class_id="42" tracking_level="0" version="0">
-          <first>add_ln180_4_fu_173_p2 ( + ) </first>
+          <first>add_ln180_3_fu_173_p2 ( + ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -4144,7 +4144,7 @@
       <count>21</count>
       <item_version>0</item_version>
       <item class_id="54" tracking_level="0" version="0">
-        <first>add_ln180_4_fu_173</first>
+        <first>add_ln180_3_fu_173</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

@@ -31,12 +31,9 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_P
 INFO: [VRFC 10-311] analyzing module aes_mix_columns8
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/aes_process_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module aes_process_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/aes_process_1_roueOg.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module aes_process_1_roueOg_ram
-INFO: [VRFC 10-311] analyzing module aes_process_1_roueOg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/aes_process_1_stadEe.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module aes_process_1_stadEe_ram
-INFO: [VRFC 10-311] analyzing module aes_process_1_stadEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/aes_process_1_staeOg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_process_1_staeOg_ram
+INFO: [VRFC 10-311] analyzing module aes_process_1_staeOg
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/aes_process_2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module aes_process_2
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/aes_sequence_to_matr.v" into library xil_defaultlib
@@ -49,6 +46,9 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_P
 INFO: [VRFC 10-311] analyzing module apatb_xts_aes_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module xts_aes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_aes_expanjbC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module xts_aes_aes_expanjbC_ram
+INFO: [VRFC 10-311] analyzing module xts_aes_aes_expanjbC
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_aes_tweak_V.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module xts_aes_aes_tweak_V_ram
 INFO: [VRFC 10-311] analyzing module xts_aes_aes_tweak_V
@@ -90,17 +90,16 @@ INFO: [VRFC 10-311] analyzing module xts_aes_data3_m_axi_decoder
 INFO: [VRFC 10-311] analyzing module xts_aes_data3_m_axi_throttl
 INFO: [VRFC 10-311] analyzing module xts_aes_data3_m_axi_read
 INFO: [VRFC 10-311] analyzing module xts_aes_data3_m_axi_write
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_mix_columibs.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module xts_aes_mix_columibs_ram
-INFO: [VRFC 10-311] analyzing module xts_aes_mix_columibs
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_multiplichbi.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module xts_aes_multiplichbi_ram
-INFO: [VRFC 10-311] analyzing module xts_aes_multiplichbi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_multiplicibs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module xts_aes_multiplicibs_ram
+INFO: [VRFC 10-311] analyzing module xts_aes_multiplicibs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_mux_32_8_dEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module xts_aes_mux_32_8_dEe
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_mux_42_16cud.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module xts_aes_mux_42_16cud
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_processedocq.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module xts_aes_processedocq_ram
-INFO: [VRFC 10-311] analyzing module xts_aes_processedocq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_processedlbW.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module xts_aes_processedlbW_ram
+INFO: [VRFC 10-311] analyzing module xts_aes_processedlbW
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_process_bloc.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module xts_aes_process_bloc
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/sim/verilog/xts_aes_process_data.v" into library xil_defaultlib
@@ -166,35 +165,34 @@ Compiling module xil_defaultlib.xts_aes_data3_m_axi_buffer(DATA_...
 Compiling module xil_defaultlib.xts_aes_data3_m_axi_reg_slice(N=...
 Compiling module xil_defaultlib.xts_aes_data3_m_axi_read(NUM_REA...
 Compiling module xil_defaultlib.xts_aes_data3_m_axi(NUM_READ_OUT...
-Compiling module xil_defaultlib.xts_aes_multiplichbi_ram
-Compiling module xil_defaultlib.xts_aes_multiplichbi(DataWidth=8...
+Compiling module xil_defaultlib.xts_aes_multiplicibs_ram
+Compiling module xil_defaultlib.xts_aes_multiplicibs(DataWidth=8...
 Compiling module xil_defaultlib.xts_aes_s_boxes_V_ram
 Compiling module xil_defaultlib.xts_aes_s_boxes_V(DataWidth=8,Ad...
-Compiling module xil_defaultlib.xts_aes_mix_columibs_ram
-Compiling module xil_defaultlib.xts_aes_mix_columibs(DataWidth=6...
-Compiling module xil_defaultlib.aes_expand_key_exbkb_ram
-Compiling module xil_defaultlib.aes_expand_key_exbkb(DataWidth=1...
+Compiling module xil_defaultlib.xts_aes_aes_expanjbC_ram
+Compiling module xil_defaultlib.xts_aes_aes_expanjbC(DataWidth=1...
 Compiling module xil_defaultlib.xts_aes_aes_tweak_V_ram
 Compiling module xil_defaultlib.xts_aes_aes_tweak_V(DataWidth=16...
-Compiling module xil_defaultlib.xts_aes_processedocq_ram
-Compiling module xil_defaultlib.xts_aes_processedocq(DataWidth=1...
-Compiling module xil_defaultlib.aes_process_1_stadEe_ram
-Compiling module xil_defaultlib.aes_process_1_stadEe(DataWidth=1...
-Compiling module xil_defaultlib.xts_aes_mux_42_16cud(ID=1,din0_W...
-Compiling module xil_defaultlib.aes_shift_rows
+Compiling module xil_defaultlib.xts_aes_processedlbW_ram
+Compiling module xil_defaultlib.xts_aes_processedlbW(DataWidth=1...
+Compiling module xil_defaultlib.aes_process_1_staeOg_ram
+Compiling module xil_defaultlib.aes_process_1_staeOg(DataWidth=1...
+Compiling module xil_defaultlib.xts_aes_mux_32_8_dEe(ID=1,din0_W...
 Compiling module xil_defaultlib.aes_mix_columns8
-Compiling module xil_defaultlib.aes_get_round_key5
+Compiling module xil_defaultlib.aes_shift_rows
 Compiling module xil_defaultlib.aes_substitute_bytes
+Compiling module xil_defaultlib.aes_get_round_key5
 Compiling module xil_defaultlib.aes_add_round_key
 Compiling module xil_defaultlib.aes_process_2
 Compiling module xil_defaultlib.xts_aes_process_bloc
 Compiling module xil_defaultlib.xts_aes_process_data
-Compiling module xil_defaultlib.aes_process_1_roueOg_ram
-Compiling module xil_defaultlib.aes_process_1_roueOg(DataWidth=1...
 Compiling module xil_defaultlib.aes_sequence_to_matr
 Compiling module xil_defaultlib.aes_process_1
 Compiling module xil_defaultlib.aes_expand_key_rcon_rom
 Compiling module xil_defaultlib.aes_expand_key_rcon(DataWidth=8,...
+Compiling module xil_defaultlib.aes_expand_key_exbkb_ram
+Compiling module xil_defaultlib.aes_expand_key_exbkb(DataWidth=1...
+Compiling module xil_defaultlib.xts_aes_mux_42_16cud(ID=1,din0_W...
 Compiling module xil_defaultlib.aes_expand_key
 Compiling module xil_defaultlib.xts_aes
 Compiling module xil_defaultlib.AESL_axi_master_data0

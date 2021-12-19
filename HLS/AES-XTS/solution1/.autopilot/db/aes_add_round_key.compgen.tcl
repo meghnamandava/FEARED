@@ -18,7 +18,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir IO \
     corename state_matrix_V \
     op interface \
-    ports { state_matrix_V_address0 { O 4 vector } state_matrix_V_ce0 { O 1 bit } state_matrix_V_we0 { O 1 bit } state_matrix_V_d0 { O 16 vector } state_matrix_V_q0 { I 16 vector } } \
+    ports { state_matrix_V_address0 { O 4 vector } state_matrix_V_ce0 { O 1 bit } state_matrix_V_we0 { O 1 bit } state_matrix_V_d0 { O 16 vector } state_matrix_V_q0 { I 16 vector } state_matrix_V_address1 { O 4 vector } state_matrix_V_ce1 { O 1 bit } state_matrix_V_we1 { O 1 bit } state_matrix_V_d1 { O 16 vector } state_matrix_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'state_matrix_V'"
@@ -37,7 +37,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename round_key_matrix_V \
     op interface \
-    ports { round_key_matrix_V_address0 { O 4 vector } round_key_matrix_V_ce0 { O 1 bit } round_key_matrix_V_q0 { I 16 vector } } \
+    ports { round_key_matrix_V_address0 { O 4 vector } round_key_matrix_V_ce0 { O 1 bit } round_key_matrix_V_q0 { I 16 vector } round_key_matrix_V_address1 { O 4 vector } round_key_matrix_V_ce1 { O 1 bit } round_key_matrix_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'round_key_matrix_V'"

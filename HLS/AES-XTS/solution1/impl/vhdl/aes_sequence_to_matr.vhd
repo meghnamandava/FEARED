@@ -144,7 +144,7 @@ architecture behav of aes_sequence_to_matr is
     signal ret_V_fu_156_p3 : STD_LOGIC_VECTOR (3 downto 0);
     signal ret_V_2_fu_164_p2 : STD_LOGIC_VECTOR (3 downto 0);
     signal zext_ln180_10_fu_169_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal add_ln180_4_fu_173_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal add_ln180_3_fu_173_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (11 downto 0);
 
 
@@ -292,7 +292,7 @@ begin
                 ap_NS_fsm <= "XXXXXXXXXXXX";
         end case;
     end process;
-    add_ln180_4_fu_173_p2 <= std_logic_vector(unsigned(zext_ln180_10_fu_169_p1) + unsigned(sequence_V_offset_ca_reg_192));
+    add_ln180_3_fu_173_p2 <= std_logic_vector(unsigned(zext_ln180_10_fu_169_p1) + unsigned(sequence_V_offset_ca_reg_192));
     add_ln180_fu_147_p2 <= std_logic_vector(unsigned(zext_ln180_fu_143_p1) + unsigned(zext_ln230_1_reg_205));
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state11 <= ap_CS_fsm(10);
@@ -432,7 +432,7 @@ begin
     tmp_fu_115_p3 <= (i_op_assign_1_reg_77 & ap_const_lv2_0);
     trunc_ln1352_fu_152_p1 <= i_op_assign_reg_88(2 - 1 downto 0);
     zext_ln180_10_fu_169_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(ret_V_2_fu_164_p2),32));
-    zext_ln180_11_fu_178_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_ln180_4_fu_173_p2),64));
+    zext_ln180_11_fu_178_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_ln180_3_fu_173_p2),64));
     zext_ln180_9_fu_188_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_ln180_reg_223),64));
     zext_ln180_fu_143_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_op_assign_reg_88),6));
     zext_ln230_1_fu_123_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(tmp_fu_115_p3),6));

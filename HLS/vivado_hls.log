@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'meghn' on host 'desktop-rk3rva3' (Windows NT_amd64 version 6.2) on Mon Dec 13 15:49:09 -0800 2021
+INFO: [HLS 200-10] For user 'meghn' on host 'desktop-rk3rva3' (Windows NT_amd64 version 6.2) on Sat Dec 18 12:14:25 -0800 2021
 INFO: [HLS 200-10] In directory 'C:/Users/meghn/ECE527_Final_Project/HLS'
 Sourcing Tcl script 'C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS/solution1/export.tcl'
 INFO: [HLS 200-10] Opening project 'C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS'.
@@ -17,4 +17,4 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Mon Dec 13 15:49:22 2021...
+INFO: [Common 17-206] Exiting Vivado at Sat Dec 18 12:14:37 2021...

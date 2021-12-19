@@ -179,7 +179,7 @@ wire   [1:0] trunc_ln1352_fu_152_p1;
 wire   [3:0] ret_V_fu_156_p3;
 wire   [3:0] ret_V_2_fu_164_p2;
 wire   [31:0] zext_ln180_10_fu_169_p1;
-wire   [31:0] add_ln180_4_fu_173_p2;
+wire   [31:0] add_ln180_3_fu_173_p2;
 reg   [11:0] ap_NS_fsm;
 
 // power-on initialization
@@ -385,7 +385,7 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln180_4_fu_173_p2 = (zext_ln180_10_fu_169_p1 + sequence_V_offset_ca_reg_192);
+assign add_ln180_3_fu_173_p2 = (zext_ln180_10_fu_169_p1 + sequence_V_offset_ca_reg_192);
 
 assign add_ln180_fu_147_p2 = (zext_ln180_fu_143_p1 + zext_ln230_1_reg_205);
 
@@ -485,7 +485,7 @@ assign trunc_ln1352_fu_152_p1 = i_op_assign_reg_88[1:0];
 
 assign zext_ln180_10_fu_169_p1 = ret_V_2_fu_164_p2;
 
-assign zext_ln180_11_fu_178_p1 = add_ln180_4_fu_173_p2;
+assign zext_ln180_11_fu_178_p1 = add_ln180_3_fu_173_p2;
 
 assign zext_ln180_9_fu_188_p1 = add_ln180_reg_223;
 

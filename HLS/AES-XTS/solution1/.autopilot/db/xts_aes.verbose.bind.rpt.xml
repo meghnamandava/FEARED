@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'xts_aes'" level="0">
-<item name = "Date">Mon Dec 13 15:29:26 2021
+<item name = "Date">Sat Dec 18 12:10:31 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -24,16 +24,16 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">13783, 327889, 13783, 327889, none</column>
+<column name="">12139, 181605, 12139, 181605, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_xts_aes_process_data_fu_24149">xts_aes_process_data, 2312, 313480, 2312, 313480, none</column>
-<column name="grp_aes_process_1_fu_24167">aes_process_1, 3223, 3769, 3223, 3769, none</column>
-<column name="grp_aes_expand_key_fu_24182">aes_expand_key, 2070, 3266, 2070, 3266, none</column>
+<column name="grp_xts_aes_process_data_fu_23760">xts_aes_process_data, 2312, 168840, 2312, 168840, none</column>
+<column name="grp_aes_process_1_fu_23774">aes_process_1, 1579, 2125, 1579, 2125, none</column>
+<column name="grp_aes_expand_key_fu_23785">aes_expand_key, 2070, 3266, 2070, 3266, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

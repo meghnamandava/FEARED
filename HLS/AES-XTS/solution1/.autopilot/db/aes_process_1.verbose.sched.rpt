@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_process_1'
 ================================================================
-* Date:           Mon Dec 13 15:29:16 2021
+* Date:           Sat Dec 18 12:10:21 2021
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        AES-XTS
@@ -29,7 +29,7 @@
     |   Latency   |   Interval  | Pipeline|
     |  min |  max |  min |  max |   Type  |
     +------+------+------+------+---------+
-    |  3223|  3769|  3223|  3769|   none  |
+    |  1579|  2125|  1579|  2125|   none  |
     +------+------+------+------+---------+
 
     + Detail: 
@@ -37,14 +37,14 @@
         N/A
 
         * Loop: 
-        +-------------+------+------+-----------+-----------+-----------+------+----------+
-        |             |   Latency   | Iteration |  Initiation Interval  | Trip |          |
-        |  Loop Name  |  min |  max |  Latency  |  achieved |   target  | Count| Pipelined|
-        +-------------+------+------+-----------+-----------+-----------+------+----------+
-        |- Loop 1     |  2834|  3341| 218 ~ 257 |          -|          -|    13|    no    |
-        |- Loop 2     |    40|    40|         10|          -|          -|     4|    no    |
-        | + Loop 2.1  |     8|     8|          2|          -|          -|     4|    no    |
-        +-------------+------+------+-----------+-----------+-----------+------+----------+
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+        |             |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  1287|  1794| 99 ~ 138 |          -|          -|    13|    no    |
+        |- Loop 2     |    40|    40|        10|          -|          -|     4|    no    |
+        | + Loop 2.1  |     8|     8|         2|          -|          -|     4|    no    |
+        +-------------+------+------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -115,7 +115,7 @@ State 3 <SV = 2> <Delay = 1.81>
 ST_3 : Operation 28 [2/2] (1.81ns)   --->   "call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)" [AES-XTS/main.cpp:15]   --->   Operation 28 'call' <Predicate = true> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 4 <SV = 3> <Delay = 1.76>
-ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %text_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str6, [6 x i8]* @p_str3, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)"   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %text_V, [6 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [6 x i8]* @p_str12, [6 x i8]* @p_str9, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)"   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
 ST_4 : Operation 30 [1/2] (0.00ns)   --->   "call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)" [AES-XTS/main.cpp:15]   --->   Operation 30 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 ST_4 : Operation 31 [1/1] (1.76ns)   --->   "br label %1" [AES-XTS/main.cpp:24]   --->   Operation 31 'br' <Predicate = true> <Delay = 1.76>
 
@@ -144,10 +144,10 @@ State 8 <SV = 7> <Delay = 0.00>
 ST_8 : Operation 47 [1/2] (0.00ns)   --->   "call fastcc void @aes_shift_rows([16 x i16]* %state_matrix_V, i2 1)" [AES-XTS/main.cpp:27]   --->   Operation 47 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 9 <SV = 8> <Delay = 0.00>
-ST_9 : Operation 48 [2/2] (0.00ns)   --->   "call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, i2 1, [3840 x i8]* %multiplication_V)" [AES-XTS/main.cpp:28]   --->   Operation 48 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_9 : Operation 48 [2/2] (0.00ns)   --->   "call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, i2 1, [3840 x i8]* %multiplication_V)" [AES-XTS/main.cpp:28]   --->   Operation 48 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 10 <SV = 9> <Delay = 0.00>
-ST_10 : Operation 49 [1/2] (0.00ns)   --->   "call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, [12 x i6]* %mix_column_constant_matrices_0_V, [12 x i6]* %mix_column_constant_matrices_1_V, [12 x i6]* %mix_column_constant_matrices_2_V, [12 x i6]* %mix_column_constant_matrices_3_V, i2 1, [3840 x i8]* %multiplication_V)" [AES-XTS/main.cpp:28]   --->   Operation 49 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 49 [1/2] (0.00ns)   --->   "call fastcc void @aes_mix_columns8([16 x i16]* %state_matrix_V, i2 1, [3840 x i8]* %multiplication_V)" [AES-XTS/main.cpp:28]   --->   Operation 49 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 11 <SV = 10> <Delay = 1.81>
 ST_11 : Operation 50 [2/2] (1.81ns)   --->   "call fastcc void @aes_add_round_key([16 x i16]* %state_matrix_V, [16 x i16]* %round_key_V)" [AES-XTS/main.cpp:35]   --->   Operation 50 'call' <Predicate = true> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
@@ -216,31 +216,31 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.81ns
 The critical path consists of the following:
-	'alloca' operation ('round_key.V', AES-XTS/main.cpp:13) [14]  (0 ns)
-	'call' operation ('call_ln14', AES-XTS/main.cpp:14) to 'aes_get_round_key5' [16]  (1.81 ns)
+	'alloca' operation ('round_key.V', AES-XTS/main.cpp:13) [10]  (0 ns)
+	'call' operation ('call_ln14', AES-XTS/main.cpp:14) to 'aes_get_round_key5' [12]  (1.81 ns)
 
  <State 2>: 0ns
 The critical path consists of the following:
 
  <State 3>: 1.81ns
 The critical path consists of the following:
-	'call' operation ('call_ln15', AES-XTS/main.cpp:15) to 'aes_add_round_key' [17]  (1.81 ns)
+	'call' operation ('call_ln15', AES-XTS/main.cpp:15) to 'aes_add_round_key' [13]  (1.81 ns)
 
  <State 4>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('phi_ln16', AES-XTS/main.cpp:24) with incoming values : ('add_ln24', AES-XTS/main.cpp:24) [20]  (1.77 ns)
+	multiplexor before 'phi' operation ('phi_ln16', AES-XTS/main.cpp:24) with incoming values : ('add_ln24', AES-XTS/main.cpp:24) [16]  (1.77 ns)
 
  <State 5>: 1.81ns
 The critical path consists of the following:
-	'phi' operation ('phi_ln16', AES-XTS/main.cpp:24) with incoming values : ('add_ln24', AES-XTS/main.cpp:24) [20]  (0 ns)
-	'call' operation ('call_ln29', AES-XTS/main.cpp:29) to 'aes_get_round_key5' [31]  (1.81 ns)
+	'phi' operation ('phi_ln16', AES-XTS/main.cpp:24) with incoming values : ('add_ln24', AES-XTS/main.cpp:24) [16]  (0 ns)
+	'call' operation ('call_ln29', AES-XTS/main.cpp:29) to 'aes_get_round_key5' [27]  (1.81 ns)
 
  <State 6>: 0ns
 The critical path consists of the following:
 
  <State 7>: 2.73ns
 The critical path consists of the following:
-	'call' operation ('call_ln27', AES-XTS/main.cpp:27) to 'aes_shift_rows' [28]  (2.73 ns)
+	'call' operation ('call_ln27', AES-XTS/main.cpp:27) to 'aes_shift_rows' [24]  (2.73 ns)
 
  <State 8>: 0ns
 The critical path consists of the following:
@@ -253,7 +253,7 @@ The critical path consists of the following:
 
  <State 11>: 1.81ns
 The critical path consists of the following:
-	'call' operation ('call_ln35', AES-XTS/main.cpp:35) to 'aes_add_round_key' [32]  (1.81 ns)
+	'call' operation ('call_ln35', AES-XTS/main.cpp:35) to 'aes_add_round_key' [28]  (1.81 ns)
 
  <State 12>: 0ns
 The critical path consists of the following:
@@ -263,35 +263,35 @@ The critical path consists of the following:
 
  <State 14>: 2.73ns
 The critical path consists of the following:
-	'call' operation ('call_ln40', AES-XTS/main.cpp:40) to 'aes_shift_rows' [37]  (2.73 ns)
+	'call' operation ('call_ln40', AES-XTS/main.cpp:40) to 'aes_shift_rows' [33]  (2.73 ns)
 
  <State 15>: 0ns
 The critical path consists of the following:
 
  <State 16>: 1.81ns
 The critical path consists of the following:
-	'call' operation ('call_ln42', AES-XTS/main.cpp:42) to 'aes_add_round_key' [39]  (1.81 ns)
+	'call' operation ('call_ln42', AES-XTS/main.cpp:42) to 'aes_add_round_key' [35]  (1.81 ns)
 
  <State 17>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i.V') with incoming values : ('i.V', AES-XTS/main.cpp:247->AES-XTS/main.cpp:43) [42]  (1.77 ns)
+	multiplexor before 'phi' operation ('i.V') with incoming values : ('i.V', AES-XTS/main.cpp:247->AES-XTS/main.cpp:43) [38]  (1.77 ns)
 
  <State 18>: 1.78ns
 The critical path consists of the following:
-	'phi' operation ('i.V') with incoming values : ('i.V', AES-XTS/main.cpp:247->AES-XTS/main.cpp:43) [42]  (0 ns)
-	'add' operation ('i.V', AES-XTS/main.cpp:247->AES-XTS/main.cpp:43) [49]  (1.78 ns)
+	'phi' operation ('i.V') with incoming values : ('i.V', AES-XTS/main.cpp:247->AES-XTS/main.cpp:43) [38]  (0 ns)
+	'add' operation ('i.V', AES-XTS/main.cpp:247->AES-XTS/main.cpp:43) [45]  (1.78 ns)
 
  <State 19>: 4.1ns
 The critical path consists of the following:
-	'phi' operation ('row') with incoming values : ('row', AES-XTS/main.cpp:244->AES-XTS/main.cpp:43) [54]  (0 ns)
-	'add' operation ('add_ln180', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) [63]  (1.78 ns)
-	'getelementptr' operation ('state_matrix_V_addr', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) [65]  (0 ns)
-	'load' operation ('state_matrix_V_load', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) on array 'state_matrix.V', AES-XTS/main.cpp:10 [66]  (2.32 ns)
+	'phi' operation ('row') with incoming values : ('row', AES-XTS/main.cpp:244->AES-XTS/main.cpp:43) [50]  (0 ns)
+	'add' operation ('add_ln180', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) [59]  (1.78 ns)
+	'getelementptr' operation ('state_matrix_V_addr', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) [61]  (0 ns)
+	'load' operation ('state_matrix_V_load', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) on array 'state_matrix.V', AES-XTS/main.cpp:10 [62]  (2.32 ns)
 
  <State 20>: 4.64ns
 The critical path consists of the following:
-	'load' operation ('state_matrix_V_load', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) on array 'state_matrix.V', AES-XTS/main.cpp:10 [66]  (2.32 ns)
-	'store' operation ('store_ln246', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) of variable 'state_matrix_V_load', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43 on array 'sequence_out_V' [68]  (2.32 ns)
+	'load' operation ('state_matrix_V_load', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) on array 'state_matrix.V', AES-XTS/main.cpp:10 [62]  (2.32 ns)
+	'store' operation ('store_ln246', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43) of variable 'state_matrix_V_load', AES-XTS/main.cpp:246->AES-XTS/main.cpp:43 on array 'sequence_out_V' [64]  (2.32 ns)
 
 
 ============================================================

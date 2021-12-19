@@ -25462,7 +25462,8 @@ namespace hls {
 # 3 "AES-XTS/main.cpp" 2
 # 1 "AES-XTS/main.h" 1
 # 1 "C:/Xilinx/Vivado/2019.1/common/technology/autopilot\\ap_int.h" 1
-# 2 "AES-XTS/main.h" 2
+# 1 "AES-XTS/main.h" 2
+
 
 
 
@@ -25542,10 +25543,16 @@ void aes_process(int16 text[16], int initial_round, int round_factor, int16 expa
 
 void aes_substitute_bytes(int16 state_matrix[4][4], ap_uint<8> s_box[256])
 {_ssdm_SpecArrayDimSize(state_matrix, 4);_ssdm_SpecArrayDimSize(s_box, 256);
-  for (int row_index = 0; row_index < 4; row_index += 1)
+  aes_substitute_bytes_label1:for (int row_index = 0; row_index < 4; row_index += 1)
   {
-    for (int column_index = 0; column_index < 4; column_index += 1)
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+# 49 "AES-XTS/main.cpp"
+
+    aes_substitute_bytes_label0:for (int column_index = 0; column_index < 4; column_index += 1)
     {
+_ssdm_Unroll(0,0,0, "");
+# 51 "AES-XTS/main.cpp"
+
       int16 temp = state_matrix[row_index][column_index];
       state_matrix[row_index][column_index] = s_box[temp];
     }
@@ -25556,8 +25563,11 @@ void aes_substitute_bytes(int16 state_matrix[4][4], ap_uint<8> s_box[256])
 
 void aes_shift_rows(int16 state_matrix[4][4], int round_factor)
 {_ssdm_SpecArrayDimSize(state_matrix, 4);
-  for (int row_index = 1; row_index < 4; row_index += 1)
+  aes_shift_rows_label2:for (int row_index = 1; row_index < 4; row_index += 1)
   {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+# 63 "AES-XTS/main.cpp"
+
     int16 temp_row[4];
     if (round_factor == 1)
     {
@@ -25597,8 +25607,11 @@ void aes_shift_rows(int16 state_matrix[4][4], int round_factor)
 
 void aes_mix_columns(int16 state_matrix[4][4], ap_uint<8> constant_matrix[4][4], ap_uint<8> multiplication[15][256])
 {_ssdm_SpecArrayDimSize(state_matrix, 4);_ssdm_SpecArrayDimSize(constant_matrix, 4);_ssdm_SpecArrayDimSize(multiplication, 15);
-  for (int column_index = 0; column_index < 4; column_index += 1)
+  aes_mix_columns_label3:for (int column_index = 0; column_index < 4; column_index += 1)
   {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+# 104 "AES-XTS/main.cpp"
+
     int16 column[4];
     column[0] = state_matrix[0][column_index];
     column[1] = state_matrix[1][column_index];
@@ -25618,8 +25631,11 @@ void aes_mix_columns(int16 state_matrix[4][4], ap_uint<8> constant_matrix[4][4],
 
 void aes_add_round_key(int16 state_matrix[4][4], int16 round_key_matrix[4][4])
 {_ssdm_SpecArrayDimSize(state_matrix, 4);_ssdm_SpecArrayDimSize(round_key_matrix, 4);
-  for (int row_index = 0; row_index < 4; row_index += 1)
+  aes_add_round_key_label4:for (int row_index = 0; row_index < 4; row_index += 1)
   {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+# 125 "AES-XTS/main.cpp"
+
     for (int column_index = 0; column_index < 4; column_index += 1)
     {
       state_matrix[row_index][column_index] ^= round_key_matrix[row_index][column_index];
@@ -25632,8 +25648,11 @@ void aes_add_round_key(int16 state_matrix[4][4], int16 round_key_matrix[4][4])
 void aes_get_round_key(int round, int16 expanded_key[4][60], int16 round_key[4][4])
 {_ssdm_SpecArrayDimSize(expanded_key, 4);_ssdm_SpecArrayDimSize(round_key, 4);
   int16 key_column_index = 4 * round;
-  for (int i = 0; i < 4; i += 1)
+  aes_get_round_key_label5:for (int i = 0; i < 4; i += 1)
   {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+# 139 "AES-XTS/main.cpp"
+
     for (int j = 0; j < 4; j += 1)
     {
       round_key[i][j] = expanded_key[i][key_column_index + j];

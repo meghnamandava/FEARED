@@ -16,12 +16,8 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ text_V int 16 regular {axi_master 0}  }
 	{ text_V_offset int 31 regular  }
-	{ expanded_key_V int 16 regular {array 240 { 1 3 } 1 1 }  }
-	{ s_boxes_V int 8 regular {array 768 { 1 3 } 1 1 }  }
-	{ mix_column_constant_matrices_0_V int 6 regular {array 12 { 1 3 } 1 1 }  }
-	{ mix_column_constant_matrices_1_V int 6 regular {array 12 { 1 3 } 1 1 }  }
-	{ mix_column_constant_matrices_2_V int 6 regular {array 12 { 1 3 } 1 1 }  }
-	{ mix_column_constant_matrices_3_V int 6 regular {array 12 { 1 3 } 1 1 }  }
+	{ expanded_key_V int 16 regular {array 240 { 1 1 } 1 1 }  }
+	{ s_boxes_V int 8 regular {array 768 { 1 1 } 1 1 }  }
 	{ multiplication_V int 8 regular {array 3840 { 1 1 } 1 1 }  }
 	{ sequence_out_V int 16 regular {array 16 { 0 3 } 0 1 }  }
 }
@@ -30,14 +26,10 @@ set C_modelArgMapList {[
  	{ "Name" : "text_V_offset", "interface" : "wire", "bitwidth" : 31, "direction" : "READONLY"} , 
  	{ "Name" : "expanded_key_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "s_boxes_V", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
- 	{ "Name" : "mix_column_constant_matrices_0_V", "interface" : "memory", "bitwidth" : 6, "direction" : "READONLY"} , 
- 	{ "Name" : "mix_column_constant_matrices_1_V", "interface" : "memory", "bitwidth" : 6, "direction" : "READONLY"} , 
- 	{ "Name" : "mix_column_constant_matrices_2_V", "interface" : "memory", "bitwidth" : 6, "direction" : "READONLY"} , 
- 	{ "Name" : "mix_column_constant_matrices_3_V", "interface" : "memory", "bitwidth" : 6, "direction" : "READONLY"} , 
  	{ "Name" : "multiplication_V", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "sequence_out_V", "interface" : "memory", "bitwidth" : 16, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 80
+set portNum 74
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -94,31 +86,25 @@ set portList {
 	{ expanded_key_V_address0 sc_out sc_lv 8 signal 2 } 
 	{ expanded_key_V_ce0 sc_out sc_logic 1 signal 2 } 
 	{ expanded_key_V_q0 sc_in sc_lv 16 signal 2 } 
+	{ expanded_key_V_address1 sc_out sc_lv 8 signal 2 } 
+	{ expanded_key_V_ce1 sc_out sc_logic 1 signal 2 } 
+	{ expanded_key_V_q1 sc_in sc_lv 16 signal 2 } 
 	{ s_boxes_V_address0 sc_out sc_lv 10 signal 3 } 
 	{ s_boxes_V_ce0 sc_out sc_logic 1 signal 3 } 
 	{ s_boxes_V_q0 sc_in sc_lv 8 signal 3 } 
-	{ mix_column_constant_matrices_0_V_address0 sc_out sc_lv 4 signal 4 } 
-	{ mix_column_constant_matrices_0_V_ce0 sc_out sc_logic 1 signal 4 } 
-	{ mix_column_constant_matrices_0_V_q0 sc_in sc_lv 6 signal 4 } 
-	{ mix_column_constant_matrices_1_V_address0 sc_out sc_lv 4 signal 5 } 
-	{ mix_column_constant_matrices_1_V_ce0 sc_out sc_logic 1 signal 5 } 
-	{ mix_column_constant_matrices_1_V_q0 sc_in sc_lv 6 signal 5 } 
-	{ mix_column_constant_matrices_2_V_address0 sc_out sc_lv 4 signal 6 } 
-	{ mix_column_constant_matrices_2_V_ce0 sc_out sc_logic 1 signal 6 } 
-	{ mix_column_constant_matrices_2_V_q0 sc_in sc_lv 6 signal 6 } 
-	{ mix_column_constant_matrices_3_V_address0 sc_out sc_lv 4 signal 7 } 
-	{ mix_column_constant_matrices_3_V_ce0 sc_out sc_logic 1 signal 7 } 
-	{ mix_column_constant_matrices_3_V_q0 sc_in sc_lv 6 signal 7 } 
-	{ multiplication_V_address0 sc_out sc_lv 12 signal 8 } 
-	{ multiplication_V_ce0 sc_out sc_logic 1 signal 8 } 
-	{ multiplication_V_q0 sc_in sc_lv 8 signal 8 } 
-	{ multiplication_V_address1 sc_out sc_lv 12 signal 8 } 
-	{ multiplication_V_ce1 sc_out sc_logic 1 signal 8 } 
-	{ multiplication_V_q1 sc_in sc_lv 8 signal 8 } 
-	{ sequence_out_V_address0 sc_out sc_lv 4 signal 9 } 
-	{ sequence_out_V_ce0 sc_out sc_logic 1 signal 9 } 
-	{ sequence_out_V_we0 sc_out sc_logic 1 signal 9 } 
-	{ sequence_out_V_d0 sc_out sc_lv 16 signal 9 } 
+	{ s_boxes_V_address1 sc_out sc_lv 10 signal 3 } 
+	{ s_boxes_V_ce1 sc_out sc_logic 1 signal 3 } 
+	{ s_boxes_V_q1 sc_in sc_lv 8 signal 3 } 
+	{ multiplication_V_address0 sc_out sc_lv 12 signal 4 } 
+	{ multiplication_V_ce0 sc_out sc_logic 1 signal 4 } 
+	{ multiplication_V_q0 sc_in sc_lv 8 signal 4 } 
+	{ multiplication_V_address1 sc_out sc_lv 12 signal 4 } 
+	{ multiplication_V_ce1 sc_out sc_logic 1 signal 4 } 
+	{ multiplication_V_q1 sc_in sc_lv 8 signal 4 } 
+	{ sequence_out_V_address0 sc_out sc_lv 4 signal 5 } 
+	{ sequence_out_V_ce0 sc_out sc_logic 1 signal 5 } 
+	{ sequence_out_V_we0 sc_out sc_logic 1 signal 5 } 
+	{ sequence_out_V_d0 sc_out sc_lv 16 signal 5 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -176,21 +162,15 @@ set NewPortList {[
  	{ "name": "expanded_key_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address0" }} , 
  	{ "name": "expanded_key_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce0" }} , 
  	{ "name": "expanded_key_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q0" }} , 
+ 	{ "name": "expanded_key_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address1" }} , 
+ 	{ "name": "expanded_key_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce1" }} , 
+ 	{ "name": "expanded_key_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q1" }} , 
  	{ "name": "s_boxes_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "address0" }} , 
  	{ "name": "s_boxes_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ce0" }} , 
  	{ "name": "s_boxes_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "q0" }} , 
- 	{ "name": "mix_column_constant_matrices_0_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_0_V", "role": "address0" }} , 
- 	{ "name": "mix_column_constant_matrices_0_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_0_V", "role": "ce0" }} , 
- 	{ "name": "mix_column_constant_matrices_0_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_0_V", "role": "q0" }} , 
- 	{ "name": "mix_column_constant_matrices_1_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_1_V", "role": "address0" }} , 
- 	{ "name": "mix_column_constant_matrices_1_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_1_V", "role": "ce0" }} , 
- 	{ "name": "mix_column_constant_matrices_1_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_1_V", "role": "q0" }} , 
- 	{ "name": "mix_column_constant_matrices_2_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_2_V", "role": "address0" }} , 
- 	{ "name": "mix_column_constant_matrices_2_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_2_V", "role": "ce0" }} , 
- 	{ "name": "mix_column_constant_matrices_2_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_2_V", "role": "q0" }} , 
- 	{ "name": "mix_column_constant_matrices_3_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_3_V", "role": "address0" }} , 
- 	{ "name": "mix_column_constant_matrices_3_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_3_V", "role": "ce0" }} , 
- 	{ "name": "mix_column_constant_matrices_3_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_3_V", "role": "q0" }} , 
+ 	{ "name": "s_boxes_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "address1" }} , 
+ 	{ "name": "s_boxes_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ce1" }} , 
+ 	{ "name": "s_boxes_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "q1" }} , 
  	{ "name": "multiplication_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "multiplication_V", "role": "address0" }} , 
  	{ "name": "multiplication_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ce0" }} , 
  	{ "name": "multiplication_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "multiplication_V", "role": "q0" }} , 
@@ -203,13 +183,13 @@ set NewPortList {[
  	{ "name": "sequence_out_V_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "sequence_out_V", "role": "d0" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "5", "6", "7", "8", "9"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "20", "21", "22", "23", "24"],
 		"CDFG" : "aes_process_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3223", "EstimateLatencyMax" : "3769",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1579", "EstimateLatencyMax" : "2125",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -217,54 +197,75 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_193"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_193"},
-			{"State" : "ap_ST_fsm_state10", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_200"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_sequence_to_matr_fu_217"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_227"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_227"},
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_227"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_238"},
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_238"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_247"},
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_247"},
-			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_247"}],
+			{"State" : "ap_ST_fsm_state10", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_185"},
+			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_194"},
+			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_194"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_201"},
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_201"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_210"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_210"},
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_210"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_221"},
+			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_221"},
+			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_221"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_sequence_to_matr_fu_227"}],
 		"Port" : [
 			{"Name" : "text_V", "Type" : "MAXI", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_aes_sequence_to_matr_fu_217", "Port" : "sequence_V"}]},
+					{"ID" : "24", "SubInstance" : "grp_aes_sequence_to_matr_fu_227", "Port" : "sequence_V"}]},
 			{"Name" : "text_V_offset", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "grp_aes_get_round_key5_fu_227", "Port" : "expanded_key_V"}]},
+					{"ID" : "22", "SubInstance" : "grp_aes_get_round_key5_fu_210", "Port" : "expanded_key_V"}]},
 			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "grp_aes_substitute_bytes_fu_238", "Port" : "s_box_V"}]},
-			{"Name" : "mix_column_constant_matrices_0_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_0_V"}]},
-			{"Name" : "mix_column_constant_matrices_1_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_1_V"}]},
-			{"Name" : "mix_column_constant_matrices_2_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_2_V"}]},
-			{"Name" : "mix_column_constant_matrices_3_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "constant_matrix_3_V"}]},
+					{"ID" : "21", "SubInstance" : "grp_aes_substitute_bytes_fu_201", "Port" : "s_box_V"}]},
 			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns8_fu_200", "Port" : "multiplication_V"}]},
+					{"ID" : "3", "SubInstance" : "grp_aes_mix_columns8_fu_185", "Port" : "multiplication_V"}]},
 			{"Name" : "sequence_out_V", "Type" : "Memory", "Direction" : "O"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.state_matrix_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.round_key_V_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_shift_rows_fu_193", "Parent" : "0", "Child" : ["4"],
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185", "Parent" : "0", "Child" : ["4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],
+		"CDFG" : "aes_mix_columns8",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "36", "EstimateLatencyMax" : "36",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U26", "Parent" : "3"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U27", "Parent" : "3"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U28", "Parent" : "3"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U29", "Parent" : "3"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U30", "Parent" : "3"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U31", "Parent" : "3"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U32", "Parent" : "3"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U33", "Parent" : "3"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U34", "Parent" : "3"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U35", "Parent" : "3"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U36", "Parent" : "3"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U37", "Parent" : "3"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U38", "Parent" : "3"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U39", "Parent" : "3"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U40", "Parent" : "3"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_185.xts_aes_mux_32_8_dEe_U41", "Parent" : "3"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_shift_rows_fu_194", "Parent" : "0",
 		"CDFG" : "aes_shift_rows",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "31", "EstimateLatencyMax" : "70",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "19", "EstimateLatencyMax" : "58",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -274,14 +275,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_shift_rows_fu_193.xts_aes_mux_42_16cud_U24", "Parent" : "3"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_mix_columns8_fu_200", "Parent" : "0",
-		"CDFG" : "aes_mix_columns8",
+	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_substitute_bytes_fu_201", "Parent" : "0",
+		"CDFG" : "aes_substitute_bytes",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "81", "EstimateLatencyMax" : "81",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -290,13 +290,42 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "constant_matrix_0_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_1_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_2_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_3_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_sequence_to_matr_fu_217", "Parent" : "0",
+			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_get_round_key5_fu_210", "Parent" : "0",
+		"CDFG" : "aes_get_round_key5",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "round", "Type" : "None", "Direction" : "I"},
+			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_add_round_key_fu_221", "Parent" : "0",
+		"CDFG" : "aes_add_round_key",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "round_key_matrix_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_sequence_to_matr_fu_227", "Parent" : "0",
 		"CDFG" : "aes_sequence_to_matr",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -315,103 +344,45 @@ set RtlHierarchyInfo {[
 					{"Name" : "sequence_V_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "sequence_V_blk_n_R", "Type" : "RtlSignal"}]},
 			{"Name" : "sequence_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "matrix_out_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_get_round_key5_fu_227", "Parent" : "0",
-		"CDFG" : "aes_get_round_key5",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "round", "Type" : "None", "Direction" : "I"},
-			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_substitute_bytes_fu_238", "Parent" : "0",
-		"CDFG" : "aes_substitute_bytes",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "57", "EstimateLatencyMax" : "57",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_add_round_key_fu_247", "Parent" : "0",
-		"CDFG" : "aes_add_round_key",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "round_key_matrix_V", "Type" : "Memory", "Direction" : "I"}]}]}
+			{"Name" : "matrix_out_V", "Type" : "Memory", "Direction" : "O"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	aes_process_1 {
 		text_V {Type I LastRead 10 FirstWrite -1}
 		text_V_offset {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 3 FirstWrite -1}
-		mix_column_constant_matrices_0_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_1_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_2_V {Type I LastRead 4 FirstWrite -1}
-		mix_column_constant_matrices_3_V {Type I LastRead 4 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}
 		sequence_out_V {Type O LastRead -1 FirstWrite 12}}
-	aes_shift_rows {
-		state_matrix_V {Type IO LastRead 4 FirstWrite 4}
-		round_factor {Type I LastRead 0 FirstWrite -1}}
 	aes_mix_columns8 {
-		state_matrix_V {Type IO LastRead 3 FirstWrite 7}
-		constant_matrix_0_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_1_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_2_V {Type I LastRead 4 FirstWrite -1}
-		constant_matrix_3_V {Type I LastRead 4 FirstWrite -1}
+		state_matrix_V {Type IO LastRead 3 FirstWrite 4}
 		constant_matrix_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 7 FirstWrite -1}}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
+	aes_shift_rows {
+		state_matrix_V {Type IO LastRead 4 FirstWrite 3}
+		round_factor {Type I LastRead 0 FirstWrite -1}}
+	aes_substitute_bytes {
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		s_box_V {Type I LastRead 4 FirstWrite -1}
+		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
+	aes_get_round_key5 {
+		round {Type I LastRead 0 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		round_key_V {Type O LastRead -1 FirstWrite 2}}
+	aes_add_round_key {
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		round_key_matrix_V {Type I LastRead 3 FirstWrite -1}}
 	aes_sequence_to_matr {
 		sequence_V {Type I LastRead 10 FirstWrite -1}
 		sequence_V_offset {Type I LastRead 0 FirstWrite -1}
-		matrix_out_V {Type O LastRead -1 FirstWrite 11}}
-	aes_get_round_key5 {
-		round {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		round_key_V {Type O LastRead -1 FirstWrite 3}}
-	aes_substitute_bytes {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 4}
-		s_box_V {Type I LastRead 3 FirstWrite -1}
-		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_add_round_key {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 3}
-		round_key_matrix_V {Type I LastRead 2 FirstWrite -1}}}
+		matrix_out_V {Type O LastRead -1 FirstWrite 11}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "3223", "Max" : "3769"}
-	, {"Name" : "Interval", "Min" : "3223", "Max" : "3769"}
+	{"Name" : "Latency", "Min" : "1579", "Max" : "2125"}
+	, {"Name" : "Interval", "Min" : "1579", "Max" : "2125"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -420,12 +391,8 @@ set PipelineEnableSignalInfo {[
 set Spec2ImplPortList { 
 	text_V { m_axi {  { m_axi_text_V_AWVALID VALID 1 1 }  { m_axi_text_V_AWREADY READY 0 1 }  { m_axi_text_V_AWADDR ADDR 1 32 }  { m_axi_text_V_AWID ID 1 1 }  { m_axi_text_V_AWLEN LEN 1 32 }  { m_axi_text_V_AWSIZE SIZE 1 3 }  { m_axi_text_V_AWBURST BURST 1 2 }  { m_axi_text_V_AWLOCK LOCK 1 2 }  { m_axi_text_V_AWCACHE CACHE 1 4 }  { m_axi_text_V_AWPROT PROT 1 3 }  { m_axi_text_V_AWQOS QOS 1 4 }  { m_axi_text_V_AWREGION REGION 1 4 }  { m_axi_text_V_AWUSER USER 1 1 }  { m_axi_text_V_WVALID VALID 1 1 }  { m_axi_text_V_WREADY READY 0 1 }  { m_axi_text_V_WDATA DATA 1 16 }  { m_axi_text_V_WSTRB STRB 1 2 }  { m_axi_text_V_WLAST LAST 1 1 }  { m_axi_text_V_WID ID 1 1 }  { m_axi_text_V_WUSER USER 1 1 }  { m_axi_text_V_ARVALID VALID 1 1 }  { m_axi_text_V_ARREADY READY 0 1 }  { m_axi_text_V_ARADDR ADDR 1 32 }  { m_axi_text_V_ARID ID 1 1 }  { m_axi_text_V_ARLEN LEN 1 32 }  { m_axi_text_V_ARSIZE SIZE 1 3 }  { m_axi_text_V_ARBURST BURST 1 2 }  { m_axi_text_V_ARLOCK LOCK 1 2 }  { m_axi_text_V_ARCACHE CACHE 1 4 }  { m_axi_text_V_ARPROT PROT 1 3 }  { m_axi_text_V_ARQOS QOS 1 4 }  { m_axi_text_V_ARREGION REGION 1 4 }  { m_axi_text_V_ARUSER USER 1 1 }  { m_axi_text_V_RVALID VALID 0 1 }  { m_axi_text_V_RREADY READY 1 1 }  { m_axi_text_V_RDATA DATA 0 16 }  { m_axi_text_V_RLAST LAST 0 1 }  { m_axi_text_V_RID ID 0 1 }  { m_axi_text_V_RUSER USER 0 1 }  { m_axi_text_V_RRESP RESP 0 2 }  { m_axi_text_V_BVALID VALID 0 1 }  { m_axi_text_V_BREADY READY 1 1 }  { m_axi_text_V_BRESP RESP 0 2 }  { m_axi_text_V_BID ID 0 1 }  { m_axi_text_V_BUSER USER 0 1 } } }
 	text_V_offset { ap_none {  { text_V_offset in_data 0 31 } } }
-	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 } } }
-	s_boxes_V { ap_memory {  { s_boxes_V_address0 mem_address 1 10 }  { s_boxes_V_ce0 mem_ce 1 1 }  { s_boxes_V_q0 mem_dout 0 8 } } }
-	mix_column_constant_matrices_0_V { ap_memory {  { mix_column_constant_matrices_0_V_address0 mem_address 1 4 }  { mix_column_constant_matrices_0_V_ce0 mem_ce 1 1 }  { mix_column_constant_matrices_0_V_q0 mem_dout 0 6 } } }
-	mix_column_constant_matrices_1_V { ap_memory {  { mix_column_constant_matrices_1_V_address0 mem_address 1 4 }  { mix_column_constant_matrices_1_V_ce0 mem_ce 1 1 }  { mix_column_constant_matrices_1_V_q0 mem_dout 0 6 } } }
-	mix_column_constant_matrices_2_V { ap_memory {  { mix_column_constant_matrices_2_V_address0 mem_address 1 4 }  { mix_column_constant_matrices_2_V_ce0 mem_ce 1 1 }  { mix_column_constant_matrices_2_V_q0 mem_dout 0 6 } } }
-	mix_column_constant_matrices_3_V { ap_memory {  { mix_column_constant_matrices_3_V_address0 mem_address 1 4 }  { mix_column_constant_matrices_3_V_ce0 mem_ce 1 1 }  { mix_column_constant_matrices_3_V_q0 mem_dout 0 6 } } }
+	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 }  { expanded_key_V_address1 MemPortADDR2 1 8 }  { expanded_key_V_ce1 MemPortCE2 1 1 }  { expanded_key_V_q1 MemPortDOUT2 0 16 } } }
+	s_boxes_V { ap_memory {  { s_boxes_V_address0 mem_address 1 10 }  { s_boxes_V_ce0 mem_ce 1 1 }  { s_boxes_V_q0 mem_dout 0 8 }  { s_boxes_V_address1 MemPortADDR2 1 10 }  { s_boxes_V_ce1 MemPortCE2 1 1 }  { s_boxes_V_q1 MemPortDOUT2 0 8 } } }
 	multiplication_V { ap_memory {  { multiplication_V_address0 mem_address 1 12 }  { multiplication_V_ce0 mem_ce 1 1 }  { multiplication_V_q0 mem_dout 0 8 }  { multiplication_V_address1 MemPortADDR2 1 12 }  { multiplication_V_ce1 MemPortCE2 1 1 }  { multiplication_V_q1 MemPortDOUT2 0 8 } } }
 	sequence_out_V { ap_memory {  { sequence_out_V_address0 mem_address 1 4 }  { sequence_out_V_ce0 mem_ce 1 1 }  { sequence_out_V_we0 mem_we 1 1 }  { sequence_out_V_d0 mem_din 1 16 } } }
 }

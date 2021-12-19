@@ -117,7 +117,7 @@ struct aes_sequence_to_matr : public sc_module {
     sc_signal< sc_lv<4> > ret_V_fu_156_p3;
     sc_signal< sc_lv<4> > ret_V_2_fu_164_p2;
     sc_signal< sc_lv<32> > zext_ln180_10_fu_169_p1;
-    sc_signal< sc_lv<32> > add_ln180_4_fu_173_p2;
+    sc_signal< sc_lv<32> > add_ln180_3_fu_173_p2;
     sc_signal< sc_lv<12> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -150,7 +150,7 @@ struct aes_sequence_to_matr : public sc_module {
     static const bool ap_const_boolean_1;
     // Thread declarations
     void thread_ap_clk_no_reset_();
-    void thread_add_ln180_4_fu_173_p2();
+    void thread_add_ln180_3_fu_173_p2();
     void thread_add_ln180_fu_147_p2();
     void thread_ap_CS_fsm_state1();
     void thread_ap_CS_fsm_state11();

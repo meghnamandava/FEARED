@@ -70,21 +70,15 @@ module xts_aes_process_data (
         expanded_key_V_address0,
         expanded_key_V_ce0,
         expanded_key_V_q0,
+        expanded_key_V_address1,
+        expanded_key_V_ce1,
+        expanded_key_V_q1,
         s_boxes_V_address0,
         s_boxes_V_ce0,
         s_boxes_V_q0,
-        mix_column_constant_matrices_0_V_address0,
-        mix_column_constant_matrices_0_V_ce0,
-        mix_column_constant_matrices_0_V_q0,
-        mix_column_constant_matrices_1_V_address0,
-        mix_column_constant_matrices_1_V_ce0,
-        mix_column_constant_matrices_1_V_q0,
-        mix_column_constant_matrices_2_V_address0,
-        mix_column_constant_matrices_2_V_ce0,
-        mix_column_constant_matrices_2_V_q0,
-        mix_column_constant_matrices_3_V_address0,
-        mix_column_constant_matrices_3_V_ce0,
-        mix_column_constant_matrices_3_V_q0,
+        s_boxes_V_address1,
+        s_boxes_V_ce1,
+        s_boxes_V_q1,
         multiplication_V_address0,
         multiplication_V_ce0,
         multiplication_V_q0,
@@ -176,21 +170,15 @@ input  [15:0] tweak_V_q0;
 output  [7:0] expanded_key_V_address0;
 output   expanded_key_V_ce0;
 input  [15:0] expanded_key_V_q0;
+output  [7:0] expanded_key_V_address1;
+output   expanded_key_V_ce1;
+input  [15:0] expanded_key_V_q1;
 output  [9:0] s_boxes_V_address0;
 output   s_boxes_V_ce0;
 input  [7:0] s_boxes_V_q0;
-output  [3:0] mix_column_constant_matrices_0_V_address0;
-output   mix_column_constant_matrices_0_V_ce0;
-input  [5:0] mix_column_constant_matrices_0_V_q0;
-output  [3:0] mix_column_constant_matrices_1_V_address0;
-output   mix_column_constant_matrices_1_V_ce0;
-input  [5:0] mix_column_constant_matrices_1_V_q0;
-output  [3:0] mix_column_constant_matrices_2_V_address0;
-output   mix_column_constant_matrices_2_V_ce0;
-input  [5:0] mix_column_constant_matrices_2_V_q0;
-output  [3:0] mix_column_constant_matrices_3_V_address0;
-output   mix_column_constant_matrices_3_V_ce0;
-input  [5:0] mix_column_constant_matrices_3_V_q0;
+output  [9:0] s_boxes_V_address1;
+output   s_boxes_V_ce1;
+input  [7:0] s_boxes_V_q1;
 output  [11:0] multiplication_V_address0;
 output   multiplication_V_ce0;
 input  [7:0] multiplication_V_q0;
@@ -222,126 +210,116 @@ wire    ap_CS_fsm_state1;
 reg    data_V_blk_n_AR;
 reg    data_V_blk_n_R;
 wire    ap_CS_fsm_state9;
-wire   [0:0] icmp_ln299_fu_267_p2;
+wire   [0:0] icmp_ln299_fu_251_p2;
 wire    ap_CS_fsm_state7;
-wire   [6:0] i_fu_249_p2;
-reg   [6:0] i_reg_381;
+wire   [6:0] i_fu_233_p2;
+reg   [6:0] i_reg_365;
 wire    ap_CS_fsm_state8;
-wire   [11:0] zext_ln301_fu_263_p1;
-reg   [11:0] zext_ln301_reg_386;
-wire   [0:0] icmp_ln297_fu_243_p2;
-wire   [4:0] j_fu_273_p2;
-reg   [4:0] j_reg_399;
+wire   [11:0] zext_ln301_fu_247_p1;
+reg   [11:0] zext_ln301_reg_370;
+wire   [0:0] icmp_ln297_fu_227_p2;
+wire   [4:0] j_fu_257_p2;
+reg   [4:0] j_reg_383;
 reg    ap_block_state9;
-wire   [11:0] add_ln180_fu_283_p2;
-reg   [11:0] add_ln180_reg_404;
-reg   [15:0] data_V_addr_read_reg_409;
-wire   [6:0] i_1_fu_302_p2;
-reg   [6:0] i_1_reg_417;
+wire   [11:0] add_ln180_fu_267_p2;
+reg   [11:0] add_ln180_reg_388;
+reg   [15:0] data_V_addr_read_reg_393;
+wire   [6:0] i_1_fu_286_p2;
+reg   [6:0] i_1_reg_401;
 wire    ap_CS_fsm_state11;
-wire   [0:0] icmp_ln887_fu_308_p2;
-reg   [0:0] icmp_ln887_reg_422;
-wire   [0:0] icmp_ln306_fu_296_p2;
-wire   [4:0] j_1_fu_319_p2;
-reg   [4:0] j_1_reg_429;
+wire   [0:0] icmp_ln887_fu_292_p2;
+reg   [0:0] icmp_ln887_reg_406;
+wire   [0:0] icmp_ln306_fu_280_p2;
+wire   [4:0] j_1_fu_303_p2;
+reg   [4:0] j_1_reg_413;
 wire    ap_CS_fsm_state13;
-reg   [3:0] tweak_V_addr_1_reg_434;
-wire   [0:0] icmp_ln258_fu_313_p2;
+reg   [3:0] tweak_V_addr_1_reg_418;
+wire   [0:0] icmp_ln258_fu_297_p2;
 wire    ap_CS_fsm_state14;
-wire    grp_xts_aes_process_bloc_fu_207_ap_start;
-wire    grp_xts_aes_process_bloc_fu_207_ap_done;
-wire    grp_xts_aes_process_bloc_fu_207_ap_idle;
-wire    grp_xts_aes_process_bloc_fu_207_ap_ready;
-wire   [9:0] grp_xts_aes_process_bloc_fu_207_block_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_block_V_ce0;
-wire    grp_xts_aes_process_bloc_fu_207_block_V_we0;
-wire   [15:0] grp_xts_aes_process_bloc_fu_207_block_V_d0;
-wire   [3:0] grp_xts_aes_process_bloc_fu_207_tweak_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_tweak_V_ce0;
-wire   [7:0] grp_xts_aes_process_bloc_fu_207_expanded_key_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_expanded_key_V_ce0;
-wire   [9:0] grp_xts_aes_process_bloc_fu_207_s_boxes_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_s_boxes_V_ce0;
-wire   [3:0] grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_0_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_0_V_ce0;
-wire   [3:0] grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_1_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_1_V_ce0;
-wire   [3:0] grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_2_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_2_V_ce0;
-wire   [3:0] grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_3_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_3_V_ce0;
-wire   [11:0] grp_xts_aes_process_bloc_fu_207_multiplication_V_address0;
-wire    grp_xts_aes_process_bloc_fu_207_multiplication_V_ce0;
-wire   [11:0] grp_xts_aes_process_bloc_fu_207_multiplication_V_address1;
-wire    grp_xts_aes_process_bloc_fu_207_multiplication_V_ce1;
-reg   [6:0] i_0_reg_150;
-reg   [4:0] j_0_reg_161;
+wire    grp_xts_aes_process_bloc_fu_199_ap_start;
+wire    grp_xts_aes_process_bloc_fu_199_ap_done;
+wire    grp_xts_aes_process_bloc_fu_199_ap_idle;
+wire    grp_xts_aes_process_bloc_fu_199_ap_ready;
+wire   [9:0] grp_xts_aes_process_bloc_fu_199_block_V_address0;
+wire    grp_xts_aes_process_bloc_fu_199_block_V_ce0;
+wire    grp_xts_aes_process_bloc_fu_199_block_V_we0;
+wire   [15:0] grp_xts_aes_process_bloc_fu_199_block_V_d0;
+wire   [3:0] grp_xts_aes_process_bloc_fu_199_tweak_V_address0;
+wire    grp_xts_aes_process_bloc_fu_199_tweak_V_ce0;
+wire   [7:0] grp_xts_aes_process_bloc_fu_199_expanded_key_V_address0;
+wire    grp_xts_aes_process_bloc_fu_199_expanded_key_V_ce0;
+wire   [7:0] grp_xts_aes_process_bloc_fu_199_expanded_key_V_address1;
+wire    grp_xts_aes_process_bloc_fu_199_expanded_key_V_ce1;
+wire   [9:0] grp_xts_aes_process_bloc_fu_199_s_boxes_V_address0;
+wire    grp_xts_aes_process_bloc_fu_199_s_boxes_V_ce0;
+wire   [9:0] grp_xts_aes_process_bloc_fu_199_s_boxes_V_address1;
+wire    grp_xts_aes_process_bloc_fu_199_s_boxes_V_ce1;
+wire   [11:0] grp_xts_aes_process_bloc_fu_199_multiplication_V_address0;
+wire    grp_xts_aes_process_bloc_fu_199_multiplication_V_ce0;
+wire   [11:0] grp_xts_aes_process_bloc_fu_199_multiplication_V_address1;
+wire    grp_xts_aes_process_bloc_fu_199_multiplication_V_ce1;
+reg   [6:0] i_0_reg_142;
+reg   [4:0] j_0_reg_153;
 wire    ap_CS_fsm_state10;
-reg   [6:0] i_op_assign_reg_172;
+reg   [6:0] i_op_assign_reg_164;
 wire    ap_CS_fsm_state15;
-wire   [0:0] ap_phi_mux_p_0111_0_i_phi_fu_188_p4;
-reg   [0:0] p_0111_0_i_reg_184;
+wire   [0:0] ap_phi_mux_p_0111_0_i_phi_fu_180_p4;
+reg   [0:0] p_0111_0_i_reg_176;
 wire    ap_CS_fsm_state12;
-reg   [4:0] j_0_i_reg_196;
-reg    grp_xts_aes_process_bloc_fu_207_ap_start_reg;
-wire   [63:0] zext_ln180_2_fu_288_p1;
-wire   [63:0] zext_ln260_fu_325_p1;
-wire   [63:0] zext_ln180_fu_232_p1;
-wire   [15:0] zext_ln68_fu_350_p1;
-wire   [15:0] xor_ln719_fu_355_p2;
-wire   [10:0] tmp_1_fu_255_p3;
-wire   [11:0] zext_ln180_1_fu_279_p1;
-wire   [15:0] zext_ln306_fu_292_p1;
-wire   [6:0] trunc_ln68_fu_338_p1;
-wire   [7:0] or_ln_fu_342_p3;
+reg   [4:0] j_0_i_reg_188;
+reg    grp_xts_aes_process_bloc_fu_199_ap_start_reg;
+wire   [63:0] zext_ln180_2_fu_272_p1;
+wire   [63:0] zext_ln260_fu_309_p1;
+wire   [63:0] zext_ln180_fu_216_p1;
+wire   [15:0] zext_ln68_fu_334_p1;
+wire   [15:0] xor_ln719_fu_339_p2;
+wire   [10:0] tmp_1_fu_239_p3;
+wire   [11:0] zext_ln180_1_fu_263_p1;
+wire   [15:0] zext_ln306_fu_276_p1;
+wire   [6:0] trunc_ln68_fu_322_p1;
+wire   [7:0] or_ln_fu_326_p3;
 reg   [14:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 15'd1;
-#0 grp_xts_aes_process_bloc_fu_207_ap_start_reg = 1'b0;
+#0 grp_xts_aes_process_bloc_fu_199_ap_start_reg = 1'b0;
 end
 
-xts_aes_process_bloc grp_xts_aes_process_bloc_fu_207(
+xts_aes_process_bloc grp_xts_aes_process_bloc_fu_199(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_xts_aes_process_bloc_fu_207_ap_start),
-    .ap_done(grp_xts_aes_process_bloc_fu_207_ap_done),
-    .ap_idle(grp_xts_aes_process_bloc_fu_207_ap_idle),
-    .ap_ready(grp_xts_aes_process_bloc_fu_207_ap_ready),
-    .block_V_address0(grp_xts_aes_process_bloc_fu_207_block_V_address0),
-    .block_V_ce0(grp_xts_aes_process_bloc_fu_207_block_V_ce0),
-    .block_V_we0(grp_xts_aes_process_bloc_fu_207_block_V_we0),
-    .block_V_d0(grp_xts_aes_process_bloc_fu_207_block_V_d0),
+    .ap_start(grp_xts_aes_process_bloc_fu_199_ap_start),
+    .ap_done(grp_xts_aes_process_bloc_fu_199_ap_done),
+    .ap_idle(grp_xts_aes_process_bloc_fu_199_ap_idle),
+    .ap_ready(grp_xts_aes_process_bloc_fu_199_ap_ready),
+    .block_V_address0(grp_xts_aes_process_bloc_fu_199_block_V_address0),
+    .block_V_ce0(grp_xts_aes_process_bloc_fu_199_block_V_ce0),
+    .block_V_we0(grp_xts_aes_process_bloc_fu_199_block_V_we0),
+    .block_V_d0(grp_xts_aes_process_bloc_fu_199_block_V_d0),
     .block_V_q0(blocks_V_q0),
-    .block_V_offset(i_op_assign_reg_172),
-    .tweak_V_address0(grp_xts_aes_process_bloc_fu_207_tweak_V_address0),
-    .tweak_V_ce0(grp_xts_aes_process_bloc_fu_207_tweak_V_ce0),
+    .block_V_offset(i_op_assign_reg_164),
+    .tweak_V_address0(grp_xts_aes_process_bloc_fu_199_tweak_V_address0),
+    .tweak_V_ce0(grp_xts_aes_process_bloc_fu_199_tweak_V_ce0),
     .tweak_V_q0(tweak_V_q0),
     .mode_V(mode_V),
-    .expanded_key_V_address0(grp_xts_aes_process_bloc_fu_207_expanded_key_V_address0),
-    .expanded_key_V_ce0(grp_xts_aes_process_bloc_fu_207_expanded_key_V_ce0),
+    .expanded_key_V_address0(grp_xts_aes_process_bloc_fu_199_expanded_key_V_address0),
+    .expanded_key_V_ce0(grp_xts_aes_process_bloc_fu_199_expanded_key_V_ce0),
     .expanded_key_V_q0(expanded_key_V_q0),
-    .s_boxes_V_address0(grp_xts_aes_process_bloc_fu_207_s_boxes_V_address0),
-    .s_boxes_V_ce0(grp_xts_aes_process_bloc_fu_207_s_boxes_V_ce0),
+    .expanded_key_V_address1(grp_xts_aes_process_bloc_fu_199_expanded_key_V_address1),
+    .expanded_key_V_ce1(grp_xts_aes_process_bloc_fu_199_expanded_key_V_ce1),
+    .expanded_key_V_q1(expanded_key_V_q1),
+    .s_boxes_V_address0(grp_xts_aes_process_bloc_fu_199_s_boxes_V_address0),
+    .s_boxes_V_ce0(grp_xts_aes_process_bloc_fu_199_s_boxes_V_ce0),
     .s_boxes_V_q0(s_boxes_V_q0),
-    .mix_column_constant_matrices_0_V_address0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_0_V_address0),
-    .mix_column_constant_matrices_0_V_ce0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_0_V_ce0),
-    .mix_column_constant_matrices_0_V_q0(mix_column_constant_matrices_0_V_q0),
-    .mix_column_constant_matrices_1_V_address0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_1_V_address0),
-    .mix_column_constant_matrices_1_V_ce0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_1_V_ce0),
-    .mix_column_constant_matrices_1_V_q0(mix_column_constant_matrices_1_V_q0),
-    .mix_column_constant_matrices_2_V_address0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_2_V_address0),
-    .mix_column_constant_matrices_2_V_ce0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_2_V_ce0),
-    .mix_column_constant_matrices_2_V_q0(mix_column_constant_matrices_2_V_q0),
-    .mix_column_constant_matrices_3_V_address0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_3_V_address0),
-    .mix_column_constant_matrices_3_V_ce0(grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_3_V_ce0),
-    .mix_column_constant_matrices_3_V_q0(mix_column_constant_matrices_3_V_q0),
-    .multiplication_V_address0(grp_xts_aes_process_bloc_fu_207_multiplication_V_address0),
-    .multiplication_V_ce0(grp_xts_aes_process_bloc_fu_207_multiplication_V_ce0),
+    .s_boxes_V_address1(grp_xts_aes_process_bloc_fu_199_s_boxes_V_address1),
+    .s_boxes_V_ce1(grp_xts_aes_process_bloc_fu_199_s_boxes_V_ce1),
+    .s_boxes_V_q1(s_boxes_V_q1),
+    .multiplication_V_address0(grp_xts_aes_process_bloc_fu_199_multiplication_V_address0),
+    .multiplication_V_ce0(grp_xts_aes_process_bloc_fu_199_multiplication_V_ce0),
     .multiplication_V_q0(multiplication_V_q0),
-    .multiplication_V_address1(grp_xts_aes_process_bloc_fu_207_multiplication_V_address1),
-    .multiplication_V_ce1(grp_xts_aes_process_bloc_fu_207_multiplication_V_ce1),
+    .multiplication_V_address1(grp_xts_aes_process_bloc_fu_199_multiplication_V_address1),
+    .multiplication_V_ce1(grp_xts_aes_process_bloc_fu_199_multiplication_V_ce1),
     .multiplication_V_q1(multiplication_V_q1)
 );
 
@@ -355,107 +333,107 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_xts_aes_process_bloc_fu_207_ap_start_reg <= 1'b0;
+        grp_xts_aes_process_bloc_fu_199_ap_start_reg <= 1'b0;
     end else begin
-        if (((icmp_ln306_fu_296_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state11) & (icmp_ln887_fu_308_p2 == 1'd1))) begin
-            grp_xts_aes_process_bloc_fu_207_ap_start_reg <= 1'b1;
-        end else if ((grp_xts_aes_process_bloc_fu_207_ap_ready == 1'b1)) begin
-            grp_xts_aes_process_bloc_fu_207_ap_start_reg <= 1'b0;
+        if (((icmp_ln306_fu_280_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state11) & (icmp_ln887_fu_292_p2 == 1'd1))) begin
+            grp_xts_aes_process_bloc_fu_199_ap_start_reg <= 1'b1;
+        end else if ((grp_xts_aes_process_bloc_fu_199_ap_ready == 1'b1)) begin
+            grp_xts_aes_process_bloc_fu_199_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state9) & (icmp_ln299_fu_267_p2 == 1'd1))) begin
-        i_0_reg_150 <= i_reg_381;
+    if ((~((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state9) & (icmp_ln299_fu_251_p2 == 1'd1))) begin
+        i_0_reg_142 <= i_reg_365;
     end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        i_0_reg_150 <= 7'd0;
+        i_0_reg_142 <= 7'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln297_fu_243_p2 == 1'd1))) begin
-        i_op_assign_reg_172 <= 7'd0;
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln297_fu_227_p2 == 1'd1))) begin
+        i_op_assign_reg_164 <= 7'd0;
     end else if ((1'b1 == ap_CS_fsm_state15)) begin
-        i_op_assign_reg_172 <= i_1_reg_417;
+        i_op_assign_reg_164 <= i_1_reg_401;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state14)) begin
-        j_0_i_reg_196 <= j_1_reg_429;
-    end else if (((grp_xts_aes_process_bloc_fu_207_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state12))) begin
-        j_0_i_reg_196 <= 5'd0;
+        j_0_i_reg_188 <= j_1_reg_413;
+    end else if (((grp_xts_aes_process_bloc_fu_199_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state12))) begin
+        j_0_i_reg_188 <= 5'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln297_fu_243_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state8))) begin
-        j_0_reg_161 <= 5'd0;
+    if (((icmp_ln297_fu_227_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state8))) begin
+        j_0_reg_153 <= 5'd0;
     end else if ((1'b1 == ap_CS_fsm_state10)) begin
-        j_0_reg_161 <= j_reg_399;
+        j_0_reg_153 <= j_reg_383;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state14)) begin
-        p_0111_0_i_reg_184 <= tweak_V_q0[32'd7];
-    end else if (((grp_xts_aes_process_bloc_fu_207_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state12))) begin
-        p_0111_0_i_reg_184 <= 1'd0;
+        p_0111_0_i_reg_176 <= tweak_V_q0[32'd7];
+    end else if (((grp_xts_aes_process_bloc_fu_199_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state12))) begin
+        p_0111_0_i_reg_176 <= 1'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (icmp_ln299_fu_267_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
-        add_ln180_reg_404 <= add_ln180_fu_283_p2;
-        data_V_addr_read_reg_409 <= m_axi_data_V_RDATA;
+    if ((~((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (icmp_ln299_fu_251_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
+        add_ln180_reg_388 <= add_ln180_fu_267_p2;
+        data_V_addr_read_reg_393 <= m_axi_data_V_RDATA;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state11)) begin
-        i_1_reg_417 <= i_1_fu_302_p2;
+        i_1_reg_401 <= i_1_fu_286_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state8)) begin
-        i_reg_381 <= i_fu_249_p2;
+        i_reg_365 <= i_fu_233_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln306_fu_296_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state11))) begin
-        icmp_ln887_reg_422 <= icmp_ln887_fu_308_p2;
+    if (((icmp_ln306_fu_280_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state11))) begin
+        icmp_ln887_reg_406 <= icmp_ln887_fu_292_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state13)) begin
-        j_1_reg_429 <= j_1_fu_319_p2;
+        j_1_reg_413 <= j_1_fu_303_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state9))) begin
-        j_reg_399 <= j_fu_273_p2;
+    if ((~((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state9))) begin
+        j_reg_383 <= j_fu_257_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln258_fu_313_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state13))) begin
-        tweak_V_addr_1_reg_434 <= zext_ln260_fu_325_p1;
+    if (((icmp_ln258_fu_297_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state13))) begin
+        tweak_V_addr_1_reg_418 <= zext_ln260_fu_309_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln297_fu_243_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state8))) begin
-        zext_ln301_reg_386[10 : 4] <= zext_ln301_fu_263_p1[10 : 4];
+    if (((icmp_ln297_fu_227_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state8))) begin
+        zext_ln301_reg_370[10 : 4] <= zext_ln301_fu_247_p1[10 : 4];
     end
 end
 
 always @ (*) begin
-    if ((((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)) | ((1'b1 == ap_CS_fsm_state11) & (icmp_ln306_fu_296_p2 == 1'd1)))) begin
+    if ((((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)) | ((1'b1 == ap_CS_fsm_state11) & (icmp_ln306_fu_280_p2 == 1'd1)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -471,7 +449,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state11) & (icmp_ln306_fu_296_p2 == 1'd1))) begin
+    if (((1'b1 == ap_CS_fsm_state11) & (icmp_ln306_fu_280_p2 == 1'd1))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -480,9 +458,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state10)) begin
-        blocks_V_address0 = zext_ln180_2_fu_288_p1;
+        blocks_V_address0 = zext_ln180_2_fu_272_p1;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        blocks_V_address0 = grp_xts_aes_process_bloc_fu_207_block_V_address0;
+        blocks_V_address0 = grp_xts_aes_process_bloc_fu_199_block_V_address0;
     end else begin
         blocks_V_address0 = 'bx;
     end
@@ -492,7 +470,7 @@ always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state10)) begin
         blocks_V_ce0 = 1'b1;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        blocks_V_ce0 = grp_xts_aes_process_bloc_fu_207_block_V_ce0;
+        blocks_V_ce0 = grp_xts_aes_process_bloc_fu_199_block_V_ce0;
     end else begin
         blocks_V_ce0 = 1'b0;
     end
@@ -500,9 +478,9 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state10)) begin
-        blocks_V_d0 = data_V_addr_read_reg_409;
+        blocks_V_d0 = data_V_addr_read_reg_393;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        blocks_V_d0 = grp_xts_aes_process_bloc_fu_207_block_V_d0;
+        blocks_V_d0 = grp_xts_aes_process_bloc_fu_199_block_V_d0;
     end else begin
         blocks_V_d0 = 'bx;
     end
@@ -512,7 +490,7 @@ always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state10)) begin
         blocks_V_we0 = 1'b1;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        blocks_V_we0 = grp_xts_aes_process_bloc_fu_207_block_V_we0;
+        blocks_V_we0 = grp_xts_aes_process_bloc_fu_199_block_V_we0;
     end else begin
         blocks_V_we0 = 1'b0;
     end
@@ -527,7 +505,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln299_fu_267_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
+    if (((icmp_ln299_fu_251_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
         data_V_blk_n_R = m_axi_data_V_RVALID;
     end else begin
         data_V_blk_n_R = 1'b1;
@@ -543,7 +521,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (icmp_ln299_fu_267_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
+    if ((~((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (icmp_ln299_fu_251_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
         m_axi_data_V_RREADY = 1'b1;
     end else begin
         m_axi_data_V_RREADY = 1'b0;
@@ -552,23 +530,23 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state14)) begin
-        tweak_V_address0 = tweak_V_addr_1_reg_434;
-    end else if (((1'b1 == ap_CS_fsm_state15) | ((1'b1 == ap_CS_fsm_state13) & (ap_phi_mux_p_0111_0_i_phi_fu_188_p4 == 1'd1) & (icmp_ln258_fu_313_p2 == 1'd1)))) begin
+        tweak_V_address0 = tweak_V_addr_1_reg_418;
+    end else if (((1'b1 == ap_CS_fsm_state15) | ((1'b1 == ap_CS_fsm_state13) & (ap_phi_mux_p_0111_0_i_phi_fu_180_p4 == 1'd1) & (icmp_ln258_fu_297_p2 == 1'd1)))) begin
         tweak_V_address0 = 64'd0;
-    end else if (((icmp_ln258_fu_313_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state13))) begin
-        tweak_V_address0 = zext_ln260_fu_325_p1;
+    end else if (((icmp_ln258_fu_297_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state13))) begin
+        tweak_V_address0 = zext_ln260_fu_309_p1;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        tweak_V_address0 = grp_xts_aes_process_bloc_fu_207_tweak_V_address0;
+        tweak_V_address0 = grp_xts_aes_process_bloc_fu_199_tweak_V_address0;
     end else begin
         tweak_V_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | ((1'b1 == ap_CS_fsm_state13) & (ap_phi_mux_p_0111_0_i_phi_fu_188_p4 == 1'd1) & (icmp_ln258_fu_313_p2 == 1'd1)) | ((icmp_ln258_fu_313_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state13)))) begin
+    if (((1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | ((1'b1 == ap_CS_fsm_state13) & (ap_phi_mux_p_0111_0_i_phi_fu_180_p4 == 1'd1) & (icmp_ln258_fu_297_p2 == 1'd1)) | ((icmp_ln258_fu_297_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state13)))) begin
         tweak_V_ce0 = 1'b1;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        tweak_V_ce0 = grp_xts_aes_process_bloc_fu_207_tweak_V_ce0;
+        tweak_V_ce0 = grp_xts_aes_process_bloc_fu_199_tweak_V_ce0;
     end else begin
         tweak_V_ce0 = 1'b0;
     end
@@ -576,16 +554,16 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state15)) begin
-        tweak_V_d0 = xor_ln719_fu_355_p2;
+        tweak_V_d0 = xor_ln719_fu_339_p2;
     end else if ((1'b1 == ap_CS_fsm_state14)) begin
-        tweak_V_d0 = zext_ln68_fu_350_p1;
+        tweak_V_d0 = zext_ln68_fu_334_p1;
     end else begin
         tweak_V_d0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state14) | ((1'b1 == ap_CS_fsm_state15) & (p_0111_0_i_reg_184 == 1'd1) & (icmp_ln887_reg_422 == 1'd1)))) begin
+    if (((1'b1 == ap_CS_fsm_state14) | ((1'b1 == ap_CS_fsm_state15) & (p_0111_0_i_reg_176 == 1'd1) & (icmp_ln887_reg_406 == 1'd1)))) begin
         tweak_V_we0 = 1'b1;
     end else begin
         tweak_V_we0 = 1'b0;
@@ -620,16 +598,16 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state8;
         end
         ap_ST_fsm_state8 : begin
-            if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln297_fu_243_p2 == 1'd1))) begin
+            if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln297_fu_227_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state11;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state9;
             end
         end
         ap_ST_fsm_state9 : begin
-            if ((~((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state9) & (icmp_ln299_fu_267_p2 == 1'd1))) begin
+            if ((~((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (1'b1 == ap_CS_fsm_state9) & (icmp_ln299_fu_251_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state8;
-            end else if ((~((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (icmp_ln299_fu_267_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
+            end else if ((~((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0)) & (icmp_ln299_fu_251_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
                 ap_NS_fsm = ap_ST_fsm_state10;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state9;
@@ -639,23 +617,23 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state9;
         end
         ap_ST_fsm_state11 : begin
-            if (((1'b1 == ap_CS_fsm_state11) & (icmp_ln306_fu_296_p2 == 1'd1))) begin
+            if (((1'b1 == ap_CS_fsm_state11) & (icmp_ln306_fu_280_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
-            end else if (((icmp_ln306_fu_296_p2 == 1'd0) & (icmp_ln887_fu_308_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state11))) begin
+            end else if (((icmp_ln306_fu_280_p2 == 1'd0) & (icmp_ln887_fu_292_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state11))) begin
                 ap_NS_fsm = ap_ST_fsm_state15;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state12;
             end
         end
         ap_ST_fsm_state12 : begin
-            if (((grp_xts_aes_process_bloc_fu_207_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state12))) begin
+            if (((grp_xts_aes_process_bloc_fu_199_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state12))) begin
                 ap_NS_fsm = ap_ST_fsm_state13;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state12;
             end
         end
         ap_ST_fsm_state13 : begin
-            if (((1'b1 == ap_CS_fsm_state13) & (icmp_ln258_fu_313_p2 == 1'd1))) begin
+            if (((1'b1 == ap_CS_fsm_state13) & (icmp_ln258_fu_297_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state15;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state14;
@@ -673,7 +651,7 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln180_fu_283_p2 = (zext_ln301_reg_386 + zext_ln180_1_fu_279_p1);
+assign add_ln180_fu_267_p2 = (zext_ln301_reg_370 + zext_ln180_1_fu_263_p1);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -696,36 +674,40 @@ assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
 always @ (*) begin
-    ap_block_state9 = ((icmp_ln299_fu_267_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0));
+    ap_block_state9 = ((icmp_ln299_fu_251_p2 == 1'd0) & (m_axi_data_V_RVALID == 1'b0));
 end
 
-assign ap_phi_mux_p_0111_0_i_phi_fu_188_p4 = p_0111_0_i_reg_184;
+assign ap_phi_mux_p_0111_0_i_phi_fu_180_p4 = p_0111_0_i_reg_176;
 
-assign expanded_key_V_address0 = grp_xts_aes_process_bloc_fu_207_expanded_key_V_address0;
+assign expanded_key_V_address0 = grp_xts_aes_process_bloc_fu_199_expanded_key_V_address0;
 
-assign expanded_key_V_ce0 = grp_xts_aes_process_bloc_fu_207_expanded_key_V_ce0;
+assign expanded_key_V_address1 = grp_xts_aes_process_bloc_fu_199_expanded_key_V_address1;
 
-assign grp_xts_aes_process_bloc_fu_207_ap_start = grp_xts_aes_process_bloc_fu_207_ap_start_reg;
+assign expanded_key_V_ce0 = grp_xts_aes_process_bloc_fu_199_expanded_key_V_ce0;
 
-assign i_1_fu_302_p2 = (i_op_assign_reg_172 + 7'd1);
+assign expanded_key_V_ce1 = grp_xts_aes_process_bloc_fu_199_expanded_key_V_ce1;
 
-assign i_fu_249_p2 = (i_0_reg_150 + 7'd1);
+assign grp_xts_aes_process_bloc_fu_199_ap_start = grp_xts_aes_process_bloc_fu_199_ap_start_reg;
 
-assign icmp_ln258_fu_313_p2 = ((j_0_i_reg_196 == 5'd16) ? 1'b1 : 1'b0);
+assign i_1_fu_286_p2 = (i_op_assign_reg_164 + 7'd1);
 
-assign icmp_ln297_fu_243_p2 = ((i_0_reg_150 == 7'd64) ? 1'b1 : 1'b0);
+assign i_fu_233_p2 = (i_0_reg_142 + 7'd1);
 
-assign icmp_ln299_fu_267_p2 = ((j_0_reg_161 == 5'd16) ? 1'b1 : 1'b0);
+assign icmp_ln258_fu_297_p2 = ((j_0_i_reg_188 == 5'd16) ? 1'b1 : 1'b0);
 
-assign icmp_ln306_fu_296_p2 = ((i_op_assign_reg_172 == 7'd64) ? 1'b1 : 1'b0);
+assign icmp_ln297_fu_227_p2 = ((i_0_reg_142 == 7'd64) ? 1'b1 : 1'b0);
 
-assign icmp_ln887_fu_308_p2 = (($signed(zext_ln306_fu_292_p1) < $signed(num_blocks_orig_V)) ? 1'b1 : 1'b0);
+assign icmp_ln299_fu_251_p2 = ((j_0_reg_153 == 5'd16) ? 1'b1 : 1'b0);
 
-assign j_1_fu_319_p2 = (j_0_i_reg_196 + 5'd1);
+assign icmp_ln306_fu_280_p2 = ((i_op_assign_reg_164 == 7'd64) ? 1'b1 : 1'b0);
 
-assign j_fu_273_p2 = (j_0_reg_161 + 5'd1);
+assign icmp_ln887_fu_292_p2 = (($signed(zext_ln306_fu_276_p1) < $signed(num_blocks_orig_V)) ? 1'b1 : 1'b0);
 
-assign m_axi_data_V_ARADDR = zext_ln180_fu_232_p1;
+assign j_1_fu_303_p2 = (j_0_i_reg_188 + 5'd1);
+
+assign j_fu_257_p2 = (j_0_reg_153 + 5'd1);
+
+assign m_axi_data_V_ARADDR = zext_ln180_fu_216_p1;
 
 assign m_axi_data_V_ARBURST = 2'd0;
 
@@ -785,59 +767,47 @@ assign m_axi_data_V_WUSER = 1'd0;
 
 assign m_axi_data_V_WVALID = 1'b0;
 
-assign mix_column_constant_matrices_0_V_address0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_0_V_address0;
+assign multiplication_V_address0 = grp_xts_aes_process_bloc_fu_199_multiplication_V_address0;
 
-assign mix_column_constant_matrices_0_V_ce0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_0_V_ce0;
+assign multiplication_V_address1 = grp_xts_aes_process_bloc_fu_199_multiplication_V_address1;
 
-assign mix_column_constant_matrices_1_V_address0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_1_V_address0;
+assign multiplication_V_ce0 = grp_xts_aes_process_bloc_fu_199_multiplication_V_ce0;
 
-assign mix_column_constant_matrices_1_V_ce0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_1_V_ce0;
+assign multiplication_V_ce1 = grp_xts_aes_process_bloc_fu_199_multiplication_V_ce1;
 
-assign mix_column_constant_matrices_2_V_address0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_2_V_address0;
+assign or_ln_fu_326_p3 = {{trunc_ln68_fu_322_p1}, {p_0111_0_i_reg_176}};
 
-assign mix_column_constant_matrices_2_V_ce0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_2_V_ce0;
+assign s_boxes_V_address0 = grp_xts_aes_process_bloc_fu_199_s_boxes_V_address0;
 
-assign mix_column_constant_matrices_3_V_address0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_3_V_address0;
+assign s_boxes_V_address1 = grp_xts_aes_process_bloc_fu_199_s_boxes_V_address1;
 
-assign mix_column_constant_matrices_3_V_ce0 = grp_xts_aes_process_bloc_fu_207_mix_column_constant_matrices_3_V_ce0;
+assign s_boxes_V_ce0 = grp_xts_aes_process_bloc_fu_199_s_boxes_V_ce0;
 
-assign multiplication_V_address0 = grp_xts_aes_process_bloc_fu_207_multiplication_V_address0;
+assign s_boxes_V_ce1 = grp_xts_aes_process_bloc_fu_199_s_boxes_V_ce1;
 
-assign multiplication_V_address1 = grp_xts_aes_process_bloc_fu_207_multiplication_V_address1;
+assign tmp_1_fu_239_p3 = {{i_0_reg_142}, {4'd0}};
 
-assign multiplication_V_ce0 = grp_xts_aes_process_bloc_fu_207_multiplication_V_ce0;
+assign trunc_ln68_fu_322_p1 = tweak_V_q0[6:0];
 
-assign multiplication_V_ce1 = grp_xts_aes_process_bloc_fu_207_multiplication_V_ce1;
+assign xor_ln719_fu_339_p2 = (tweak_V_q0 ^ 16'd135);
 
-assign or_ln_fu_342_p3 = {{trunc_ln68_fu_338_p1}, {p_0111_0_i_reg_184}};
+assign zext_ln180_1_fu_263_p1 = j_0_reg_153;
 
-assign s_boxes_V_address0 = grp_xts_aes_process_bloc_fu_207_s_boxes_V_address0;
+assign zext_ln180_2_fu_272_p1 = add_ln180_reg_388;
 
-assign s_boxes_V_ce0 = grp_xts_aes_process_bloc_fu_207_s_boxes_V_ce0;
+assign zext_ln180_fu_216_p1 = data_V_offset;
 
-assign tmp_1_fu_255_p3 = {{i_0_reg_150}, {4'd0}};
+assign zext_ln260_fu_309_p1 = j_0_i_reg_188;
 
-assign trunc_ln68_fu_338_p1 = tweak_V_q0[6:0];
+assign zext_ln301_fu_247_p1 = tmp_1_fu_239_p3;
 
-assign xor_ln719_fu_355_p2 = (tweak_V_q0 ^ 16'd135);
+assign zext_ln306_fu_276_p1 = i_op_assign_reg_164;
 
-assign zext_ln180_1_fu_279_p1 = j_0_reg_161;
-
-assign zext_ln180_2_fu_288_p1 = add_ln180_reg_404;
-
-assign zext_ln180_fu_232_p1 = data_V_offset;
-
-assign zext_ln260_fu_325_p1 = j_0_i_reg_196;
-
-assign zext_ln301_fu_263_p1 = tmp_1_fu_255_p3;
-
-assign zext_ln306_fu_292_p1 = i_op_assign_reg_172;
-
-assign zext_ln68_fu_350_p1 = or_ln_fu_342_p3;
+assign zext_ln68_fu_334_p1 = or_ln_fu_326_p3;
 
 always @ (posedge ap_clk) begin
-    zext_ln301_reg_386[3:0] <= 4'b0000;
-    zext_ln301_reg_386[11] <= 1'b0;
+    zext_ln301_reg_370[3:0] <= 4'b0000;
+    zext_ln301_reg_370[11] <= 1'b0;
 end
 
 endmodule //xts_aes_process_data

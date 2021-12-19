@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_get_round_key5'
 ================================================================
-* Date:           Mon Dec 13 15:29:15 2021
+* Date:           Sat Dec 18 12:10:19 2021
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        AES-XTS
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|     6.952|        1.25|
+    |ap_clk  |  10.00|     6.900|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |   41|   41|   41|   41|   none  |
+    |   10|   10|   10|   10|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -37,13 +37,12 @@
         N/A
 
         * Loop: 
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1     |   40|   40|        10|          -|          -|     4|    no    |
-        | + Loop 1.1  |    8|    8|         2|          -|          -|     4|    no    |
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        +----------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                            |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |          Loop Name         | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- aes_get_round_key_label5  |    8|    8|         3|          2|          1|     4|    yes   |
+        +----------------------------+-----+-----+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -67,63 +66,92 @@ IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 3
+
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 4
-* Pipeline : 0
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 3, States = { 2 3 4 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 2 
-2 --> 3 
-3 --> 4 2 
-4 --> 3 
+2 --> 5 3 
+3 --> 4 
+4 --> 2 
+5 --> 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%round_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %round)" [AES-XTS/main.cpp:135]   --->   Operation 5 'read' 'round_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%key_column_index_V = call i9 @_ssdm_op_BitConcatenate.i9.i7.i2(i7 %round_read, i2 0)" [AES-XTS/main.cpp:137]   --->   Operation 6 'bitconcatenate' 'key_column_index_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (1.76ns)   --->   "br label %.loopexit" [AES-XTS/main.cpp:138]   --->   Operation 7 'br' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%round_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %round)" [AES-XTS/main.cpp:135]   --->   Operation 6 'read' 'round_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%key_column_index_V = call i9 @_ssdm_op_BitConcatenate.i9.i7.i2(i7 %round_read, i2 0)" [AES-XTS/main.cpp:137]   --->   Operation 7 'bitconcatenate' 'key_column_index_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%or_ln1353 = or i9 %key_column_index_V, 1" [AES-XTS/main.cpp:142]   --->   Operation 8 'or' 'or_ln1353' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%or_ln1353_1 = or i9 %key_column_index_V, 2" [AES-XTS/main.cpp:142]   --->   Operation 9 'or' 'or_ln1353_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%or_ln1353_2 = or i9 %key_column_index_V, 3" [AES-XTS/main.cpp:142]   --->   Operation 10 'or' 'or_ln1353_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (1.76ns)   --->   "br label %1" [AES-XTS/main.cpp:138]   --->   Operation 11 'br' <Predicate = true> <Delay = 1.76>
 
-State 2 <SV = 1> <Delay = 1.82>
-ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 8 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 9 [1/1] (1.13ns)   --->   "%icmp_ln138 = icmp eq i3 %i_0, -4" [AES-XTS/main.cpp:138]   --->   Operation 9 'icmp' 'icmp_ln138' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 10 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 11 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [AES-XTS/main.cpp:138]   --->   Operation 11 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 12 [1/1] (0.00ns)   --->   "br i1 %icmp_ln138, label %2, label %.preheader.preheader" [AES-XTS/main.cpp:138]   --->   Operation 12 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%tmp = call i9 @_ssdm_op_BitConcatenate.i9.i3.i6(i3 %i_0, i6 0)" [AES-XTS/main.cpp:142]   --->   Operation 13 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln138)> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_s = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %i_0, i2 0)" [AES-XTS/main.cpp:142]   --->   Operation 14 'bitconcatenate' 'tmp_s' <Predicate = (!icmp_ln138)> <Delay = 0.00>
-ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln180 = zext i5 %tmp_s to i6" [AES-XTS/main.cpp:142]   --->   Operation 15 'zext' 'zext_ln180' <Predicate = (!icmp_ln138)> <Delay = 0.00>
-ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln180_23 = zext i5 %tmp_s to i9" [AES-XTS/main.cpp:142]   --->   Operation 16 'zext' 'zext_ln180_23' <Predicate = (!icmp_ln138)> <Delay = 0.00>
-ST_2 : Operation 17 [1/1] (1.82ns)   --->   "%sub_ln180 = sub i9 %tmp, %zext_ln180_23" [AES-XTS/main.cpp:142]   --->   Operation 17 'sub' 'sub_ln180' <Predicate = (!icmp_ln138)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 18 [1/1] (1.76ns)   --->   "br label %.preheader" [AES-XTS/main.cpp:140]   --->   Operation 18 'br' <Predicate = (!icmp_ln138)> <Delay = 1.76>
-ST_2 : Operation 19 [1/1] (0.00ns)   --->   "ret void" [AES-XTS/main.cpp:147]   --->   Operation 19 'ret' <Predicate = (icmp_ln138)> <Delay = 0.00>
+State 2 <SV = 1> <Delay = 6.90>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %aes_get_round_key_label5 ]"   --->   Operation 12 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (1.13ns)   --->   "%icmp_ln138 = icmp eq i3 %i_0, -4" [AES-XTS/main.cpp:138]   --->   Operation 13 'icmp' 'icmp_ln138' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 14 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [AES-XTS/main.cpp:138]   --->   Operation 15 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "br i1 %icmp_ln138, label %2, label %aes_get_round_key_label5" [AES-XTS/main.cpp:138]   --->   Operation 16 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%tmp_s = call i9 @_ssdm_op_BitConcatenate.i9.i3.i6(i3 %i_0, i6 0)" [AES-XTS/main.cpp:142]   --->   Operation 17 'bitconcatenate' 'tmp_s' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_17 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %i_0, i2 0)" [AES-XTS/main.cpp:142]   --->   Operation 18 'bitconcatenate' 'tmp_17' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%zext_ln180 = zext i5 %tmp_17 to i9" [AES-XTS/main.cpp:142]   --->   Operation 19 'zext' 'zext_ln180' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (1.82ns)   --->   "%sub_ln180 = sub i9 %tmp_s, %zext_ln180" [AES-XTS/main.cpp:142]   --->   Operation 20 'sub' 'sub_ln180' <Predicate = (!icmp_ln138)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (1.82ns)   --->   "%add_ln180 = add i9 %key_column_index_V, %sub_ln180" [AES-XTS/main.cpp:142]   --->   Operation 21 'add' 'add_ln180' <Predicate = (!icmp_ln138)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%sext_ln180 = sext i9 %add_ln180 to i64" [AES-XTS/main.cpp:142]   --->   Operation 22 'sext' 'sext_ln180' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%expanded_key_V_addr = getelementptr [240 x i16]* %expanded_key_V, i64 0, i64 %sext_ln180" [AES-XTS/main.cpp:142]   --->   Operation 23 'getelementptr' 'expanded_key_V_addr' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (1.82ns)   --->   "%add_ln180_6 = add i9 %or_ln1353, %sub_ln180" [AES-XTS/main.cpp:142]   --->   Operation 24 'add' 'add_ln180_6' <Predicate = (!icmp_ln138)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%sext_ln180_1 = sext i9 %add_ln180_6 to i64" [AES-XTS/main.cpp:142]   --->   Operation 25 'sext' 'sext_ln180_1' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%expanded_key_V_addr_1 = getelementptr [240 x i16]* %expanded_key_V, i64 0, i64 %sext_ln180_1" [AES-XTS/main.cpp:142]   --->   Operation 26 'getelementptr' 'expanded_key_V_addr_1' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_2 : Operation 27 [2/2] (3.25ns)   --->   "%expanded_key_V_load = load i16* %expanded_key_V_addr, align 2" [AES-XTS/main.cpp:142]   --->   Operation 27 'load' 'expanded_key_V_load' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_2 : Operation 28 [2/2] (3.25ns)   --->   "%expanded_key_V_load_1 = load i16* %expanded_key_V_addr_1, align 2" [AES-XTS/main.cpp:142]   --->   Operation 28 'load' 'expanded_key_V_load_1' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
 
-State 3 <SV = 2> <Delay = 6.95>
-ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%i_op_assign = phi i3 [ %j, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 20 'phi' 'i_op_assign' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 21 [1/1] (1.13ns)   --->   "%icmp_ln140 = icmp eq i3 %i_op_assign, -4" [AES-XTS/main.cpp:140]   --->   Operation 21 'icmp' 'icmp_ln140' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 22 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 23 [1/1] (1.65ns)   --->   "%j = add i3 %i_op_assign, 1" [AES-XTS/main.cpp:140]   --->   Operation 23 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br i1 %icmp_ln140, label %.loopexit.loopexit, label %1" [AES-XTS/main.cpp:140]   --->   Operation 24 'br' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln180_24 = zext i3 %i_op_assign to i6" [AES-XTS/main.cpp:142]   --->   Operation 25 'zext' 'zext_ln180_24' <Predicate = (!icmp_ln140)> <Delay = 0.00>
-ST_3 : Operation 26 [1/1] (1.78ns)   --->   "%add_ln180 = add i6 %zext_ln180, %zext_ln180_24" [AES-XTS/main.cpp:142]   --->   Operation 26 'add' 'add_ln180' <Predicate = (!icmp_ln140)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%zext_ln215 = zext i3 %i_op_assign to i9" [AES-XTS/main.cpp:142]   --->   Operation 27 'zext' 'zext_ln215' <Predicate = (!icmp_ln140)> <Delay = 0.00>
-ST_3 : Operation 28 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%ret_V = add i9 %key_column_index_V, %zext_ln215" [AES-XTS/main.cpp:142]   --->   Operation 28 'add' 'ret_V' <Predicate = (!icmp_ln140)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.84> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_3 : Operation 29 [1/1] (3.69ns) (root node of TernaryAdder)   --->   "%add_ln180_7 = add i9 %sub_ln180, %ret_V" [AES-XTS/main.cpp:142]   --->   Operation 29 'add' 'add_ln180_7' <Predicate = (!icmp_ln140)> <Delay = 3.69> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.84> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%sext_ln180 = sext i9 %add_ln180_7 to i64" [AES-XTS/main.cpp:142]   --->   Operation 30 'sext' 'sext_ln180' <Predicate = (!icmp_ln140)> <Delay = 0.00>
-ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%expanded_key_V_addr = getelementptr [240 x i16]* %expanded_key_V, i64 0, i64 %sext_ln180" [AES-XTS/main.cpp:142]   --->   Operation 31 'getelementptr' 'expanded_key_V_addr' <Predicate = (!icmp_ln140)> <Delay = 0.00>
-ST_3 : Operation 32 [2/2] (3.25ns)   --->   "%expanded_key_V_load = load i16* %expanded_key_V_addr, align 2" [AES-XTS/main.cpp:142]   --->   Operation 32 'load' 'expanded_key_V_load' <Predicate = (!icmp_ln140)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
-ST_3 : Operation 33 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 33 'br' <Predicate = (icmp_ln140)> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 5.57>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%zext_ln180_8 = zext i5 %tmp_17 to i64" [AES-XTS/main.cpp:142]   --->   Operation 29 'zext' 'zext_ln180_8' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (1.82ns)   --->   "%add_ln180_7 = add i9 %or_ln1353_1, %sub_ln180" [AES-XTS/main.cpp:142]   --->   Operation 30 'add' 'add_ln180_7' <Predicate = (!icmp_ln138)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%sext_ln180_2 = sext i9 %add_ln180_7 to i64" [AES-XTS/main.cpp:142]   --->   Operation 31 'sext' 'sext_ln180_2' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%expanded_key_V_addr_2 = getelementptr [240 x i16]* %expanded_key_V, i64 0, i64 %sext_ln180_2" [AES-XTS/main.cpp:142]   --->   Operation 32 'getelementptr' 'expanded_key_V_addr_2' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (1.82ns)   --->   "%add_ln180_8 = add i9 %or_ln1353_2, %sub_ln180" [AES-XTS/main.cpp:142]   --->   Operation 33 'add' 'add_ln180_8' <Predicate = (!icmp_ln138)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%sext_ln180_3 = sext i9 %add_ln180_8 to i64" [AES-XTS/main.cpp:142]   --->   Operation 34 'sext' 'sext_ln180_3' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%expanded_key_V_addr_3 = getelementptr [240 x i16]* %expanded_key_V, i64 0, i64 %sext_ln180_3" [AES-XTS/main.cpp:142]   --->   Operation 35 'getelementptr' 'expanded_key_V_addr_3' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%round_key_V_addr = getelementptr [16 x i16]* %round_key_V, i64 0, i64 %zext_ln180_8" [AES-XTS/main.cpp:142]   --->   Operation 36 'getelementptr' 'round_key_V_addr' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%or_ln180 = or i5 %tmp_17, 1" [AES-XTS/main.cpp:142]   --->   Operation 37 'or' 'or_ln180' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_18 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln180)" [AES-XTS/main.cpp:142]   --->   Operation 38 'bitconcatenate' 'tmp_18' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%round_key_V_addr_1 = getelementptr [16 x i16]* %round_key_V, i64 0, i64 %tmp_18" [AES-XTS/main.cpp:142]   --->   Operation 39 'getelementptr' 'round_key_V_addr_1' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_3 : Operation 40 [1/2] (3.25ns)   --->   "%expanded_key_V_load = load i16* %expanded_key_V_addr, align 2" [AES-XTS/main.cpp:142]   --->   Operation 40 'load' 'expanded_key_V_load' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 41 [1/1] (2.32ns)   --->   "store i16 %expanded_key_V_load, i16* %round_key_V_addr, align 2" [AES-XTS/main.cpp:142]   --->   Operation 41 'store' <Predicate = (!icmp_ln138)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 42 [1/2] (3.25ns)   --->   "%expanded_key_V_load_1 = load i16* %expanded_key_V_addr_1, align 2" [AES-XTS/main.cpp:142]   --->   Operation 42 'load' 'expanded_key_V_load_1' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 43 [1/1] (2.32ns)   --->   "store i16 %expanded_key_V_load_1, i16* %round_key_V_addr_1, align 2" [AES-XTS/main.cpp:142]   --->   Operation 43 'store' <Predicate = (!icmp_ln138)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 44 [2/2] (3.25ns)   --->   "%expanded_key_V_load_2 = load i16* %expanded_key_V_addr_2, align 2" [AES-XTS/main.cpp:142]   --->   Operation 44 'load' 'expanded_key_V_load_2' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 45 [2/2] (3.25ns)   --->   "%expanded_key_V_load_3 = load i16* %expanded_key_V_addr_3, align 2" [AES-XTS/main.cpp:142]   --->   Operation 45 'load' 'expanded_key_V_load_3' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
 
 State 4 <SV = 3> <Delay = 5.57>
-ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%zext_ln180_25 = zext i6 %add_ln180 to i64" [AES-XTS/main.cpp:142]   --->   Operation 34 'zext' 'zext_ln180_25' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%round_key_V_addr = getelementptr [16 x i16]* %round_key_V, i64 0, i64 %zext_ln180_25" [AES-XTS/main.cpp:142]   --->   Operation 35 'getelementptr' 'round_key_V_addr' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 36 [1/2] (3.25ns)   --->   "%expanded_key_V_load = load i16* %expanded_key_V_addr, align 2" [AES-XTS/main.cpp:142]   --->   Operation 36 'load' 'expanded_key_V_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
-ST_4 : Operation 37 [1/1] (2.32ns)   --->   "store i16 %expanded_key_V_load, i16* %round_key_V_addr, align 2" [AES-XTS/main.cpp:142]   --->   Operation 37 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
-ST_4 : Operation 38 [1/1] (0.00ns)   --->   "br label %.preheader" [AES-XTS/main.cpp:140]   --->   Operation 38 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([25 x i8]* @p_str6) nounwind" [AES-XTS/main.cpp:139]   --->   Operation 46 'specloopname' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([25 x i8]* @p_str6)" [AES-XTS/main.cpp:139]   --->   Operation 47 'specregionbegin' 'tmp' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [AES-XTS/main.cpp:140]   --->   Operation 48 'specpipeline' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%or_ln180_3 = or i5 %tmp_17, 2" [AES-XTS/main.cpp:142]   --->   Operation 49 'or' 'or_ln180_3' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_19 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln180_3)" [AES-XTS/main.cpp:142]   --->   Operation 50 'bitconcatenate' 'tmp_19' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%round_key_V_addr_2 = getelementptr [16 x i16]* %round_key_V, i64 0, i64 %tmp_19" [AES-XTS/main.cpp:142]   --->   Operation 51 'getelementptr' 'round_key_V_addr_2' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%or_ln180_4 = or i5 %tmp_17, 3" [AES-XTS/main.cpp:142]   --->   Operation 52 'or' 'or_ln180_4' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_20 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln180_4)" [AES-XTS/main.cpp:142]   --->   Operation 53 'bitconcatenate' 'tmp_20' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%round_key_V_addr_3 = getelementptr [16 x i16]* %round_key_V, i64 0, i64 %tmp_20" [AES-XTS/main.cpp:142]   --->   Operation 54 'getelementptr' 'round_key_V_addr_3' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 55 [1/2] (3.25ns)   --->   "%expanded_key_V_load_2 = load i16* %expanded_key_V_addr_2, align 2" [AES-XTS/main.cpp:142]   --->   Operation 55 'load' 'expanded_key_V_load_2' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 56 [1/1] (2.32ns)   --->   "store i16 %expanded_key_V_load_2, i16* %round_key_V_addr_2, align 2" [AES-XTS/main.cpp:142]   --->   Operation 56 'store' <Predicate = (!icmp_ln138)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 57 [1/2] (3.25ns)   --->   "%expanded_key_V_load_3 = load i16* %expanded_key_V_addr_3, align 2" [AES-XTS/main.cpp:142]   --->   Operation 57 'load' 'expanded_key_V_load_3' <Predicate = (!icmp_ln138)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 58 [1/1] (2.32ns)   --->   "store i16 %expanded_key_V_load_3, i16* %round_key_V_addr_3, align 2" [AES-XTS/main.cpp:142]   --->   Operation 58 'store' <Predicate = (!icmp_ln138)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecRegionEnd([25 x i8]* @p_str6, i32 %tmp)" [AES-XTS/main.cpp:145]   --->   Operation 59 'specregionend' 'empty_26' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "br label %1" [AES-XTS/main.cpp:138]   --->   Operation 60 'br' <Predicate = (!icmp_ln138)> <Delay = 0.00>
+
+State 5 <SV = 2> <Delay = 0.00>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "ret void" [AES-XTS/main.cpp:147]   --->   Operation 61 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -133,25 +161,28 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:138) [8]  (1.77 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:138) [11]  (1.77 ns)
 
- <State 2>: 1.82ns
+ <State 2>: 6.9ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:138) [8]  (0 ns)
-	'sub' operation ('sub_ln180', AES-XTS/main.cpp:142) [18]  (1.82 ns)
+	'phi' operation ('i') with incoming values : ('i', AES-XTS/main.cpp:138) [11]  (0 ns)
+	'sub' operation ('sub_ln180', AES-XTS/main.cpp:142) [24]  (1.82 ns)
+	'add' operation ('add_ln180', AES-XTS/main.cpp:142) [25]  (1.82 ns)
+	'getelementptr' operation ('expanded_key_V_addr', AES-XTS/main.cpp:142) [27]  (0 ns)
+	'load' operation ('expanded_key_V_load', AES-XTS/main.cpp:142) on array 'expanded_key_V' [47]  (3.25 ns)
 
- <State 3>: 6.95ns
+ <State 3>: 5.58ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', AES-XTS/main.cpp:140) [21]  (0 ns)
-	'add' operation ('ret.V', AES-XTS/main.cpp:142) [32]  (0 ns)
-	'add' operation ('add_ln180_7', AES-XTS/main.cpp:142) [33]  (3.7 ns)
-	'getelementptr' operation ('expanded_key_V_addr', AES-XTS/main.cpp:142) [35]  (0 ns)
-	'load' operation ('expanded_key_V_load', AES-XTS/main.cpp:142) on array 'expanded_key_V' [36]  (3.25 ns)
+	'load' operation ('expanded_key_V_load', AES-XTS/main.cpp:142) on array 'expanded_key_V' [47]  (3.25 ns)
+	'store' operation ('store_ln142', AES-XTS/main.cpp:142) of variable 'expanded_key_V_load', AES-XTS/main.cpp:142 on array 'round_key_V' [48]  (2.32 ns)
 
  <State 4>: 5.58ns
 The critical path consists of the following:
-	'load' operation ('expanded_key_V_load', AES-XTS/main.cpp:142) on array 'expanded_key_V' [36]  (3.25 ns)
-	'store' operation ('store_ln142', AES-XTS/main.cpp:142) of variable 'expanded_key_V_load', AES-XTS/main.cpp:142 on array 'round_key_V' [37]  (2.32 ns)
+	'load' operation ('expanded_key_V_load_2', AES-XTS/main.cpp:142) on array 'expanded_key_V' [51]  (3.25 ns)
+	'store' operation ('store_ln142', AES-XTS/main.cpp:142) of variable 'expanded_key_V_load_2', AES-XTS/main.cpp:142 on array 'round_key_V' [52]  (2.32 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
 
 
 ============================================================
@@ -166,6 +197,7 @@ N/A
 	State 2
 	State 3
 	State 4
+	State 5
 
 
 ============================================================

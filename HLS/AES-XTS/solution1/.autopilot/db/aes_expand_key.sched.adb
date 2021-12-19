@@ -456,7 +456,7 @@
 					<Obj>
 						<type>0</type>
 						<id>15</id>
-						<name>zext_ln180_26</name>
+						<name>zext_ln180_19</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>154</lineNumber>
@@ -5619,7 +5619,7 @@
 					<Obj>
 						<type>0</type>
 						<id>164</id>
-						<name>trunc_ln78_1</name>
+						<name>trunc_ln78_7</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>180</lineNumber>
@@ -5667,7 +5667,7 @@
 					<Obj>
 						<type>0</type>
 						<id>165</id>
-						<name>add_ln78_1</name>
+						<name>add_ln78_7</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>180</lineNumber>
@@ -5716,7 +5716,7 @@
 					<Obj>
 						<type>0</type>
 						<id>166</id>
-						<name>sext_ln78_1</name>
+						<name>sext_ln78_7</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>180</lineNumber>
@@ -5764,7 +5764,7 @@
 					<Obj>
 						<type>0</type>
 						<id>167</id>
-						<name>s_box_V_addr_1</name>
+						<name>s_box_V_addr_4</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>180</lineNumber>
@@ -7627,7 +7627,7 @@
 					<Obj>
 						<type>0</type>
 						<id>215</id>
-						<name>expanded_key_V_load_1</name>
+						<name>expanded_key_V_load_2</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>202</lineNumber>
@@ -8648,7 +8648,7 @@
 					<Obj>
 						<type>0</type>
 						<id>245</id>
-						<name>tmp_1</name>
+						<name>tmp_s</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>207</lineNumber>
@@ -8945,7 +8945,7 @@
 					<Obj>
 						<type>0</type>
 						<id>252</id>
-						<name>tmp_2</name>
+						<name>tmp_1</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>210</lineNumber>
@@ -9140,7 +9140,7 @@
 					<Obj>
 						<type>0</type>
 						<id>256</id>
-						<name>tmp_4</name>
+						<name>tmp_2</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>210</lineNumber>
@@ -9239,7 +9239,7 @@
 					<Obj>
 						<type>0</type>
 						<id>258</id>
-						<name>tmp_5</name>
+						<name>tmp_23</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>210</lineNumber>
@@ -9717,7 +9717,7 @@
 					<Obj>
 						<type>0</type>
 						<id>272</id>
-						<name>tmp_s</name>
+						<name>tmp_21</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>218</lineNumber>
@@ -9767,7 +9767,7 @@
 					<Obj>
 						<type>0</type>
 						<id>273</id>
-						<name>tmp_3</name>
+						<name>tmp_22</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>218</lineNumber>
@@ -9817,7 +9817,7 @@
 					<Obj>
 						<type>0</type>
 						<id>274</id>
-						<name>zext_ln180_27</name>
+						<name>zext_ln180_20</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>218</lineNumber>
@@ -10147,7 +10147,7 @@
 					<Obj>
 						<type>0</type>
 						<id>284</id>
-						<name>zext_ln180_28</name>
+						<name>zext_ln180_21</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>218</lineNumber>
@@ -10195,7 +10195,7 @@
 					<Obj>
 						<type>0</type>
 						<id>285</id>
-						<name>add_ln180_8</name>
+						<name>add_ln180_9</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>218</lineNumber>
@@ -10539,7 +10539,7 @@
 					<Obj>
 						<type>0</type>
 						<id>292</id>
-						<name>expanded_key_V_load</name>
+						<name>expanded_key_V_load_1</name>
 						<fileName>AES-XTS/main.cpp</fileName>
 						<fileDirectory>C:\Users\meghn\ECE527_Final_Project\HLS</fileDirectory>
 						<lineNumber>218</lineNumber>

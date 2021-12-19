@@ -456,7 +456,7 @@
             <Obj>
               <type>0</type>
               <id>15</id>
-              <name>zext_ln180_26</name>
+              <name>zext_ln180_19</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>154</lineNumber>
@@ -480,7 +480,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>zext_ln180_26_fu_1048_p1</rtlName>
+              <rtlName>zext_ln180_19_fu_1048_p1</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -5619,7 +5619,7 @@
             <Obj>
               <type>0</type>
               <id>164</id>
-              <name>trunc_ln78_1</name>
+              <name>trunc_ln78_7</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>180</lineNumber>
@@ -5643,7 +5643,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>trunc_ln78_1_fu_1226_p1</rtlName>
+              <rtlName>trunc_ln78_7_fu_1226_p1</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>11</bitwidth>
@@ -5667,7 +5667,7 @@
             <Obj>
               <type>0</type>
               <id>165</id>
-              <name>add_ln78_1</name>
+              <name>add_ln78_7</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>180</lineNumber>
@@ -5691,7 +5691,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>add_ln78_1_fu_1230_p2</rtlName>
+              <rtlName>add_ln78_7_fu_1230_p2</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>11</bitwidth>
@@ -5716,7 +5716,7 @@
             <Obj>
               <type>0</type>
               <id>166</id>
-              <name>sext_ln78_1</name>
+              <name>sext_ln78_7</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>180</lineNumber>
@@ -5740,7 +5740,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>sext_ln78_1_fu_1236_p1</rtlName>
+              <rtlName>sext_ln78_7_fu_1236_p1</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -5764,7 +5764,7 @@
             <Obj>
               <type>0</type>
               <id>167</id>
-              <name>s_box_V_addr_1</name>
+              <name>s_box_V_addr_4</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>180</lineNumber>
@@ -7627,7 +7627,7 @@
             <Obj>
               <type>0</type>
               <id>215</id>
-              <name>expanded_key_V_load_1</name>
+              <name>expanded_key_V_load_2</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>202</lineNumber>
@@ -8624,7 +8624,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_1_fu_1368_p5</rtlName>
+              <rtlName>tmp_s_fu_1368_p5</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>2</bitwidth>
@@ -8648,7 +8648,7 @@
             <Obj>
               <type>0</type>
               <id>245</id>
-              <name>tmp_1</name>
+              <name>tmp_s</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>207</lineNumber>
@@ -8945,7 +8945,7 @@
             <Obj>
               <type>0</type>
               <id>252</id>
-              <name>tmp_2</name>
+              <name>tmp_1</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>210</lineNumber>
@@ -8969,7 +8969,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_2_fu_1393_p3</rtlName>
+              <rtlName>tmp_1_fu_1393_p3</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>1</bitwidth>
@@ -9140,7 +9140,7 @@
             <Obj>
               <type>0</type>
               <id>256</id>
-              <name>tmp_4</name>
+              <name>tmp_2</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>210</lineNumber>
@@ -9164,7 +9164,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_4_fu_1415_p3</rtlName>
+              <rtlName>tmp_2_fu_1415_p3</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>4</bitwidth>
@@ -9239,7 +9239,7 @@
             <Obj>
               <type>0</type>
               <id>258</id>
-              <name>tmp_5</name>
+              <name>tmp_23</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>210</lineNumber>
@@ -9263,7 +9263,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_5_fu_1429_p3</rtlName>
+              <rtlName>tmp_23_fu_1429_p3</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>4</bitwidth>
@@ -9717,7 +9717,7 @@
             <Obj>
               <type>0</type>
               <id>272</id>
-              <name>tmp_s</name>
+              <name>tmp_21</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>218</lineNumber>
@@ -9741,7 +9741,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_s_fu_1467_p3</rtlName>
+              <rtlName>tmp_21_fu_1467_p3</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>9</bitwidth>
@@ -9767,7 +9767,7 @@
             <Obj>
               <type>0</type>
               <id>273</id>
-              <name>tmp_3</name>
+              <name>tmp_22</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>218</lineNumber>
@@ -9791,7 +9791,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_3_fu_1475_p3</rtlName>
+              <rtlName>tmp_22_fu_1475_p3</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>5</bitwidth>
@@ -9817,7 +9817,7 @@
             <Obj>
               <type>0</type>
               <id>274</id>
-              <name>zext_ln180_27</name>
+              <name>zext_ln180_20</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>218</lineNumber>
@@ -9841,7 +9841,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>zext_ln180_27_fu_1483_p1</rtlName>
+              <rtlName>zext_ln180_20_fu_1483_p1</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>9</bitwidth>
@@ -10147,7 +10147,7 @@
             <Obj>
               <type>0</type>
               <id>284</id>
-              <name>zext_ln180_28</name>
+              <name>zext_ln180_21</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>218</lineNumber>
@@ -10171,7 +10171,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>zext_ln180_28_fu_1505_p1</rtlName>
+              <rtlName>zext_ln180_21_fu_1505_p1</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>9</bitwidth>
@@ -10195,7 +10195,7 @@
             <Obj>
               <type>0</type>
               <id>285</id>
-              <name>add_ln180_8</name>
+              <name>add_ln180_9</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>218</lineNumber>
@@ -10219,7 +10219,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>add_ln180_8_fu_1509_p2</rtlName>
+              <rtlName>add_ln180_9_fu_1509_p2</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>9</bitwidth>
@@ -10539,7 +10539,7 @@
             <Obj>
               <type>0</type>
               <id>292</id>
-              <name>expanded_key_V_load</name>
+              <name>expanded_key_V_load_1</name>
               <fileName>AES-XTS/main.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>218</lineNumber>
@@ -20768,7 +20768,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>15</second>
             </item>
           </second>
         </item>
@@ -20783,7 +20783,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>15</second>
             </item>
           </second>
         </item>
@@ -20798,7 +20798,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>15</second>
             </item>
           </second>
         </item>
@@ -20813,7 +20813,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>15</second>
             </item>
           </second>
         </item>
@@ -20822,7 +20822,7 @@
         <count>40</count>
         <item_version>0</item_version>
         <item>
-          <first>add_ln180_8_fu_1509_p2 ( + ) </first>
+          <first>add_ln180_9_fu_1509_p2 ( + ) </first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -20891,7 +20891,7 @@
           </second>
         </item>
         <item>
-          <first>add_ln78_1_fu_1230_p2 ( + ) </first>
+          <first>add_ln78_7_fu_1230_p2 ( + ) </first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -23331,7 +23331,7 @@
         <count>74</count>
         <item_version>0</item_version>
         <item>
-          <first>add_ln180_8_reg_1722</first>
+          <first>add_ln180_9_reg_1722</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -24809,7 +24809,7 @@
         <count>39</count>
         <item_version>0</item_version>
         <item>
-          <first>add_ln180_8_fu_1509_p2 ( + ) </first>
+          <first>add_ln180_9_fu_1509_p2 ( + ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -24833,7 +24833,7 @@
           </second>
         </item>
         <item>
-          <first>add_ln78_1_fu_1230_p2 ( + ) </first>
+          <first>add_ln78_7_fu_1230_p2 ( + ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -28461,7 +28461,7 @@
       <count>152</count>
       <item_version>0</item_version>
       <item class_id="54" tracking_level="0" version="0">
-        <first>add_ln180_8_fu_1509</first>
+        <first>add_ln180_9_fu_1509</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -28485,7 +28485,7 @@
         </second>
       </item>
       <item>
-        <first>add_ln78_1_fu_1230</first>
+        <first>add_ln78_7_fu_1230</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -28901,7 +28901,7 @@
         </second>
       </item>
       <item>
-        <first>s_box_V_addr_1_gep_fu_178</first>
+        <first>s_box_V_addr_4_gep_fu_178</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -28965,7 +28965,7 @@
         </second>
       </item>
       <item>
-        <first>sext_ln78_1_fu_1236</first>
+        <first>sext_ln78_7_fu_1236</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -29429,15 +29429,7 @@
         </second>
       </item>
       <item>
-        <first>tmp_1_fu_1368</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>245</item>
-        </second>
-      </item>
-      <item>
-        <first>tmp_2_fu_1393</first>
+        <first>tmp_1_fu_1393</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -29445,7 +29437,15 @@
         </second>
       </item>
       <item>
-        <first>tmp_3_fu_1475</first>
+        <first>tmp_21_fu_1467</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>272</item>
+        </second>
+      </item>
+      <item>
+        <first>tmp_22_fu_1475</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -29453,19 +29453,19 @@
         </second>
       </item>
       <item>
-        <first>tmp_4_fu_1415</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>256</item>
-        </second>
-      </item>
-      <item>
-        <first>tmp_5_fu_1429</first>
+        <first>tmp_23_fu_1429</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
           <item>258</item>
+        </second>
+      </item>
+      <item>
+        <first>tmp_2_fu_1415</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>256</item>
         </second>
       </item>
       <item>
@@ -29477,11 +29477,11 @@
         </second>
       </item>
       <item>
-        <first>tmp_s_fu_1467</first>
+        <first>tmp_s_fu_1368</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>272</item>
+          <item>245</item>
         </second>
       </item>
       <item>
@@ -29549,7 +29549,7 @@
         </second>
       </item>
       <item>
-        <first>trunc_ln78_1_fu_1226</first>
+        <first>trunc_ln78_7_fu_1226</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -29589,7 +29589,7 @@
         </second>
       </item>
       <item>
-        <first>zext_ln180_26_fu_1048</first>
+        <first>zext_ln180_19_fu_1048</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -29597,7 +29597,7 @@
         </second>
       </item>
       <item>
-        <first>zext_ln180_27_fu_1483</first>
+        <first>zext_ln180_20_fu_1483</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -29605,7 +29605,7 @@
         </second>
       </item>
       <item>
-        <first>zext_ln180_28_fu_1505</first>
+        <first>zext_ln180_21_fu_1505</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -30530,7 +30530,7 @@
       <count>89</count>
       <item_version>0</item_version>
       <item>
-        <first>add_ln180_8_reg_1722</first>
+        <first>add_ln180_9_reg_1722</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -30770,7 +30770,7 @@
         </second>
       </item>
       <item>
-        <first>s_box_V_addr_1_reg_1642</first>
+        <first>s_box_V_addr_4_reg_1642</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

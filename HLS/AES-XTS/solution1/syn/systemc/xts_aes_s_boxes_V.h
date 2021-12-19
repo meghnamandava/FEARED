@@ -32,6 +32,7 @@ sc_core::sc_in<sc_logic> we0;
 sc_core::sc_in<sc_lv<DataWidth> > d0;
 sc_core::sc_in <sc_lv<AddressWidth> > address1;
 sc_core::sc_in <sc_logic> ce1;
+sc_core::sc_out <sc_lv<DataWidth> > q1;
 sc_core::sc_in<sc_logic> we1;
 sc_core::sc_in<sc_lv<DataWidth> > d1;
 sc_core::sc_in<sc_logic> reset;
@@ -86,7 +87,16 @@ void prc_write_1()
            if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
            {
               ram[address1.read().to_uint()] = d1.read(); 
+              q1 = d1.read();
            }
+           else
+              q1 = sc_lv<DataWidth>();
+        }
+        else {
+            if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
+              q1 = ram[address1.read().to_uint()];
+            else
+              q1 = sc_lv<DataWidth>();
         }
     }
 }
@@ -109,6 +119,7 @@ sc_core::sc_in<sc_logic> we0;
 sc_core::sc_in<sc_lv<DataWidth> > d0;
 sc_core::sc_in <sc_lv<AddressWidth> > address1;
 sc_core::sc_in<sc_logic> ce1;
+sc_core::sc_out <sc_lv<DataWidth> > q1;
 sc_core::sc_in<sc_logic> we1;
 sc_core::sc_in<sc_lv<DataWidth> > d1;
 sc_core::sc_in<sc_logic> reset;
@@ -128,6 +139,7 @@ meminst->d0(d0);
 
 meminst->address1(address1);
 meminst->ce1(ce1);
+meminst->q1(q1);
 meminst->we1(we1);
 meminst->d1(d1);
 
