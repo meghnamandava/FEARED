@@ -14,36 +14,28 @@ set isEnableWaveformDebug 1
 set C_modelName {xts_aes_process_data}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ data_V int 64 regular {axi_master 0}  }
-	{ data_V_offset int 29 regular  }
+	{ data_V int 16 regular {axi_master 0}  }
+	{ data_V_offset int 31 regular  }
 	{ num_blocks_orig_V int 16 regular  }
 	{ mode_V int 16 regular  }
 	{ tweak_V int 16 regular {array 16 { 2 3 } 1 1 }  }
-	{ expanded_key_V int 16 regular {array 240 { 1 3 } 1 1 }  }
-	{ s_boxes_V int 8 regular {axi_master 0}  }
-	{ s_boxes_V_offset int 32 regular  }
-	{ mix_column_constant_matrices_V int 16 regular {axi_master 0}  }
-	{ mix_column_constant_matrices_V_offset int 31 regular  }
-	{ multiplication_V int 16 regular {axi_master 0}  }
-	{ multiplication_V_offset int 31 regular  }
+	{ expanded_key_V int 16 regular {array 240 { 1 1 } 1 1 }  }
+	{ s_boxes_V int 8 regular {array 768 { 1 1 } 1 1 }  }
+	{ multiplication_V int 8 regular {array 3840 { 1 1 } 1 1 }  }
 	{ blocks_V int 16 regular {array 1024 { 2 3 } 1 1 }  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "data_V", "interface" : "axi_master", "bitwidth" : 64, "direction" : "READONLY"} , 
- 	{ "Name" : "data_V_offset", "interface" : "wire", "bitwidth" : 29, "direction" : "READONLY"} , 
+	{ "Name" : "data_V", "interface" : "axi_master", "bitwidth" : 16, "direction" : "READONLY"} , 
+ 	{ "Name" : "data_V_offset", "interface" : "wire", "bitwidth" : 31, "direction" : "READONLY"} , 
  	{ "Name" : "num_blocks_orig_V", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "mode_V", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "tweak_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READWRITE"} , 
  	{ "Name" : "expanded_key_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "s_boxes_V", "interface" : "axi_master", "bitwidth" : 8, "direction" : "READONLY"} , 
- 	{ "Name" : "s_boxes_V_offset", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "mix_column_constant_matrices_V", "interface" : "axi_master", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "mix_column_constant_matrices_V_offset", "interface" : "wire", "bitwidth" : 31, "direction" : "READONLY"} , 
- 	{ "Name" : "multiplication_V", "interface" : "axi_master", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "multiplication_V_offset", "interface" : "wire", "bitwidth" : 31, "direction" : "READONLY"} , 
+ 	{ "Name" : "s_boxes_V", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
+ 	{ "Name" : "multiplication_V", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "blocks_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READWRITE"} ]}
 # RTL Port declarations: 
-set portNum 205
+set portNum 82
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -66,8 +58,8 @@ set portList {
 	{ m_axi_data_V_AWUSER sc_out sc_lv 1 signal 0 } 
 	{ m_axi_data_V_WVALID sc_out sc_logic 1 signal 0 } 
 	{ m_axi_data_V_WREADY sc_in sc_logic 1 signal 0 } 
-	{ m_axi_data_V_WDATA sc_out sc_lv 64 signal 0 } 
-	{ m_axi_data_V_WSTRB sc_out sc_lv 8 signal 0 } 
+	{ m_axi_data_V_WDATA sc_out sc_lv 16 signal 0 } 
+	{ m_axi_data_V_WSTRB sc_out sc_lv 2 signal 0 } 
 	{ m_axi_data_V_WLAST sc_out sc_logic 1 signal 0 } 
 	{ m_axi_data_V_WID sc_out sc_lv 1 signal 0 } 
 	{ m_axi_data_V_WUSER sc_out sc_lv 1 signal 0 } 
@@ -86,7 +78,7 @@ set portList {
 	{ m_axi_data_V_ARUSER sc_out sc_lv 1 signal 0 } 
 	{ m_axi_data_V_RVALID sc_in sc_logic 1 signal 0 } 
 	{ m_axi_data_V_RREADY sc_out sc_logic 1 signal 0 } 
-	{ m_axi_data_V_RDATA sc_in sc_lv 64 signal 0 } 
+	{ m_axi_data_V_RDATA sc_in sc_lv 16 signal 0 } 
 	{ m_axi_data_V_RLAST sc_in sc_logic 1 signal 0 } 
 	{ m_axi_data_V_RID sc_in sc_lv 1 signal 0 } 
 	{ m_axi_data_V_RUSER sc_in sc_lv 1 signal 0 } 
@@ -96,7 +88,7 @@ set portList {
 	{ m_axi_data_V_BRESP sc_in sc_lv 2 signal 0 } 
 	{ m_axi_data_V_BID sc_in sc_lv 1 signal 0 } 
 	{ m_axi_data_V_BUSER sc_in sc_lv 1 signal 0 } 
-	{ data_V_offset sc_in sc_lv 29 signal 1 } 
+	{ data_V_offset sc_in sc_lv 31 signal 1 } 
 	{ num_blocks_orig_V sc_in sc_lv 16 signal 2 } 
 	{ mode_V sc_in sc_lv 16 signal 3 } 
 	{ tweak_V_address0 sc_out sc_lv 4 signal 4 } 
@@ -107,149 +99,26 @@ set portList {
 	{ expanded_key_V_address0 sc_out sc_lv 8 signal 5 } 
 	{ expanded_key_V_ce0 sc_out sc_logic 1 signal 5 } 
 	{ expanded_key_V_q0 sc_in sc_lv 16 signal 5 } 
-	{ m_axi_s_boxes_V_AWVALID sc_out sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_AWREADY sc_in sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_AWADDR sc_out sc_lv 32 signal 6 } 
-	{ m_axi_s_boxes_V_AWID sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_AWLEN sc_out sc_lv 32 signal 6 } 
-	{ m_axi_s_boxes_V_AWSIZE sc_out sc_lv 3 signal 6 } 
-	{ m_axi_s_boxes_V_AWBURST sc_out sc_lv 2 signal 6 } 
-	{ m_axi_s_boxes_V_AWLOCK sc_out sc_lv 2 signal 6 } 
-	{ m_axi_s_boxes_V_AWCACHE sc_out sc_lv 4 signal 6 } 
-	{ m_axi_s_boxes_V_AWPROT sc_out sc_lv 3 signal 6 } 
-	{ m_axi_s_boxes_V_AWQOS sc_out sc_lv 4 signal 6 } 
-	{ m_axi_s_boxes_V_AWREGION sc_out sc_lv 4 signal 6 } 
-	{ m_axi_s_boxes_V_AWUSER sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_WVALID sc_out sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_WREADY sc_in sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_WDATA sc_out sc_lv 8 signal 6 } 
-	{ m_axi_s_boxes_V_WSTRB sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_WLAST sc_out sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_WID sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_WUSER sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_ARVALID sc_out sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_ARREADY sc_in sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_ARADDR sc_out sc_lv 32 signal 6 } 
-	{ m_axi_s_boxes_V_ARID sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_ARLEN sc_out sc_lv 32 signal 6 } 
-	{ m_axi_s_boxes_V_ARSIZE sc_out sc_lv 3 signal 6 } 
-	{ m_axi_s_boxes_V_ARBURST sc_out sc_lv 2 signal 6 } 
-	{ m_axi_s_boxes_V_ARLOCK sc_out sc_lv 2 signal 6 } 
-	{ m_axi_s_boxes_V_ARCACHE sc_out sc_lv 4 signal 6 } 
-	{ m_axi_s_boxes_V_ARPROT sc_out sc_lv 3 signal 6 } 
-	{ m_axi_s_boxes_V_ARQOS sc_out sc_lv 4 signal 6 } 
-	{ m_axi_s_boxes_V_ARREGION sc_out sc_lv 4 signal 6 } 
-	{ m_axi_s_boxes_V_ARUSER sc_out sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_RVALID sc_in sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_RREADY sc_out sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_RDATA sc_in sc_lv 8 signal 6 } 
-	{ m_axi_s_boxes_V_RLAST sc_in sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_RID sc_in sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_RUSER sc_in sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_RRESP sc_in sc_lv 2 signal 6 } 
-	{ m_axi_s_boxes_V_BVALID sc_in sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_BREADY sc_out sc_logic 1 signal 6 } 
-	{ m_axi_s_boxes_V_BRESP sc_in sc_lv 2 signal 6 } 
-	{ m_axi_s_boxes_V_BID sc_in sc_lv 1 signal 6 } 
-	{ m_axi_s_boxes_V_BUSER sc_in sc_lv 1 signal 6 } 
-	{ s_boxes_V_offset sc_in sc_lv 32 signal 7 } 
-	{ m_axi_mix_column_constant_matrices_V_AWVALID sc_out sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWREADY sc_in sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWADDR sc_out sc_lv 32 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWID sc_out sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWLEN sc_out sc_lv 32 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWSIZE sc_out sc_lv 3 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWBURST sc_out sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWLOCK sc_out sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWCACHE sc_out sc_lv 4 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWPROT sc_out sc_lv 3 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWQOS sc_out sc_lv 4 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWREGION sc_out sc_lv 4 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_AWUSER sc_out sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WVALID sc_out sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WREADY sc_in sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WDATA sc_out sc_lv 16 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WSTRB sc_out sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WLAST sc_out sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WID sc_out sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_WUSER sc_out sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARVALID sc_out sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARREADY sc_in sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARADDR sc_out sc_lv 32 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARID sc_out sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARLEN sc_out sc_lv 32 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARSIZE sc_out sc_lv 3 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARBURST sc_out sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARLOCK sc_out sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARCACHE sc_out sc_lv 4 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARPROT sc_out sc_lv 3 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARQOS sc_out sc_lv 4 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARREGION sc_out sc_lv 4 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_ARUSER sc_out sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RVALID sc_in sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RREADY sc_out sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RDATA sc_in sc_lv 16 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RLAST sc_in sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RID sc_in sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RUSER sc_in sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_RRESP sc_in sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_BVALID sc_in sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_BREADY sc_out sc_logic 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_BRESP sc_in sc_lv 2 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_BID sc_in sc_lv 1 signal 8 } 
-	{ m_axi_mix_column_constant_matrices_V_BUSER sc_in sc_lv 1 signal 8 } 
-	{ mix_column_constant_matrices_V_offset sc_in sc_lv 31 signal 9 } 
-	{ m_axi_multiplication_V_AWVALID sc_out sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_AWREADY sc_in sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_AWADDR sc_out sc_lv 32 signal 10 } 
-	{ m_axi_multiplication_V_AWID sc_out sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_AWLEN sc_out sc_lv 32 signal 10 } 
-	{ m_axi_multiplication_V_AWSIZE sc_out sc_lv 3 signal 10 } 
-	{ m_axi_multiplication_V_AWBURST sc_out sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_AWLOCK sc_out sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_AWCACHE sc_out sc_lv 4 signal 10 } 
-	{ m_axi_multiplication_V_AWPROT sc_out sc_lv 3 signal 10 } 
-	{ m_axi_multiplication_V_AWQOS sc_out sc_lv 4 signal 10 } 
-	{ m_axi_multiplication_V_AWREGION sc_out sc_lv 4 signal 10 } 
-	{ m_axi_multiplication_V_AWUSER sc_out sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_WVALID sc_out sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_WREADY sc_in sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_WDATA sc_out sc_lv 16 signal 10 } 
-	{ m_axi_multiplication_V_WSTRB sc_out sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_WLAST sc_out sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_WID sc_out sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_WUSER sc_out sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_ARVALID sc_out sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_ARREADY sc_in sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_ARADDR sc_out sc_lv 32 signal 10 } 
-	{ m_axi_multiplication_V_ARID sc_out sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_ARLEN sc_out sc_lv 32 signal 10 } 
-	{ m_axi_multiplication_V_ARSIZE sc_out sc_lv 3 signal 10 } 
-	{ m_axi_multiplication_V_ARBURST sc_out sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_ARLOCK sc_out sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_ARCACHE sc_out sc_lv 4 signal 10 } 
-	{ m_axi_multiplication_V_ARPROT sc_out sc_lv 3 signal 10 } 
-	{ m_axi_multiplication_V_ARQOS sc_out sc_lv 4 signal 10 } 
-	{ m_axi_multiplication_V_ARREGION sc_out sc_lv 4 signal 10 } 
-	{ m_axi_multiplication_V_ARUSER sc_out sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_RVALID sc_in sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_RREADY sc_out sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_RDATA sc_in sc_lv 16 signal 10 } 
-	{ m_axi_multiplication_V_RLAST sc_in sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_RID sc_in sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_RUSER sc_in sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_RRESP sc_in sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_BVALID sc_in sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_BREADY sc_out sc_logic 1 signal 10 } 
-	{ m_axi_multiplication_V_BRESP sc_in sc_lv 2 signal 10 } 
-	{ m_axi_multiplication_V_BID sc_in sc_lv 1 signal 10 } 
-	{ m_axi_multiplication_V_BUSER sc_in sc_lv 1 signal 10 } 
-	{ multiplication_V_offset sc_in sc_lv 31 signal 11 } 
-	{ blocks_V_address0 sc_out sc_lv 10 signal 12 } 
-	{ blocks_V_ce0 sc_out sc_logic 1 signal 12 } 
-	{ blocks_V_we0 sc_out sc_logic 1 signal 12 } 
-	{ blocks_V_d0 sc_out sc_lv 16 signal 12 } 
-	{ blocks_V_q0 sc_in sc_lv 16 signal 12 } 
+	{ expanded_key_V_address1 sc_out sc_lv 8 signal 5 } 
+	{ expanded_key_V_ce1 sc_out sc_logic 1 signal 5 } 
+	{ expanded_key_V_q1 sc_in sc_lv 16 signal 5 } 
+	{ s_boxes_V_address0 sc_out sc_lv 10 signal 6 } 
+	{ s_boxes_V_ce0 sc_out sc_logic 1 signal 6 } 
+	{ s_boxes_V_q0 sc_in sc_lv 8 signal 6 } 
+	{ s_boxes_V_address1 sc_out sc_lv 10 signal 6 } 
+	{ s_boxes_V_ce1 sc_out sc_logic 1 signal 6 } 
+	{ s_boxes_V_q1 sc_in sc_lv 8 signal 6 } 
+	{ multiplication_V_address0 sc_out sc_lv 12 signal 7 } 
+	{ multiplication_V_ce0 sc_out sc_logic 1 signal 7 } 
+	{ multiplication_V_q0 sc_in sc_lv 8 signal 7 } 
+	{ multiplication_V_address1 sc_out sc_lv 12 signal 7 } 
+	{ multiplication_V_ce1 sc_out sc_logic 1 signal 7 } 
+	{ multiplication_V_q1 sc_in sc_lv 8 signal 7 } 
+	{ blocks_V_address0 sc_out sc_lv 10 signal 8 } 
+	{ blocks_V_ce0 sc_out sc_logic 1 signal 8 } 
+	{ blocks_V_we0 sc_out sc_logic 1 signal 8 } 
+	{ blocks_V_d0 sc_out sc_lv 16 signal 8 } 
+	{ blocks_V_q0 sc_in sc_lv 16 signal 8 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -273,8 +142,8 @@ set NewPortList {[
  	{ "name": "m_axi_data_V_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "AWUSER" }} , 
  	{ "name": "m_axi_data_V_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "WVALID" }} , 
  	{ "name": "m_axi_data_V_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "WREADY" }} , 
- 	{ "name": "m_axi_data_V_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "data_V", "role": "WDATA" }} , 
- 	{ "name": "m_axi_data_V_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "data_V", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_data_V_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "data_V", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_data_V_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "data_V", "role": "WSTRB" }} , 
  	{ "name": "m_axi_data_V_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "WLAST" }} , 
  	{ "name": "m_axi_data_V_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "WID" }} , 
  	{ "name": "m_axi_data_V_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "WUSER" }} , 
@@ -293,7 +162,7 @@ set NewPortList {[
  	{ "name": "m_axi_data_V_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "ARUSER" }} , 
  	{ "name": "m_axi_data_V_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "RVALID" }} , 
  	{ "name": "m_axi_data_V_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "RREADY" }} , 
- 	{ "name": "m_axi_data_V_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "data_V", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_data_V_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "data_V", "role": "RDATA" }} , 
  	{ "name": "m_axi_data_V_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "RLAST" }} , 
  	{ "name": "m_axi_data_V_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "RID" }} , 
  	{ "name": "m_axi_data_V_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "RUSER" }} , 
@@ -303,7 +172,7 @@ set NewPortList {[
  	{ "name": "m_axi_data_V_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "data_V", "role": "BRESP" }} , 
  	{ "name": "m_axi_data_V_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "BID" }} , 
  	{ "name": "m_axi_data_V_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "data_V", "role": "BUSER" }} , 
- 	{ "name": "data_V_offset", "direction": "in", "datatype": "sc_lv", "bitwidth":29, "type": "signal", "bundle":{"name": "data_V_offset", "role": "default" }} , 
+ 	{ "name": "data_V_offset", "direction": "in", "datatype": "sc_lv", "bitwidth":31, "type": "signal", "bundle":{"name": "data_V_offset", "role": "default" }} , 
  	{ "name": "num_blocks_orig_V", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "num_blocks_orig_V", "role": "default" }} , 
  	{ "name": "mode_V", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mode_V", "role": "default" }} , 
  	{ "name": "tweak_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "tweak_V", "role": "address0" }} , 
@@ -314,144 +183,21 @@ set NewPortList {[
  	{ "name": "expanded_key_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address0" }} , 
  	{ "name": "expanded_key_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce0" }} , 
  	{ "name": "expanded_key_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q0" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWVALID" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWREADY" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWADDR" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWID" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWLEN" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWSIZE" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWBURST" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWLOCK" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWCACHE" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWPROT" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWQOS" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWREGION" }} , 
- 	{ "name": "m_axi_s_boxes_V_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "AWUSER" }} , 
- 	{ "name": "m_axi_s_boxes_V_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WVALID" }} , 
- 	{ "name": "m_axi_s_boxes_V_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WREADY" }} , 
- 	{ "name": "m_axi_s_boxes_V_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WDATA" }} , 
- 	{ "name": "m_axi_s_boxes_V_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WSTRB" }} , 
- 	{ "name": "m_axi_s_boxes_V_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WLAST" }} , 
- 	{ "name": "m_axi_s_boxes_V_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WID" }} , 
- 	{ "name": "m_axi_s_boxes_V_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "WUSER" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARVALID" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARREADY" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARADDR" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARID" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARLEN" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARSIZE" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARBURST" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARLOCK" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARCACHE" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARPROT" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARQOS" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARREGION" }} , 
- 	{ "name": "m_axi_s_boxes_V_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ARUSER" }} , 
- 	{ "name": "m_axi_s_boxes_V_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RVALID" }} , 
- 	{ "name": "m_axi_s_boxes_V_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RREADY" }} , 
- 	{ "name": "m_axi_s_boxes_V_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RDATA" }} , 
- 	{ "name": "m_axi_s_boxes_V_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RLAST" }} , 
- 	{ "name": "m_axi_s_boxes_V_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RID" }} , 
- 	{ "name": "m_axi_s_boxes_V_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RUSER" }} , 
- 	{ "name": "m_axi_s_boxes_V_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "RRESP" }} , 
- 	{ "name": "m_axi_s_boxes_V_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "BVALID" }} , 
- 	{ "name": "m_axi_s_boxes_V_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "BREADY" }} , 
- 	{ "name": "m_axi_s_boxes_V_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "BRESP" }} , 
- 	{ "name": "m_axi_s_boxes_V_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "BID" }} , 
- 	{ "name": "m_axi_s_boxes_V_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "BUSER" }} , 
- 	{ "name": "s_boxes_V_offset", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_boxes_V_offset", "role": "default" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWVALID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWREADY" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWADDR" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWLEN" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWSIZE" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWBURST" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWLOCK" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWCACHE" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWPROT" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWQOS" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWREGION" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "AWUSER" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WVALID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WREADY" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WDATA" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WSTRB" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WLAST" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "WUSER" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARVALID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARREADY" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARADDR" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARLEN" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARSIZE" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARBURST" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARLOCK" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARCACHE" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARPROT" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARQOS" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARREGION" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "ARUSER" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RVALID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RREADY" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RDATA" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RLAST" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RUSER" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "RRESP" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "BVALID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "BREADY" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "BRESP" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "BID" }} , 
- 	{ "name": "m_axi_mix_column_constant_matrices_V_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V", "role": "BUSER" }} , 
- 	{ "name": "mix_column_constant_matrices_V_offset", "direction": "in", "datatype": "sc_lv", "bitwidth":31, "type": "signal", "bundle":{"name": "mix_column_constant_matrices_V_offset", "role": "default" }} , 
- 	{ "name": "m_axi_multiplication_V_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWVALID" }} , 
- 	{ "name": "m_axi_multiplication_V_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWREADY" }} , 
- 	{ "name": "m_axi_multiplication_V_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWADDR" }} , 
- 	{ "name": "m_axi_multiplication_V_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWID" }} , 
- 	{ "name": "m_axi_multiplication_V_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWLEN" }} , 
- 	{ "name": "m_axi_multiplication_V_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWSIZE" }} , 
- 	{ "name": "m_axi_multiplication_V_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWBURST" }} , 
- 	{ "name": "m_axi_multiplication_V_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWLOCK" }} , 
- 	{ "name": "m_axi_multiplication_V_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWCACHE" }} , 
- 	{ "name": "m_axi_multiplication_V_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWPROT" }} , 
- 	{ "name": "m_axi_multiplication_V_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWQOS" }} , 
- 	{ "name": "m_axi_multiplication_V_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWREGION" }} , 
- 	{ "name": "m_axi_multiplication_V_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "AWUSER" }} , 
- 	{ "name": "m_axi_multiplication_V_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WVALID" }} , 
- 	{ "name": "m_axi_multiplication_V_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WREADY" }} , 
- 	{ "name": "m_axi_multiplication_V_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WDATA" }} , 
- 	{ "name": "m_axi_multiplication_V_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WSTRB" }} , 
- 	{ "name": "m_axi_multiplication_V_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WLAST" }} , 
- 	{ "name": "m_axi_multiplication_V_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WID" }} , 
- 	{ "name": "m_axi_multiplication_V_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "WUSER" }} , 
- 	{ "name": "m_axi_multiplication_V_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARVALID" }} , 
- 	{ "name": "m_axi_multiplication_V_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARREADY" }} , 
- 	{ "name": "m_axi_multiplication_V_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARADDR" }} , 
- 	{ "name": "m_axi_multiplication_V_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARID" }} , 
- 	{ "name": "m_axi_multiplication_V_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARLEN" }} , 
- 	{ "name": "m_axi_multiplication_V_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARSIZE" }} , 
- 	{ "name": "m_axi_multiplication_V_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARBURST" }} , 
- 	{ "name": "m_axi_multiplication_V_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARLOCK" }} , 
- 	{ "name": "m_axi_multiplication_V_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARCACHE" }} , 
- 	{ "name": "m_axi_multiplication_V_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARPROT" }} , 
- 	{ "name": "m_axi_multiplication_V_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARQOS" }} , 
- 	{ "name": "m_axi_multiplication_V_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARREGION" }} , 
- 	{ "name": "m_axi_multiplication_V_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ARUSER" }} , 
- 	{ "name": "m_axi_multiplication_V_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RVALID" }} , 
- 	{ "name": "m_axi_multiplication_V_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RREADY" }} , 
- 	{ "name": "m_axi_multiplication_V_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RDATA" }} , 
- 	{ "name": "m_axi_multiplication_V_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RLAST" }} , 
- 	{ "name": "m_axi_multiplication_V_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RID" }} , 
- 	{ "name": "m_axi_multiplication_V_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RUSER" }} , 
- 	{ "name": "m_axi_multiplication_V_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "RRESP" }} , 
- 	{ "name": "m_axi_multiplication_V_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "BVALID" }} , 
- 	{ "name": "m_axi_multiplication_V_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "BREADY" }} , 
- 	{ "name": "m_axi_multiplication_V_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "multiplication_V", "role": "BRESP" }} , 
- 	{ "name": "m_axi_multiplication_V_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "BID" }} , 
- 	{ "name": "m_axi_multiplication_V_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "BUSER" }} , 
- 	{ "name": "multiplication_V_offset", "direction": "in", "datatype": "sc_lv", "bitwidth":31, "type": "signal", "bundle":{"name": "multiplication_V_offset", "role": "default" }} , 
+ 	{ "name": "expanded_key_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "address1" }} , 
+ 	{ "name": "expanded_key_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "ce1" }} , 
+ 	{ "name": "expanded_key_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "expanded_key_V", "role": "q1" }} , 
+ 	{ "name": "s_boxes_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "address0" }} , 
+ 	{ "name": "s_boxes_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ce0" }} , 
+ 	{ "name": "s_boxes_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "q0" }} , 
+ 	{ "name": "s_boxes_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "address1" }} , 
+ 	{ "name": "s_boxes_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "ce1" }} , 
+ 	{ "name": "s_boxes_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "s_boxes_V", "role": "q1" }} , 
+ 	{ "name": "multiplication_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "multiplication_V", "role": "address0" }} , 
+ 	{ "name": "multiplication_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ce0" }} , 
+ 	{ "name": "multiplication_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "multiplication_V", "role": "q0" }} , 
+ 	{ "name": "multiplication_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "multiplication_V", "role": "address1" }} , 
+ 	{ "name": "multiplication_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "multiplication_V", "role": "ce1" }} , 
+ 	{ "name": "multiplication_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "multiplication_V", "role": "q1" }} , 
  	{ "name": "blocks_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "blocks_V", "role": "address0" }} , 
  	{ "name": "blocks_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "blocks_V", "role": "ce0" }} , 
  	{ "name": "blocks_V_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "blocks_V", "role": "we0" }} , 
@@ -465,7 +211,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2312", "EstimateLatencyMax" : "1120392",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2312", "EstimateLatencyMax" : "168840",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -473,7 +219,7 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_xts_aes_process_bloc_fu_235"}],
+			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_xts_aes_process_bloc_fu_199"}],
 		"Port" : [
 			{"Name" : "data_V", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
@@ -484,32 +230,26 @@ set RtlHierarchyInfo {[
 			{"Name" : "mode_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "tweak_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_235", "Port" : "tweak_V"}]},
+					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "tweak_V"}]},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_235", "Port" : "expanded_key_V"}]},
-			{"Name" : "s_boxes_V", "Type" : "MAXI", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "expanded_key_V"}]},
+			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_235", "Port" : "s_boxes_V"}]},
-			{"Name" : "s_boxes_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "mix_column_constant_matrices_V", "Type" : "MAXI", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "s_boxes_V"}]},
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_235", "Port" : "mix_column_constant_matrices_V"}]},
-			{"Name" : "mix_column_constant_matrices_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_235", "Port" : "multiplication_V"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"},
+					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "multiplication_V"}]},
 			{"Name" : "blocks_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_235", "Port" : "block_V"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235", "Parent" : "0", "Child" : ["2", "12"],
+					{"ID" : "1", "SubInstance" : "grp_xts_aes_process_bloc_fu_199", "Port" : "block_V"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199", "Parent" : "0", "Child" : ["2"],
 		"CDFG" : "xts_aes_process_bloc",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10403", "EstimateLatencyMax" : "17436",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1541", "EstimateLatencyMax" : "2568",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -517,211 +257,31 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_240_fu_164"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_182"}],
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_122"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_process_2_fu_122"}],
 		"Port" : [
 			{"Name" : "block_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_aes_process_240_fu_164", "Port" : "text_V"},
-					{"ID" : "12", "SubInstance" : "grp_aes_process_2_fu_182", "Port" : "text_V"}]},
+					{"ID" : "2", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "text_V"}]},
 			{"Name" : "block_V_offset", "Type" : "None", "Direction" : "I"},
 			{"Name" : "tweak_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mode_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_aes_process_240_fu_164", "Port" : "expanded_key_V"},
-					{"ID" : "12", "SubInstance" : "grp_aes_process_2_fu_182", "Port" : "expanded_key_V"}]},
-			{"Name" : "s_boxes_V", "Type" : "MAXI", "Direction" : "I",
+					{"ID" : "2", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "expanded_key_V"}]},
+			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_aes_process_240_fu_164", "Port" : "s_boxes_V"},
-					{"ID" : "12", "SubInstance" : "grp_aes_process_2_fu_182", "Port" : "s_boxes_V"}]},
-			{"Name" : "s_boxes_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "mix_column_constant_matrices_V", "Type" : "MAXI", "Direction" : "I",
+					{"ID" : "2", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "s_boxes_V"}]},
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_aes_process_240_fu_164", "Port" : "mix_column_constant_matrices_V"},
-					{"ID" : "12", "SubInstance" : "grp_aes_process_2_fu_182", "Port" : "mix_column_constant_matrices_V"}]},
-			{"Name" : "mix_column_constant_matrices_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_aes_process_240_fu_164", "Port" : "multiplication_V"},
-					{"ID" : "12", "SubInstance" : "grp_aes_process_2_fu_182", "Port" : "multiplication_V"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164", "Parent" : "1", "Child" : ["3", "4", "5", "6", "7", "9", "10", "11"],
-		"CDFG" : "aes_process_240",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "16823", "EstimateLatencyMax" : "17369",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"WaitState" : [
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns84142_2_fu_258"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns84142_fu_269"},
-			{"State" : "ap_ST_fsm_state11", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_280"},
-			{"State" : "ap_ST_fsm_state20", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_280"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_287"},
-			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_287"},
-			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_297"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_297"},
-			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_297"},
-			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_307"},
-			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_307"},
-			{"State" : "ap_ST_fsm_state22", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_307"}],
-		"Port" : [
-			{"Name" : "text_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "sequence_out_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "10", "SubInstance" : "grp_aes_get_round_key5_fu_297", "Port" : "expanded_key_V"}]},
-			{"Name" : "s_boxes_V", "Type" : "MAXI", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "9", "SubInstance" : "grp_aes_substitute_bytes_fu_287", "Port" : "s_box_V"}]},
-			{"Name" : "s_boxes_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "mix_column_constant_matrices_V", "Type" : "MAXI", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns84142_2_fu_258", "Port" : "constant_matrix_V"},
-					{"ID" : "6", "SubInstance" : "grp_aes_mix_columns84142_fu_269", "Port" : "constant_matrix_V"}]},
-			{"Name" : "mix_column_constant_matrices_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns84142_2_fu_258", "Port" : "multiplication_V"},
-					{"ID" : "6", "SubInstance" : "grp_aes_mix_columns84142_fu_269", "Port" : "multiplication_V"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "3", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.state_matrix_V_U", "Parent" : "2"},
-	{"ID" : "4", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.round_key_V_U", "Parent" : "2"},
-	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_mix_columns84142_2_fu_258", "Parent" : "2",
-		"CDFG" : "aes_mix_columns84142_2",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "497", "EstimateLatencyMax" : "497",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "constant_matrix_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "constant_matrix_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "constant_matrix_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "multiplication_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "multiplication_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_mix_columns84142_fu_269", "Parent" : "2",
-		"CDFG" : "aes_mix_columns84142",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "497", "EstimateLatencyMax" : "497",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "constant_matrix_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "constant_matrix_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "constant_matrix_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "multiplication_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "multiplication_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_shift_rows_fu_280", "Parent" : "2", "Child" : ["8"],
-		"CDFG" : "aes_shift_rows",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "31", "EstimateLatencyMax" : "70",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "8", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_shift_rows_fu_280.xts_aes_mux_42_16cud_U37", "Parent" : "7"},
-	{"ID" : "9", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_substitute_bytes_fu_287", "Parent" : "2",
-		"CDFG" : "aes_substitute_bytes",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "185", "EstimateLatencyMax" : "185",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "s_box_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "s_box_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "s_box_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "s_box_V_offset_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "10", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_get_round_key5_fu_297", "Parent" : "2",
-		"CDFG" : "aes_get_round_key5",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "round", "Type" : "None", "Direction" : "I"},
-			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "11", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_240_fu_164.grp_aes_add_round_key_fu_307", "Parent" : "2",
-		"CDFG" : "aes_add_round_key",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "round_key_matrix_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182", "Parent" : "1", "Child" : ["13", "14", "15", "16", "18", "19", "20"],
+					{"ID" : "2", "SubInstance" : "grp_aes_process_2_fu_122", "Port" : "multiplication_V"}]}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122", "Parent" : "1", "Child" : ["3", "4", "5", "22", "23", "24", "25"],
 		"CDFG" : "aes_process_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10336", "EstimateLatencyMax" : "10882",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1474", "EstimateLatencyMax" : "2501",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -729,44 +289,41 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns841_fu_254"},
-			{"State" : "ap_ST_fsm_state11", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_265"},
-			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_265"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_272"},
-			{"State" : "ap_ST_fsm_state16", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_272"},
-			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_282"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_282"},
-			{"State" : "ap_ST_fsm_state16", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_282"},
-			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_292"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_292"},
-			{"State" : "ap_ST_fsm_state20", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_292"}],
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_230"},
+			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_mix_columns8_fu_230"},
+			{"State" : "ap_ST_fsm_state11", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_238"},
+			{"State" : "ap_ST_fsm_state20", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_shift_rows_fu_238"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_244"},
+			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_substitute_bytes_fu_244"},
+			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_252"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_252"},
+			{"State" : "ap_ST_fsm_state18", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_get_round_key5_fu_252"},
+			{"State" : "ap_ST_fsm_state7", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_260"},
+			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_260"},
+			{"State" : "ap_ST_fsm_state22", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_add_round_key_fu_260"}],
 		"Port" : [
 			{"Name" : "text_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "sequence_out_V_offset", "Type" : "None", "Direction" : "I"},
+			{"Name" : "initial_round", "Type" : "None", "Direction" : "I"},
+			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_aes_get_round_key5_fu_282", "Port" : "expanded_key_V"}]},
-			{"Name" : "s_boxes_V", "Type" : "MAXI", "Direction" : "I",
+					{"ID" : "24", "SubInstance" : "grp_aes_get_round_key5_fu_252", "Port" : "expanded_key_V"}]},
+			{"Name" : "s_boxes_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "18", "SubInstance" : "grp_aes_substitute_bytes_fu_272", "Port" : "s_box_V"}]},
-			{"Name" : "s_boxes_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "mix_column_constant_matrices_V", "Type" : "MAXI", "Direction" : "I",
+					{"ID" : "23", "SubInstance" : "grp_aes_substitute_bytes_fu_244", "Port" : "s_box_V"}]},
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "15", "SubInstance" : "grp_aes_mix_columns841_fu_254", "Port" : "constant_matrix_V"}]},
-			{"Name" : "mix_column_constant_matrices_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "15", "SubInstance" : "grp_aes_mix_columns841_fu_254", "Port" : "multiplication_V"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.state_matrix_V_U", "Parent" : "12"},
-	{"ID" : "14", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.round_key_V_U", "Parent" : "12"},
-	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.grp_aes_mix_columns841_fu_254", "Parent" : "12",
-		"CDFG" : "aes_mix_columns841",
+					{"ID" : "5", "SubInstance" : "grp_aes_mix_columns8_fu_230", "Port" : "multiplication_V"}]}]},
+	{"ID" : "3", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.state_matrix_V_U", "Parent" : "2"},
+	{"ID" : "4", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.round_key_V_U", "Parent" : "2"},
+	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230", "Parent" : "2", "Child" : ["6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"],
+		"CDFG" : "aes_mix_columns8",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "497", "EstimateLatencyMax" : "497",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "36", "EstimateLatencyMax" : "36",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -775,23 +332,31 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "constant_matrix_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "constant_matrix_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "constant_matrix_V_blk_n_R", "Type" : "RtlSignal"}]},
 			{"Name" : "constant_matrix_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "multiplication_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "multiplication_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "multiplication_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "multiplication_V_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "16", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.grp_aes_shift_rows_fu_265", "Parent" : "12", "Child" : ["17"],
+			{"Name" : "multiplication_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "6", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U26", "Parent" : "5"},
+	{"ID" : "7", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U27", "Parent" : "5"},
+	{"ID" : "8", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U28", "Parent" : "5"},
+	{"ID" : "9", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U29", "Parent" : "5"},
+	{"ID" : "10", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U30", "Parent" : "5"},
+	{"ID" : "11", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U31", "Parent" : "5"},
+	{"ID" : "12", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U32", "Parent" : "5"},
+	{"ID" : "13", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U33", "Parent" : "5"},
+	{"ID" : "14", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U34", "Parent" : "5"},
+	{"ID" : "15", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U35", "Parent" : "5"},
+	{"ID" : "16", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U36", "Parent" : "5"},
+	{"ID" : "17", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U37", "Parent" : "5"},
+	{"ID" : "18", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U38", "Parent" : "5"},
+	{"ID" : "19", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U39", "Parent" : "5"},
+	{"ID" : "20", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U40", "Parent" : "5"},
+	{"ID" : "21", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_mix_columns8_fu_230.xts_aes_mux_32_8_dEe_U41", "Parent" : "5"},
+	{"ID" : "22", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_shift_rows_fu_238", "Parent" : "2",
 		"CDFG" : "aes_shift_rows",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "31", "EstimateLatencyMax" : "70",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "19", "EstimateLatencyMax" : "58",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -801,14 +366,13 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "17", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.grp_aes_shift_rows_fu_265.xts_aes_mux_42_16cud_U37", "Parent" : "16"},
-	{"ID" : "18", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.grp_aes_substitute_bytes_fu_272", "Parent" : "12",
+	{"ID" : "23", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_substitute_bytes_fu_244", "Parent" : "2",
 		"CDFG" : "aes_substitute_bytes",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "185", "EstimateLatencyMax" : "185",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -817,19 +381,15 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "s_box_V", "Type" : "MAXI", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "s_box_V_blk_n_AR", "Type" : "RtlSignal"},
-					{"Name" : "s_box_V_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "s_box_V_offset_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "19", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.grp_aes_get_round_key5_fu_282", "Parent" : "12",
+			{"Name" : "s_box_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "s_box_V_offset", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "24", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_get_round_key5_fu_252", "Parent" : "2",
 		"CDFG" : "aes_get_round_key5",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -840,13 +400,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "round", "Type" : "None", "Direction" : "I"},
 			{"Name" : "expanded_key_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "round_key_V", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "20", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_235.grp_aes_process_2_fu_182.grp_aes_add_round_key_fu_292", "Parent" : "12",
+	{"ID" : "25", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_xts_aes_process_bloc_fu_199.grp_aes_process_2_fu_122.grp_aes_add_round_key_fu_260", "Parent" : "2",
 		"CDFG" : "aes_add_round_key",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -865,117 +425,63 @@ set ArgLastReadFirstWriteLatency {
 		num_blocks_orig_V {Type I LastRead 6 FirstWrite -1}
 		mode_V {Type I LastRead 6 FirstWrite -1}
 		tweak_V {Type IO LastRead 11 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 11 FirstWrite -1}
-		s_boxes_V_offset {Type I LastRead 6 FirstWrite -1}
-		mix_column_constant_matrices_V {Type I LastRead 23 FirstWrite -1}
-		mix_column_constant_matrices_V_offset {Type I LastRead 6 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 6 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}
 		blocks_V {Type IO LastRead 3 FirstWrite 2}}
 	xts_aes_process_bloc {
 		block_V {Type IO LastRead 3 FirstWrite 2}
 		block_V_offset {Type I LastRead 0 FirstWrite -1}
 		tweak_V {Type I LastRead 3 FirstWrite -1}
 		mode_V {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 11 FirstWrite -1}
-		s_boxes_V_offset {Type I LastRead 0 FirstWrite -1}
-		mix_column_constant_matrices_V {Type I LastRead 23 FirstWrite -1}
-		mix_column_constant_matrices_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_process_240 {
-		text_V {Type IO LastRead 2 FirstWrite 13}
-		sequence_out_V_offset {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 11 FirstWrite -1}
-		s_boxes_V_offset {Type I LastRead 0 FirstWrite -1}
-		mix_column_constant_matrices_V {Type I LastRead 23 FirstWrite -1}
-		mix_column_constant_matrices_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_mix_columns84142_2 {
-		state_matrix_V {Type IO LastRead 3 FirstWrite 33}
-		constant_matrix_V {Type I LastRead 23 FirstWrite -1}
-		constant_matrix_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_mix_columns84142 {
-		state_matrix_V {Type IO LastRead 3 FirstWrite 33}
-		constant_matrix_V {Type I LastRead 23 FirstWrite -1}
-		constant_matrix_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_shift_rows {
-		state_matrix_V {Type IO LastRead 4 FirstWrite 4}
-		round_factor {Type I LastRead 0 FirstWrite -1}}
-	aes_substitute_bytes {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 12}
-		s_box_V {Type I LastRead 11 FirstWrite -1}
-		s_box_V_offset {Type I LastRead 0 FirstWrite -1}
-		s_box_V_offset_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_get_round_key5 {
-		round {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		round_key_V {Type O LastRead -1 FirstWrite 3}}
-	aes_add_round_key {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 3}
-		round_key_matrix_V {Type I LastRead 2 FirstWrite -1}}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
 	aes_process_2 {
 		text_V {Type IO LastRead 2 FirstWrite 13}
 		sequence_out_V_offset {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		s_boxes_V {Type I LastRead 11 FirstWrite -1}
-		s_boxes_V_offset {Type I LastRead 0 FirstWrite -1}
-		mix_column_constant_matrices_V {Type I LastRead 23 FirstWrite -1}
-		mix_column_constant_matrices_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 0 FirstWrite -1}}
-	aes_mix_columns841 {
-		state_matrix_V {Type IO LastRead 3 FirstWrite 33}
-		constant_matrix_V {Type I LastRead 23 FirstWrite -1}
+		initial_round {Type I LastRead 0 FirstWrite -1}
+		round_factor {Type I LastRead 0 FirstWrite -1}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		s_boxes_V {Type I LastRead 4 FirstWrite -1}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
+	aes_mix_columns8 {
+		state_matrix_V {Type IO LastRead 3 FirstWrite 4}
 		constant_matrix_V_offset {Type I LastRead 0 FirstWrite -1}
-		multiplication_V {Type I LastRead 32 FirstWrite -1}
-		multiplication_V_offset {Type I LastRead 0 FirstWrite -1}}
+		multiplication_V {Type I LastRead 10 FirstWrite -1}}
 	aes_shift_rows {
-		state_matrix_V {Type IO LastRead 4 FirstWrite 4}
+		state_matrix_V {Type IO LastRead 4 FirstWrite 3}
 		round_factor {Type I LastRead 0 FirstWrite -1}}
 	aes_substitute_bytes {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 12}
-		s_box_V {Type I LastRead 11 FirstWrite -1}
-		s_box_V_offset {Type I LastRead 0 FirstWrite -1}
-		s_box_V_offset_offset {Type I LastRead 0 FirstWrite -1}}
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		s_box_V {Type I LastRead 4 FirstWrite -1}
+		s_box_V_offset {Type I LastRead 0 FirstWrite -1}}
 	aes_get_round_key5 {
 		round {Type I LastRead 0 FirstWrite -1}
-		expanded_key_V {Type I LastRead 2 FirstWrite -1}
-		round_key_V {Type O LastRead -1 FirstWrite 3}}
+		expanded_key_V {Type I LastRead 3 FirstWrite -1}
+		round_key_V {Type O LastRead -1 FirstWrite 2}}
 	aes_add_round_key {
-		state_matrix_V {Type IO LastRead 2 FirstWrite 3}
-		round_key_matrix_V {Type I LastRead 2 FirstWrite -1}}}
+		state_matrix_V {Type IO LastRead 3 FirstWrite 3}
+		round_key_matrix_V {Type I LastRead 3 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "2312", "Max" : "1120392"}
-	, {"Name" : "Interval", "Min" : "2312", "Max" : "1120392"}
+	{"Name" : "Latency", "Min" : "2312", "Max" : "168840"}
+	, {"Name" : "Interval", "Min" : "2312", "Max" : "168840"}
 ]}
 
 set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	data_V { m_axi {  { m_axi_data_V_AWVALID VALID 1 1 }  { m_axi_data_V_AWREADY READY 0 1 }  { m_axi_data_V_AWADDR ADDR 1 32 }  { m_axi_data_V_AWID ID 1 1 }  { m_axi_data_V_AWLEN LEN 1 32 }  { m_axi_data_V_AWSIZE SIZE 1 3 }  { m_axi_data_V_AWBURST BURST 1 2 }  { m_axi_data_V_AWLOCK LOCK 1 2 }  { m_axi_data_V_AWCACHE CACHE 1 4 }  { m_axi_data_V_AWPROT PROT 1 3 }  { m_axi_data_V_AWQOS QOS 1 4 }  { m_axi_data_V_AWREGION REGION 1 4 }  { m_axi_data_V_AWUSER USER 1 1 }  { m_axi_data_V_WVALID VALID 1 1 }  { m_axi_data_V_WREADY READY 0 1 }  { m_axi_data_V_WDATA DATA 1 64 }  { m_axi_data_V_WSTRB STRB 1 8 }  { m_axi_data_V_WLAST LAST 1 1 }  { m_axi_data_V_WID ID 1 1 }  { m_axi_data_V_WUSER USER 1 1 }  { m_axi_data_V_ARVALID VALID 1 1 }  { m_axi_data_V_ARREADY READY 0 1 }  { m_axi_data_V_ARADDR ADDR 1 32 }  { m_axi_data_V_ARID ID 1 1 }  { m_axi_data_V_ARLEN LEN 1 32 }  { m_axi_data_V_ARSIZE SIZE 1 3 }  { m_axi_data_V_ARBURST BURST 1 2 }  { m_axi_data_V_ARLOCK LOCK 1 2 }  { m_axi_data_V_ARCACHE CACHE 1 4 }  { m_axi_data_V_ARPROT PROT 1 3 }  { m_axi_data_V_ARQOS QOS 1 4 }  { m_axi_data_V_ARREGION REGION 1 4 }  { m_axi_data_V_ARUSER USER 1 1 }  { m_axi_data_V_RVALID VALID 0 1 }  { m_axi_data_V_RREADY READY 1 1 }  { m_axi_data_V_RDATA DATA 0 64 }  { m_axi_data_V_RLAST LAST 0 1 }  { m_axi_data_V_RID ID 0 1 }  { m_axi_data_V_RUSER USER 0 1 }  { m_axi_data_V_RRESP RESP 0 2 }  { m_axi_data_V_BVALID VALID 0 1 }  { m_axi_data_V_BREADY READY 1 1 }  { m_axi_data_V_BRESP RESP 0 2 }  { m_axi_data_V_BID ID 0 1 }  { m_axi_data_V_BUSER USER 0 1 } } }
-	data_V_offset { ap_none {  { data_V_offset in_data 0 29 } } }
+	data_V { m_axi {  { m_axi_data_V_AWVALID VALID 1 1 }  { m_axi_data_V_AWREADY READY 0 1 }  { m_axi_data_V_AWADDR ADDR 1 32 }  { m_axi_data_V_AWID ID 1 1 }  { m_axi_data_V_AWLEN LEN 1 32 }  { m_axi_data_V_AWSIZE SIZE 1 3 }  { m_axi_data_V_AWBURST BURST 1 2 }  { m_axi_data_V_AWLOCK LOCK 1 2 }  { m_axi_data_V_AWCACHE CACHE 1 4 }  { m_axi_data_V_AWPROT PROT 1 3 }  { m_axi_data_V_AWQOS QOS 1 4 }  { m_axi_data_V_AWREGION REGION 1 4 }  { m_axi_data_V_AWUSER USER 1 1 }  { m_axi_data_V_WVALID VALID 1 1 }  { m_axi_data_V_WREADY READY 0 1 }  { m_axi_data_V_WDATA DATA 1 16 }  { m_axi_data_V_WSTRB STRB 1 2 }  { m_axi_data_V_WLAST LAST 1 1 }  { m_axi_data_V_WID ID 1 1 }  { m_axi_data_V_WUSER USER 1 1 }  { m_axi_data_V_ARVALID VALID 1 1 }  { m_axi_data_V_ARREADY READY 0 1 }  { m_axi_data_V_ARADDR ADDR 1 32 }  { m_axi_data_V_ARID ID 1 1 }  { m_axi_data_V_ARLEN LEN 1 32 }  { m_axi_data_V_ARSIZE SIZE 1 3 }  { m_axi_data_V_ARBURST BURST 1 2 }  { m_axi_data_V_ARLOCK LOCK 1 2 }  { m_axi_data_V_ARCACHE CACHE 1 4 }  { m_axi_data_V_ARPROT PROT 1 3 }  { m_axi_data_V_ARQOS QOS 1 4 }  { m_axi_data_V_ARREGION REGION 1 4 }  { m_axi_data_V_ARUSER USER 1 1 }  { m_axi_data_V_RVALID VALID 0 1 }  { m_axi_data_V_RREADY READY 1 1 }  { m_axi_data_V_RDATA DATA 0 16 }  { m_axi_data_V_RLAST LAST 0 1 }  { m_axi_data_V_RID ID 0 1 }  { m_axi_data_V_RUSER USER 0 1 }  { m_axi_data_V_RRESP RESP 0 2 }  { m_axi_data_V_BVALID VALID 0 1 }  { m_axi_data_V_BREADY READY 1 1 }  { m_axi_data_V_BRESP RESP 0 2 }  { m_axi_data_V_BID ID 0 1 }  { m_axi_data_V_BUSER USER 0 1 } } }
+	data_V_offset { ap_none {  { data_V_offset in_data 0 31 } } }
 	num_blocks_orig_V { ap_none {  { num_blocks_orig_V in_data 0 16 } } }
 	mode_V { ap_none {  { mode_V in_data 0 16 } } }
 	tweak_V { ap_memory {  { tweak_V_address0 mem_address 1 4 }  { tweak_V_ce0 mem_ce 1 1 }  { tweak_V_we0 mem_we 1 1 }  { tweak_V_d0 mem_din 1 16 }  { tweak_V_q0 mem_dout 0 16 } } }
-	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 } } }
-	s_boxes_V { m_axi {  { m_axi_s_boxes_V_AWVALID VALID 1 1 }  { m_axi_s_boxes_V_AWREADY READY 0 1 }  { m_axi_s_boxes_V_AWADDR ADDR 1 32 }  { m_axi_s_boxes_V_AWID ID 1 1 }  { m_axi_s_boxes_V_AWLEN LEN 1 32 }  { m_axi_s_boxes_V_AWSIZE SIZE 1 3 }  { m_axi_s_boxes_V_AWBURST BURST 1 2 }  { m_axi_s_boxes_V_AWLOCK LOCK 1 2 }  { m_axi_s_boxes_V_AWCACHE CACHE 1 4 }  { m_axi_s_boxes_V_AWPROT PROT 1 3 }  { m_axi_s_boxes_V_AWQOS QOS 1 4 }  { m_axi_s_boxes_V_AWREGION REGION 1 4 }  { m_axi_s_boxes_V_AWUSER USER 1 1 }  { m_axi_s_boxes_V_WVALID VALID 1 1 }  { m_axi_s_boxes_V_WREADY READY 0 1 }  { m_axi_s_boxes_V_WDATA DATA 1 8 }  { m_axi_s_boxes_V_WSTRB STRB 1 1 }  { m_axi_s_boxes_V_WLAST LAST 1 1 }  { m_axi_s_boxes_V_WID ID 1 1 }  { m_axi_s_boxes_V_WUSER USER 1 1 }  { m_axi_s_boxes_V_ARVALID VALID 1 1 }  { m_axi_s_boxes_V_ARREADY READY 0 1 }  { m_axi_s_boxes_V_ARADDR ADDR 1 32 }  { m_axi_s_boxes_V_ARID ID 1 1 }  { m_axi_s_boxes_V_ARLEN LEN 1 32 }  { m_axi_s_boxes_V_ARSIZE SIZE 1 3 }  { m_axi_s_boxes_V_ARBURST BURST 1 2 }  { m_axi_s_boxes_V_ARLOCK LOCK 1 2 }  { m_axi_s_boxes_V_ARCACHE CACHE 1 4 }  { m_axi_s_boxes_V_ARPROT PROT 1 3 }  { m_axi_s_boxes_V_ARQOS QOS 1 4 }  { m_axi_s_boxes_V_ARREGION REGION 1 4 }  { m_axi_s_boxes_V_ARUSER USER 1 1 }  { m_axi_s_boxes_V_RVALID VALID 0 1 }  { m_axi_s_boxes_V_RREADY READY 1 1 }  { m_axi_s_boxes_V_RDATA DATA 0 8 }  { m_axi_s_boxes_V_RLAST LAST 0 1 }  { m_axi_s_boxes_V_RID ID 0 1 }  { m_axi_s_boxes_V_RUSER USER 0 1 }  { m_axi_s_boxes_V_RRESP RESP 0 2 }  { m_axi_s_boxes_V_BVALID VALID 0 1 }  { m_axi_s_boxes_V_BREADY READY 1 1 }  { m_axi_s_boxes_V_BRESP RESP 0 2 }  { m_axi_s_boxes_V_BID ID 0 1 }  { m_axi_s_boxes_V_BUSER USER 0 1 } } }
-	s_boxes_V_offset { ap_none {  { s_boxes_V_offset in_data 0 32 } } }
-	mix_column_constant_matrices_V { m_axi {  { m_axi_mix_column_constant_matrices_V_AWVALID VALID 1 1 }  { m_axi_mix_column_constant_matrices_V_AWREADY READY 0 1 }  { m_axi_mix_column_constant_matrices_V_AWADDR ADDR 1 32 }  { m_axi_mix_column_constant_matrices_V_AWID ID 1 1 }  { m_axi_mix_column_constant_matrices_V_AWLEN LEN 1 32 }  { m_axi_mix_column_constant_matrices_V_AWSIZE SIZE 1 3 }  { m_axi_mix_column_constant_matrices_V_AWBURST BURST 1 2 }  { m_axi_mix_column_constant_matrices_V_AWLOCK LOCK 1 2 }  { m_axi_mix_column_constant_matrices_V_AWCACHE CACHE 1 4 }  { m_axi_mix_column_constant_matrices_V_AWPROT PROT 1 3 }  { m_axi_mix_column_constant_matrices_V_AWQOS QOS 1 4 }  { m_axi_mix_column_constant_matrices_V_AWREGION REGION 1 4 }  { m_axi_mix_column_constant_matrices_V_AWUSER USER 1 1 }  { m_axi_mix_column_constant_matrices_V_WVALID VALID 1 1 }  { m_axi_mix_column_constant_matrices_V_WREADY READY 0 1 }  { m_axi_mix_column_constant_matrices_V_WDATA DATA 1 16 }  { m_axi_mix_column_constant_matrices_V_WSTRB STRB 1 2 }  { m_axi_mix_column_constant_matrices_V_WLAST LAST 1 1 }  { m_axi_mix_column_constant_matrices_V_WID ID 1 1 }  { m_axi_mix_column_constant_matrices_V_WUSER USER 1 1 }  { m_axi_mix_column_constant_matrices_V_ARVALID VALID 1 1 }  { m_axi_mix_column_constant_matrices_V_ARREADY READY 0 1 }  { m_axi_mix_column_constant_matrices_V_ARADDR ADDR 1 32 }  { m_axi_mix_column_constant_matrices_V_ARID ID 1 1 }  { m_axi_mix_column_constant_matrices_V_ARLEN LEN 1 32 }  { m_axi_mix_column_constant_matrices_V_ARSIZE SIZE 1 3 }  { m_axi_mix_column_constant_matrices_V_ARBURST BURST 1 2 }  { m_axi_mix_column_constant_matrices_V_ARLOCK LOCK 1 2 }  { m_axi_mix_column_constant_matrices_V_ARCACHE CACHE 1 4 }  { m_axi_mix_column_constant_matrices_V_ARPROT PROT 1 3 }  { m_axi_mix_column_constant_matrices_V_ARQOS QOS 1 4 }  { m_axi_mix_column_constant_matrices_V_ARREGION REGION 1 4 }  { m_axi_mix_column_constant_matrices_V_ARUSER USER 1 1 }  { m_axi_mix_column_constant_matrices_V_RVALID VALID 0 1 }  { m_axi_mix_column_constant_matrices_V_RREADY READY 1 1 }  { m_axi_mix_column_constant_matrices_V_RDATA DATA 0 16 }  { m_axi_mix_column_constant_matrices_V_RLAST LAST 0 1 }  { m_axi_mix_column_constant_matrices_V_RID ID 0 1 }  { m_axi_mix_column_constant_matrices_V_RUSER USER 0 1 }  { m_axi_mix_column_constant_matrices_V_RRESP RESP 0 2 }  { m_axi_mix_column_constant_matrices_V_BVALID VALID 0 1 }  { m_axi_mix_column_constant_matrices_V_BREADY READY 1 1 }  { m_axi_mix_column_constant_matrices_V_BRESP RESP 0 2 }  { m_axi_mix_column_constant_matrices_V_BID ID 0 1 }  { m_axi_mix_column_constant_matrices_V_BUSER USER 0 1 } } }
-	mix_column_constant_matrices_V_offset { ap_none {  { mix_column_constant_matrices_V_offset in_data 0 31 } } }
-	multiplication_V { m_axi {  { m_axi_multiplication_V_AWVALID VALID 1 1 }  { m_axi_multiplication_V_AWREADY READY 0 1 }  { m_axi_multiplication_V_AWADDR ADDR 1 32 }  { m_axi_multiplication_V_AWID ID 1 1 }  { m_axi_multiplication_V_AWLEN LEN 1 32 }  { m_axi_multiplication_V_AWSIZE SIZE 1 3 }  { m_axi_multiplication_V_AWBURST BURST 1 2 }  { m_axi_multiplication_V_AWLOCK LOCK 1 2 }  { m_axi_multiplication_V_AWCACHE CACHE 1 4 }  { m_axi_multiplication_V_AWPROT PROT 1 3 }  { m_axi_multiplication_V_AWQOS QOS 1 4 }  { m_axi_multiplication_V_AWREGION REGION 1 4 }  { m_axi_multiplication_V_AWUSER USER 1 1 }  { m_axi_multiplication_V_WVALID VALID 1 1 }  { m_axi_multiplication_V_WREADY READY 0 1 }  { m_axi_multiplication_V_WDATA DATA 1 16 }  { m_axi_multiplication_V_WSTRB STRB 1 2 }  { m_axi_multiplication_V_WLAST LAST 1 1 }  { m_axi_multiplication_V_WID ID 1 1 }  { m_axi_multiplication_V_WUSER USER 1 1 }  { m_axi_multiplication_V_ARVALID VALID 1 1 }  { m_axi_multiplication_V_ARREADY READY 0 1 }  { m_axi_multiplication_V_ARADDR ADDR 1 32 }  { m_axi_multiplication_V_ARID ID 1 1 }  { m_axi_multiplication_V_ARLEN LEN 1 32 }  { m_axi_multiplication_V_ARSIZE SIZE 1 3 }  { m_axi_multiplication_V_ARBURST BURST 1 2 }  { m_axi_multiplication_V_ARLOCK LOCK 1 2 }  { m_axi_multiplication_V_ARCACHE CACHE 1 4 }  { m_axi_multiplication_V_ARPROT PROT 1 3 }  { m_axi_multiplication_V_ARQOS QOS 1 4 }  { m_axi_multiplication_V_ARREGION REGION 1 4 }  { m_axi_multiplication_V_ARUSER USER 1 1 }  { m_axi_multiplication_V_RVALID VALID 0 1 }  { m_axi_multiplication_V_RREADY READY 1 1 }  { m_axi_multiplication_V_RDATA DATA 0 16 }  { m_axi_multiplication_V_RLAST LAST 0 1 }  { m_axi_multiplication_V_RID ID 0 1 }  { m_axi_multiplication_V_RUSER USER 0 1 }  { m_axi_multiplication_V_RRESP RESP 0 2 }  { m_axi_multiplication_V_BVALID VALID 0 1 }  { m_axi_multiplication_V_BREADY READY 1 1 }  { m_axi_multiplication_V_BRESP RESP 0 2 }  { m_axi_multiplication_V_BID ID 0 1 }  { m_axi_multiplication_V_BUSER USER 0 1 } } }
-	multiplication_V_offset { ap_none {  { multiplication_V_offset in_data 0 31 } } }
+	expanded_key_V { ap_memory {  { expanded_key_V_address0 mem_address 1 8 }  { expanded_key_V_ce0 mem_ce 1 1 }  { expanded_key_V_q0 mem_dout 0 16 }  { expanded_key_V_address1 MemPortADDR2 1 8 }  { expanded_key_V_ce1 MemPortCE2 1 1 }  { expanded_key_V_q1 MemPortDOUT2 0 16 } } }
+	s_boxes_V { ap_memory {  { s_boxes_V_address0 mem_address 1 10 }  { s_boxes_V_ce0 mem_ce 1 1 }  { s_boxes_V_q0 mem_dout 0 8 }  { s_boxes_V_address1 MemPortADDR2 1 10 }  { s_boxes_V_ce1 MemPortCE2 1 1 }  { s_boxes_V_q1 MemPortDOUT2 0 8 } } }
+	multiplication_V { ap_memory {  { multiplication_V_address0 mem_address 1 12 }  { multiplication_V_ce0 mem_ce 1 1 }  { multiplication_V_q0 mem_dout 0 8 }  { multiplication_V_address1 MemPortADDR2 1 12 }  { multiplication_V_ce1 MemPortCE2 1 1 }  { multiplication_V_q1 MemPortDOUT2 0 8 } } }
 	blocks_V { ap_memory {  { blocks_V_address0 mem_address 1 10 }  { blocks_V_ce0 mem_ce 1 1 }  { blocks_V_we0 mem_we 1 1 }  { blocks_V_d0 mem_din 1 16 }  { blocks_V_q0 mem_dout 0 16 } } }
 }

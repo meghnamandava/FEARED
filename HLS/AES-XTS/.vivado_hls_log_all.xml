@@ -2,36 +2,126 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <synLog/>
       <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog>
-        <logs message="WARNING: [SYN 201-103] Legalizing function name 'aes_process.2' to 'aes_process_2'." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:46.181-0600" type="Warning"/>
-        <logs message="WARNING: [SYN 201-103] Legalizing function name 'aes_process.240' to 'aes_process_240'." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:46.161-0600" type="Warning"/>
-        <logs message="WARNING: [SYN 201-103] Legalizing function name 'aes_mix_columns84142.2' to 'aes_mix_columns84142_2'." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:46.155-0600" type="Warning"/>
-        <logs message="WARNING: [SYN 201-103] Legalizing function name 'aes_process.1' to 'aes_process_1'." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:46.148-0600" type="Warning"/>
-        <logs message="WARNING: [SYN 201-103] Legalizing function name 'aes_mix_columns84142.1' to 'aes_mix_columns84142_1'." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:46.142-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_mix_columns84142.1.1' to 'aes_mix_columns84142' (AES-XTS/main.cpp:96:44)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:46.123-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_mix_columns8' to 'aes_mix_columns8.1' (AES-XTS/main.cpp:96:44)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.958-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_mix_columns84142' to 'aes_mix_columns84142.2' (AES-XTS/main.cpp:96:44)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.574-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_mix_columns8414244' to 'aes_mix_columns84142.1.1' (AES-XTS/main.cpp:96:44)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.568-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_mix_columns841424445' to 'aes_mix_columns84142.1' (AES-XTS/main.cpp:96:44)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.562-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_sequence_to_matrix.1' to 'aes_sequence_to_matr' (AES-XTS/main.cpp:221:28)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.556-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'aes_substitute_bytes7' to 'aes_substitute_bytes' (AES-XTS/main.cpp:39)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.549-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'xts_aes_process_block' to 'xts_aes_process_bloc' (AES-XTS/main.cpp:267:27)" projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:44.544-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-805] Duplicating function 'aes_sequence_to_matrix' (AES-XTS/main.cpp:218) to resolve interface conflict according to call graph." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:43.274-0600" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-805] Duplicating function 'aes_process' (AES-XTS/main.cpp:8) to resolve interface conflict according to call graph." projectName="AES-XTS" solutionName="solution1" date="2021-12-12T23:30:42.974-0600" type="Warning"/>
-      </synLog>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog/>
+      <simLog>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.741-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.733-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.725-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.717-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.711-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.704-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.697-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.690-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.683-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.675-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.667-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.660-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.652-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.643-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.634-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.626-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.620-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.613-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.606-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.599-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.592-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.585-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.578-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.572-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.565-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.558-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.550-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.545-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.538-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.532-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.523-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.518-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.512-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.506-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.499-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.492-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.485-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.477-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.469-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.460-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.452-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.444-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.434-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.427-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.418-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.410-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.402-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.393-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.384-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.375-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.368-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.359-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.351-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.343-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.337-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.329-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.322-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.315-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.307-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.301-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.295-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.289-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.283-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.277-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.271-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.265-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.260-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.255-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.249-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.243-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.238-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.237-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.230-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.224-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.219-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.213-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.207-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.202-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.196-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.189-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.183-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.177-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.171-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.165-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.159-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.152-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.147-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.142-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.137-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.131-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.126-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.122-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.116-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.109-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.104-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.098-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.093-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.087-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.082-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.077-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.070-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.064-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.058-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.053-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.046-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.041-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.036-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.031-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.026-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.020-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.015-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.010-0800" type="Warning"/>
+        <logs message="WARNING: Bitsize mismatch for ap_[u]int^=ap_[u]int." projectName="AES-XTS" solutionName="solution1" date="2021-12-18T12:13:50.005-0800" type="Warning"/>
+      </simLog>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

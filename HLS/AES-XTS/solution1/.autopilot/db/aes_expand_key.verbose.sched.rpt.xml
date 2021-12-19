@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_expand_key'" level="0">
-<item name = "Date">Sun Dec 12 23:30:46 2021
+<item name = "Date">Sat Dec 18 12:10:18 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">2070, 5346, 2070, 5346, none</column>
+<column name="">2070, 3266, 2070, 3266, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -36,11 +36,11 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">64, 64, 2, -, -, 32, no</column>
-<column name="- Loop 2">1508, 4784, 29 ~ 92, -, -, 52, no</column>
+<column name="- Loop 2">1508, 2704, 29 ~ 52, -, -, 52, no</column>
 <column name=" + Loop 2.1">12, 12, 3, -, -, 4, no</column>
 <column name=" + Loop 2.2">9, 9, 3, -, -, 3, no</column>
-<column name=" + Loop 2.3">44, 44, 11, -, -, 4, no</column>
-<column name=" + Loop 2.4">44, 44, 11, -, -, 4, no</column>
+<column name=" + Loop 2.3">12, 12, 3, -, -, 4, no</column>
+<column name=" + Loop 2.4">12, 12, 3, -, -, 4, no</column>
 <column name=" + Loop 2.5">8, 8, 2, -, -, 4, no</column>
 <column name=" + Loop 2.6">4, 4, 1, -, -, 4, no</column>
 <column name="- Loop 3">488, 488, 122, -, -, 4, no</column>

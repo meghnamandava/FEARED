@@ -1,3 +1,41 @@
-{
-  
-}
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "aes_substitute_bytes",
+          "label": "aes_substitute_bytes_label0",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "aes_substitute_bytes",
+          "label": "aes_substitute_bytes_label1",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "aes_shift_rows",
+          "label": "aes_shift_rows_label2",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "aes_mix_columns",
+          "label": "aes_mix_columns_label3",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "aes_add_round_key",
+          "label": "aes_add_round_key_label4",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "aes_get_round_key",
+          "label": "aes_get_round_key_label5",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        }
+      ]
+    }]}

@@ -1,0 +1,11 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Xilinx/Vivado/2019.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'meghn' on host 'desktop-rk3rva3' (Windows NT_amd64 version 6.2) on Sat Dec 18 11:48:41 -0800 2021
+INFO: [HLS 200-10] In directory 'C:/Users/meghn/ECE527_Final_Project/HLS/AES-XTS'
+INFO: [HLS 200-10] Bringing up Vivado HLS GUI ... 

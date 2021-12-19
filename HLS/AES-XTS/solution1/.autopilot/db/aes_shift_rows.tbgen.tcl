@@ -14,14 +14,14 @@ set isEnableWaveformDebug 1
 set C_modelName {aes_shift_rows}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ state_matrix_V int 16 regular {array 16 { 2 3 } 1 1 }  }
+	{ state_matrix_V int 16 regular {array 16 { 2 2 } 1 1 }  }
 	{ round_factor int 2 regular  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "state_matrix_V", "interface" : "memory", "bitwidth" : 16, "direction" : "READWRITE"} , 
  	{ "Name" : "round_factor", "interface" : "wire", "bitwidth" : 2, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 12
+set portNum 17
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -34,6 +34,11 @@ set portList {
 	{ state_matrix_V_we0 sc_out sc_logic 1 signal 0 } 
 	{ state_matrix_V_d0 sc_out sc_lv 16 signal 0 } 
 	{ state_matrix_V_q0 sc_in sc_lv 16 signal 0 } 
+	{ state_matrix_V_address1 sc_out sc_lv 4 signal 0 } 
+	{ state_matrix_V_ce1 sc_out sc_logic 1 signal 0 } 
+	{ state_matrix_V_we1 sc_out sc_logic 1 signal 0 } 
+	{ state_matrix_V_d1 sc_out sc_lv 16 signal 0 } 
+	{ state_matrix_V_q1 sc_in sc_lv 16 signal 0 } 
 	{ round_factor sc_in sc_lv 2 signal 1 } 
 }
 set NewPortList {[ 
@@ -48,16 +53,21 @@ set NewPortList {[
  	{ "name": "state_matrix_V_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "we0" }} , 
  	{ "name": "state_matrix_V_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "d0" }} , 
  	{ "name": "state_matrix_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "q0" }} , 
+ 	{ "name": "state_matrix_V_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "address1" }} , 
+ 	{ "name": "state_matrix_V_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "ce1" }} , 
+ 	{ "name": "state_matrix_V_we1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "we1" }} , 
+ 	{ "name": "state_matrix_V_d1", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "d1" }} , 
+ 	{ "name": "state_matrix_V_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "state_matrix_V", "role": "q1" }} , 
  	{ "name": "round_factor", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "round_factor", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
 		"CDFG" : "aes_shift_rows",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "31", "EstimateLatencyMax" : "70",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "19", "EstimateLatencyMax" : "58",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -66,26 +76,25 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "state_matrix_V", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.xts_aes_mux_42_16cud_U37", "Parent" : "0"}]}
+			{"Name" : "round_factor", "Type" : "None", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	aes_shift_rows {
-		state_matrix_V {Type IO LastRead 4 FirstWrite 4}
+		state_matrix_V {Type IO LastRead 4 FirstWrite 3}
 		round_factor {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "31", "Max" : "70"}
-	, {"Name" : "Interval", "Min" : "31", "Max" : "70"}
+	{"Name" : "Latency", "Min" : "19", "Max" : "58"}
+	, {"Name" : "Interval", "Min" : "19", "Max" : "58"}
 ]}
 
 set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	state_matrix_V { ap_memory {  { state_matrix_V_address0 mem_address 1 4 }  { state_matrix_V_ce0 mem_ce 1 1 }  { state_matrix_V_we0 mem_we 1 1 }  { state_matrix_V_d0 mem_din 1 16 }  { state_matrix_V_q0 mem_dout 0 16 } } }
+	state_matrix_V { ap_memory {  { state_matrix_V_address0 mem_address 1 4 }  { state_matrix_V_ce0 mem_ce 1 1 }  { state_matrix_V_we0 mem_we 1 1 }  { state_matrix_V_d0 mem_din 1 16 }  { state_matrix_V_q0 mem_dout 0 16 }  { state_matrix_V_address1 MemPortADDR2 1 4 }  { state_matrix_V_ce1 MemPortCE2 1 1 }  { state_matrix_V_we1 MemPortWE2 1 1 }  { state_matrix_V_d1 MemPortDIN2 1 16 }  { state_matrix_V_q1 MemPortDOUT2 0 16 } } }
 	round_factor { ap_none {  { round_factor in_data 0 2 } } }
 }

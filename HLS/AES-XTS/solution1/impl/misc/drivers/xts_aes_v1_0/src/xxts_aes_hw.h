@@ -38,45 +38,25 @@
 //        bit 15~0 - text_len_V[15:0] (Read/Write)
 //        others   - reserved
 // 0x34 : reserved
-// 0x38 : Data signal of s_boxes_V
-//        bit 31~0 - s_boxes_V[31:0] (Read/Write)
-// 0x3c : reserved
-// 0x40 : Data signal of mix_column_constant_matrices_V
-//        bit 31~0 - mix_column_constant_matrices_V[31:0] (Read/Write)
-// 0x44 : reserved
-// 0x48 : Data signal of multiplication_V
-//        bit 31~0 - multiplication_V[31:0] (Read/Write)
-// 0x4c : reserved
-// 0x50 : Data signal of rcon_V
-//        bit 31~0 - rcon_V[31:0] (Read/Write)
-// 0x54 : reserved
-// 0x58 : Data signal of data_ret_V
+// 0x38 : Data signal of data_ret_V
 //        bit 31~0 - data_ret_V[31:0] (Read/Write)
-// 0x5c : reserved
+// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XXTS_AES_CTRL_ADDR_AP_CTRL                             0x00
-#define XXTS_AES_CTRL_ADDR_GIE                                 0x04
-#define XXTS_AES_CTRL_ADDR_IER                                 0x08
-#define XXTS_AES_CTRL_ADDR_ISR                                 0x0c
-#define XXTS_AES_CTRL_ADDR_KEY_V_DATA                          0x10
-#define XXTS_AES_CTRL_BITS_KEY_V_DATA                          32
-#define XXTS_AES_CTRL_ADDR_TWEAK_V_DATA                        0x18
-#define XXTS_AES_CTRL_BITS_TWEAK_V_DATA                        32
-#define XXTS_AES_CTRL_ADDR_TEXT_V_DATA                         0x20
-#define XXTS_AES_CTRL_BITS_TEXT_V_DATA                         32
-#define XXTS_AES_CTRL_ADDR_MODE_V_DATA                         0x28
-#define XXTS_AES_CTRL_BITS_MODE_V_DATA                         16
-#define XXTS_AES_CTRL_ADDR_TEXT_LEN_V_DATA                     0x30
-#define XXTS_AES_CTRL_BITS_TEXT_LEN_V_DATA                     16
-#define XXTS_AES_CTRL_ADDR_S_BOXES_V_DATA                      0x38
-#define XXTS_AES_CTRL_BITS_S_BOXES_V_DATA                      32
-#define XXTS_AES_CTRL_ADDR_MIX_COLUMN_CONSTANT_MATRICES_V_DATA 0x40
-#define XXTS_AES_CTRL_BITS_MIX_COLUMN_CONSTANT_MATRICES_V_DATA 32
-#define XXTS_AES_CTRL_ADDR_MULTIPLICATION_V_DATA               0x48
-#define XXTS_AES_CTRL_BITS_MULTIPLICATION_V_DATA               32
-#define XXTS_AES_CTRL_ADDR_RCON_V_DATA                         0x50
-#define XXTS_AES_CTRL_BITS_RCON_V_DATA                         32
-#define XXTS_AES_CTRL_ADDR_DATA_RET_V_DATA                     0x58
-#define XXTS_AES_CTRL_BITS_DATA_RET_V_DATA                     32
+#define XXTS_AES_CTRL_ADDR_AP_CTRL         0x00
+#define XXTS_AES_CTRL_ADDR_GIE             0x04
+#define XXTS_AES_CTRL_ADDR_IER             0x08
+#define XXTS_AES_CTRL_ADDR_ISR             0x0c
+#define XXTS_AES_CTRL_ADDR_KEY_V_DATA      0x10
+#define XXTS_AES_CTRL_BITS_KEY_V_DATA      32
+#define XXTS_AES_CTRL_ADDR_TWEAK_V_DATA    0x18
+#define XXTS_AES_CTRL_BITS_TWEAK_V_DATA    32
+#define XXTS_AES_CTRL_ADDR_TEXT_V_DATA     0x20
+#define XXTS_AES_CTRL_BITS_TEXT_V_DATA     32
+#define XXTS_AES_CTRL_ADDR_MODE_V_DATA     0x28
+#define XXTS_AES_CTRL_BITS_MODE_V_DATA     16
+#define XXTS_AES_CTRL_ADDR_TEXT_LEN_V_DATA 0x30
+#define XXTS_AES_CTRL_BITS_TEXT_LEN_V_DATA 16
+#define XXTS_AES_CTRL_ADDR_DATA_RET_V_DATA 0x38
+#define XXTS_AES_CTRL_BITS_DATA_RET_V_DATA 32
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_process_2'" level="0">
-<item name = "Date">Sun Dec 12 23:30:59 2021
+<item name = "Date">Sat Dec 18 12:10:37 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.750, 1.25</column>
+<column name="ap_clk">10.00, 7.349, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,25 +24,25 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">10336, 10882, 10336, 10882, none</column>
+<column name="">1474, 2501, 1474, 2501, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_aes_mix_columns841_fu_254">aes_mix_columns841, 497, 497, 497, 497, none</column>
-<column name="grp_aes_shift_rows_fu_265">aes_shift_rows, 31, 70, 31, 70, none</column>
-<column name="grp_aes_substitute_bytes_fu_272">aes_substitute_bytes, 185, 185, 185, 185, none</column>
-<column name="grp_aes_get_round_key5_fu_282">aes_get_round_key5, 41, 41, 41, 41, none</column>
-<column name="grp_aes_add_round_key_fu_292">aes_add_round_key, 41, 41, 41, 41, none</column>
+<column name="grp_aes_mix_columns8_fu_230">aes_mix_columns8, 36, 36, 36, 36, none</column>
+<column name="grp_aes_shift_rows_fu_238">aes_shift_rows, 19, 58, 19, 58, none</column>
+<column name="grp_aes_substitute_bytes_fu_244">aes_substitute_bytes, 18, 18, 18, 18, none</column>
+<column name="grp_aes_get_round_key5_fu_252">aes_get_round_key5, 10, 10, 10, 10, none</column>
+<column name="grp_aes_add_round_key_fu_260">aes_add_round_key, 18, 18, 18, 18, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 1.1">8, 8, 2, -, -, 4, no</column>
-<column name="- Loop 2">9906, 10413, 762 ~ 801, -, -, 13, no</column>
+<column name="- Loop 2">1300, 2288, 100 ~ 176, -, -, 13, no</column>
 <column name="- Loop 3">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 3.1">8, 8, 2, -, -, 4, no</column>
 </table>
@@ -57,25 +57,25 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 207, -</column>
+<column name="Expression">-, -, 0, 260, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, 1307, 2364, -</column>
-<column name="Memory">0, -, 64, 8, 0</column>
-<column name="Multiplexer">-, -, -, 469, -</column>
-<column name="Register">-, -, 124, -, -</column>
+<column name="Instance">-, -, 776, 2313, -</column>
+<column name="Memory">2, -, 0, 0, 0</column>
+<column name="Multiplexer">-, -, -, 702, -</column>
+<column name="Register">-, -, 155, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, 1, 5, 0</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, ~0, 6, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_aes_add_round_key_fu_292">aes_add_round_key, 0, 0, 23, 133, 0</column>
-<column name="grp_aes_get_round_key5_fu_282">aes_get_round_key5, 0, 0, 39, 135, 0</column>
-<column name="grp_aes_mix_columns841_fu_254">aes_mix_columns841, 0, 0, 667, 1181, 0</column>
-<column name="grp_aes_shift_rows_fu_265">aes_shift_rows, 0, 0, 464, 684, 0</column>
-<column name="grp_aes_substitute_bytes_fu_272">aes_substitute_bytes, 0, 0, 114, 231, 0</column>
+<column name="grp_aes_add_round_key_fu_260">aes_add_round_key, 0, 0, 55, 199, 0</column>
+<column name="grp_aes_get_round_key5_fu_252">aes_get_round_key5, 0, 0, 51, 254, 0</column>
+<column name="grp_aes_mix_columns8_fu_230">aes_mix_columns8, 0, 0, 168, 884, 0</column>
+<column name="grp_aes_shift_rows_fu_238">aes_shift_rows, 0, 0, 477, 727, 0</column>
+<column name="grp_aes_substitute_bytes_fu_244">aes_substitute_bytes, 0, 0, 25, 249, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -84,8 +84,8 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="state_matrix_V_U">aes_process_1_staeOg, 0, 32, 4, 0, 16, 16, 1, 256</column>
-<column name="round_key_V_U">aes_process_2_roujbC, 0, 32, 4, 0, 16, 16, 1, 256</column>
+<column name="state_matrix_V_U">aes_process_1_staeOg, 1, 0, 0, 0, 16, 16, 1, 256</column>
+<column name="round_key_V_U">aes_process_1_staeOg, 1, 0, 0, 0, 16, 16, 1, 256</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -94,87 +94,107 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln17_fu_409_p2">+, 0, 0, 13, 4, 1</column>
-<column name="add_ln180_7_fu_453_p2">+, 0, 0, 13, 11, 11</column>
-<column name="add_ln180_8_fu_470_p2">+, 0, 0, 15, 6, 6</column>
-<column name="add_ln180_fu_354_p2">+, 0, 0, 15, 6, 6</column>
-<column name="add_ln700_fu_480_p2">+, 0, 0, 15, 5, 1</column>
-<column name="column_fu_421_p2">+, 0, 0, 12, 3, 1</column>
-<column name="i_4_fu_316_p2">+, 0, 0, 12, 3, 1</column>
-<column name="i_V_fu_427_p2">+, 0, 0, 15, 5, 3</column>
-<column name="i_fu_398_p2">+, 0, 0, 13, 4, 1</column>
-<column name="j_fu_344_p2">+, 0, 0, 12, 3, 1</column>
-<column name="ret_V_4_fu_371_p2">+, 0, 0, 13, 4, 4</column>
-<column name="row_fu_443_p2">+, 0, 0, 12, 3, 1</column>
-<column name="icmp_ln17_fu_392_p2">icmp, 0, 0, 9, 4, 3</column>
-<column name="icmp_ln221_fu_310_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln223_fu_338_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln235_fu_415_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln237_fu_437_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="ap_block_state16_on_subcall_done">or, 0, 0, 2, 1, 1</column>
+<column name="add_ln16_fu_418_p2">+, 0, 0, 15, 6, 6</column>
+<column name="add_ln180_4_fu_478_p2">+, 0, 0, 13, 11, 11</column>
+<column name="add_ln180_5_fu_495_p2">+, 0, 0, 15, 6, 6</column>
+<column name="add_ln180_fu_326_p2">+, 0, 0, 15, 6, 6</column>
+<column name="add_ln700_fu_505_p2">+, 0, 0, 15, 5, 1</column>
+<column name="column_fu_446_p2">+, 0, 0, 12, 3, 1</column>
+<column name="i_3_fu_284_p2">+, 0, 0, 12, 3, 1</column>
+<column name="i_V_fu_452_p2">+, 0, 0, 15, 5, 3</column>
+<column name="i_fu_429_p2">+, 0, 0, 13, 4, 1</column>
+<column name="j_fu_316_p2">+, 0, 0, 12, 3, 1</column>
+<column name="ret_V_3_fu_343_p2">+, 0, 0, 13, 4, 4</column>
+<column name="round_fu_397_p2">+, 0, 0, 15, 7, 7</column>
+<column name="row_fu_468_p2">+, 0, 0, 12, 3, 1</column>
+<column name="sub_ln24_fu_387_p2">-, 0, 0, 15, 6, 6</column>
+<column name="ap_block_state15_on_subcall_done">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln19_fu_364_p2">icmp, 0, 0, 8, 2, 1</column>
+<column name="icmp_ln228_fu_278_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln230_fu_310_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln242_fu_440_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln244_fu_462_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln24_fu_423_p2">icmp, 0, 0, 9, 4, 3</column>
+<column name="icmp_ln30_fu_410_p2">icmp, 0, 0, 8, 2, 2</column>
+<column name="ap_block_state18_on_subcall_done">or, 0, 0, 2, 1, 1</column>
+<column name="select_ln26_fu_402_p3">select, 0, 0, 3, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">113, 24, 1, 24</column>
-<column name="column_0_i_reg_222">9, 2, 3, 6</column>
+<column name="ap_NS_fsm">121, 26, 1, 26</column>
+<column name="column_0_i_reg_198">9, 2, 3, 6</column>
 <column name="expanded_key_V_ce0">9, 2, 1, 2</column>
-<column name="grp_aes_get_round_key5_fu_282_round">21, 4, 5, 20</column>
-<column name="i_0_reg_199">9, 2, 4, 8</column>
-<column name="i_op_assign_2_reg_166">9, 2, 3, 6</column>
-<column name="i_op_assign_reg_177">9, 2, 3, 6</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARVALID">9, 2, 1, 2</column>
-<column name="m_axi_mix_column_constant_matrices_V_RREADY">9, 2, 1, 2</column>
-<column name="m_axi_multiplication_V_ARVALID">9, 2, 1, 2</column>
-<column name="m_axi_multiplication_V_RREADY">9, 2, 1, 2</column>
-<column name="m_axi_s_boxes_V_ARVALID">9, 2, 1, 2</column>
-<column name="m_axi_s_boxes_V_RREADY">9, 2, 1, 2</column>
-<column name="p_04_0_i_reg_210">9, 2, 5, 10</column>
-<column name="p_04_1_i_reg_233">9, 2, 5, 10</column>
-<column name="round_key_V_address0">15, 3, 4, 12</column>
-<column name="round_key_V_ce0">15, 3, 1, 3</column>
-<column name="round_key_V_we0">9, 2, 1, 2</column>
-<column name="round_reg_188">9, 2, 4, 8</column>
-<column name="row_0_i_reg_243">9, 2, 3, 6</column>
+<column name="expanded_key_V_ce1">9, 2, 1, 2</column>
+<column name="grp_aes_get_round_key5_fu_252_round">21, 4, 7, 28</column>
+<column name="grp_aes_mix_columns8_fu_230_state_matrix_V_q0">15, 3, 16, 48</column>
+<column name="grp_aes_mix_columns8_fu_230_state_matrix_V_q1">15, 3, 16, 48</column>
+<column name="i_0_reg_175">9, 2, 4, 8</column>
+<column name="i_op_assign_2_reg_144">9, 2, 3, 6</column>
+<column name="i_op_assign_reg_155">9, 2, 3, 6</column>
+<column name="multiplication_V_ce0">9, 2, 1, 2</column>
+<column name="multiplication_V_ce1">9, 2, 1, 2</column>
+<column name="p_04_0_i_reg_186">9, 2, 5, 10</column>
+<column name="p_04_1_i_reg_209">9, 2, 5, 10</column>
+<column name="round_1_reg_166">9, 2, 6, 12</column>
+<column name="round_key_V_address0">21, 4, 4, 16</column>
+<column name="round_key_V_address1">21, 4, 4, 16</column>
+<column name="round_key_V_ce0">21, 4, 1, 4</column>
+<column name="round_key_V_ce1">21, 4, 1, 4</column>
+<column name="round_key_V_d0">15, 3, 16, 48</column>
+<column name="round_key_V_d1">15, 3, 16, 48</column>
+<column name="round_key_V_we0">15, 3, 1, 3</column>
+<column name="round_key_V_we1">15, 3, 1, 3</column>
+<column name="row_0_i_reg_219">9, 2, 3, 6</column>
+<column name="s_boxes_V_ce0">9, 2, 1, 2</column>
+<column name="s_boxes_V_ce1">9, 2, 1, 2</column>
 <column name="state_matrix_V_address0">38, 7, 4, 28</column>
+<column name="state_matrix_V_address1">27, 5, 4, 20</column>
 <column name="state_matrix_V_ce0">33, 6, 1, 6</column>
-<column name="state_matrix_V_ce1">9, 2, 1, 2</column>
+<column name="state_matrix_V_ce1">27, 5, 1, 5</column>
 <column name="state_matrix_V_d0">33, 6, 16, 96</column>
+<column name="state_matrix_V_d1">27, 5, 16, 80</column>
 <column name="state_matrix_V_we0">33, 6, 1, 6</column>
+<column name="state_matrix_V_we1">27, 5, 1, 5</column>
 <column name="text_V_address0">15, 3, 10, 30</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln17_reg_564">4, 0, 4, 0</column>
-<column name="add_ln180_7_reg_595">11, 0, 11, 0</column>
-<column name="add_ln180_reg_541">6, 0, 6, 0</column>
-<column name="add_ln700_reg_605">5, 0, 5, 0</column>
-<column name="ap_CS_fsm">23, 0, 23, 0</column>
-<column name="column_0_i_reg_222">3, 0, 3, 0</column>
-<column name="column_reg_572">3, 0, 3, 0</column>
-<column name="grp_aes_add_round_key_fu_292_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_aes_get_round_key5_fu_282_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_aes_mix_columns841_fu_254_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_aes_shift_rows_fu_265_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_aes_substitute_bytes_fu_272_ap_start_reg">1, 0, 1, 0</column>
-<column name="i_0_reg_199">4, 0, 4, 0</column>
-<column name="i_4_reg_518">3, 0, 3, 0</column>
-<column name="i_V_reg_577">5, 0, 5, 0</column>
-<column name="i_op_assign_2_reg_166">3, 0, 3, 0</column>
-<column name="i_op_assign_reg_177">3, 0, 3, 0</column>
-<column name="i_reg_554">4, 0, 4, 0</column>
-<column name="j_reg_536">3, 0, 3, 0</column>
-<column name="p_04_0_i_reg_210">5, 0, 5, 0</column>
-<column name="p_04_1_i_reg_233">5, 0, 5, 0</column>
-<column name="round_reg_188">4, 0, 4, 0</column>
-<column name="row_0_i_reg_243">3, 0, 3, 0</column>
-<column name="row_reg_590">3, 0, 3, 0</column>
-<column name="zext_ln180_cast_reg_510">6, 0, 11, 5</column>
-<column name="zext_ln223_3_reg_523">3, 0, 6, 3</column>
-<column name="zext_ln223_reg_528">3, 0, 4, 1</column>
-<column name="zext_ln22_reg_559">4, 0, 5, 1</column>
-<column name="zext_ln237_reg_582">3, 0, 6, 3</column>
+<column name="add_ln16_reg_603">6, 0, 6, 0</column>
+<column name="add_ln180_4_reg_647">11, 0, 11, 0</column>
+<column name="add_ln180_reg_573">6, 0, 6, 0</column>
+<column name="add_ln700_reg_657">5, 0, 5, 0</column>
+<column name="ap_CS_fsm">25, 0, 25, 0</column>
+<column name="column_0_i_reg_198">3, 0, 3, 0</column>
+<column name="column_reg_624">3, 0, 3, 0</column>
+<column name="grp_aes_add_round_key_fu_260_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_aes_get_round_key5_fu_252_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_aes_mix_columns8_fu_230_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_aes_shift_rows_fu_238_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_aes_substitute_bytes_fu_244_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_0_reg_175">4, 0, 4, 0</column>
+<column name="i_3_reg_544">3, 0, 3, 0</column>
+<column name="i_V_reg_629">5, 0, 5, 0</column>
+<column name="i_op_assign_2_reg_144">3, 0, 3, 0</column>
+<column name="i_op_assign_reg_155">3, 0, 3, 0</column>
+<column name="i_reg_611">4, 0, 4, 0</column>
+<column name="icmp_ln30_reg_594">1, 0, 1, 0</column>
+<column name="j_reg_568">3, 0, 3, 0</column>
+<column name="p_04_0_i_reg_186">5, 0, 5, 0</column>
+<column name="p_04_1_i_reg_209">5, 0, 5, 0</column>
+<column name="round_1_reg_166">6, 0, 6, 0</column>
+<column name="round_reg_583">7, 0, 7, 0</column>
+<column name="row_0_i_reg_219">3, 0, 3, 0</column>
+<column name="row_reg_642">3, 0, 3, 0</column>
+<column name="select_ln26_reg_588">2, 0, 2, 0</column>
+<column name="sext_ln16_reg_598">6, 0, 6, 0</column>
+<column name="sext_ln29_reg_616">7, 0, 7, 0</column>
+<column name="zext_ln14_reg_559">6, 0, 7, 1</column>
+<column name="zext_ln180_cast_reg_536">6, 0, 11, 5</column>
+<column name="zext_ln230_2_reg_549">3, 0, 6, 3</column>
+<column name="zext_ln230_reg_554">3, 0, 4, 1</column>
+<column name="zext_ln244_reg_634">3, 0, 6, 3</column>
 </table>
 </item>
 </section>
@@ -196,147 +216,26 @@
 <column name="text_V_d0">out, 16, ap_memory, text_V, array</column>
 <column name="text_V_q0">in, 16, ap_memory, text_V, array</column>
 <column name="sequence_out_V_offset">in, 6, ap_none, sequence_out_V_offset, scalar</column>
+<column name="initial_round">in, 6, ap_none, initial_round, scalar</column>
+<column name="round_factor">in, 2, ap_none, round_factor, scalar</column>
 <column name="expanded_key_V_address0">out, 8, ap_memory, expanded_key_V, array</column>
 <column name="expanded_key_V_ce0">out, 1, ap_memory, expanded_key_V, array</column>
 <column name="expanded_key_V_q0">in, 16, ap_memory, expanded_key_V, array</column>
-<column name="m_axi_s_boxes_V_AWVALID">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWREADY">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWADDR">out, 32, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWID">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWLEN">out, 32, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWSIZE">out, 3, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWBURST">out, 2, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWLOCK">out, 2, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWCACHE">out, 4, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWPROT">out, 3, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWQOS">out, 4, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWREGION">out, 4, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_AWUSER">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WVALID">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WREADY">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WDATA">out, 8, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WSTRB">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WLAST">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WID">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_WUSER">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARVALID">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARREADY">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARADDR">out, 32, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARID">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARLEN">out, 32, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARSIZE">out, 3, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARBURST">out, 2, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARLOCK">out, 2, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARCACHE">out, 4, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARPROT">out, 3, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARQOS">out, 4, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARREGION">out, 4, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_ARUSER">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RVALID">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RREADY">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RDATA">in, 8, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RLAST">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RID">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RUSER">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_RRESP">in, 2, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_BVALID">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_BREADY">out, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_BRESP">in, 2, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_BID">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="m_axi_s_boxes_V_BUSER">in, 1, m_axi, s_boxes_V, pointer</column>
-<column name="s_boxes_V_offset">in, 32, ap_none, s_boxes_V_offset, scalar</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWVALID">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWREADY">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWADDR">out, 32, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWID">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWLEN">out, 32, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWSIZE">out, 3, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWBURST">out, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWLOCK">out, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWCACHE">out, 4, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWPROT">out, 3, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWQOS">out, 4, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWREGION">out, 4, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_AWUSER">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WVALID">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WREADY">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WDATA">out, 16, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WSTRB">out, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WLAST">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WID">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_WUSER">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARVALID">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARREADY">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARADDR">out, 32, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARID">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARLEN">out, 32, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARSIZE">out, 3, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARBURST">out, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARLOCK">out, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARCACHE">out, 4, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARPROT">out, 3, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARQOS">out, 4, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARREGION">out, 4, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_ARUSER">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RVALID">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RREADY">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RDATA">in, 16, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RLAST">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RID">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RUSER">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_RRESP">in, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_BVALID">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_BREADY">out, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_BRESP">in, 2, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_BID">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="m_axi_mix_column_constant_matrices_V_BUSER">in, 1, m_axi, mix_column_constant_matrices_V, pointer</column>
-<column name="mix_column_constant_matrices_V_offset">in, 31, ap_none, mix_column_constant_matrices_V_offset, scalar</column>
-<column name="m_axi_multiplication_V_AWVALID">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWREADY">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWADDR">out, 32, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWID">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWLEN">out, 32, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWSIZE">out, 3, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWBURST">out, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWLOCK">out, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWCACHE">out, 4, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWPROT">out, 3, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWQOS">out, 4, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWREGION">out, 4, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_AWUSER">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WVALID">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WREADY">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WDATA">out, 16, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WSTRB">out, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WLAST">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WID">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_WUSER">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARVALID">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARREADY">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARADDR">out, 32, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARID">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARLEN">out, 32, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARSIZE">out, 3, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARBURST">out, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARLOCK">out, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARCACHE">out, 4, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARPROT">out, 3, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARQOS">out, 4, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARREGION">out, 4, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_ARUSER">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RVALID">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RREADY">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RDATA">in, 16, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RLAST">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RID">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RUSER">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_RRESP">in, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_BVALID">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_BREADY">out, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_BRESP">in, 2, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_BID">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="m_axi_multiplication_V_BUSER">in, 1, m_axi, multiplication_V, pointer</column>
-<column name="multiplication_V_offset">in, 31, ap_none, multiplication_V_offset, scalar</column>
+<column name="expanded_key_V_address1">out, 8, ap_memory, expanded_key_V, array</column>
+<column name="expanded_key_V_ce1">out, 1, ap_memory, expanded_key_V, array</column>
+<column name="expanded_key_V_q1">in, 16, ap_memory, expanded_key_V, array</column>
+<column name="s_boxes_V_address0">out, 10, ap_memory, s_boxes_V, array</column>
+<column name="s_boxes_V_ce0">out, 1, ap_memory, s_boxes_V, array</column>
+<column name="s_boxes_V_q0">in, 8, ap_memory, s_boxes_V, array</column>
+<column name="s_boxes_V_address1">out, 10, ap_memory, s_boxes_V, array</column>
+<column name="s_boxes_V_ce1">out, 1, ap_memory, s_boxes_V, array</column>
+<column name="s_boxes_V_q1">in, 8, ap_memory, s_boxes_V, array</column>
+<column name="multiplication_V_address0">out, 12, ap_memory, multiplication_V, array</column>
+<column name="multiplication_V_ce0">out, 1, ap_memory, multiplication_V, array</column>
+<column name="multiplication_V_q0">in, 8, ap_memory, multiplication_V, array</column>
+<column name="multiplication_V_address1">out, 12, ap_memory, multiplication_V, array</column>
+<column name="multiplication_V_ce1">out, 1, ap_memory, multiplication_V, array</column>
+<column name="multiplication_V_q1">in, 8, ap_memory, multiplication_V, array</column>
 </table>
 </item>
 </section>

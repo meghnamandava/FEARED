@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_process_2'" level="0">
-<item name = "Date">Sun Dec 12 23:30:50 2021
+<item name = "Date">Sat Dec 18 12:10:22 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.750, 1.25</column>
+<column name="ap_clk">10.00, 7.349, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,25 +24,25 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">10336, 10882, 10336, 10882, none</column>
+<column name="">1474, 2501, 1474, 2501, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_aes_mix_columns841_fu_254">aes_mix_columns841, 497, 497, 497, 497, none</column>
-<column name="grp_aes_shift_rows_fu_265">aes_shift_rows, 31, 70, 31, 70, none</column>
-<column name="grp_aes_substitute_bytes_fu_272">aes_substitute_bytes, 185, 185, 185, 185, none</column>
-<column name="grp_aes_get_round_key5_fu_282">aes_get_round_key5, 41, 41, 41, 41, none</column>
-<column name="grp_aes_add_round_key_fu_292">aes_add_round_key, 41, 41, 41, 41, none</column>
+<column name="grp_aes_mix_columns8_fu_230">aes_mix_columns8, 36, 36, 36, 36, none</column>
+<column name="grp_aes_shift_rows_fu_238">aes_shift_rows, 19, 58, 19, 58, none</column>
+<column name="grp_aes_substitute_bytes_fu_244">aes_substitute_bytes, 18, 18, 18, 18, none</column>
+<column name="grp_aes_get_round_key5_fu_252">aes_get_round_key5, 10, 10, 10, 10, none</column>
+<column name="grp_aes_add_round_key_fu_260">aes_add_round_key, 18, 18, 18, 18, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 1.1">8, 8, 2, -, -, 4, no</column>
-<column name="- Loop 2">9906, 10413, 762 ~ 801, -, -, 13, no</column>
+<column name="- Loop 2">1300, 2288, 100 ~ 176, -, -, 13, no</column>
 <column name="- Loop 3">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 3.1">8, 8, 2, -, -, 4, no</column>
 </table>

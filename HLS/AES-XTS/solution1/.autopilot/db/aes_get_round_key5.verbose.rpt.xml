@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_get_round_key5'" level="0">
-<item name = "Date">Sun Dec 12 23:30:55 2021
+<item name = "Date">Sat Dec 18 12:10:35 2021
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">AES-XTS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 6.952, 1.25</column>
+<column name="ap_clk">10.00, 6.900, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">41, 41, 41, 41, none</column>
+<column name="">10, 10, 10, 10, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">40, 40, 10, -, -, 4, no</column>
-<column name=" + Loop 1.1">8, 8, 2, -, -, 4, no</column>
+<column name="- aes_get_round_key_label5">8, 8, 3, 2, 1, 4, yes</column>
 </table>
 </item>
 </section>
@@ -49,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 90, -</column>
+<column name="Expression">-, -, 0, 140, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 45, -</column>
-<column name="Register">-, -, 39, -, -</column>
+<column name="Multiplexer">-, -, -, 114, -</column>
+<column name="Register">-, -, 51, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -79,34 +78,48 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln180_9_fu_169_p2">+, 0, 0, 9, 9, 9</column>
-<column name="add_ln180_fu_155_p2">+, 0, 0, 15, 6, 6</column>
-<column name="i_fu_103_p2">+, 0, 0, 12, 3, 1</column>
-<column name="j_fu_145_p2">+, 0, 0, 12, 3, 1</column>
-<column name="ret_V_fu_164_p2">+, 0, 0, 9, 9, 9</column>
-<column name="sub_ln180_fu_133_p2">-, 0, 0, 15, 9, 9</column>
-<column name="icmp_ln131_fu_97_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln133_fu_139_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="add_ln180_6_fu_239_p2">+, 0, 0, 15, 9, 9</column>
+<column name="add_ln180_7_fu_253_p2">+, 0, 0, 15, 9, 9</column>
+<column name="add_ln180_8_fu_262_p2">+, 0, 0, 15, 9, 9</column>
+<column name="add_ln180_fu_229_p2">+, 0, 0, 15, 9, 9</column>
+<column name="i_fu_197_p2">+, 0, 0, 12, 3, 1</column>
+<column name="sub_ln180_fu_223_p2">-, 0, 0, 15, 9, 9</column>
+<column name="icmp_ln138_fu_191_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="or_ln1353_1_fu_179_p2">or, 0, 0, 9, 9, 2</column>
+<column name="or_ln1353_2_fu_185_p2">or, 0, 0, 9, 9, 2</column>
+<column name="or_ln1353_fu_173_p2">or, 0, 0, 9, 9, 1</column>
+<column name="or_ln180_3_fu_285_p2">or, 0, 0, 5, 5, 2</column>
+<column name="or_ln180_4_fu_299_p2">or, 0, 0, 5, 5, 2</column>
+<column name="or_ln180_fu_271_p2">or, 0, 0, 5, 5, 1</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">27, 5, 1, 5</column>
-<column name="i_0_reg_63">9, 2, 3, 6</column>
-<column name="i_op_assign_reg_74">9, 2, 3, 6</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_phi_mux_i_0_phi_fu_158_p4">9, 2, 3, 6</column>
+<column name="expanded_key_V_address0">15, 3, 8, 24</column>
+<column name="expanded_key_V_address1">15, 3, 8, 24</column>
+<column name="i_0_reg_154">9, 2, 3, 6</column>
+<column name="round_key_V_address0">15, 3, 4, 12</column>
+<column name="round_key_V_address1">15, 3, 4, 12</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln180_reg_214">6, 0, 6, 0</column>
 <column name="ap_CS_fsm">4, 0, 4, 0</column>
-<column name="i_0_reg_63">3, 0, 3, 0</column>
-<column name="i_op_assign_reg_74">3, 0, 3, 0</column>
-<column name="i_reg_191">3, 0, 3, 0</column>
-<column name="j_reg_209">3, 0, 3, 0</column>
-<column name="key_column_index_V_reg_183">7, 0, 9, 2</column>
-<column name="sub_ln180_reg_201">7, 0, 9, 2</column>
-<column name="zext_ln180_reg_196">3, 0, 6, 3</column>
+<column name="ap_enable_reg_pp0_iter0">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="i_0_reg_154">3, 0, 3, 0</column>
+<column name="i_reg_337">3, 0, 3, 0</column>
+<column name="icmp_ln138_reg_333">1, 0, 1, 0</column>
+<column name="key_column_index_V_reg_313">7, 0, 9, 2</column>
+<column name="or_ln1353_1_reg_323">7, 0, 9, 2</column>
+<column name="or_ln1353_2_reg_328">7, 0, 9, 2</column>
+<column name="or_ln1353_reg_318">7, 0, 9, 2</column>
+<column name="sub_ln180_reg_350">7, 0, 9, 2</column>
+<column name="tmp_17_reg_342">3, 0, 5, 2</column>
 </table>
 </item>
 </section>
@@ -122,14 +135,21 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, aes_get_round_key5, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, aes_get_round_key5, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, aes_get_round_key5, return value</column>
-<column name="round">in, 5, ap_none, round, scalar</column>
+<column name="round">in, 7, ap_none, round, scalar</column>
 <column name="expanded_key_V_address0">out, 8, ap_memory, expanded_key_V, array</column>
 <column name="expanded_key_V_ce0">out, 1, ap_memory, expanded_key_V, array</column>
 <column name="expanded_key_V_q0">in, 16, ap_memory, expanded_key_V, array</column>
+<column name="expanded_key_V_address1">out, 8, ap_memory, expanded_key_V, array</column>
+<column name="expanded_key_V_ce1">out, 1, ap_memory, expanded_key_V, array</column>
+<column name="expanded_key_V_q1">in, 16, ap_memory, expanded_key_V, array</column>
 <column name="round_key_V_address0">out, 4, ap_memory, round_key_V, array</column>
 <column name="round_key_V_ce0">out, 1, ap_memory, round_key_V, array</column>
 <column name="round_key_V_we0">out, 1, ap_memory, round_key_V, array</column>
 <column name="round_key_V_d0">out, 16, ap_memory, round_key_V, array</column>
+<column name="round_key_V_address1">out, 4, ap_memory, round_key_V, array</column>
+<column name="round_key_V_ce1">out, 1, ap_memory, round_key_V, array</column>
+<column name="round_key_V_we1">out, 1, ap_memory, round_key_V, array</column>
+<column name="round_key_V_d1">out, 16, ap_memory, round_key_V, array</column>
 </table>
 </item>
 </section>

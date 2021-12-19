@@ -11,14 +11,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 29 \
+    id 17 \
     name expanded_key_V \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename expanded_key_V \
     op interface \
-    ports { expanded_key_V_address0 { O 8 vector } expanded_key_V_ce0 { O 1 bit } expanded_key_V_q0 { I 16 vector } } \
+    ports { expanded_key_V_address0 { O 8 vector } expanded_key_V_ce0 { O 1 bit } expanded_key_V_q0 { I 16 vector } expanded_key_V_address1 { O 8 vector } expanded_key_V_ce1 { O 1 bit } expanded_key_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expanded_key_V'"
@@ -30,14 +30,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 30 \
+    id 18 \
     name round_key_V \
     reset_level 1 \
     sync_rst true \
     dir O \
     corename round_key_V \
     op interface \
-    ports { round_key_V_address0 { O 4 vector } round_key_V_ce0 { O 1 bit } round_key_V_we0 { O 1 bit } round_key_V_d0 { O 16 vector } } \
+    ports { round_key_V_address0 { O 4 vector } round_key_V_ce0 { O 1 bit } round_key_V_we0 { O 1 bit } round_key_V_d0 { O 16 vector } round_key_V_address1 { O 4 vector } round_key_V_ce1 { O 1 bit } round_key_V_we1 { O 1 bit } round_key_V_d1 { O 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'round_key_V'"
@@ -48,7 +48,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 28 \
+    id 16 \
     name round \
     type other \
     dir I \
@@ -56,7 +56,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_round \
     op interface \
-    ports { round { I 5 vector } } \
+    ports { round { I 7 vector } } \
 } "
 }
 

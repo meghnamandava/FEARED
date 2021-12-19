@@ -19,15 +19,25 @@ module aes_add_round_key (
         state_matrix_V_we0,
         state_matrix_V_d0,
         state_matrix_V_q0,
+        state_matrix_V_address1,
+        state_matrix_V_ce1,
+        state_matrix_V_we1,
+        state_matrix_V_d1,
+        state_matrix_V_q1,
         round_key_matrix_V_address0,
         round_key_matrix_V_ce0,
-        round_key_matrix_V_q0
+        round_key_matrix_V_q0,
+        round_key_matrix_V_address1,
+        round_key_matrix_V_ce1,
+        round_key_matrix_V_q1
 );
 
-parameter    ap_ST_fsm_state1 = 4'd1;
-parameter    ap_ST_fsm_state2 = 4'd2;
-parameter    ap_ST_fsm_state3 = 4'd4;
-parameter    ap_ST_fsm_state4 = 4'd8;
+parameter    ap_ST_fsm_state1 = 6'd1;
+parameter    ap_ST_fsm_state2 = 6'd2;
+parameter    ap_ST_fsm_state3 = 6'd4;
+parameter    ap_ST_fsm_state4 = 6'd8;
+parameter    ap_ST_fsm_state5 = 6'd16;
+parameter    ap_ST_fsm_state6 = 6'd32;
 
 input   ap_clk;
 input   ap_rst;
@@ -40,9 +50,17 @@ output   state_matrix_V_ce0;
 output   state_matrix_V_we0;
 output  [15:0] state_matrix_V_d0;
 input  [15:0] state_matrix_V_q0;
+output  [3:0] state_matrix_V_address1;
+output   state_matrix_V_ce1;
+output   state_matrix_V_we1;
+output  [15:0] state_matrix_V_d1;
+input  [15:0] state_matrix_V_q1;
 output  [3:0] round_key_matrix_V_address0;
 output   round_key_matrix_V_ce0;
 input  [15:0] round_key_matrix_V_q0;
+output  [3:0] round_key_matrix_V_address1;
+output   round_key_matrix_V_ce1;
+input  [15:0] round_key_matrix_V_q1;
 
 reg ap_done;
 reg ap_idle;
@@ -50,33 +68,47 @@ reg ap_ready;
 reg[3:0] state_matrix_V_address0;
 reg state_matrix_V_ce0;
 reg state_matrix_V_we0;
+reg[3:0] state_matrix_V_address1;
+reg state_matrix_V_ce1;
+reg state_matrix_V_we1;
+reg[3:0] round_key_matrix_V_address0;
 reg round_key_matrix_V_ce0;
+reg[3:0] round_key_matrix_V_address1;
+reg round_key_matrix_V_ce1;
 
-(* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [5:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-wire   [2:0] row_index_fu_74_p2;
-reg   [2:0] row_index_reg_129;
-wire    ap_CS_fsm_state2;
-wire   [5:0] zext_ln119_fu_88_p1;
-reg   [5:0] zext_ln119_reg_134;
-wire   [0:0] icmp_ln117_fu_68_p2;
-wire   [2:0] column_index_fu_98_p2;
-reg   [2:0] column_index_reg_142;
+wire   [15:0] grp_fu_141_p2;
+reg   [15:0] reg_153;
 wire    ap_CS_fsm_state3;
-reg   [3:0] state_matrix_V_addr_reg_147;
-wire   [0:0] icmp_ln119_fu_92_p2;
-reg   [2:0] row_index_0_reg_46;
-reg   [2:0] column_index_0_reg_57;
 wire    ap_CS_fsm_state4;
-wire   [63:0] zext_ln719_28_fu_113_p1;
-wire   [4:0] tmp_fu_80_p3;
-wire   [5:0] zext_ln719_fu_104_p1;
-wire   [5:0] add_ln719_fu_108_p2;
-reg   [3:0] ap_NS_fsm;
+wire   [15:0] grp_fu_147_p2;
+reg   [15:0] reg_158;
+wire   [2:0] row_index_fu_169_p2;
+reg   [2:0] row_index_reg_238;
+wire    ap_CS_fsm_state2;
+wire   [4:0] tmp_s_fu_175_p3;
+reg   [4:0] tmp_s_reg_243;
+wire   [0:0] icmp_ln124_fu_163_p2;
+reg   [3:0] state_matrix_V_addr_reg_249;
+reg   [3:0] state_matrix_V_addr_14_reg_254;
+reg   [3:0] state_matrix_V_addr_15_reg_269;
+reg   [3:0] state_matrix_V_addr_16_reg_274;
+reg   [2:0] row_index_0_reg_130;
+wire    ap_CS_fsm_state5;
+wire   [63:0] zext_ln719_fu_183_p1;
+wire   [63:0] tmp_24_fu_195_p3;
+wire   [63:0] tmp_25_fu_210_p3;
+wire   [63:0] tmp_26_fu_225_p3;
+wire   [4:0] or_ln719_fu_189_p2;
+wire   [4:0] or_ln719_1_fu_205_p2;
+wire   [4:0] or_ln719_2_fu_220_p2;
+wire    ap_CS_fsm_state6;
+reg   [5:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 4'd1;
+#0 ap_CS_fsm = 6'd1;
 end
 
 always @ (posedge ap_clk) begin
@@ -88,47 +120,43 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln117_fu_68_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        column_index_0_reg_57 <= 3'd0;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        column_index_0_reg_57 <= column_index_reg_142;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        row_index_0_reg_130 <= row_index_reg_238;
+    end else if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+        row_index_0_reg_130 <= 3'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln119_fu_92_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-        row_index_0_reg_46 <= row_index_reg_129;
-    end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        row_index_0_reg_46 <= 3'd0;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        column_index_reg_142 <= column_index_fu_98_p2;
+    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+        reg_153 <= grp_fu_141_p2;
+        reg_158 <= grp_fu_147_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        row_index_reg_129 <= row_index_fu_74_p2;
+        row_index_reg_238 <= row_index_fu_169_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln119_fu_92_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        state_matrix_V_addr_reg_147 <= zext_ln719_28_fu_113_p1;
+    if (((icmp_ln124_fu_163_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        state_matrix_V_addr_14_reg_254[3 : 2] <= tmp_24_fu_195_p3[3 : 2];
+        state_matrix_V_addr_reg_249[3 : 2] <= zext_ln719_fu_183_p1[3 : 2];
+        tmp_s_reg_243[4 : 2] <= tmp_s_fu_175_p3[4 : 2];
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln117_fu_68_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        zext_ln119_reg_134[4 : 2] <= zext_ln119_fu_88_p1[4 : 2];
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        state_matrix_V_addr_15_reg_269[3 : 2] <= tmp_25_fu_210_p3[3 : 2];
+        state_matrix_V_addr_16_reg_274[3 : 2] <= tmp_26_fu_225_p3[3 : 2];
     end
 end
 
 always @ (*) begin
-    if ((((icmp_ln117_fu_68_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)) | ((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if (((1'b1 == ap_CS_fsm_state6) | ((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -144,7 +172,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln117_fu_68_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if ((1'b1 == ap_CS_fsm_state6)) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -153,6 +181,26 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
+        round_key_matrix_V_address0 = tmp_25_fu_210_p3;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        round_key_matrix_V_address0 = zext_ln719_fu_183_p1;
+    end else begin
+        round_key_matrix_V_address0 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        round_key_matrix_V_address1 = tmp_26_fu_225_p3;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        round_key_matrix_V_address1 = tmp_24_fu_195_p3;
+    end else begin
+        round_key_matrix_V_address1 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state3))) begin
         round_key_matrix_V_ce0 = 1'b1;
     end else begin
         round_key_matrix_V_ce0 = 1'b0;
@@ -160,17 +208,43 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        state_matrix_V_address0 = state_matrix_V_addr_reg_147;
+    if (((1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state3))) begin
+        round_key_matrix_V_ce1 = 1'b1;
+    end else begin
+        round_key_matrix_V_ce1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        state_matrix_V_address0 = state_matrix_V_addr_15_reg_269;
+    end else if ((1'b1 == ap_CS_fsm_state4)) begin
+        state_matrix_V_address0 = state_matrix_V_addr_reg_249;
     end else if ((1'b1 == ap_CS_fsm_state3)) begin
-        state_matrix_V_address0 = zext_ln719_28_fu_113_p1;
+        state_matrix_V_address0 = tmp_25_fu_210_p3;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        state_matrix_V_address0 = zext_ln719_fu_183_p1;
     end else begin
         state_matrix_V_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        state_matrix_V_address1 = state_matrix_V_addr_16_reg_274;
+    end else if ((1'b1 == ap_CS_fsm_state4)) begin
+        state_matrix_V_address1 = state_matrix_V_addr_14_reg_254;
+    end else if ((1'b1 == ap_CS_fsm_state3)) begin
+        state_matrix_V_address1 = tmp_26_fu_225_p3;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        state_matrix_V_address1 = tmp_24_fu_195_p3;
+    end else begin
+        state_matrix_V_address1 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state5))) begin
         state_matrix_V_ce0 = 1'b1;
     end else begin
         state_matrix_V_ce0 = 1'b0;
@@ -178,7 +252,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
+    if (((1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state5))) begin
+        state_matrix_V_ce1 = 1'b1;
+    end else begin
+        state_matrix_V_ce1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state5))) begin
         state_matrix_V_we0 = 1'b1;
     end else begin
         state_matrix_V_we0 = 1'b0;
@@ -186,38 +268,46 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state5))) begin
+        state_matrix_V_we1 = 1'b1;
+    end else begin
+        state_matrix_V_we1 = 1'b0;
+    end
+end
+
+always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((icmp_ln117_fu_68_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
+            if (((icmp_ln124_fu_163_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state6;
             end
         end
         ap_ST_fsm_state3 : begin
-            if (((icmp_ln119_fu_92_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
-            end
+            ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            ap_NS_fsm = ap_ST_fsm_state3;
+            ap_NS_fsm = ap_ST_fsm_state5;
+        end
+        ap_ST_fsm_state5 : begin
+            ap_NS_fsm = ap_ST_fsm_state2;
+        end
+        ap_ST_fsm_state6 : begin
+            ap_NS_fsm = ap_ST_fsm_state1;
         end
         default : begin
             ap_NS_fsm = 'bx;
         end
     endcase
 end
-
-assign add_ln719_fu_108_p2 = (zext_ln119_reg_134 + zext_ln719_fu_104_p1);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -227,29 +317,44 @@ assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
-assign column_index_fu_98_p2 = (column_index_0_reg_57 + 3'd1);
+assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign icmp_ln117_fu_68_p2 = ((row_index_0_reg_46 == 3'd4) ? 1'b1 : 1'b0);
+assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
-assign icmp_ln119_fu_92_p2 = ((column_index_0_reg_57 == 3'd4) ? 1'b1 : 1'b0);
+assign grp_fu_141_p2 = (state_matrix_V_q0 ^ round_key_matrix_V_q0);
 
-assign round_key_matrix_V_address0 = zext_ln719_28_fu_113_p1;
+assign grp_fu_147_p2 = (state_matrix_V_q1 ^ round_key_matrix_V_q1);
 
-assign row_index_fu_74_p2 = (row_index_0_reg_46 + 3'd1);
+assign icmp_ln124_fu_163_p2 = ((row_index_0_reg_130 == 3'd4) ? 1'b1 : 1'b0);
 
-assign state_matrix_V_d0 = (state_matrix_V_q0 ^ round_key_matrix_V_q0);
+assign or_ln719_1_fu_205_p2 = (tmp_s_reg_243 | 5'd2);
 
-assign tmp_fu_80_p3 = {{row_index_0_reg_46}, {2'd0}};
+assign or_ln719_2_fu_220_p2 = (tmp_s_reg_243 | 5'd3);
 
-assign zext_ln119_fu_88_p1 = tmp_fu_80_p3;
+assign or_ln719_fu_189_p2 = (tmp_s_fu_175_p3 | 5'd1);
 
-assign zext_ln719_28_fu_113_p1 = add_ln719_fu_108_p2;
+assign row_index_fu_169_p2 = (row_index_0_reg_130 + 3'd1);
 
-assign zext_ln719_fu_104_p1 = column_index_0_reg_57;
+assign state_matrix_V_d0 = reg_153;
+
+assign state_matrix_V_d1 = reg_158;
+
+assign tmp_24_fu_195_p3 = {{59'd0}, {or_ln719_fu_189_p2}};
+
+assign tmp_25_fu_210_p3 = {{59'd0}, {or_ln719_1_fu_205_p2}};
+
+assign tmp_26_fu_225_p3 = {{59'd0}, {or_ln719_2_fu_220_p2}};
+
+assign tmp_s_fu_175_p3 = {{row_index_0_reg_130}, {2'd0}};
+
+assign zext_ln719_fu_183_p1 = tmp_s_fu_175_p3;
 
 always @ (posedge ap_clk) begin
-    zext_ln119_reg_134[1:0] <= 2'b00;
-    zext_ln119_reg_134[5] <= 1'b0;
+    tmp_s_reg_243[1:0] <= 2'b00;
+    state_matrix_V_addr_reg_249[1:0] <= 2'b00;
+    state_matrix_V_addr_14_reg_254[1:0] <= 2'b01;
+    state_matrix_V_addr_15_reg_269[1:0] <= 2'b10;
+    state_matrix_V_addr_16_reg_274[1:0] <= 2'b11;
 end
 
 endmodule //aes_add_round_key

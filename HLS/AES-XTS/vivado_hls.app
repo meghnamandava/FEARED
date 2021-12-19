@@ -2,9 +2,10 @@
     <includePaths/>
     <libraryPaths/>
     <Simulation>
-        <SimFlow name="csim" csimMode="0" lastCsimMode="0"/>
+        <SimFlow name="csim" setup="true" clean="true" csimMode="2" lastCsimMode="2"/>
     </Simulation>
     <files xmlns="">
+        <file name="../aesxts_test.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
         <file name="AES-XTS/main.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="AES-XTS/main.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>

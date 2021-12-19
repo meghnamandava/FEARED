@@ -1,0 +1,417 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_mix_columns8'
+================================================================
+* Date:           Sat Dec 18 12:10:20 2021
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        AES-XTS
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.349|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   36|   36|   36|   36|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |         Loop Name        | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- aes_mix_columns_label3  |   34|   34|        11|          8|          1|     4|    yes   |
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 8, depth = 11
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 13
+* Pipeline : 1
+  Pipeline-0 : II = 8, D = 11, States = { 2 3 4 5 6 7 8 9 10 11 12 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 13 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 2 
+13 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%constant_matrix_V_of = call i2 @_ssdm_op_Read.ap_auto.i2(i2 %constant_matrix_V_offset)" [AES-XTS/main.cpp:101]   --->   Operation 14 'read' 'constant_matrix_V_of' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (1.76ns)   --->   "br label %1" [AES-XTS/main.cpp:103]   --->   Operation 15 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.28>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%column_index_0 = phi i3 [ 0, %0 ], [ %column_index, %aes_mix_columns_label3 ]"   --->   Operation 16 'phi' 'column_index_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (1.13ns)   --->   "%icmp_ln103 = icmp eq i3 %column_index_0, -4" [AES-XTS/main.cpp:103]   --->   Operation 17 'icmp' 'icmp_ln103' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 18 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.65ns)   --->   "%column_index = add i3 %column_index_0, 1" [AES-XTS/main.cpp:103]   --->   Operation 19 'add' 'column_index' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %icmp_ln103, label %2, label %aes_mix_columns_label3" [AES-XTS/main.cpp:103]   --->   Operation 20 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%zext_ln106 = zext i3 %column_index_0 to i64" [AES-XTS/main.cpp:106]   --->   Operation 21 'zext' 'zext_ln106' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%state_matrix_V_addr = getelementptr [16 x i16]* %state_matrix_V, i64 0, i64 %zext_ln106" [AES-XTS/main.cpp:106]   --->   Operation 22 'getelementptr' 'state_matrix_V_addr' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.96ns)   --->   "%xor_ln180 = xor i3 %column_index_0, -4" [AES-XTS/main.cpp:107]   --->   Operation 23 'xor' 'xor_ln180' <Predicate = (!icmp_ln103)> <Delay = 0.96> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln180 = zext i3 %xor_ln180 to i64" [AES-XTS/main.cpp:107]   --->   Operation 24 'zext' 'zext_ln180' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%state_matrix_V_addr_11 = getelementptr [16 x i16]* %state_matrix_V, i64 0, i64 %zext_ln180" [AES-XTS/main.cpp:107]   --->   Operation 25 'getelementptr' 'state_matrix_V_addr_11' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%tmp_16 = call i64 @_ssdm_op_BitConcatenate.i64.i61.i3(i61 1, i3 %column_index_0)" [AES-XTS/main.cpp:108]   --->   Operation 26 'bitconcatenate' 'tmp_16' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%state_matrix_V_addr_12 = getelementptr [16 x i16]* %state_matrix_V, i64 0, i64 %tmp_16" [AES-XTS/main.cpp:108]   --->   Operation 27 'getelementptr' 'state_matrix_V_addr_12' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_2 : Operation 28 [2/2] (2.32ns)   --->   "%state_matrix_V_load = load i16* %state_matrix_V_addr, align 2" [AES-XTS/main.cpp:106]   --->   Operation 28 'load' 'state_matrix_V_load' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_2 : Operation 29 [2/2] (2.32ns)   --->   "%state_matrix_V_load_4 = load i16* %state_matrix_V_addr_11, align 2" [AES-XTS/main.cpp:107]   --->   Operation 29 'load' 'state_matrix_V_load_4' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 3 <SV = 2> <Delay = 7.34>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%sext_ln180 = sext i3 %xor_ln180 to i4" [AES-XTS/main.cpp:109]   --->   Operation 30 'sext' 'sext_ln180' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln180_18 = zext i4 %sext_ln180 to i64" [AES-XTS/main.cpp:109]   --->   Operation 31 'zext' 'zext_ln180_18' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%state_matrix_V_addr_13 = getelementptr [16 x i16]* %state_matrix_V, i64 0, i64 %zext_ln180_18" [AES-XTS/main.cpp:109]   --->   Operation 32 'getelementptr' 'state_matrix_V_addr_13' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 33 [1/2] (2.32ns)   --->   "%state_matrix_V_load = load i16* %state_matrix_V_addr, align 2" [AES-XTS/main.cpp:106]   --->   Operation 33 'load' 'state_matrix_V_load' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 34 [1/2] (2.32ns)   --->   "%state_matrix_V_load_4 = load i16* %state_matrix_V_addr_11, align 2" [AES-XTS/main.cpp:107]   --->   Operation 34 'load' 'state_matrix_V_load_4' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 35 [2/2] (2.32ns)   --->   "%state_matrix_V_load_5 = load i16* %state_matrix_V_addr_12, align 2" [AES-XTS/main.cpp:108]   --->   Operation 35 'load' 'state_matrix_V_load_5' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 36 [2/2] (2.32ns)   --->   "%state_matrix_V_load_6 = load i16* %state_matrix_V_addr_13, align 2" [AES-XTS/main.cpp:109]   --->   Operation 36 'load' 'state_matrix_V_load_6' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%trunc_ln544 = trunc i16 %state_matrix_V_load to i13" [AES-XTS/main.cpp:113]   --->   Operation 37 'trunc' 'trunc_ln544' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln544_1 = trunc i16 %state_matrix_V_load_4 to i13" [AES-XTS/main.cpp:114]   --->   Operation 38 'trunc' 'trunc_ln544_1' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node add_ln78)   --->   "%tmp_1 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 0, i8 2, i8 14, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:112]   --->   Operation 39 'mux' 'tmp_1' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 40 [1/1] (0.00ns) (grouped into LUT with out node add_ln78)   --->   "%trunc_ln78 = trunc i8 %tmp_1 to i5" [AES-XTS/main.cpp:112]   --->   Operation 40 'trunc' 'trunc_ln78' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.00ns) (grouped into LUT with out node add_ln78)   --->   "%zext_ln78_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln78, i8 0)" [AES-XTS/main.cpp:112]   --->   Operation 41 'bitconcatenate' 'zext_ln78_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln78 = add i13 %zext_ln78_cast, %trunc_ln544" [AES-XTS/main.cpp:112]   --->   Operation 42 'add' 'add_ln78' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%sext_ln78 = sext i13 %add_ln78 to i64" [AES-XTS/main.cpp:112]   --->   Operation 43 'sext' 'sext_ln78' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%multiplication_V_add = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln78" [AES-XTS/main.cpp:112]   --->   Operation 44 'getelementptr' 'multiplication_V_add' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 45 [2/2] (3.25ns)   --->   "%multiplication_V_loa = load i8* %multiplication_V_add, align 1" [AES-XTS/main.cpp:112]   --->   Operation 45 'load' 'multiplication_V_loa' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_3 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node add_ln719)   --->   "%tmp_2 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 3, i8 11, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:113]   --->   Operation 46 'mux' 'tmp_2' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 47 [1/1] (0.00ns) (grouped into LUT with out node add_ln719)   --->   "%trunc_ln719 = trunc i8 %tmp_2 to i5" [AES-XTS/main.cpp:113]   --->   Operation 47 'trunc' 'trunc_ln719' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns) (grouped into LUT with out node add_ln719)   --->   "%zext_ln719_4_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719, i8 0)" [AES-XTS/main.cpp:113]   --->   Operation 48 'bitconcatenate' 'zext_ln719_4_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719 = add i13 %zext_ln719_4_cast, %trunc_ln544_1" [AES-XTS/main.cpp:113]   --->   Operation 49 'add' 'add_ln719' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%sext_ln719 = sext i13 %add_ln719 to i64" [AES-XTS/main.cpp:113]   --->   Operation 50 'sext' 'sext_ln719' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%multiplication_V_add_1 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719" [AES-XTS/main.cpp:113]   --->   Operation 51 'getelementptr' 'multiplication_V_add_1' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_3 : Operation 52 [2/2] (3.25ns)   --->   "%multiplication_V_loa_1 = load i8* %multiplication_V_add_1, align 1" [AES-XTS/main.cpp:113]   --->   Operation 52 'load' 'multiplication_V_loa_1' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 4 <SV = 3> <Delay = 7.34>
+ST_4 : Operation 53 [1/2] (2.32ns)   --->   "%state_matrix_V_load_5 = load i16* %state_matrix_V_addr_12, align 2" [AES-XTS/main.cpp:108]   --->   Operation 53 'load' 'state_matrix_V_load_5' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 54 [1/2] (2.32ns)   --->   "%state_matrix_V_load_6 = load i16* %state_matrix_V_addr_13, align 2" [AES-XTS/main.cpp:109]   --->   Operation 54 'load' 'state_matrix_V_load_6' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%trunc_ln544_2 = trunc i16 %state_matrix_V_load_5 to i13" [AES-XTS/main.cpp:115]   --->   Operation 55 'trunc' 'trunc_ln544_2' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%trunc_ln544_3 = trunc i16 %state_matrix_V_load_6 to i13" [AES-XTS/main.cpp:112]   --->   Operation 56 'trunc' 'trunc_ln544_3' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 57 [1/2] (3.25ns)   --->   "%multiplication_V_loa = load i8* %multiplication_V_add, align 1" [AES-XTS/main.cpp:112]   --->   Operation 57 'load' 'multiplication_V_loa' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 58 [1/2] (3.25ns)   --->   "%multiplication_V_loa_1 = load i8* %multiplication_V_add_1, align 1" [AES-XTS/main.cpp:113]   --->   Operation 58 'load' 'multiplication_V_loa_1' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 59 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_1)   --->   "%tmp_3 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 13, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:114]   --->   Operation 59 'mux' 'tmp_3' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 60 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_1)   --->   "%trunc_ln719_1 = trunc i8 %tmp_3 to i5" [AES-XTS/main.cpp:114]   --->   Operation 60 'trunc' 'trunc_ln719_1' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_1)   --->   "%zext_ln719_5_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_1, i8 0)" [AES-XTS/main.cpp:114]   --->   Operation 61 'bitconcatenate' 'zext_ln719_5_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_1 = add i13 %zext_ln719_5_cast, %trunc_ln544_2" [AES-XTS/main.cpp:114]   --->   Operation 62 'add' 'add_ln719_1' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%sext_ln719_1 = sext i13 %add_ln719_1 to i64" [AES-XTS/main.cpp:114]   --->   Operation 63 'sext' 'sext_ln719_1' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%multiplication_V_add_2 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_1" [AES-XTS/main.cpp:114]   --->   Operation 64 'getelementptr' 'multiplication_V_add_2' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 65 [2/2] (3.25ns)   --->   "%multiplication_V_loa_2 = load i8* %multiplication_V_add_2, align 1" [AES-XTS/main.cpp:114]   --->   Operation 65 'load' 'multiplication_V_loa_2' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_4 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_2)   --->   "%tmp_4 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 9, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:115]   --->   Operation 66 'mux' 'tmp_4' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_2)   --->   "%trunc_ln719_2 = trunc i8 %tmp_4 to i5" [AES-XTS/main.cpp:115]   --->   Operation 67 'trunc' 'trunc_ln719_2' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_2)   --->   "%zext_ln719_6_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_2, i8 0)" [AES-XTS/main.cpp:115]   --->   Operation 68 'bitconcatenate' 'zext_ln719_6_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_2 = add i13 %zext_ln719_6_cast, %trunc_ln544_3" [AES-XTS/main.cpp:115]   --->   Operation 69 'add' 'add_ln719_2' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "%sext_ln719_2 = sext i13 %add_ln719_2 to i64" [AES-XTS/main.cpp:115]   --->   Operation 70 'sext' 'sext_ln719_2' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (0.00ns)   --->   "%multiplication_V_add_3 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_2" [AES-XTS/main.cpp:115]   --->   Operation 71 'getelementptr' 'multiplication_V_add_3' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_4 : Operation 72 [2/2] (3.25ns)   --->   "%multiplication_V_loa_3 = load i8* %multiplication_V_add_3, align 1" [AES-XTS/main.cpp:115]   --->   Operation 72 'load' 'multiplication_V_loa_3' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 5 <SV = 4> <Delay = 6.56>
+ST_5 : Operation 73 [1/2] (3.25ns)   --->   "%multiplication_V_loa_2 = load i8* %multiplication_V_add_2, align 1" [AES-XTS/main.cpp:114]   --->   Operation 73 'load' 'multiplication_V_loa_2' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_5 : Operation 74 [1/2] (3.25ns)   --->   "%multiplication_V_loa_3 = load i8* %multiplication_V_add_3, align 1" [AES-XTS/main.cpp:115]   --->   Operation 74 'load' 'multiplication_V_loa_3' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_5 : Operation 75 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_2)   --->   "%xor_ln719 = xor i8 %multiplication_V_loa_1, %multiplication_V_loa" [AES-XTS/main.cpp:115]   --->   Operation 75 'xor' 'xor_ln719' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 76 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_2)   --->   "%xor_ln719_1 = xor i8 %multiplication_V_loa_2, %multiplication_V_loa_3" [AES-XTS/main.cpp:115]   --->   Operation 76 'xor' 'xor_ln719_1' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 77 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln719_2 = xor i8 %xor_ln719_1, %xor_ln719" [AES-XTS/main.cpp:115]   --->   Operation 77 'xor' 'xor_ln719_2' <Predicate = (!icmp_ln103)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln719 = zext i8 %xor_ln719_2 to i16" [AES-XTS/main.cpp:115]   --->   Operation 78 'zext' 'zext_ln719' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 79 [1/1] (2.32ns)   --->   "store i16 %zext_ln719, i16* %state_matrix_V_addr, align 2" [AES-XTS/main.cpp:115]   --->   Operation 79 'store' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_5 : Operation 80 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_4)   --->   "%tmp_5 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 9, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:112]   --->   Operation 80 'mux' 'tmp_5' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 81 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_4)   --->   "%trunc_ln78_4 = trunc i8 %tmp_5 to i5" [AES-XTS/main.cpp:112]   --->   Operation 81 'trunc' 'trunc_ln78_4' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_4)   --->   "%zext_ln78_5_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln78_4, i8 0)" [AES-XTS/main.cpp:112]   --->   Operation 82 'bitconcatenate' 'zext_ln78_5_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 83 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln78_4 = add i13 %zext_ln78_5_cast, %trunc_ln544" [AES-XTS/main.cpp:112]   --->   Operation 83 'add' 'add_ln78_4' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 84 [1/1] (0.00ns)   --->   "%sext_ln78_4 = sext i13 %add_ln78_4 to i64" [AES-XTS/main.cpp:112]   --->   Operation 84 'sext' 'sext_ln78_4' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 85 [1/1] (0.00ns)   --->   "%multiplication_V_add_4 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln78_4" [AES-XTS/main.cpp:112]   --->   Operation 85 'getelementptr' 'multiplication_V_add_4' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 86 [2/2] (3.25ns)   --->   "%multiplication_V_loa_4 = load i8* %multiplication_V_add_4, align 1" [AES-XTS/main.cpp:112]   --->   Operation 86 'load' 'multiplication_V_loa_4' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_5 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_3)   --->   "%tmp_6 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 2, i8 14, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:113]   --->   Operation 87 'mux' 'tmp_6' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_3)   --->   "%trunc_ln719_3 = trunc i8 %tmp_6 to i5" [AES-XTS/main.cpp:113]   --->   Operation 88 'trunc' 'trunc_ln719_3' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 89 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_3)   --->   "%zext_ln719_7_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_3, i8 0)" [AES-XTS/main.cpp:113]   --->   Operation 89 'bitconcatenate' 'zext_ln719_7_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 90 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_3 = add i13 %zext_ln719_7_cast, %trunc_ln544_1" [AES-XTS/main.cpp:113]   --->   Operation 90 'add' 'add_ln719_3' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 91 [1/1] (0.00ns)   --->   "%sext_ln719_3 = sext i13 %add_ln719_3 to i64" [AES-XTS/main.cpp:113]   --->   Operation 91 'sext' 'sext_ln719_3' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 92 [1/1] (0.00ns)   --->   "%multiplication_V_add_5 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_3" [AES-XTS/main.cpp:113]   --->   Operation 92 'getelementptr' 'multiplication_V_add_5' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_5 : Operation 93 [2/2] (3.25ns)   --->   "%multiplication_V_loa_5 = load i8* %multiplication_V_add_5, align 1" [AES-XTS/main.cpp:113]   --->   Operation 93 'load' 'multiplication_V_loa_5' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 6 <SV = 5> <Delay = 5.02>
+ST_6 : Operation 94 [1/2] (3.25ns)   --->   "%multiplication_V_loa_4 = load i8* %multiplication_V_add_4, align 1" [AES-XTS/main.cpp:112]   --->   Operation 94 'load' 'multiplication_V_loa_4' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_6 : Operation 95 [1/2] (3.25ns)   --->   "%multiplication_V_loa_5 = load i8* %multiplication_V_add_5, align 1" [AES-XTS/main.cpp:113]   --->   Operation 95 'load' 'multiplication_V_loa_5' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_6 : Operation 96 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_4)   --->   "%tmp_7 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 3, i8 11, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:114]   --->   Operation 96 'mux' 'tmp_7' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 97 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_4)   --->   "%trunc_ln719_4 = trunc i8 %tmp_7 to i5" [AES-XTS/main.cpp:114]   --->   Operation 97 'trunc' 'trunc_ln719_4' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 98 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_4)   --->   "%zext_ln719_8_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_4, i8 0)" [AES-XTS/main.cpp:114]   --->   Operation 98 'bitconcatenate' 'zext_ln719_8_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 99 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_4 = add i13 %zext_ln719_8_cast, %trunc_ln544_2" [AES-XTS/main.cpp:114]   --->   Operation 99 'add' 'add_ln719_4' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 100 [1/1] (0.00ns)   --->   "%sext_ln719_4 = sext i13 %add_ln719_4 to i64" [AES-XTS/main.cpp:114]   --->   Operation 100 'sext' 'sext_ln719_4' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 101 [1/1] (0.00ns)   --->   "%multiplication_V_add_6 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_4" [AES-XTS/main.cpp:114]   --->   Operation 101 'getelementptr' 'multiplication_V_add_6' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 102 [2/2] (3.25ns)   --->   "%multiplication_V_loa_6 = load i8* %multiplication_V_add_6, align 1" [AES-XTS/main.cpp:114]   --->   Operation 102 'load' 'multiplication_V_loa_6' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_6 : Operation 103 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_5)   --->   "%tmp_8 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 13, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:115]   --->   Operation 103 'mux' 'tmp_8' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 104 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_5)   --->   "%trunc_ln719_5 = trunc i8 %tmp_8 to i5" [AES-XTS/main.cpp:115]   --->   Operation 104 'trunc' 'trunc_ln719_5' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 105 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_5)   --->   "%zext_ln719_9_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_5, i8 0)" [AES-XTS/main.cpp:115]   --->   Operation 105 'bitconcatenate' 'zext_ln719_9_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 106 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_5 = add i13 %zext_ln719_9_cast, %trunc_ln544_3" [AES-XTS/main.cpp:115]   --->   Operation 106 'add' 'add_ln719_5' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 107 [1/1] (0.00ns)   --->   "%sext_ln719_5 = sext i13 %add_ln719_5 to i64" [AES-XTS/main.cpp:115]   --->   Operation 107 'sext' 'sext_ln719_5' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 108 [1/1] (0.00ns)   --->   "%multiplication_V_add_7 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_5" [AES-XTS/main.cpp:115]   --->   Operation 108 'getelementptr' 'multiplication_V_add_7' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_6 : Operation 109 [2/2] (3.25ns)   --->   "%multiplication_V_loa_7 = load i8* %multiplication_V_add_7, align 1" [AES-XTS/main.cpp:115]   --->   Operation 109 'load' 'multiplication_V_loa_7' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 7 <SV = 6> <Delay = 6.56>
+ST_7 : Operation 110 [1/2] (3.25ns)   --->   "%multiplication_V_loa_6 = load i8* %multiplication_V_add_6, align 1" [AES-XTS/main.cpp:114]   --->   Operation 110 'load' 'multiplication_V_loa_6' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_7 : Operation 111 [1/2] (3.25ns)   --->   "%multiplication_V_loa_7 = load i8* %multiplication_V_add_7, align 1" [AES-XTS/main.cpp:115]   --->   Operation 111 'load' 'multiplication_V_loa_7' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_7 : Operation 112 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_5)   --->   "%xor_ln719_3 = xor i8 %multiplication_V_loa_5, %multiplication_V_loa_4" [AES-XTS/main.cpp:115]   --->   Operation 112 'xor' 'xor_ln719_3' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 113 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_5)   --->   "%xor_ln719_4 = xor i8 %multiplication_V_loa_6, %multiplication_V_loa_7" [AES-XTS/main.cpp:115]   --->   Operation 113 'xor' 'xor_ln719_4' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 114 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln719_5 = xor i8 %xor_ln719_4, %xor_ln719_3" [AES-XTS/main.cpp:115]   --->   Operation 114 'xor' 'xor_ln719_5' <Predicate = (!icmp_ln103)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 115 [1/1] (0.00ns)   --->   "%zext_ln719_1 = zext i8 %xor_ln719_5 to i16" [AES-XTS/main.cpp:115]   --->   Operation 115 'zext' 'zext_ln719_1' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 116 [1/1] (2.32ns)   --->   "store i16 %zext_ln719_1, i16* %state_matrix_V_addr_11, align 2" [AES-XTS/main.cpp:115]   --->   Operation 116 'store' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_7 : Operation 117 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_5)   --->   "%tmp_9 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 13, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:112]   --->   Operation 117 'mux' 'tmp_9' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 118 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_5)   --->   "%trunc_ln78_5 = trunc i8 %tmp_9 to i5" [AES-XTS/main.cpp:112]   --->   Operation 118 'trunc' 'trunc_ln78_5' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_5)   --->   "%zext_ln78_6_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln78_5, i8 0)" [AES-XTS/main.cpp:112]   --->   Operation 119 'bitconcatenate' 'zext_ln78_6_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 120 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln78_5 = add i13 %zext_ln78_6_cast, %trunc_ln544" [AES-XTS/main.cpp:112]   --->   Operation 120 'add' 'add_ln78_5' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 121 [1/1] (0.00ns)   --->   "%sext_ln78_5 = sext i13 %add_ln78_5 to i64" [AES-XTS/main.cpp:112]   --->   Operation 121 'sext' 'sext_ln78_5' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 122 [1/1] (0.00ns)   --->   "%multiplication_V_add_8 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln78_5" [AES-XTS/main.cpp:112]   --->   Operation 122 'getelementptr' 'multiplication_V_add_8' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 123 [2/2] (3.25ns)   --->   "%multiplication_V_loa_8 = load i8* %multiplication_V_add_8, align 1" [AES-XTS/main.cpp:112]   --->   Operation 123 'load' 'multiplication_V_loa_8' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_7 : Operation 124 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_6)   --->   "%tmp_s = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 9, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:113]   --->   Operation 124 'mux' 'tmp_s' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 125 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_6)   --->   "%trunc_ln719_6 = trunc i8 %tmp_s to i5" [AES-XTS/main.cpp:113]   --->   Operation 125 'trunc' 'trunc_ln719_6' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 126 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_6)   --->   "%zext_ln719_10_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_6, i8 0)" [AES-XTS/main.cpp:113]   --->   Operation 126 'bitconcatenate' 'zext_ln719_10_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 127 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_6 = add i13 %zext_ln719_10_cast, %trunc_ln544_1" [AES-XTS/main.cpp:113]   --->   Operation 127 'add' 'add_ln719_6' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 128 [1/1] (0.00ns)   --->   "%sext_ln719_6 = sext i13 %add_ln719_6 to i64" [AES-XTS/main.cpp:113]   --->   Operation 128 'sext' 'sext_ln719_6' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 129 [1/1] (0.00ns)   --->   "%multiplication_V_add_9 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_6" [AES-XTS/main.cpp:113]   --->   Operation 129 'getelementptr' 'multiplication_V_add_9' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_7 : Operation 130 [2/2] (3.25ns)   --->   "%multiplication_V_loa_9 = load i8* %multiplication_V_add_9, align 1" [AES-XTS/main.cpp:113]   --->   Operation 130 'load' 'multiplication_V_loa_9' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 8 <SV = 7> <Delay = 5.02>
+ST_8 : Operation 131 [1/2] (3.25ns)   --->   "%multiplication_V_loa_8 = load i8* %multiplication_V_add_8, align 1" [AES-XTS/main.cpp:112]   --->   Operation 131 'load' 'multiplication_V_loa_8' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_8 : Operation 132 [1/2] (3.25ns)   --->   "%multiplication_V_loa_9 = load i8* %multiplication_V_add_9, align 1" [AES-XTS/main.cpp:113]   --->   Operation 132 'load' 'multiplication_V_loa_9' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_8 : Operation 133 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_7)   --->   "%tmp_10 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 2, i8 14, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:114]   --->   Operation 133 'mux' 'tmp_10' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 134 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_7)   --->   "%trunc_ln719_7 = trunc i8 %tmp_10 to i5" [AES-XTS/main.cpp:114]   --->   Operation 134 'trunc' 'trunc_ln719_7' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 135 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_7)   --->   "%zext_ln719_11_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_7, i8 0)" [AES-XTS/main.cpp:114]   --->   Operation 135 'bitconcatenate' 'zext_ln719_11_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 136 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_7 = add i13 %zext_ln719_11_cast, %trunc_ln544_2" [AES-XTS/main.cpp:114]   --->   Operation 136 'add' 'add_ln719_7' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 137 [1/1] (0.00ns)   --->   "%sext_ln719_7 = sext i13 %add_ln719_7 to i64" [AES-XTS/main.cpp:114]   --->   Operation 137 'sext' 'sext_ln719_7' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 138 [1/1] (0.00ns)   --->   "%multiplication_V_add_10 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_7" [AES-XTS/main.cpp:114]   --->   Operation 138 'getelementptr' 'multiplication_V_add_10' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 139 [2/2] (3.25ns)   --->   "%multiplication_V_loa_10 = load i8* %multiplication_V_add_10, align 1" [AES-XTS/main.cpp:114]   --->   Operation 139 'load' 'multiplication_V_loa_10' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_8 : Operation 140 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_8)   --->   "%tmp_11 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 3, i8 11, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:115]   --->   Operation 140 'mux' 'tmp_11' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 141 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_8)   --->   "%trunc_ln719_8 = trunc i8 %tmp_11 to i5" [AES-XTS/main.cpp:115]   --->   Operation 141 'trunc' 'trunc_ln719_8' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_8)   --->   "%zext_ln719_12_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_8, i8 0)" [AES-XTS/main.cpp:115]   --->   Operation 142 'bitconcatenate' 'zext_ln719_12_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 143 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_8 = add i13 %zext_ln719_12_cast, %trunc_ln544_3" [AES-XTS/main.cpp:115]   --->   Operation 143 'add' 'add_ln719_8' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 144 [1/1] (0.00ns)   --->   "%sext_ln719_8 = sext i13 %add_ln719_8 to i64" [AES-XTS/main.cpp:115]   --->   Operation 144 'sext' 'sext_ln719_8' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 145 [1/1] (0.00ns)   --->   "%multiplication_V_add_11 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_8" [AES-XTS/main.cpp:115]   --->   Operation 145 'getelementptr' 'multiplication_V_add_11' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 146 [2/2] (3.25ns)   --->   "%multiplication_V_loa_11 = load i8* %multiplication_V_add_11, align 1" [AES-XTS/main.cpp:115]   --->   Operation 146 'load' 'multiplication_V_loa_11' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_8 : Operation 147 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_6)   --->   "%tmp_12 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 3, i8 11, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:112]   --->   Operation 147 'mux' 'tmp_12' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_6)   --->   "%trunc_ln78_6 = trunc i8 %tmp_12 to i5" [AES-XTS/main.cpp:112]   --->   Operation 148 'trunc' 'trunc_ln78_6' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 149 [1/1] (0.00ns) (grouped into LUT with out node add_ln78_6)   --->   "%zext_ln78_7_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln78_6, i8 0)" [AES-XTS/main.cpp:112]   --->   Operation 149 'bitconcatenate' 'zext_ln78_7_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 150 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln78_6 = add i13 %zext_ln78_7_cast, %trunc_ln544" [AES-XTS/main.cpp:112]   --->   Operation 150 'add' 'add_ln78_6' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 151 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_9)   --->   "%tmp_13 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 13, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:113]   --->   Operation 151 'mux' 'tmp_13' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 152 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_9)   --->   "%trunc_ln719_9 = trunc i8 %tmp_13 to i5" [AES-XTS/main.cpp:113]   --->   Operation 152 'trunc' 'trunc_ln719_9' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 153 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_9)   --->   "%zext_ln719_13_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_9, i8 0)" [AES-XTS/main.cpp:113]   --->   Operation 153 'bitconcatenate' 'zext_ln719_13_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 154 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_9 = add i13 %zext_ln719_13_cast, %trunc_ln544_1" [AES-XTS/main.cpp:113]   --->   Operation 154 'add' 'add_ln719_9' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 155 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_10)   --->   "%tmp_14 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 1, i8 9, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:114]   --->   Operation 155 'mux' 'tmp_14' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 156 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_10)   --->   "%trunc_ln719_10 = trunc i8 %tmp_14 to i5" [AES-XTS/main.cpp:114]   --->   Operation 156 'trunc' 'trunc_ln719_10' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 157 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_10)   --->   "%zext_ln719_14_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_10, i8 0)" [AES-XTS/main.cpp:114]   --->   Operation 157 'bitconcatenate' 'zext_ln719_14_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 158 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_10 = add i13 %zext_ln719_14_cast, %trunc_ln544_2" [AES-XTS/main.cpp:114]   --->   Operation 158 'add' 'add_ln719_10' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 159 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_11)   --->   "%tmp_15 = call i8 @_ssdm_op_Mux.ap_auto.3i8.i2(i8 undef, i8 2, i8 14, i2 %constant_matrix_V_of)" [AES-XTS/main.cpp:115]   --->   Operation 159 'mux' 'tmp_15' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 160 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_11)   --->   "%trunc_ln719_11 = trunc i8 %tmp_15 to i5" [AES-XTS/main.cpp:115]   --->   Operation 160 'trunc' 'trunc_ln719_11' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 161 [1/1] (0.00ns) (grouped into LUT with out node add_ln719_11)   --->   "%zext_ln719_15_cast = call i13 @_ssdm_op_BitConcatenate.i13.i5.i8(i5 %trunc_ln719_11, i8 0)" [AES-XTS/main.cpp:115]   --->   Operation 161 'bitconcatenate' 'zext_ln719_15_cast' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_8 : Operation 162 [1/1] (1.77ns) (out node of the LUT)   --->   "%add_ln719_11 = add i13 %zext_ln719_15_cast, %trunc_ln544_3" [AES-XTS/main.cpp:115]   --->   Operation 162 'add' 'add_ln719_11' <Predicate = (!icmp_ln103)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 6.56>
+ST_9 : Operation 163 [1/2] (3.25ns)   --->   "%multiplication_V_loa_10 = load i8* %multiplication_V_add_10, align 1" [AES-XTS/main.cpp:114]   --->   Operation 163 'load' 'multiplication_V_loa_10' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_9 : Operation 164 [1/2] (3.25ns)   --->   "%multiplication_V_loa_11 = load i8* %multiplication_V_add_11, align 1" [AES-XTS/main.cpp:115]   --->   Operation 164 'load' 'multiplication_V_loa_11' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_9 : Operation 165 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_8)   --->   "%xor_ln719_6 = xor i8 %multiplication_V_loa_9, %multiplication_V_loa_8" [AES-XTS/main.cpp:115]   --->   Operation 165 'xor' 'xor_ln719_6' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 166 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_8)   --->   "%xor_ln719_7 = xor i8 %multiplication_V_loa_10, %multiplication_V_loa_11" [AES-XTS/main.cpp:115]   --->   Operation 166 'xor' 'xor_ln719_7' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 167 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln719_8 = xor i8 %xor_ln719_7, %xor_ln719_6" [AES-XTS/main.cpp:115]   --->   Operation 167 'xor' 'xor_ln719_8' <Predicate = (!icmp_ln103)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 168 [1/1] (0.00ns)   --->   "%zext_ln719_2 = zext i8 %xor_ln719_8 to i16" [AES-XTS/main.cpp:115]   --->   Operation 168 'zext' 'zext_ln719_2' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_9 : Operation 169 [1/1] (2.32ns)   --->   "store i16 %zext_ln719_2, i16* %state_matrix_V_addr_12, align 2" [AES-XTS/main.cpp:115]   --->   Operation 169 'store' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_9 : Operation 170 [1/1] (0.00ns)   --->   "%sext_ln78_6 = sext i13 %add_ln78_6 to i64" [AES-XTS/main.cpp:112]   --->   Operation 170 'sext' 'sext_ln78_6' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_9 : Operation 171 [1/1] (0.00ns)   --->   "%multiplication_V_add_12 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln78_6" [AES-XTS/main.cpp:112]   --->   Operation 171 'getelementptr' 'multiplication_V_add_12' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_9 : Operation 172 [2/2] (3.25ns)   --->   "%multiplication_V_loa_12 = load i8* %multiplication_V_add_12, align 1" [AES-XTS/main.cpp:112]   --->   Operation 172 'load' 'multiplication_V_loa_12' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_9 : Operation 173 [1/1] (0.00ns)   --->   "%sext_ln719_9 = sext i13 %add_ln719_9 to i64" [AES-XTS/main.cpp:113]   --->   Operation 173 'sext' 'sext_ln719_9' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_9 : Operation 174 [1/1] (0.00ns)   --->   "%multiplication_V_add_13 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_9" [AES-XTS/main.cpp:113]   --->   Operation 174 'getelementptr' 'multiplication_V_add_13' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_9 : Operation 175 [2/2] (3.25ns)   --->   "%multiplication_V_loa_13 = load i8* %multiplication_V_add_13, align 1" [AES-XTS/main.cpp:113]   --->   Operation 175 'load' 'multiplication_V_loa_13' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 10 <SV = 9> <Delay = 3.25>
+ST_10 : Operation 176 [1/2] (3.25ns)   --->   "%multiplication_V_loa_12 = load i8* %multiplication_V_add_12, align 1" [AES-XTS/main.cpp:112]   --->   Operation 176 'load' 'multiplication_V_loa_12' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_10 : Operation 177 [1/2] (3.25ns)   --->   "%multiplication_V_loa_13 = load i8* %multiplication_V_add_13, align 1" [AES-XTS/main.cpp:113]   --->   Operation 177 'load' 'multiplication_V_loa_13' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_10 : Operation 178 [1/1] (0.00ns)   --->   "%sext_ln719_10 = sext i13 %add_ln719_10 to i64" [AES-XTS/main.cpp:114]   --->   Operation 178 'sext' 'sext_ln719_10' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_10 : Operation 179 [1/1] (0.00ns)   --->   "%multiplication_V_add_14 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_10" [AES-XTS/main.cpp:114]   --->   Operation 179 'getelementptr' 'multiplication_V_add_14' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_10 : Operation 180 [2/2] (3.25ns)   --->   "%multiplication_V_loa_14 = load i8* %multiplication_V_add_14, align 1" [AES-XTS/main.cpp:114]   --->   Operation 180 'load' 'multiplication_V_loa_14' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_10 : Operation 181 [1/1] (0.00ns)   --->   "%sext_ln719_11 = sext i13 %add_ln719_11 to i64" [AES-XTS/main.cpp:115]   --->   Operation 181 'sext' 'sext_ln719_11' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_10 : Operation 182 [1/1] (0.00ns)   --->   "%multiplication_V_add_15 = getelementptr [3840 x i8]* %multiplication_V, i64 0, i64 %sext_ln719_11" [AES-XTS/main.cpp:115]   --->   Operation 182 'getelementptr' 'multiplication_V_add_15' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_10 : Operation 183 [2/2] (3.25ns)   --->   "%multiplication_V_loa_15 = load i8* %multiplication_V_add_15, align 1" [AES-XTS/main.cpp:115]   --->   Operation 183 'load' 'multiplication_V_loa_15' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+
+State 11 <SV = 10> <Delay = 4.24>
+ST_11 : Operation 184 [1/2] (3.25ns)   --->   "%multiplication_V_loa_14 = load i8* %multiplication_V_add_14, align 1" [AES-XTS/main.cpp:114]   --->   Operation 184 'load' 'multiplication_V_loa_14' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_11 : Operation 185 [1/2] (3.25ns)   --->   "%multiplication_V_loa_15 = load i8* %multiplication_V_add_15, align 1" [AES-XTS/main.cpp:115]   --->   Operation 185 'load' 'multiplication_V_loa_15' <Predicate = (!icmp_ln103)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_11 : Operation 186 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_11)   --->   "%xor_ln719_9 = xor i8 %multiplication_V_loa_13, %multiplication_V_loa_12" [AES-XTS/main.cpp:115]   --->   Operation 186 'xor' 'xor_ln719_9' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 187 [1/1] (0.00ns) (grouped into LUT with out node xor_ln719_11)   --->   "%xor_ln719_10 = xor i8 %multiplication_V_loa_14, %multiplication_V_loa_15" [AES-XTS/main.cpp:115]   --->   Operation 187 'xor' 'xor_ln719_10' <Predicate = (!icmp_ln103)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 188 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln719_11 = xor i8 %xor_ln719_10, %xor_ln719_9" [AES-XTS/main.cpp:115]   --->   Operation 188 'xor' 'xor_ln719_11' <Predicate = (!icmp_ln103)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 2.32>
+ST_12 : Operation 189 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([23 x i8]* @p_str4) nounwind" [AES-XTS/main.cpp:104]   --->   Operation 189 'specloopname' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_12 : Operation 190 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([23 x i8]* @p_str4)" [AES-XTS/main.cpp:104]   --->   Operation 190 'specregionbegin' 'tmp' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_12 : Operation 191 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [AES-XTS/main.cpp:105]   --->   Operation 191 'specpipeline' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_12 : Operation 192 [1/1] (0.00ns)   --->   "%zext_ln719_3 = zext i8 %xor_ln719_11 to i16" [AES-XTS/main.cpp:115]   --->   Operation 192 'zext' 'zext_ln719_3' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_12 : Operation 193 [1/1] (2.32ns)   --->   "store i16 %zext_ln719_3, i16* %state_matrix_V_addr_13, align 2" [AES-XTS/main.cpp:115]   --->   Operation 193 'store' <Predicate = (!icmp_ln103)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_12 : Operation 194 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecRegionEnd([23 x i8]* @p_str4, i32 %tmp)" [AES-XTS/main.cpp:118]   --->   Operation 194 'specregionend' 'empty_25' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+ST_12 : Operation 195 [1/1] (0.00ns)   --->   "br label %1" [AES-XTS/main.cpp:103]   --->   Operation 195 'br' <Predicate = (!icmp_ln103)> <Delay = 0.00>
+
+State 13 <SV = 2> <Delay = 0.00>
+ST_13 : Operation 196 [1/1] (0.00ns)   --->   "ret void" [AES-XTS/main.cpp:120]   --->   Operation 196 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('column_index') with incoming values : ('column_index', AES-XTS/main.cpp:103) [7]  (1.77 ns)
+
+ <State 2>: 3.29ns
+The critical path consists of the following:
+	'phi' operation ('column_index') with incoming values : ('column_index', AES-XTS/main.cpp:103) [7]  (0 ns)
+	'xor' operation ('xor_ln180', AES-XTS/main.cpp:107) [18]  (0.965 ns)
+	'getelementptr' operation ('state_matrix_V_addr_11', AES-XTS/main.cpp:107) [20]  (0 ns)
+	'load' operation ('state_matrix_V_load_4', AES-XTS/main.cpp:107) on array 'state_matrix_V' [27]  (2.32 ns)
+
+ <State 3>: 7.35ns
+The critical path consists of the following:
+	'load' operation ('state_matrix_V_load', AES-XTS/main.cpp:106) on array 'state_matrix_V' [26]  (2.32 ns)
+	'add' operation ('add_ln78', AES-XTS/main.cpp:112) [37]  (1.77 ns)
+	'getelementptr' operation ('multiplication_V_add', AES-XTS/main.cpp:112) [39]  (0 ns)
+	'load' operation ('multiplication_V_loa', AES-XTS/main.cpp:112) on array 'multiplication_V' [40]  (3.25 ns)
+
+ <State 4>: 7.35ns
+The critical path consists of the following:
+	'load' operation ('state_matrix_V_load_5', AES-XTS/main.cpp:108) on array 'state_matrix_V' [28]  (2.32 ns)
+	'add' operation ('add_ln719_1', AES-XTS/main.cpp:114) [51]  (1.77 ns)
+	'getelementptr' operation ('multiplication_V_add_2', AES-XTS/main.cpp:114) [53]  (0 ns)
+	'load' operation ('multiplication_V_loa_2', AES-XTS/main.cpp:114) on array 'multiplication_V' [54]  (3.25 ns)
+
+ <State 5>: 6.57ns
+The critical path consists of the following:
+	'load' operation ('multiplication_V_loa_2', AES-XTS/main.cpp:114) on array 'multiplication_V' [54]  (3.25 ns)
+	'xor' operation ('xor_ln719_1', AES-XTS/main.cpp:115) [63]  (0 ns)
+	'xor' operation ('xor_ln719_2', AES-XTS/main.cpp:115) [64]  (0.99 ns)
+	'store' operation ('store_ln115', AES-XTS/main.cpp:115) of variable 'zext_ln719', AES-XTS/main.cpp:115 on array 'state_matrix_V' [66]  (2.32 ns)
+
+ <State 6>: 5.03ns
+The critical path consists of the following:
+	'mux' operation ('tmp_7', AES-XTS/main.cpp:114) [81]  (0 ns)
+	'add' operation ('add_ln719_4', AES-XTS/main.cpp:114) [84]  (1.77 ns)
+	'getelementptr' operation ('multiplication_V_add_6', AES-XTS/main.cpp:114) [86]  (0 ns)
+	'load' operation ('multiplication_V_loa_6', AES-XTS/main.cpp:114) on array 'multiplication_V' [87]  (3.25 ns)
+
+ <State 7>: 6.57ns
+The critical path consists of the following:
+	'load' operation ('multiplication_V_loa_6', AES-XTS/main.cpp:114) on array 'multiplication_V' [87]  (3.25 ns)
+	'xor' operation ('xor_ln719_4', AES-XTS/main.cpp:115) [96]  (0 ns)
+	'xor' operation ('xor_ln719_5', AES-XTS/main.cpp:115) [97]  (0.99 ns)
+	'store' operation ('store_ln115', AES-XTS/main.cpp:115) of variable 'zext_ln719_1', AES-XTS/main.cpp:115 on array 'state_matrix_V' [99]  (2.32 ns)
+
+ <State 8>: 5.03ns
+The critical path consists of the following:
+	'mux' operation ('tmp_10', AES-XTS/main.cpp:114) [114]  (0 ns)
+	'add' operation ('add_ln719_7', AES-XTS/main.cpp:114) [117]  (1.77 ns)
+	'getelementptr' operation ('multiplication_V_add_10', AES-XTS/main.cpp:114) [119]  (0 ns)
+	'load' operation ('multiplication_V_loa_10', AES-XTS/main.cpp:114) on array 'multiplication_V' [120]  (3.25 ns)
+
+ <State 9>: 6.57ns
+The critical path consists of the following:
+	'load' operation ('multiplication_V_loa_10', AES-XTS/main.cpp:114) on array 'multiplication_V' [120]  (3.25 ns)
+	'xor' operation ('xor_ln719_7', AES-XTS/main.cpp:115) [129]  (0 ns)
+	'xor' operation ('xor_ln719_8', AES-XTS/main.cpp:115) [130]  (0.99 ns)
+	'store' operation ('store_ln115', AES-XTS/main.cpp:115) of variable 'zext_ln719_2', AES-XTS/main.cpp:115 on array 'state_matrix_V' [132]  (2.32 ns)
+
+ <State 10>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('multiplication_V_loa_12', AES-XTS/main.cpp:112) on array 'multiplication_V' [139]  (3.25 ns)
+
+ <State 11>: 4.24ns
+The critical path consists of the following:
+	'load' operation ('multiplication_V_loa_14', AES-XTS/main.cpp:114) on array 'multiplication_V' [153]  (3.25 ns)
+	'xor' operation ('xor_ln719_10', AES-XTS/main.cpp:115) [162]  (0 ns)
+	'xor' operation ('xor_ln719_11', AES-XTS/main.cpp:115) [163]  (0.99 ns)
+
+ <State 12>: 2.32ns
+The critical path consists of the following:
+	'store' operation ('store_ln115', AES-XTS/main.cpp:115) of variable 'zext_ln719_3', AES-XTS/main.cpp:115 on array 'state_matrix_V' [165]  (2.32 ns)
+
+ <State 13>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

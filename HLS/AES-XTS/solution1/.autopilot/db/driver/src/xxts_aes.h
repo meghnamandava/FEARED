@@ -94,14 +94,6 @@ void XXts_aes_Set_mode_V(XXts_aes *InstancePtr, u32 Data);
 u32 XXts_aes_Get_mode_V(XXts_aes *InstancePtr);
 void XXts_aes_Set_text_len_V(XXts_aes *InstancePtr, u32 Data);
 u32 XXts_aes_Get_text_len_V(XXts_aes *InstancePtr);
-void XXts_aes_Set_s_boxes_V(XXts_aes *InstancePtr, u32 Data);
-u32 XXts_aes_Get_s_boxes_V(XXts_aes *InstancePtr);
-void XXts_aes_Set_mix_column_constant_matrices_V(XXts_aes *InstancePtr, u32 Data);
-u32 XXts_aes_Get_mix_column_constant_matrices_V(XXts_aes *InstancePtr);
-void XXts_aes_Set_multiplication_V(XXts_aes *InstancePtr, u32 Data);
-u32 XXts_aes_Get_multiplication_V(XXts_aes *InstancePtr);
-void XXts_aes_Set_rcon_V(XXts_aes *InstancePtr, u32 Data);
-u32 XXts_aes_Get_rcon_V(XXts_aes *InstancePtr);
 void XXts_aes_Set_data_ret_V(XXts_aes *InstancePtr, u32 Data);
 u32 XXts_aes_Get_data_ret_V(XXts_aes *InstancePtr);
 

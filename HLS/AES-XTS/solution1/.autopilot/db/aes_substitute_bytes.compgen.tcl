@@ -11,14 +11,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 33 \
+    id 21 \
     name state_matrix_V \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename state_matrix_V \
     op interface \
-    ports { state_matrix_V_address0 { O 4 vector } state_matrix_V_ce0 { O 1 bit } state_matrix_V_we0 { O 1 bit } state_matrix_V_d0 { O 16 vector } state_matrix_V_q0 { I 16 vector } } \
+    ports { state_matrix_V_address0 { O 4 vector } state_matrix_V_ce0 { O 1 bit } state_matrix_V_we0 { O 1 bit } state_matrix_V_d0 { O 16 vector } state_matrix_V_q0 { I 16 vector } state_matrix_V_address1 { O 4 vector } state_matrix_V_ce1 { O 1 bit } state_matrix_V_we1 { O 1 bit } state_matrix_V_d1 { O 16 vector } state_matrix_V_q1 { I 16 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'state_matrix_V'"
@@ -26,25 +26,29 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
-# Direct connection:
+# XIL_BRAM:
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 34 \
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 22 \
     name s_box_V \
-    type other \
-    dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_s_box_V \
+    dir I \
+    corename s_box_V \
     op interface \
-    ports { m_axi_s_box_V_AWVALID { O 1 bit } m_axi_s_box_V_AWREADY { I 1 bit } m_axi_s_box_V_AWADDR { O 32 vector } m_axi_s_box_V_AWID { O 1 vector } m_axi_s_box_V_AWLEN { O 32 vector } m_axi_s_box_V_AWSIZE { O 3 vector } m_axi_s_box_V_AWBURST { O 2 vector } m_axi_s_box_V_AWLOCK { O 2 vector } m_axi_s_box_V_AWCACHE { O 4 vector } m_axi_s_box_V_AWPROT { O 3 vector } m_axi_s_box_V_AWQOS { O 4 vector } m_axi_s_box_V_AWREGION { O 4 vector } m_axi_s_box_V_AWUSER { O 1 vector } m_axi_s_box_V_WVALID { O 1 bit } m_axi_s_box_V_WREADY { I 1 bit } m_axi_s_box_V_WDATA { O 8 vector } m_axi_s_box_V_WSTRB { O 1 vector } m_axi_s_box_V_WLAST { O 1 bit } m_axi_s_box_V_WID { O 1 vector } m_axi_s_box_V_WUSER { O 1 vector } m_axi_s_box_V_ARVALID { O 1 bit } m_axi_s_box_V_ARREADY { I 1 bit } m_axi_s_box_V_ARADDR { O 32 vector } m_axi_s_box_V_ARID { O 1 vector } m_axi_s_box_V_ARLEN { O 32 vector } m_axi_s_box_V_ARSIZE { O 3 vector } m_axi_s_box_V_ARBURST { O 2 vector } m_axi_s_box_V_ARLOCK { O 2 vector } m_axi_s_box_V_ARCACHE { O 4 vector } m_axi_s_box_V_ARPROT { O 3 vector } m_axi_s_box_V_ARQOS { O 4 vector } m_axi_s_box_V_ARREGION { O 4 vector } m_axi_s_box_V_ARUSER { O 1 vector } m_axi_s_box_V_RVALID { I 1 bit } m_axi_s_box_V_RREADY { O 1 bit } m_axi_s_box_V_RDATA { I 8 vector } m_axi_s_box_V_RLAST { I 1 bit } m_axi_s_box_V_RID { I 1 vector } m_axi_s_box_V_RUSER { I 1 vector } m_axi_s_box_V_RRESP { I 2 vector } m_axi_s_box_V_BVALID { I 1 bit } m_axi_s_box_V_BREADY { O 1 bit } m_axi_s_box_V_BRESP { I 2 vector } m_axi_s_box_V_BID { I 1 vector } m_axi_s_box_V_BUSER { I 1 vector } } \
+    ports { s_box_V_address0 { O 10 vector } s_box_V_ce0 { O 1 bit } s_box_V_q0 { I 8 vector } s_box_V_address1 { O 10 vector } s_box_V_ce1 { O 1 bit } s_box_V_q1 { I 8 vector } } \
 } "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 's_box_V'"
 }
+}
+
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 35 \
+    id 23 \
     name s_box_V_offset \
     type other \
     dir I \
@@ -52,22 +56,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_s_box_V_offset \
     op interface \
-    ports { s_box_V_offset { I 32 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 36 \
-    name s_box_V_offset_offset \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_s_box_V_offset_offset \
-    op interface \
-    ports { s_box_V_offset_offset { I 2 vector } } \
+    ports { s_box_V_offset { I 2 vector } } \
 } "
 }
 

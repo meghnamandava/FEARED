@@ -15,7 +15,7 @@
 namespace ap_rtl {
 
 struct aes_add_round_key : public sc_module {
-    // Port declarations 14
+    // Port declarations 22
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
     sc_in< sc_logic > ap_start;
@@ -27,9 +27,17 @@ struct aes_add_round_key : public sc_module {
     sc_out< sc_logic > state_matrix_V_we0;
     sc_out< sc_lv<16> > state_matrix_V_d0;
     sc_in< sc_lv<16> > state_matrix_V_q0;
+    sc_out< sc_lv<4> > state_matrix_V_address1;
+    sc_out< sc_logic > state_matrix_V_ce1;
+    sc_out< sc_logic > state_matrix_V_we1;
+    sc_out< sc_lv<16> > state_matrix_V_d1;
+    sc_in< sc_lv<16> > state_matrix_V_q1;
     sc_out< sc_lv<4> > round_key_matrix_V_address0;
     sc_out< sc_logic > round_key_matrix_V_ce0;
     sc_in< sc_lv<16> > round_key_matrix_V_q0;
+    sc_out< sc_lv<4> > round_key_matrix_V_address1;
+    sc_out< sc_logic > round_key_matrix_V_ce1;
+    sc_in< sc_lv<16> > round_key_matrix_V_q1;
 
 
     // Module declarations
@@ -40,68 +48,94 @@ struct aes_add_round_key : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    sc_signal< sc_lv<4> > ap_CS_fsm;
+    sc_signal< sc_lv<6> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
-    sc_signal< sc_lv<3> > row_index_fu_74_p2;
-    sc_signal< sc_lv<3> > row_index_reg_129;
-    sc_signal< sc_logic > ap_CS_fsm_state2;
-    sc_signal< sc_lv<6> > zext_ln119_fu_88_p1;
-    sc_signal< sc_lv<6> > zext_ln119_reg_134;
-    sc_signal< sc_lv<1> > icmp_ln117_fu_68_p2;
-    sc_signal< sc_lv<3> > column_index_fu_98_p2;
-    sc_signal< sc_lv<3> > column_index_reg_142;
+    sc_signal< sc_lv<16> > grp_fu_141_p2;
+    sc_signal< sc_lv<16> > reg_153;
     sc_signal< sc_logic > ap_CS_fsm_state3;
-    sc_signal< sc_lv<4> > state_matrix_V_addr_reg_147;
-    sc_signal< sc_lv<1> > icmp_ln119_fu_92_p2;
-    sc_signal< sc_lv<3> > row_index_0_reg_46;
-    sc_signal< sc_lv<3> > column_index_0_reg_57;
     sc_signal< sc_logic > ap_CS_fsm_state4;
-    sc_signal< sc_lv<64> > zext_ln719_28_fu_113_p1;
-    sc_signal< sc_lv<5> > tmp_fu_80_p3;
-    sc_signal< sc_lv<6> > zext_ln719_fu_104_p1;
-    sc_signal< sc_lv<6> > add_ln719_fu_108_p2;
-    sc_signal< sc_lv<4> > ap_NS_fsm;
+    sc_signal< sc_lv<16> > grp_fu_147_p2;
+    sc_signal< sc_lv<16> > reg_158;
+    sc_signal< sc_lv<3> > row_index_fu_169_p2;
+    sc_signal< sc_lv<3> > row_index_reg_238;
+    sc_signal< sc_logic > ap_CS_fsm_state2;
+    sc_signal< sc_lv<5> > tmp_s_fu_175_p3;
+    sc_signal< sc_lv<5> > tmp_s_reg_243;
+    sc_signal< sc_lv<1> > icmp_ln124_fu_163_p2;
+    sc_signal< sc_lv<4> > state_matrix_V_addr_reg_249;
+    sc_signal< sc_lv<4> > state_matrix_V_addr_14_reg_254;
+    sc_signal< sc_lv<4> > state_matrix_V_addr_15_reg_269;
+    sc_signal< sc_lv<4> > state_matrix_V_addr_16_reg_274;
+    sc_signal< sc_lv<3> > row_index_0_reg_130;
+    sc_signal< sc_logic > ap_CS_fsm_state5;
+    sc_signal< sc_lv<64> > zext_ln719_fu_183_p1;
+    sc_signal< sc_lv<64> > tmp_24_fu_195_p3;
+    sc_signal< sc_lv<64> > tmp_25_fu_210_p3;
+    sc_signal< sc_lv<64> > tmp_26_fu_225_p3;
+    sc_signal< sc_lv<5> > or_ln719_fu_189_p2;
+    sc_signal< sc_lv<5> > or_ln719_1_fu_205_p2;
+    sc_signal< sc_lv<5> > or_ln719_2_fu_220_p2;
+    sc_signal< sc_logic > ap_CS_fsm_state6;
+    sc_signal< sc_lv<6> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
-    static const sc_lv<4> ap_ST_fsm_state1;
-    static const sc_lv<4> ap_ST_fsm_state2;
-    static const sc_lv<4> ap_ST_fsm_state3;
-    static const sc_lv<4> ap_ST_fsm_state4;
+    static const sc_lv<6> ap_ST_fsm_state1;
+    static const sc_lv<6> ap_ST_fsm_state2;
+    static const sc_lv<6> ap_ST_fsm_state3;
+    static const sc_lv<6> ap_ST_fsm_state4;
+    static const sc_lv<6> ap_ST_fsm_state5;
+    static const sc_lv<6> ap_ST_fsm_state6;
     static const sc_lv<32> ap_const_lv32_0;
+    static const sc_lv<32> ap_const_lv32_2;
+    static const sc_lv<32> ap_const_lv32_3;
     static const sc_lv<32> ap_const_lv32_1;
     static const sc_lv<1> ap_const_lv1_0;
-    static const sc_lv<32> ap_const_lv32_2;
     static const sc_lv<3> ap_const_lv3_0;
-    static const sc_lv<1> ap_const_lv1_1;
-    static const sc_lv<32> ap_const_lv32_3;
+    static const sc_lv<32> ap_const_lv32_4;
     static const sc_lv<3> ap_const_lv3_4;
     static const sc_lv<3> ap_const_lv3_1;
     static const sc_lv<2> ap_const_lv2_0;
+    static const sc_lv<5> ap_const_lv5_1;
+    static const sc_lv<59> ap_const_lv59_0;
+    static const sc_lv<5> ap_const_lv5_2;
+    static const sc_lv<5> ap_const_lv5_3;
+    static const sc_lv<32> ap_const_lv32_5;
     static const bool ap_const_boolean_1;
     // Thread declarations
     void thread_ap_clk_no_reset_();
-    void thread_add_ln719_fu_108_p2();
     void thread_ap_CS_fsm_state1();
     void thread_ap_CS_fsm_state2();
     void thread_ap_CS_fsm_state3();
     void thread_ap_CS_fsm_state4();
+    void thread_ap_CS_fsm_state5();
+    void thread_ap_CS_fsm_state6();
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
-    void thread_column_index_fu_98_p2();
-    void thread_icmp_ln117_fu_68_p2();
-    void thread_icmp_ln119_fu_92_p2();
+    void thread_grp_fu_141_p2();
+    void thread_grp_fu_147_p2();
+    void thread_icmp_ln124_fu_163_p2();
+    void thread_or_ln719_1_fu_205_p2();
+    void thread_or_ln719_2_fu_220_p2();
+    void thread_or_ln719_fu_189_p2();
     void thread_round_key_matrix_V_address0();
+    void thread_round_key_matrix_V_address1();
     void thread_round_key_matrix_V_ce0();
-    void thread_row_index_fu_74_p2();
+    void thread_round_key_matrix_V_ce1();
+    void thread_row_index_fu_169_p2();
     void thread_state_matrix_V_address0();
+    void thread_state_matrix_V_address1();
     void thread_state_matrix_V_ce0();
+    void thread_state_matrix_V_ce1();
     void thread_state_matrix_V_d0();
+    void thread_state_matrix_V_d1();
     void thread_state_matrix_V_we0();
-    void thread_tmp_fu_80_p3();
-    void thread_zext_ln119_fu_88_p1();
-    void thread_zext_ln719_28_fu_113_p1();
-    void thread_zext_ln719_fu_104_p1();
+    void thread_state_matrix_V_we1();
+    void thread_tmp_24_fu_195_p3();
+    void thread_tmp_25_fu_210_p3();
+    void thread_tmp_26_fu_225_p3();
+    void thread_tmp_s_fu_175_p3();
+    void thread_zext_ln719_fu_183_p1();
     void thread_ap_NS_fsm();
 };
 
